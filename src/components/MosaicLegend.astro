@@ -1,0 +1,11 @@
+---
+const { categories = [] } = Astro.props;
+---
+<div class="territory-legend" aria-label="Scenario color legend">
+  {categories.map((category:any) => (
+    <span class={`legend-item ${category.id.toLowerCase()}`}>
+      <i aria-hidden="true"></i>
+      <span>{category.label}</span>
+    </span>
+  ))}
+</div>

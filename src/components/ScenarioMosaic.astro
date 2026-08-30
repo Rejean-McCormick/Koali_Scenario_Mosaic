@@ -1,4 +1,85 @@
 ---
-import ScenarioCell from './ScenarioCell.astro';import ScenarioPreview from './ScenarioPreview.astro';import MosaicControls from './MosaicControls.astro';import layout from '../data/mosaic-layout.json';import {getPublicActivities,humanizePublicValue} from '../lib/public-profile';import {resolveScenarioPreviewImage} from '../lib/scenario-image';const {scenarios}=Astro.props;const byId=Object.fromEntries(scenarios.map((e:any)=>[e.data.id,e]));const previewData=Object.fromEntries(scenarios.map((e:any)=>{const scales=(e.data.scales??[]).map(humanizePublicValue);const contexts=[...new Set([...(e.data.settings??[]),...(e.data.domains??[])])].map(humanizePublicValue).slice(0,3);return [e.data.id,{id:e.data.id,title:e.data.title,category:e.data.category_label,categoryId:e.data.primary_category,pattern:e.data.pattern_label,summary:e.data.preview_summary,palette:e.data.palette,activities:getPublicActivities(e.data.palette),scales,contexts,properties:(e.data.properties??[]).map(humanizePublicValue),image:resolveScenarioPreviewImage(e.data.id,e.data.preview_image),imageAlt:e.data.preview_image_alt,href:`/uses/${e.data.id}/`,search:[e.data.title,e.data.category_label,e.data.pattern_label,...e.data.palette,...e.data.scales,...e.data.settings,...e.data.properties,...e.data.domains].join(' ').toLowerCase()}]}));
+import ScenarioCell from './ScenarioCell.astro';
+import ScenarioPreview from './ScenarioPreview.astro';
+import MosaicControls from './MosaicControls.astro';
+import MosaicLegend from './MosaicLegend.astro';
+import layout from '../data/mosaic-layout.json';
+import { getPublicActivities, humanizePublicValue } from '../lib/public-profile';
+import { resolveScenarioPreviewImage } from '../lib/scenario-image';
+
+const { scenarios } = Astro.props;
+const byId = Object.fromEntries(scenarios.map((entry:any) => [entry.data.id, entry]));
+
+const categories = [...new Map(
+  scenarios.map((entry:any) => [
+    entry.data.primary_category,
+    { id: entry.data.primary_category, label: entry.data.category_label },
+  ]),
+).values()].sort((a:any,b:any) => a.id.localeCompare(b.id));
+
+const previewData = Object.fromEntries(scenarios.map((entry:any) => {
+  const scales = (entry.data.scales ?? []).map(humanizePublicValue);
+  const contexts = [...new Set([
+    ...(entry.data.settings ?? []),
+    ...(entry.data.domains ?? []),
+  ])].map(humanizePublicValue).slice(0, 3);
+
+  return [entry.data.id, {
+    id: entry.data.id,
+    title: entry.data.title,
+    category: entry.data.category_label,
+    categoryId: entry.data.primary_category,
+    pattern: entry.data.pattern_label,
+    summary: entry.data.preview_summary,
+    palette: entry.data.palette,
+    activities: getPublicActivities(entry.data.palette),
+    scales,
+    contexts,
+    properties: (entry.data.properties ?? []).map(humanizePublicValue),
+    image: resolveScenarioPreviewImage(entry.data.id, entry.data.preview_image),
+    imageAlt: entry.data.preview_image_alt,
+    href: `/uses/${entry.data.id}/`,
+    search: [
+      entry.data.title,
+      entry.data.category_label,
+      entry.data.pattern_label,
+      ...entry.data.palette,
+      ...entry.data.scales,
+      ...entry.data.settings,
+      ...entry.data.properties,
+      ...entry.data.domains,
+    ].join(' ').toLowerCase(),
+  }];
+}));
 ---
-<div class="mosaic-experience" data-mosaic-root><ScenarioPreview total={scenarios.length}/><MosaicControls total={scenarios.length}/><div class="mosaic-stage"><svg class="mosaic" viewBox={layout.viewBox.join(' ')}>{Object.entries(layout.assignments).map(([scenarioId,slotId])=>{const e:any=byId[scenarioId];const s:any=(layout.slots as any)[slotId];return <ScenarioCell id={scenarioId} title={e.data.title} category={e.data.primary_category} href={`/uses/${scenarioId}/`} x={s.x} y={s.y} size={s.size}/>})}</svg><p class="mosaic-hint">One cell at a time. Regular honeycomb grid.</p></div><script type="application/json" data-mosaic-data set:html={JSON.stringify(previewData).replace(/</g,'\u003c')}></script></div><script>import '../scripts/mosaic.ts';</script>
+<div class="mosaic-experience" data-mosaic-root>
+  <ScenarioPreview total={scenarios.length} />
+  <MosaicControls total={scenarios.length} />
+  <MosaicLegend categories={categories} />
+
+  <div class="mosaic-stage">
+    <svg class="mosaic" viewBox={layout.viewBox.join(' ')} role="group" aria-labelledby="mosaic-title mosaic-description" preserveAspectRatio="xMidYMid meet">
+      <title id="mosaic-title">Koali Scenario Mosaic</title>
+      <desc id="mosaic-description">120 scenarios arranged as a compact 20 by 6 honeycomb panorama. Colors identify eight scenario families shown in the legend.</desc>
+      {Object.entries(layout.assignments).map(([scenarioId, slotId]) => {
+        const entry:any = byId[scenarioId];
+        const slot:any = (layout.slots as any)[slotId];
+        return <ScenarioCell
+          id={scenarioId}
+          title={entry.data.title}
+          category={entry.data.primary_category}
+          href={`/uses/${scenarioId}/`}
+          x={slot.x}
+          y={slot.y}
+          size={slot.size}
+        />;
+      })}
+    </svg>
+    <p class="mosaic-hint">Each color is a scenario family. Hover or focus one hexagon to inspect it above.</p>
+  </div>
+
+  <script type="application/json" data-mosaic-data set:html={JSON.stringify(previewData).replace(/</g, '\u003c')}></script>
+</div>
+<script>
+  import '../scripts/mosaic.ts';
+</script>

@@ -1,19 +1,60 @@
-# Koali Scenario Mosaic — v3.6
+# Koali Scenario Mosaic — v3.7
 
-Double-click `START.html` to open the zero-install Mosaic preview.
+Koali Scenario Mosaic is a public-facing panorama of 120 Koali use scenarios.
 
-## Current UI fixes
+## Open locally without installing anything
 
+Double-click `START.html` to open the bundled zero-install preview.
+
+## Current interaction design
+
+- **20 × 6 panoramic honeycomb** so the scenario spread stays visible beneath the preview;
+- 120 active scenarios arranged into **8 contiguous category territories**;
+- each territory is a regular **5 × 3** block in the shared honeycomb grid;
+- compact **color legend** mirrors the 4 × 2 territory organization;
 - one highlighted hexagon at a time;
-- exact regular 12 × 10 honeycomb grid;
 - stable fixed-height scenario preview;
 - complete two-line title box with no vertical clipping;
 - public-language scenario profile;
-- **automatic PNG scenario images with SVG fallback**.
+- automatic PNG scenario images with SVG fallback.
+
+The desktop layout is intentionally designed so that a normal laptop viewport can show the preview, controls, legend, and Mosaic together rather than forcing the user to scroll away from the preview before hovering cells.
+
+## Develop locally
+
+Use Node 24.20.0 when possible. The repository also accepts Node >=22.12.0.
+
+```bash
+npm install
+npm run build
+npx astro preview
+```
+
+Then open the local URL printed by Astro, normally `http://localhost:4321`.
+
+The production build **does not run the Python offline-preview generator**. This keeps Netlify builds independent of PyYAML.
+
+To regenerate the double-click `START.html` preview after visible UI/content/image changes:
+
+```bash
+npm run preview:offline
+```
+
+## Netlify
+
+The repo includes `netlify.toml`:
+
+```text
+Build command: npm run build
+Publish directory: dist
+Node: 24.20.0
+```
+
+A push to the connected GitHub repository can therefore redeploy directly on Netlify.
 
 ## Scenario PNG convention
 
-Put a scenario image in:
+Put scenario images in:
 
 ```text
 public/scenarios/images/scenario_001.png
@@ -22,33 +63,16 @@ public/scenarios/images/scenario_002.png
 public/scenarios/images/scenario_120.png
 ```
 
-The numeric suffix maps directly to `SCN-001` … `SCN-120`.
+The numeric suffix maps directly to `SCN-001` … `SCN-120`. No scenario Markdown edit is required. If a PNG is missing, the SVG placeholder is used automatically.
 
-No scenario Markdown edit is required. Astro resolves the PNG automatically when it exists; if it does not exist, the existing SVG placeholder remains in use.
+This package currently includes **31 PNG scenario images**; 89 scenarios use SVG fallback.
 
-For the zero-install `START.html` preview, regenerate after adding images:
-
-```bash
-npm run preview:offline
-```
-
-A normal production build does this automatically before validation:
-
-```bash
-npm run build
-```
-
-## Current image coverage
-
-This v3.6 package includes **31 real PNG scenario images** from the supplied image bundle. The remaining 89 scenarios continue to use SVG placeholders until their corresponding PNG is added.
-
-Validate the image mapping with:
+Validate image mapping with:
 
 ```bash
 npm run validate:images
 ```
 
-
 ## Product name
 
-The public product name is **Koali Scenario Mosaic**. Use the singular **Scenario** in the compound name. Generic technical filenames such as `mosaic.ts`, `mosaic.css`, and `mosaic-layout.json` remain unchanged because they describe the interface mechanism rather than the product name.
+The public product name is **Koali Scenario Mosaic**. Generic technical filenames such as `mosaic.ts`, `mosaic.css`, and `mosaic-layout.json` remain unchanged because they describe the interface mechanism rather than the product name.
