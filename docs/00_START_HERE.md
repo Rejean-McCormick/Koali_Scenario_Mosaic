@@ -38,3 +38,7 @@ Koali should not be introduced as “software that does everything.” It should
 **Human problem first. Architecture second.**
 
 A reader should recognize the situation before seeing module names. Kristal, Konnaxion, Orgo, UCKK, EkoH, Smart Vote, SemantiK, and AI-assisted capabilities explain *how* continuity is achieved; they are not the first explanation of *why Koali matters*.
+
+## Scenario images — introduced in v3.5, current in v3.6
+
+See [`34_PNG_SCENARIO_IMAGE_LOADING.md`](34_PNG_SCENARIO_IMAGE_LOADING.md) for automatic `scenario_###.png` loading with SVG fallback.

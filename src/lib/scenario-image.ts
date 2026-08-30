@@ -1,0 +1,18 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+const PNG_DIR = join(process.cwd(), 'public', 'scenarios', 'images');
+
+export function scenarioPngFilename(id: string) {
+  const match = id.match(/^SCN-(\d{3})$/);
+  if (!match) return null;
+  return `scenario_${match[1]}.png`;
+}
+
+export function resolveScenarioPreviewImage(id: string, fallback: string) {
+  const filename = scenarioPngFilename(id);
+  if (!filename) return fallback;
+  return existsSync(join(PNG_DIR, filename))
+    ? `/scenarios/images/${filename}`
+    : fallback;
+}

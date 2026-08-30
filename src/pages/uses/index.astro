@@ -1,4 +1,4 @@
 ---
-import {getCollection} from 'astro:content';import BaseLayout from '../../layouts/BaseLayout.astro';import UsageMosaic from '../../components/UsageMosaic.astro';import '../../styles/mosaic.css';const scenarios=(await getCollection('scenarios')).sort((a,b)=>a.data.id.localeCompare(b.data.id));
+import {getCollection} from 'astro:content';import BaseLayout from '../../layouts/BaseLayout.astro';import ScenarioMosaic from '../../components/ScenarioMosaic.astro';import '../../styles/mosaic.css';const scenarios=(await getCollection('scenarios')).sort((a,b)=>a.data.id.localeCompare(b.data.id));
 ---
-<BaseLayout><UsageMosaic scenarios={scenarios}/></BaseLayout>
+<BaseLayout><ScenarioMosaic scenarios={scenarios}/></BaseLayout>

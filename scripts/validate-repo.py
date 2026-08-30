@@ -6,6 +6,9 @@ if 'is-related' in js or 'is-related' in css:e.append('related highlight')
 if '.mosaic-cell:hover' in css:e.append('css hover state')
 if '.mosaic-cell:focus-visible' in css:e.append('independent focus highlight')
 if 'selectOnly' not in js:e.append('single select')
+
+if 'line-height:1.12' not in css or 'flex:0 0 2.5em' not in css or 'block-size:2.25lh' not in css:e.append('title line box')
+if '-webkit-line-clamp:2' not in css:e.append('title clamp')
 dx=l['geometry']['dx'];dy=l['geometry']['dy'];pts=[l['slots'][l['assignments'][f'SCN-{i:03d}']] for i in range(1,121)]
 for r in range(12):
  row=pts[r*10:(r+1)*10]
