@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t d">
+<title id="t">SCN-056 abstract scenario illustration</title><desc id="d">Abstract Koali mosaic placeholder for A product team chooses its next priority</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9B87F5"/><stop offset="1" stop-color="#C4B5FD"/></linearGradient></defs>
+<rect width="960" height="540" rx="36" fill="#111827"/><circle cx="770" cy="120" r="230" fill="url(#g)" opacity=".65"/><circle cx="160" cy="490" r="250" fill="url(#g)" opacity=".28"/>
+<g fill="none" stroke="#fff" stroke-opacity=".36" stroke-width="5">
+<path d="M465 126l78 45v90l-78 45-78-45v-90z"/><path d="M322 209l55 32v64l-55 32-55-32v-64z"/><path d="M608 234l55 32v64l-55 32-55-32v-64z"/>
+</g>
+<text x="64" y="82" fill="#fff" font-family="system-ui,sans-serif" font-size="28" font-weight="700">SCN-056</text>
+<text x="64" y="430" fill="#fff" font-family="system-ui,sans-serif" font-size="30" font-weight="650">A product team chooses its next priority</text>
+<text x="64" y="474" fill="#d1d5db" font-family="system-ui,sans-serif" font-size="20">Choose &amp; govern</text>
+</svg>

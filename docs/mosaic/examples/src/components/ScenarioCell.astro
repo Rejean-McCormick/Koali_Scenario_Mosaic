@@ -1,0 +1,21 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  href: string;
+  x: number;
+  y: number;
+  size: number;
+  category?: string;
+}
+const { id, title, href, x, y, size, category = 'default' } = Astro.props;
+
+const points = Array.from({ length: 6 }, (_, i) => {
+  const angle = (Math.PI / 3) * i - Math.PI / 6;
+  return `${x + size * Math.cos(angle)},${y + size * Math.sin(angle)}`;
+}).join(' ');
+---
+<a href={href} data-scenario-id={id} class={`mosaic-cell mosaic-cell--${category}`} aria-label={title}>
+  <title>{title}</title>
+  <polygon points={points} />
+</a>

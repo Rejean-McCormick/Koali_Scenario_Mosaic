@@ -1,0 +1,68 @@
+
+> koali-usage-mosaic@1.2.0 validate
+> npm run validate:mosaic && npm run validate:repo && npm run validate:ui
+
+
+> koali-usage-mosaic@1.2.0 validate:mosaic
+> node scripts/validate-mosaic.mjs
+
+✓ 120 scenario files (baseline: 120)
+✓ Scenario IDs unique
+✓ 150 fixed layout slots
+✓ 120 scenario assignments
+✓ No duplicate slot assignments
+✓ 30 reserved slots available
+
+Mosaic data validation passed.
+
+> koali-usage-mosaic@1.2.0 validate:repo
+> python scripts/validate-repo.py
+
+Scenarios: 120
+Mosaic slots: 150 / assigned 120 / reserved 30
+Preview scenario pages: 120
+Markdown relative links checked: 2386
+Repository validation passed.
+
+> koali-usage-mosaic@1.2.0 validate:ui
+> node scripts/validate-ui-contract.mjs
+
+✓ Desktop preview reserves a fixed 330px height
+✓ Tablet preview reserves a fixed 392px height
+✓ Mobile preview reserves a fixed 622px height
+✓ Variable title and summary copy is line-clamped
+✓ Astro preview includes data-preview-profile
+✓ Offline preview includes data-preview-profile
+✓ Astro preview includes data-preview-category-label
+✓ Offline preview includes data-preview-category-label
+✓ Astro preview includes data-preview-pattern
+✓ Offline preview includes data-preview-pattern
+✓ Astro preview includes data-preview-activities
+✓ Offline preview includes data-preview-activities
+✓ Astro preview includes data-preview-scales
+✓ Offline preview includes data-preview-scales
+✓ Astro preview includes data-preview-context
+✓ Offline preview includes data-preview-context
+✓ Astro preview includes data-preview-properties
+✓ Offline preview includes data-preview-properties
+✓ Public hover does not expose internal label Kristal
+✓ Public hover does not expose internal label Konnaxion
+✓ Public hover does not expose internal label Orgo
+✓ Public hover does not expose internal label UCKK
+✓ Hover payload exposes public activity indicators
+✓ Hover payload exposes public scale, context, and special-condition metadata
+✓ Public activity profile has a visible active state
+✓ Scenario profile accent supports all category families
+✓ Detailed page no longer promotes internal component gauges
+✓ Detailed page uses the same public scenario profile language
+✓ Offline preview embeds scenario hover data
+✓ Offline hover payload contains all 120 scenarios
+✓ Hover indicators cover all 8 public category families
+✓ Hover indicators cover all 24 public pattern labels
+✓ Offline preview preserves public array-valued scenario metadata
+✓ Every scenario exposes the seven public activity indicators
+✓ Public activity profiles vary meaningfully across scenarios
+✓ Every scenario has at least one public scale indicator
+✓ Every scenario has at least one public context indicator
+
+UI contract validation passed.

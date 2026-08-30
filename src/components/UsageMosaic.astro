@@ -1,0 +1,81 @@
+---
+import layout from '../data/mosaic-layout.json';
+import ScenarioCell from './ScenarioCell.astro';
+import ScenarioPreview from './ScenarioPreview.astro';
+import MosaicControls from './MosaicControls.astro';
+import { getPublicActivities, humanizePublicValue } from '../lib/public-profile';
+
+const { scenarios } = Astro.props;
+const byId = Object.fromEntries(scenarios.map((entry:any) => [entry.data.id, entry]));
+const scenarioIds = new Set(scenarios.map((entry:any) => entry.data.id));
+const assignedIds = Object.keys(layout.assignments);
+const assignedSlots = Object.values(layout.assignments);
+
+for (const id of scenarioIds) {
+  if (!(layout.assignments as Record<string,string>)[id as string]) throw new Error(`Scenario ${String(id)} has no mosaic slot`);
+}
+for (const id of assignedIds) {
+  if (!scenarioIds.has(id)) throw new Error(`Mosaic layout references unknown scenario ${id}`);
+}
+if (new Set(assignedSlots).size !== assignedSlots.length) throw new Error('Two scenarios are assigned to the same mosaic slot');
+
+const previewData = Object.fromEntries(scenarios.map((entry:any) => {
+  const scales = (entry.data.scales ?? []).map(humanizePublicValue);
+  const settings = (entry.data.settings ?? []).map(humanizePublicValue);
+  const contexts = [...new Set([...settings, ...domains])].slice(0, 3);
+  const properties = (entry.data.properties ?? []).map(humanizePublicValue);
+  const domains = (entry.data.domains ?? []).map(humanizePublicValue);
+
+  return [entry.data.id, {
+    id: entry.data.id,
+    title: entry.data.title,
+    category: entry.data.category_label,
+    categoryId: entry.data.primary_category,
+    pattern: entry.data.pattern_label,
+    summary: entry.data.preview_summary,
+    palette: entry.data.palette,
+    activities: getPublicActivities(entry.data.palette),
+    scales,
+    settings,
+    contexts,
+    properties,
+    domains,
+    related: entry.data.related,
+    image: entry.data.preview_image,
+    imageAlt: entry.data.preview_image_alt,
+    href: `/uses/${entry.data.id}/`,
+    search: [
+      entry.data.title,
+      entry.data.category_label,
+      entry.data.pattern_label,
+      ...entry.data.palette,
+      ...(entry.data.properties ?? []),
+      ...(entry.data.badges ?? []),
+      ...(entry.data.settings ?? []),
+      ...(entry.data.scales ?? []),
+      ...(entry.data.domains ?? []),
+    ].join(' ').toLowerCase(),
+  }];
+}));
+---
+<div class="mosaic-experience" data-mosaic-root>
+  <ScenarioPreview total={scenarios.length} />
+  <MosaicControls total={scenarios.length} />
+  <div class="mosaic-stage">
+    <svg class="mosaic" viewBox={layout.viewBox.join(' ')} role="group" aria-labelledby="mosaic-title mosaic-desc" preserveAspectRatio="xMidYMid meet">
+      <title id="mosaic-title">Koali Use Mosaic</title>
+      <desc id="mosaic-desc">A mosaic of 120 interactive scenario cells. Hover, focus, or tap a cell to preview a use of Koali.</desc>
+      {Object.entries(layout.assignments).map(([scenarioId, slotId]) => {
+        const entry:any = byId[scenarioId];
+        const slot:any = (layout.slots as Record<string,any>)[slotId];
+        if (!entry || !slot) return null;
+        return <ScenarioCell id={scenarioId} title={entry.data.title} category={entry.data.primary_category} related={entry.data.related} href={`/uses/${scenarioId}/`} x={slot.x} y={slot.y} size={slot.size} />;
+      })}
+    </svg>
+    <p class="mosaic-hint">Hover, focus, or tap a cell. Click on desktop—or use “Read the scenario” on touch—to open the full page.</p>
+  </div>
+  <script type="application/json" data-mosaic-data set:html={JSON.stringify(previewData).replace(/</g, '\\u003c')}></script>
+</div>
+<script>
+  import '../scripts/mosaic.ts';
+</script>

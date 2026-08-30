@@ -1,0 +1,57 @@
+
+> koali-usage-mosaic@1.1.0 validate
+> npm run validate:mosaic && npm run validate:repo && npm run validate:ui
+
+
+> koali-usage-mosaic@1.1.0 validate:mosaic
+> node scripts/validate-mosaic.mjs
+
+✓ 120 scenario files (baseline: 120)
+✓ Scenario IDs unique
+✓ 150 fixed layout slots
+✓ 120 scenario assignments
+✓ No duplicate slot assignments
+✓ 30 reserved slots available
+
+Mosaic data validation passed.
+
+> koali-usage-mosaic@1.1.0 validate:repo
+> python scripts/validate-repo.py
+
+Scenarios: 120
+Mosaic slots: 150 / assigned 120 / reserved 30
+Preview scenario pages: 120
+Markdown relative links checked: 2384
+Repository validation passed.
+
+> koali-usage-mosaic@1.1.0 validate:ui
+> node scripts/validate-ui-contract.mjs
+
+✓ Desktop preview reserves a fixed 330px height
+✓ Tablet preview reserves a fixed 392px height
+✓ Mobile preview reserves a fixed 622px height
+✓ Variable title and summary copy is line-clamped
+✓ Astro preview includes data-preview-profile
+✓ Offline preview includes data-preview-profile
+✓ Astro preview includes data-preview-category-code
+✓ Offline preview includes data-preview-category-code
+✓ Astro preview includes data-preview-pattern-code
+✓ Offline preview includes data-preview-pattern-code
+✓ Astro preview includes data-preview-pattern
+✓ Offline preview includes data-preview-pattern
+✓ Astro preview includes data-preview-meters
+✓ Offline preview includes data-preview-meters
+✓ Astro preview includes data-preview-badges
+✓ Offline preview includes data-preview-badges
+✓ Hover payload exposes the stable pattern ID
+✓ Hover payload exposes context traits
+✓ Component scores use segmented visual gauges
+✓ Scenario character accent supports all category families
+✓ Offline preview embeds scenario hover data
+✓ Offline hover payload contains all 120 scenarios
+✓ Hover indicators cover all 8 categories
+✓ Hover indicators cover all 24 patterns
+✓ Component indicator profiles vary across scenarios
+✓ Offline preview preserves array-valued scenario metadata
+
+UI contract validation passed.

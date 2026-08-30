@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const scenarios = await getCollection('scenarios');
+  return scenarios.map((entry) => ({
+    params: { id: entry.data.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<html lang="en">
+  <head>
+    <title>{entry.data.title} — Koali</title>
+    <meta name="description" content={entry.data.preview_summary} />
+  </head>
+  <body>
+    <main class="scenario-page">
+      <a href="/uses/">← Back to the Mosaic</a>
+      <h1>{entry.data.title}</h1>
+      <p>{entry.data.preview_summary}</p>
+      <Content />
+    </main>
+  </body>
+</html>

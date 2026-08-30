@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/scenario.css';
+const scenarios=(await getCollection('scenarios')).sort((a,b)=>a.data.id.localeCompare(b.data.id));
+---
+<BaseLayout title={`All ${scenarios.length} scenarios | Koali Use Mosaic`}>
+  <section class="list-page">
+    <a class="back-link" href="/uses/">← Back to mosaic</a>
+    <p class="scenario-kicker">INDEX</p><h1>{`All ${scenarios.length} scenarios`}</h1>
+    <p class="scenario-dek">A text alternative to the visual mosaic.</p>
+    <div class="scenario-index">{scenarios.map((s)=><a href={`/uses/${s.data.id}/`}><span>{s.data.id}</span><strong>{s.data.title}</strong><small>{s.data.category_label}</small></a>)}</div>
+  </section>
+</BaseLayout>
