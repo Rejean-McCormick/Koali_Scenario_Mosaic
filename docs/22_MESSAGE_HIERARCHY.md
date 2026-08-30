@@ -19,4 +19,4 @@ Kristal preserves semantic knowledge and memory. Konnaxion connects people aroun
 Multilingual · offline/local · AI-optional · provenance-aware · role-aware · suitable for sensitive-data architectures where documented.
 
 ## Level 7 — evidence
-Use the 120-scenario Mosaic, canonical references, and runtime validation status to distinguish possibility from proof.
+Use the 120-scenario Atlas, canonical references, and runtime validation status to distinguish possibility from proof.

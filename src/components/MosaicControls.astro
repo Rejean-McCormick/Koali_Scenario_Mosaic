@@ -1,13 +1,4 @@
 ---
-const { total = 120 } = Astro.props;
+const {total=120}=Astro.props;
 ---
-<div class="mosaic-controls" role="search">
-  <label class="search-box">
-    <span class="sr-only">Search scenarios</span>
-    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-    <input data-mosaic-search type="search" placeholder="Search the mosaic…" autocomplete="off" />
-  </label>
-  <button type="button" class="ghost-button" data-mosaic-surprise>Surprise me</button>
-  <button type="button" class="ghost-button" data-mosaic-reset>Reset</button>
-  <output data-mosaic-result-count aria-live="polite">{total} scenarios</output>
-</div>
+<div class="mosaic-controls"><label class="search-box"><span class="sr-only">Search scenarios</span><input data-mosaic-search type="search" placeholder="Search the mosaic…" /></label><button class="ghost-button" data-mosaic-surprise>Surprise me</button><button class="ghost-button" data-mosaic-reset>Reset</button><output data-mosaic-result-count>{total} scenarios</output></div>

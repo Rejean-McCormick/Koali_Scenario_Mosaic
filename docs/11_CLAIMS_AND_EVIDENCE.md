@@ -1,6 +1,6 @@
 # Claims and evidence discipline
 
-The Mosaic exists to demonstrate possibility without turning possibility into unsupported product claims.
+The Atlas exists to demonstrate possibility without turning possibility into unsupported product claims.
 
 ## Derivation
 

@@ -1,6 +1,6 @@
 # Coverage audit
 
-The Mosaic is intentionally balanced across eight primary categories: 15 scenarios each, for 120 total.
+The Atlas is intentionally balanced across eight primary categories: 15 scenarios each, for 120 total.
 
 ## Coverage objectives
 

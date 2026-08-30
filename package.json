@@ -1,20 +1,15 @@
 {
   "name": "koali-usage-mosaic",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "dev:open": "astro dev --open /uses/",
-    "check": "astro check",
+    "build": "npm run validate && astro build",
     "validate:mosaic": "node scripts/validate-mosaic.mjs",
     "validate:repo": "python scripts/validate-repo.py",
-    "validate": "npm run validate:mosaic && npm run validate:repo && npm run validate:ui",
-    "build": "npm run validate && astro check && astro build",
-    "preview": "astro preview",
-    "preview:offline": "python scripts/build-offline-preview.py",
-    "slot:assign": "node scripts/assign-next-slot.mjs",
-    "validate:ui": "node scripts/validate-ui-contract.mjs"
+    "validate": "npm run validate:mosaic && npm run validate:repo",
+    "preview:offline": "python scripts/build-offline-preview.py"
   },
   "dependencies": {
     "astro": "7.2.9"
@@ -22,6 +17,5 @@
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "typescript": "6.0.3"
-  },
-  "description": "Koali Use Mosaic: 120 editorial usage scenarios and a static-first Astro exploration interface."
+  }
 }

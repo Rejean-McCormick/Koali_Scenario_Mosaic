@@ -1,16 +1,16 @@
 # Suggested website information architecture for Koali uses
 
 ## `/uses`
-Hero promise, fragmentation problem, eight-color palette, 12 hero scenarios, invariant loop, entry to the Mosaic.
+Hero promise, fragmentation problem, eight-color palette, 12 hero scenarios, invariant loop, entry to the Atlas.
 
 ## `/uses/patterns`
 The 24 recurring pattern families, each with examples from several sectors.
 
-## `/uses/list/`
-Accessible/searchable text index of all 120 scenarios.
+## `/uses/scenarios`
+All 120 scenarios with filters.
 
-## `/uses/<scenario-id>/`
-One complete static scenario page: situation, continuity gap, Koali contribution, loop, palette, component intensity, transferable domains, canonical anchors, evidence status.
+## `/uses/scenarios/<id>`
+One complete scenario card: situation, continuity gap, Koali contribution, loop, palette, component intensity, transferable domains, canonical anchors, evidence status.
 
 ## `/uses/components`
 Kristal, Konnaxion, Orgo, UCKK, plus secondary lenses.
@@ -27,8 +27,3 @@ Claim model, canonical references, validated vs composed uses.
 ## UX principle
 
 A first-time visitor should never need to understand the ecosystem architecture before finding a recognizable use case.
-
-
-## Koali Use Mosaic
-
-The canonical broad public discovery page is `/uses/`. It presents the 120 scenarios through the Koali Use Mosaic, with static detail routes at `/uses/SCN-XXX/` and an accessible list alternative at `/uses/list/`.

@@ -46,11 +46,9 @@ Only now explain the main contributors:
 
 EkoH / Smart Vote, SemantiK, AI assistance, local/offline infrastructure, and hardware profiles appear as secondary or cross-cutting lenses where relevant.
 
-### Layer F — Koali Use Mosaic (120 scenarios)
+### Layer F — 120-scenario Atlas
 
-See [`24_KOALI_USE_MOSAIC.md`](24_KOALI_USE_MOSAIC.md).
-
-The Mosaic is the public spatial discovery surface for the 120 scenarios. It demonstrates breadth; it does not define Koali. Every scenario is tagged by:
+The Atlas demonstrates breadth. It does not define Koali. Every scenario is tagged by:
 
 - primary usage category;
 - recurring pattern family;

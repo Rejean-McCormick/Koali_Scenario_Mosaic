@@ -21,7 +21,7 @@ This explains why apparently unrelated examples belong to the same system.
 ## 7. Introduce Kristal, Konnaxion, Orgo, and UCKK
 Now the architecture answers a question the reader already has.
 
-## 8. Open Koali Use Mosaic
+## 8. Open the 120-scenario Atlas
 Let readers filter from their own need, not from Koali jargon.
 
 ## 9. Add differentiating properties
@@ -29,8 +29,3 @@ Offline, multilingual, local-first, AI-optional, sensitive-data, public-facing, 
 
 ## 10. End on continuity
 > **Koali is not specialized in one profession. It is specialized in the transitions between knowledge and coordinated action.**
-
-
-### Mosaic interaction rule
-
-The public Mosaic supports rapid exploration: hover/focus/tap reveals a 10–30 second preview; clicking opens the full static scenario page.

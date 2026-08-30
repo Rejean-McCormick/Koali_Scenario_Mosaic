@@ -1,6 +1,6 @@
 # Scenario quality rubric
 
-Score each proposed scenario before adding it to the Mosaic.
+Score each proposed scenario before adding it to the Atlas.
 
 ## 1. Recognizable human problem
 Can the reader understand the situation before learning Koali terminology?

@@ -2,7 +2,7 @@
 
 ## Scope
 
-This pack is an English editorial adaptation of the Koali Usage Presentation Pack v3.
+This pack is an English editorial adaptation of the Koali Usage Presentation Pack v2.
 
 ## Preserved
 

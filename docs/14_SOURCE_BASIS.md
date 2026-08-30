@@ -12,13 +12,8 @@ This English pack is an **editorial presentation layer** built from the Koali / 
 
 ## Important boundary
 
-The source corpus does not automatically prove that every scenario in the Mosaic is implemented end to end. The Mosaic demonstrates **architectural composition and intended versatility**. Runtime claims require separate evidence.
+The source corpus does not automatically prove that every scenario in the Atlas is implemented end to end. The Atlas demonstrates **architectural composition and intended versatility**. Runtime claims require separate evidence.
 
 ## Terminology
 
 System names—Koali, Kristal, Konnaxion, Orgo, UCKK, EkoH, Smart Vote, SemantiK—are preserved. English descriptors in this pack are explanatory labels, not renamings of the canonical components.
-
-
-## Mosaic integration (v3)
-
-Koali Use Mosaic is an **editorial/navigation layer derived from this scenario corpus**. Its fixed coordinates, hover interaction, image treatment, slot model, and Astro reference implementation are presentation/system-design decisions; they are not capability claims from the Koali canon. The Mosaic must therefore preserve the same distinction between architectural possibility and runtime evidence used throughout this pack.

@@ -1,6 +1,6 @@
 # Tagging and filtering model
 
-The Mosaic should be discoverable from several directions without turning the taxonomy into one giant hierarchy.
+The Atlas should be discoverable from several directions without turning the taxonomy into one giant hierarchy.
 
 ## Primary category
 Exactly one of the eight usage families.

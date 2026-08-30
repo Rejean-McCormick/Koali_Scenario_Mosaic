@@ -47,24 +47,4 @@ continuity_gap:
 
 ## Quality rule
 
-A scenario belongs in the Mosaic when a reader can recognize the problem without knowing Koali; the use crosses at least two meaningful steps; Koali’s role is continuity rather than a generic isolated feature; the pattern transfers to other domains; authority boundaries remain intact; and the wording matches the evidence level.
-
-
-## Mosaic preview metadata (v3)
-
-The canonical scenario file also carries the compact metadata required by Koali Use Mosaic:
-
-```yaml
-category_label: Find & understand
-pattern_label: Investigate a signal
-preview_summary: >-
-  A 10–30 second public summary used during hover, focus, or touch selection.
-preview_image: /scenarios/placeholders/SCN-001.svg
-preview_image_alt: Abstract illustration for SCN-001...
-badges: []
-related:
-  - SCN-002
-  - SCN-016
-```
-
-These fields are editorial presentation metadata. **Spatial coordinates are deliberately not stored in the scenario file.** Scenario-to-slot assignment remains in the versioned Mosaic layout data under [`../src/data/`](../src/data/).
+A scenario belongs in the Atlas when a reader can recognize the problem without knowing Koali; the use crosses at least two meaningful steps; Koali’s role is continuity rather than a generic isolated feature; the pattern transfers to other domains; authority boundaries remain intact; and the wording matches the evidence level.
