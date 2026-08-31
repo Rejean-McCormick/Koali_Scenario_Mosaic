@@ -28,8 +28,9 @@
     ],
     "properties": [],
     "domains": [
-      "maintenance",
-      "automotive"
+      "industrial-maintenance",
+      "energy",
+      "transportation"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -40,16 +41,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "research",
-      "cybersecurity",
-      "health"
+      "industrial-maintenance",
+      "energy",
+      "transportation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-001.svg",
     "badges": [],
     "related": [],
-    "loop": "symptom → context → similar cases → expertise → diagnosis → intervention → result"
+    "loop": "rare symptom → history → conditions → comparable cases → hypotheses → test → cause → memory"
   },
   "SCN-002": {
     "id": "SCN-002",
@@ -79,8 +80,9 @@
     ],
     "properties": [],
     "domains": [
-      "commerce",
-      "strategy"
+      "strategy",
+      "product",
+      "market"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -92,16 +94,16 @@
       "POS-GOV-005"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "strategy",
+      "product",
+      "market"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-002.svg",
     "badges": [],
     "related": [],
-    "loop": "signal → data → hypotheses → people → decision → test → learning"
+    "loop": "commercial signal → data → external context → hypotheses → experts → tests → explanation"
   },
   "SCN-003": {
     "id": "SCN-003",
@@ -128,15 +130,16 @@
       "organization"
     ],
     "settings": [
-      "research"
+      "culture"
     ],
     "properties": [
       "multilingual",
       "ai-optional"
     ],
     "domains": [
-      "geopolitics",
-      "intelligence"
+      "journalism",
+      "history",
+      "open-source-intelligence"
     ],
     "signature_patterns": [
       "SIG-02",
@@ -147,16 +150,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "journalism",
+      "history",
+      "open-source-intelligence"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-003.svg",
     "badges": [],
     "related": [],
-    "loop": "sources → provenance → concepts → contradictions → hypotheses → briefing"
+    "loop": "sources → provenance → timeline → contradictions → confidence levels → verifiable account"
   },
   "SCN-004": {
     "id": "SCN-004",
@@ -186,7 +189,8 @@
     "properties": [],
     "domains": [
       "industry",
-      "quality"
+      "aerospace",
+      "medical-devices"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -197,16 +201,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "industry",
+      "aerospace",
+      "medical-devices"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-004.svg",
     "badges": [],
     "related": [],
-    "loop": "defect → data → hypotheses → investigation → cause → correction → memory"
+    "loop": "defect → batches → conditions → people → hypotheses → tests → root cause → correction"
   },
   "SCN-005": {
     "id": "SCN-005",
@@ -237,7 +241,9 @@
       "offline"
     ],
     "domains": [
-      "agriculture"
+      "agriculture",
+      "ecology",
+      "plant-health"
     ],
     "signature_patterns": [
       "SIG-05",
@@ -251,16 +257,16 @@
       "POS-FIELD-002"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "agriculture",
+      "ecology",
+      "plant-health"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-005.svg",
     "badges": [],
     "related": [],
-    "loop": "observation → context → local/scientific knowledge → diagnosis → intervention → result"
+    "loop": "observations → geography → literature → local practices → hypotheses → sampling → understanding"
   },
   "SCN-006": {
     "id": "SCN-006",
@@ -285,12 +291,12 @@
       "organization"
     ],
     "settings": [
-      "culture",
-      "research"
+      "culture"
     ],
     "properties": [],
     "domains": [
-      "museum",
+      "museums",
+      "archives",
       "heritage"
     ],
     "signature_patterns": [],
@@ -298,16 +304,16 @@
       "POS-KNOW-004"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "museums",
+      "archives",
+      "heritage"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-006.svg",
     "badges": [],
     "related": [],
-    "loop": "documents → entities → relationships → hypotheses → validation → provenance"
+    "loop": "object → owners → documents → versions → contradictions → expertise → provisional conclusion"
   },
   "SCN-007": {
     "id": "SCN-007",
@@ -339,8 +345,9 @@
       "sensitive-data"
     ],
     "domains": [
-      "network",
-      "telecommunications"
+      "telecommunications",
+      "iot",
+      "infrastructure"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -350,16 +357,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "telecommunications",
+      "iot",
+      "infrastructure"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-007.svg",
     "badges": [],
     "related": [],
-    "loop": "alert → topology/history → hypotheses → intervention → verification → memory"
+    "loop": "outage → timestamps → external context → correlations → experts → test → correction"
   },
   "SCN-008": {
     "id": "SCN-008",
@@ -384,13 +391,13 @@
       "public-institution"
     ],
     "settings": [
-      "field",
-      "public-service"
+      "enterprise"
     ],
     "properties": [],
     "domains": [
-      "building",
-      "inspection"
+      "construction",
+      "engineering",
+      "insurance"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -401,16 +408,16 @@
       "POS-FIELD-002"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "construction",
+      "engineering",
+      "insurance"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-008.svg",
     "badges": [],
     "related": [],
-    "loop": "observation → context → standard/rule → expertise → finding → correction"
+    "loop": "anomaly → plans → changes → materials → inspections → hypotheses → verification"
   },
   "SCN-009": {
     "id": "SCN-009",
@@ -440,8 +447,9 @@
       "sensitive-data"
     ],
     "domains": [
-      "laboratory",
-      "science"
+      "research",
+      "r-and-d",
+      "science-education"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -449,16 +457,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "maintenance",
       "research",
-      "cybersecurity"
+      "r-and-d",
+      "science-education"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-009.svg",
     "badges": [],
     "related": [],
-    "loop": "result → provenance → hypotheses → review → control → conclusion"
+    "loop": "unexpected result → replication → parameters → literature → hypotheses → new tests"
   },
   "SCN-010": {
     "id": "SCN-010",
@@ -494,6 +502,7 @@
     ],
     "domains": [
       "product",
+      "public-service",
       "software"
     ],
     "signature_patterns": [
@@ -505,16 +514,16 @@
       "POS-GOV-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "product",
+      "public-service",
+      "software"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-010.svg",
     "badges": [],
     "related": [],
-    "loop": "signals → clustering → context → people → problem → options"
+    "loop": "unexpected use → behaviors → testimonials → needs → hypotheses → prototypes → learning"
   },
   "SCN-011": {
     "id": "SCN-011",
@@ -545,6 +554,7 @@
     "properties": [],
     "domains": [
       "genealogy",
+      "historical-investigations",
       "archives"
     ],
     "signature_patterns": [],
@@ -552,16 +562,16 @@
       "POS-KNOW-004"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "genealogy",
+      "historical-investigations",
+      "archives"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-011.svg",
     "badges": [],
     "related": [],
-    "loop": "archives → people/places → relationships → contradictions → hypotheses → documented tree"
+    "loop": "people → documents → dates → relationships → contradictions → hypotheses → sourced family tree"
   },
   "SCN-012": {
     "id": "SCN-012",
@@ -594,8 +604,9 @@
       "ai-optional"
     ],
     "domains": [
-      "science",
-      "research"
+      "astronomy",
+      "physics",
+      "data-science"
     ],
     "signature_patterns": [
       "SIG-07"
@@ -605,16 +616,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "maintenance",
-      "cybersecurity",
-      "health"
+      "astronomy",
+      "physics",
+      "data-science"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-012.svg",
     "badges": [],
     "related": [],
-    "loop": "question → corpus → gaps → people → project → results"
+    "loop": "signal → controls → known cases → expertise → hypotheses → replications → interpretation"
   },
   "SCN-013": {
     "id": "SCN-013",
@@ -639,14 +650,15 @@
       "organization"
     ],
     "settings": [
-      "enterprise"
+      "community"
     ],
     "properties": [
       "sensitive-data"
     ],
     "domains": [
-      "heritage",
-      "finance"
+      "wealth",
+      "succession",
+      "family-governance"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -657,16 +669,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "wealth",
+      "succession",
+      "family-governance"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-013.svg",
     "badges": [],
     "related": [],
-    "loop": "facts → rules → scenarios → experts → recommendation → follow-up"
+    "loop": "assets → people → objectives → constraints → scenarios → trade-offs → recommendation"
   },
   "SCN-014": {
     "id": "SCN-014",
@@ -691,29 +703,29 @@
       "public-institution"
     ],
     "settings": [
-      "public-service",
-      "community"
+      "public-service"
     ],
     "properties": [],
     "domains": [
       "urban-planning",
-      "climate"
+      "climate",
+      "public-health"
     ],
     "signature_patterns": [],
     "canon_refs": [
       "POS-KNOW-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "research",
-      "cybersecurity"
+      "urban-planning",
+      "climate",
+      "public-health"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-014.svg",
     "badges": [],
     "related": [],
-    "loop": "data → context map → contributions → diagnosis → scenarios"
+    "loop": "heat signal → map → urban history → hypotheses → simulations → interventions → measurement"
   },
   "SCN-015": {
     "id": "SCN-015",
@@ -738,26 +750,27 @@
       "team"
     ],
     "settings": [
-      "research"
+      "culture"
     ],
     "properties": [],
     "domains": [
+      "heritage",
       "research",
-      "innovation"
+      "engineering"
     ],
     "signature_patterns": [],
     "canon_refs": [],
     "transfer_domains": [
-      "maintenance",
-      "cybersecurity",
-      "health"
+      "heritage",
+      "research",
+      "engineering"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-015.svg",
     "badges": [],
     "related": [],
-    "loop": "need → skills → people → invitation → team → project"
+    "loop": "problem → required capabilities → people → evidence of practice → team → intervention"
   },
   "SCN-016": {
     "id": "SCN-016",
@@ -782,13 +795,15 @@
       "individual"
     ],
     "settings": [
-      "education"
+      "field"
     ],
     "properties": [
       "public-facing"
     ],
     "domains": [
-      "education"
+      "horticulture",
+      "expert-knowledge",
+      "continuing-education"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -799,16 +814,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "technical-trades",
-      "health",
-      "craft"
+      "horticulture",
+      "expert-knowledge",
+      "continuing-education"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-016.svg",
     "badges": [],
     "related": [],
-    "loop": "practice → documentation → sharing → trials → improvement → resource"
+    "loop": "practice → observations → literature → principles → courses → student experiments → new knowledge"
   },
   "SCN-017": {
     "id": "SCN-017",
@@ -832,13 +847,13 @@
       "organization"
     ],
     "settings": [
-      "enterprise",
-      "education"
+      "enterprise"
     ],
     "properties": [],
     "domains": [
-      "human-resources",
-      "training"
+      "onboarding",
+      "engineering",
+      "public-administration"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -849,16 +864,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "onboarding",
+      "engineering",
+      "public-administration"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-017.svg",
     "badges": [],
     "related": [],
-    "loop": "role → path → resources → practice → questions → evidence → improvement"
+    "loop": "role → context → learning path → practice → questions → evidence → autonomy"
   },
   "SCN-018": {
     "id": "SCN-018",
@@ -881,13 +896,13 @@
       "individual"
     ],
     "settings": [
-      "education",
-      "field"
+      "culture"
     ],
     "properties": [],
     "domains": [
-      "trade",
-      "welding"
+      "craftsmanship",
+      "trades",
+      "intangible-heritage"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -897,16 +912,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "health",
-      "craft"
+      "craftsmanship",
+      "trades",
+      "intangible-heritage"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-018.svg",
     "badges": [],
     "related": [],
-    "loop": "demonstration → resources → practice → feedback → evidence → reusable knowledge"
+    "loop": "gesture → sensory cues → demonstration → practice → feedback → variants → transmission"
   },
   "SCN-019": {
     "id": "SCN-019",
@@ -930,13 +945,13 @@
       "individual"
     ],
     "settings": [
-      "culture",
-      "education"
+      "field"
     ],
     "properties": [],
     "domains": [
-      "craft",
-      "luthiery"
+      "aviation",
+      "medicine",
+      "field-operations"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -946,16 +961,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "aviation",
+      "medicine",
+      "field-operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-019.svg",
     "badges": [],
     "related": [],
-    "loop": "instrument → choice → fabrication → result → comparison → transfer"
+    "loop": "lived case → conditions → decision → outcome → principle → limits → teaching"
   },
   "SCN-020": {
     "id": "SCN-020",
@@ -980,14 +995,15 @@
       "organization"
     ],
     "settings": [
-      "enterprise"
+      "education"
     ],
     "properties": [
       "sensitive-data"
     ],
     "domains": [
       "cybersecurity",
-      "training"
+      "emergency-response",
+      "operations"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -999,16 +1015,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "cybersecurity",
+      "emergency-response",
+      "operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-020.svg",
     "badges": [],
     "related": [],
-    "loop": "incident → lessons → audiences → modules → practice → new preparation"
+    "loop": "incident → timeline → decisions → lessons → simulation → practice → new evidence"
   },
   "SCN-021": {
     "id": "SCN-021",
@@ -1037,13 +1053,14 @@
       "culture"
     ],
     "properties": [
+      "ai-optional",
       "multilingual",
-      "public-facing",
-      "ai-optional"
+      "public-facing"
     ],
     "domains": [
-      "tourism",
-      "heritage"
+      "cultural-tourism",
+      "heritage",
+      "education"
     ],
     "signature_patterns": [
       "SIG-02",
@@ -1057,16 +1074,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "cultural-tourism",
+      "heritage",
+      "education"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-021.svg",
     "badges": [],
     "related": [],
-    "loop": "knowledge → audience → language → narrative → feedback"
+    "loop": "place → knowledge → audiences → access rules → languages → paths → understanding"
   },
   "SCN-022": {
     "id": "SCN-022",
@@ -1090,14 +1107,17 @@
     "scales": [
       "individual"
     ],
-    "settings": [],
+    "settings": [
+      "education"
+    ],
     "properties": [
       "sensitive-data",
       "multilingual"
     ],
     "domains": [
-      "speech-therapy",
-      "education"
+      "rehabilitation",
+      "special-education",
+      "family-learning"
     ],
     "signature_patterns": [
       "SIG-02",
@@ -1109,16 +1129,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "technical-trades",
-      "health",
-      "craft"
+      "rehabilitation",
+      "special-education",
+      "family-learning"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-022.svg",
     "badges": [],
     "related": [],
-    "loop": "goal → exercise → practice → feedback → adaptation"
+    "loop": "goal → exercises → language adaptation → practice → observations → adjustment"
   },
   "SCN-023": {
     "id": "SCN-023",
@@ -1142,14 +1162,15 @@
       "organization"
     ],
     "settings": [
-      "culture",
-      "education"
+      "culture"
     ],
     "properties": [
       "public-facing"
     ],
     "domains": [
-      "museum"
+      "museums",
+      "citizen-science",
+      "schools"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -1160,16 +1181,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "museums",
+      "citizen-science",
+      "schools"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-023.svg",
     "badges": [],
     "related": [],
-    "loop": "collection → concepts → path → activities → media → feedback"
+    "loop": "object → question → sources → investigation → production → critique → new resource"
   },
   "SCN-024": {
     "id": "SCN-024",
@@ -1198,8 +1219,9 @@
     ],
     "properties": [],
     "domains": [
-      "hospitality",
-      "wine"
+      "food",
+      "perfumery",
+      "quality-control"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -1209,16 +1231,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "food",
+      "perfumery",
+      "quality-control"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-024.svg",
     "badges": [],
     "related": [],
-    "loop": "tasting → notes → comparison → synthesis → training"
+    "loop": "sensory experience → vocabulary → examples → comparison → calibration → practice"
   },
   "SCN-025": {
     "id": "SCN-025",
@@ -1239,18 +1261,22 @@
     "secondary_components": [],
     "entry_trigger": "knowledge-to-transfer",
     "scales": [
-      "organization"
+      "inter-organizational"
     ],
     "settings": [
       "education"
     ],
     "properties": [
-      "offline",
       "intermittent-connectivity",
-      "local-first"
+      "local-first",
+      "multilingual",
+      "offline",
+      "public-facing"
     ],
     "domains": [
-      "education"
+      "indigenous-education",
+      "interschool-projects",
+      "culture"
     ],
     "signature_patterns": [
       "SIG-03",
@@ -1264,16 +1290,16 @@
       "POS-SOV-003"
     ],
     "transfer_domains": [
-      "technical-trades",
-      "health",
-      "craft"
+      "indigenous-education",
+      "interschool-projects",
+      "culture"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-025.svg",
     "badges": [],
     "related": [],
-    "loop": "local pack → courses → activity → evidence → deferred synchronization"
+    "loop": "talents → teams → rehearsals → travel → roles → confirmations → performance → memory"
   },
   "SCN-026": {
     "id": "SCN-026",
@@ -1297,11 +1323,14 @@
       "individual",
       "team"
     ],
-    "settings": [],
+    "settings": [
+      "enterprise"
+    ],
     "properties": [],
     "domains": [
-      "coffee",
-      "hospitality"
+      "restaurants",
+      "manufacturing",
+      "laboratory"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -1311,16 +1340,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "restaurants",
+      "manufacturing",
+      "laboratory"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-026.svg",
     "badges": [],
     "related": [],
-    "loop": "trial → observation → sharing → comparison → standard → training"
+    "loop": "recipe → conditions → gestures → outcome → comparison → adjustment → living standard"
   },
   "SCN-027": {
     "id": "SCN-027",
@@ -1345,13 +1374,13 @@
       "organization"
     ],
     "settings": [
-      "enterprise",
       "education"
     ],
     "properties": [],
     "domains": [
       "maintenance",
-      "training"
+      "public-utilities",
+      "skilled-trades"
     ],
     "signature_patterns": [
       "SIG-06",
@@ -1363,16 +1392,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "maintenance",
+      "public-utilities",
+      "skilled-trades"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-027.svg",
     "badges": [],
     "related": [],
-    "loop": "new procedure → context → training → change tasks → evidence"
+    "loop": "rare intervention → capture → simulation → practice → assessment → next intervention"
   },
   "SCN-028": {
     "id": "SCN-028",
@@ -1398,15 +1427,16 @@
       "community"
     ],
     "settings": [
-      "community",
-      "culture"
+      "community"
     ],
     "properties": [
+      "local-first",
       "multilingual"
     ],
     "domains": [
-      "language",
-      "heritage"
+      "indigenous-languages",
+      "heritage",
+      "education"
     ],
     "signature_patterns": [
       "SIG-02",
@@ -1419,16 +1449,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "indigenous-languages",
+      "heritage",
+      "education"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-028.svg",
     "badges": [],
     "related": [],
-    "loop": "terms/stories → concepts → community validation → learning → dissemination"
+    "loop": "word → voice → context → place → story → learning → new use"
   },
   "SCN-029": {
     "id": "SCN-029",
@@ -1458,8 +1488,9 @@
     ],
     "properties": [],
     "domains": [
-      "training",
-      "skills"
+      "vocational-education",
+      "certification",
+      "hr"
     ],
     "signature_patterns": [
       "SIG-06"
@@ -1469,16 +1500,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "technical-trades",
-      "health"
+      "vocational-education",
+      "certification",
+      "hr"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-029.svg",
     "badges": [],
     "related": [],
-    "loop": "courses → practice → evidence → review → situated competence → opportunity"
+    "loop": "skill → practice → evidence → feedback → mastery → maintenance → renewal"
   },
   "SCN-030": {
     "id": "SCN-030",
@@ -1504,16 +1535,16 @@
       "organization"
     ],
     "settings": [
-      "research",
-      "education"
+      "research"
     ],
     "properties": [
       "public-facing",
       "ai-optional"
     ],
     "domains": [
-      "science",
-      "education"
+      "open-science",
+      "universities",
+      "public-scholarship"
     ],
     "signature_patterns": [
       "SIG-06",
@@ -1525,16 +1556,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "technical-trades",
-      "health",
-      "craft"
+      "open-science",
+      "universities",
+      "public-scholarship"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-030.svg",
     "badges": [],
     "related": [],
-    "loop": "corpus → synthesis → review → path → media/course → learners"
+    "loop": "corpus → concepts → controversies → paths → exercises → outputs → new corpus"
   },
   "SCN-031": {
     "id": "SCN-031",
@@ -1565,8 +1596,9 @@
     ],
     "properties": [],
     "domains": [
-      "product",
-      "design"
+      "innovation",
+      "research",
+      "intellectual-property"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -1580,16 +1612,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "innovation",
+      "research",
+      "intellectual-property"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-031.svg",
     "badges": [],
     "related": [],
-    "loop": "need → research → ideas → prototype → choice → build → test → memory"
+    "loop": "idea → dated record → versions → tests → contributors → chosen disclosure → prototype"
   },
   "SCN-032": {
     "id": "SCN-032",
@@ -1614,7 +1646,6 @@
     ],
     "entry_trigger": "idea-or-goal",
     "scales": [
-      "team",
       "inter-organizational"
     ],
     "settings": [
@@ -1624,8 +1655,9 @@
       "multilingual"
     ],
     "domains": [
-      "science",
-      "research"
+      "international-research",
+      "health",
+      "climate"
     ],
     "signature_patterns": [
       "SIG-02",
@@ -1637,16 +1669,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "international-research",
+      "health",
+      "climate"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-032.svg",
     "badges": [],
     "related": [],
-    "loop": "question → resources/skills → team → protocol → work → results"
+    "loop": "problem → capabilities → teams → data → hypotheses → shared protocols → results"
   },
   "SCN-033": {
     "id": "SCN-033",
@@ -1677,8 +1709,9 @@
       "public-facing"
     ],
     "domains": [
-      "museum",
-      "exhibition"
+      "arts",
+      "worldbuilding",
+      "digital-humanities"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -1689,16 +1722,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "arts",
+      "worldbuilding",
+      "digital-humanities"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-033.svg",
     "badges": [],
     "related": [],
-    "loop": "artworks → research → concept → decisions → production → exhibition → memory"
+    "loop": "source works → entities → relationships → versions → interpretations → creations → navigable reality"
   },
   "SCN-034": {
     "id": "SCN-034",
@@ -1725,13 +1758,13 @@
       "organization"
     ],
     "settings": [
-      "enterprise",
-      "education"
+      "enterprise"
     ],
     "properties": [],
     "domains": [
-      "startup",
-      "innovation"
+      "entrepreneurship",
+      "civic-projects",
+      "research"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -1739,16 +1772,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "entrepreneurship",
+      "civic-projects",
+      "research"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-034.svg",
     "badges": [],
     "related": [],
-    "loop": "idea → needs → people → team → pilot → learning"
+    "loop": "problem → capabilities → people → complementarities → commitments → team"
   },
   "SCN-035": {
     "id": "SCN-035",
@@ -1770,15 +1803,18 @@
     "secondary_components": [],
     "entry_trigger": "idea-or-goal",
     "scales": [
-      "team"
+      "community"
     ],
     "settings": [
-      "culture"
+      "community"
     ],
-    "properties": [],
+    "properties": [
+      "public-facing"
+    ],
     "domains": [
-      "game",
-      "design"
+      "governance",
+      "associations",
+      "open-standards"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -1791,16 +1827,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "governance",
+      "associations",
+      "open-standards"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-035.svg",
     "badges": [],
     "related": [],
-    "loop": "idea → prototype → playtest → feedback → decision → new version"
+    "loop": "needs → proposals → arguments → versions → trade-offs → text → provenance"
   },
   "SCN-036": {
     "id": "SCN-036",
@@ -1830,7 +1866,8 @@
     "properties": [],
     "domains": [
       "film",
-      "production"
+      "live-performance",
+      "complex-operations"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -1841,16 +1878,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "film",
+      "live-performance",
+      "complex-operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-036.svg",
     "badges": [],
     "related": [],
-    "loop": "intention → references → concepts → trade-offs → preparation → shoot"
+    "loop": "vision → constraints → contributions → rehearsals → dependencies → final version → shoot"
   },
   "SCN-037": {
     "id": "SCN-037",
@@ -1876,13 +1913,13 @@
       "organization"
     ],
     "settings": [
-      "enterprise",
-      "research"
+      "education"
     ],
     "properties": [],
     "domains": [
-      "robotics",
-      "engineering"
+      "stem",
+      "makerspaces",
+      "social-innovation"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -1892,16 +1929,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "public-policy"
+      "stem",
+      "makerspaces",
+      "social-innovation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-037.svg",
     "badges": [],
     "related": [],
-    "loop": "requirements → architecture → prototype → test → anomaly → correction → version"
+    "loop": "lived need → idea → capabilities → prototype → tests → failures → improvements → demonstration"
   },
   "SCN-038": {
     "id": "SCN-038",
@@ -1927,17 +1964,18 @@
     ],
     "entry_trigger": "idea-or-goal",
     "scales": [
-      "community",
-      "public-institution"
-    ],
-    "settings": [
-      "public-service",
       "community"
     ],
-    "properties": [],
+    "settings": [
+      "community"
+    ],
+    "properties": [
+      "public-facing"
+    ],
     "domains": [
-      "policy",
-      "governance"
+      "heritage",
+      "urban-planning",
+      "diaspora"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -1949,16 +1987,16 @@
       "POS-GOV-005"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "heritage",
+      "urban-planning",
+      "diaspora"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-038.svg",
     "badges": [],
     "related": [],
-    "loop": "problem → sources → proposals → drafting → decision → implementation"
+    "loop": "traces → memory → map → versions → proposals → co-design → revival"
   },
   "SCN-039": {
     "id": "SCN-039",
@@ -1989,8 +2027,9 @@
       "public-facing"
     ],
     "domains": [
-      "festival",
-      "event"
+      "culture",
+      "events",
+      "media"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -2002,16 +2041,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "r-and-d",
       "culture",
-      "engineering"
+      "events",
+      "media"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-039.svg",
     "badges": [],
     "related": [],
-    "loop": "proposals → criteria → selection → schedule → production → debrief"
+    "loop": "proposals → affinities → constraints → combinations → votes → program → feedback"
   },
   "SCN-040": {
     "id": "SCN-040",
@@ -2034,17 +2073,16 @@
     "secondary_components": [],
     "entry_trigger": "idea-or-goal",
     "scales": [
-      "community",
-      "public-institution"
+      "community"
     ],
     "settings": [
-      "community",
-      "public-service"
+      "community"
     ],
     "properties": [],
     "domains": [
       "urban-planning",
-      "design"
+      "architecture",
+      "public-design"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2057,16 +2095,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "urban-planning",
+      "architecture",
+      "public-design"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-040.svg",
     "badges": [],
     "related": [],
-    "loop": "needs → ideas → alternatives → consultation → choice → project → real-world use"
+    "loop": "uses → perspectives → constraints → prototypes → tests → trade-offs → place"
   },
   "SCN-041": {
     "id": "SCN-041",
@@ -2096,8 +2134,9 @@
     ],
     "properties": [],
     "domains": [
-      "packaging",
-      "design"
+      "industrial-design",
+      "logistics",
+      "sustainability"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2110,16 +2149,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "industrial-design",
+      "logistics",
+      "sustainability"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-041.svg",
     "badges": [],
     "related": [],
-    "loop": "need → constraints → concepts → tests → choice → industrialization"
+    "loop": "constraints → ideas → materials → prototypes → tests → trade-offs → version"
   },
   "SCN-042": {
     "id": "SCN-042",
@@ -2148,8 +2187,9 @@
     ],
     "properties": [],
     "domains": [
-      "science",
-      "laboratory"
+      "research",
+      "biobanks",
+      "environmental-science"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -2157,16 +2197,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "research",
+      "biobanks",
+      "environmental-science"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-042.svg",
     "badges": [],
     "related": [],
-    "loop": "question → literature → protocol → review → pilot → revision"
+    "loop": "question → risks → protocol → critiques → simulation → revision → execution"
   },
   "SCN-043": {
     "id": "SCN-043",
@@ -2195,7 +2235,8 @@
     "properties": [],
     "domains": [
       "music",
-      "orchestra"
+      "open-source-software",
+      "collaborative-creation"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -2204,16 +2245,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "music",
+      "open-source-software",
+      "collaborative-creation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-043.svg",
     "badges": [],
     "related": [],
-    "loop": "score → intention → rehearsal → feedback → decision → performance → memory"
+    "loop": "source work → interpretation → choices → branch → performance → new branch"
   },
   "SCN-044": {
     "id": "SCN-044",
@@ -2239,13 +2280,15 @@
       "organization"
     ],
     "settings": [
-      "enterprise",
       "culture"
     ],
-    "properties": [],
+    "properties": [
+      "public-facing"
+    ],
     "domains": [
-      "virtual-reality",
-      "design"
+      "collective-memory",
+      "museums",
+      "urban-planning"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2258,16 +2301,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "collective-memory",
+      "museums",
+      "urban-planning"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-044.svg",
     "badges": [],
     "related": [],
-    "loop": "intention → prototype → test → observations → decisions → build"
+    "loop": "traces → testimonies → models → contradictions → versions → VR experience"
   },
   "SCN-045": {
     "id": "SCN-045",
@@ -2289,18 +2332,16 @@
     "secondary_components": [],
     "entry_trigger": "idea-or-goal",
     "scales": [
-      "team",
-      "community"
+      "inter-organizational"
     ],
     "settings": [
-      "research",
-      "community",
       "field"
     ],
     "properties": [],
     "domains": [
-      "ecology",
-      "conservation"
+      "conservation",
+      "climate",
+      "land-planning"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2313,16 +2354,16 @@
       "POS-FIELD-002"
     ],
     "transfer_domains": [
-      "r-and-d",
-      "culture",
-      "engineering"
+      "conservation",
+      "climate",
+      "land-planning"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-045.svg",
     "badges": [],
     "related": [],
-    "loop": "data → local knowledge → options → agreement/disagreement → plan → actions → follow-up"
+    "loop": "species → projections → territories → stakeholders → options → corridor prototype → adaptation"
   },
   "SCN-046": {
     "id": "SCN-046",
@@ -2352,7 +2393,8 @@
     "properties": [],
     "domains": [
       "procurement",
-      "industry"
+      "infrastructure",
+      "health"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2366,16 +2408,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "procurement",
+      "infrastructure",
+      "health"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-046.svg",
     "badges": [],
     "related": [],
-    "loop": "need → criteria → evidence → expert input → choice → qualification"
+    "loop": "need → criteria → suppliers → risks → deliberation → mandate → decision → follow-up"
   },
   "SCN-047": {
     "id": "SCN-047",
@@ -2407,7 +2449,8 @@
     "properties": [],
     "domains": [
       "research",
-      "funding"
+      "philanthropy",
+      "innovation"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2420,16 +2463,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "education"
+      "research",
+      "philanthropy",
+      "innovation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-047.svg",
     "badges": [],
     "related": [],
-    "loop": "proposals → expertise → evaluations → assessments → decision → funding"
+    "loop": "projects → criteria → assessments → uncertainty → portfolio → decision → results"
   },
   "SCN-048": {
     "id": "SCN-048",
@@ -2452,17 +2495,18 @@
     "secondary_components": [],
     "entry_trigger": "decision-to-make",
     "scales": [
-      "community",
       "public-institution"
     ],
     "settings": [
-      "public-service",
-      "community"
+      "public-service"
     ],
-    "properties": [],
+    "properties": [
+      "public-facing"
+    ],
     "domains": [
-      "urban-planning",
-      "safety"
+      "municipal-government",
+      "transportation",
+      "public-consultation"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2476,16 +2520,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "municipal-government",
+      "transportation",
+      "public-consultation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-048.svg",
     "badges": [],
     "related": [],
-    "loop": "signals → data → options → consultation → decision → implementation work → measurement"
+    "loop": "problem → perspectives → data → options → deliberation → decision → measurement"
   },
   "SCN-049": {
     "id": "SCN-049",
@@ -2515,7 +2559,8 @@
     "properties": [],
     "domains": [
       "education",
-      "governance"
+      "training",
+      "institutional-policy"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2529,16 +2574,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
-      "research",
-      "finance"
+      "education",
+      "training",
+      "institutional-policy"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-049.svg",
     "badges": [],
     "related": [],
-    "loop": "needs → evidence → proposals → consultation → curriculum → implementation"
+    "loop": "proposal → objectives → perspectives → risks → pilots → deliberation → decision"
   },
   "SCN-050": {
     "id": "SCN-050",
@@ -2569,8 +2614,9 @@
       "sensitive-data"
     ],
     "domains": [
-      "finance",
-      "investment"
+      "investment",
+      "r-and-d",
+      "strategy"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -2581,16 +2627,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "investment",
+      "r-and-d",
+      "strategy"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-050.svg",
     "badges": [],
     "related": [],
-    "loop": "options → hypotheses → risks → expert input → decision → result"
+    "loop": "options → criteria → scenarios → risks → comparison → portfolio → follow-up"
   },
   "SCN-051": {
     "id": "SCN-051",
@@ -2621,8 +2667,9 @@
       "sensitive-data"
     ],
     "domains": [
-      "recruiting",
-      "human-resources"
+      "recruitment",
+      "governance",
+      "succession"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -2633,16 +2680,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "recruitment",
+      "governance",
+      "succession"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-051.svg",
     "badges": [],
     "related": [],
-    "loop": "need → criteria → evidence → evaluations → decision → onboarding"
+    "loop": "role → criteria → cases → evidence → assessments → trade-off → choice"
   },
   "SCN-052": {
     "id": "SCN-052",
@@ -2664,17 +2711,19 @@
     "secondary_components": [],
     "entry_trigger": "decision-to-make",
     "scales": [
-      "organization"
+      "public-institution"
     ],
     "settings": [
-      "enterprise"
+      "public-service"
     ],
     "properties": [
+      "high-consequence",
       "public-facing"
     ],
     "domains": [
-      "esg",
-      "sustainability"
+      "public-governance",
+      "institutional-transitions",
+      "associations"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2688,16 +2737,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
       "public-governance",
-      "research"
+      "institutional-transitions",
+      "associations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-052.svg",
     "badges": [],
     "related": [],
-    "loop": "issues → evidence → criteria → deliberation → priorities → programs → measurement"
+    "loop": "legitimacy crisis → mandates → proposals → deliberation → legitimate decision → responsibilities → transition"
   },
   "SCN-053": {
     "id": "SCN-053",
@@ -2721,17 +2770,18 @@
     ],
     "entry_trigger": "decision-to-make",
     "scales": [
-      "community"
+      "public-institution"
     ],
     "settings": [
-      "community"
+      "public-service"
     ],
     "properties": [
       "public-facing"
     ],
     "domains": [
-      "governance",
-      "participatory-budgeting"
+      "municipal-government",
+      "cooperatives",
+      "distributed-organizations"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -2742,16 +2792,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
-      "research",
-      "finance"
+      "municipal-government",
+      "cooperatives",
+      "distributed-organizations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-053.svg",
     "badges": [],
     "related": [],
-    "loop": "projects → contributions → assessments → deliberation → decision → implementation"
+    "loop": "problem → mandate → team → decision → execution → accountability → role dissolution"
   },
   "SCN-054": {
     "id": "SCN-054",
@@ -2780,8 +2830,9 @@
     ],
     "properties": [],
     "domains": [
-      "museum",
-      "acquisition"
+      "museums",
+      "collections",
+      "complex-procurement"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -2792,16 +2843,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "museums",
+      "collections",
+      "complex-procurement"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-054.svg",
     "badges": [],
     "related": [],
-    "loop": "artwork → case file → expert input → deliberation → decision → acquisition → memory"
+    "loop": "artwork → criteria → provenance → risks → options → decision → conditions"
   },
   "SCN-055": {
     "id": "SCN-055",
@@ -2822,7 +2873,6 @@
     "secondary_components": [],
     "entry_trigger": "decision-to-make",
     "scales": [
-      "individual",
       "organization"
     ],
     "settings": [
@@ -2833,7 +2883,8 @@
     ],
     "domains": [
       "finance",
-      "portfolio-management"
+      "insurance",
+      "public-planning"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -2844,16 +2895,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "finance",
+      "insurance",
+      "public-planning"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-055.svg",
     "badges": [],
     "related": [],
-    "loop": "signals → theses → scenarios → committee → decision → performance"
+    "loop": "objectives → horizons → scenarios → allocations → risks → decision → reevaluation"
   },
   "SCN-056": {
     "id": "SCN-056",
@@ -2875,16 +2926,18 @@
     "secondary_components": [],
     "entry_trigger": "decision-to-make",
     "scales": [
-      "team",
       "organization"
     ],
     "settings": [
       "enterprise"
     ],
-    "properties": [],
+    "properties": [
+      "sensitive-data"
+    ],
     "domains": [
-      "product",
-      "software"
+      "enterprise",
+      "cooperatives",
+      "distributed-governance"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -2899,15 +2952,15 @@
     ],
     "transfer_domains": [
       "enterprise",
-      "public-governance",
-      "research"
+      "cooperatives",
+      "distributed-governance"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-056.svg",
     "badges": [],
     "related": [],
-    "loop": "signals → criteria → options → choice → tasks → result"
+    "loop": "question → context → analyses → influence → eligibility → Smart Vote → decision → results → learning"
   },
   "SCN-057": {
     "id": "SCN-057",
@@ -2938,8 +2991,9 @@
       "public-facing"
     ],
     "domains": [
-      "festival",
-      "programming"
+      "culture",
+      "universities",
+      "media"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -2952,16 +3006,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "culture",
+      "universities",
+      "media"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-057.svg",
     "badges": [],
     "related": [],
-    "loop": "proposals → criteria → discussion → selection → production"
+    "loop": "work → mission → risks → perspectives → options → mandate → decision → communication"
   },
   "SCN-058": {
     "id": "SCN-058",
@@ -2989,14 +3043,15 @@
       "community"
     ],
     "settings": [
-      "community"
+      "enterprise"
     ],
     "properties": [
       "public-facing"
     ],
     "domains": [
-      "philanthropy",
-      "grants"
+      "companies",
+      "foundations",
+      "communities"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -3010,16 +3065,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "companies",
+      "foundations",
+      "communities"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-058.svg",
     "badges": [],
     "related": [],
-    "loop": "requests → criteria → expertise → decision → funding → impact"
+    "loop": "constitution → roles → interpretations → decisions → precedents → revision → continuity"
   },
   "SCN-059": {
     "id": "SCN-059",
@@ -3044,13 +3099,13 @@
       "organization"
     ],
     "settings": [
-      "enterprise",
-      "research"
+      "enterprise"
     ],
     "properties": [],
     "domains": [
-      "innovation",
-      "r-and-d"
+      "r-and-d",
+      "product-portfolio",
+      "innovation"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -3064,16 +3119,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "enterprise",
-      "public-governance",
-      "research"
+      "r-and-d",
+      "product-portfolio",
+      "innovation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-059.svg",
     "badges": [],
     "related": [],
-    "loop": "pilots → evidence → expert input → decision → invest/stop → memory"
+    "loop": "prototypes → criteria → evidence → comparison → stop/continue → memory → reopening"
   },
   "SCN-060": {
     "id": "SCN-060",
@@ -3102,8 +3157,9 @@
     ],
     "properties": [],
     "domains": [
-      "residential-community",
-      "governance"
+      "housing",
+      "cooperatives",
+      "municipal-government"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -3115,16 +3171,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "enterprise",
-      "research",
-      "finance"
+      "housing",
+      "cooperatives",
+      "municipal-government"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-060.svg",
     "badges": [],
     "related": [],
-    "loop": "need → options → consultation → decision → implementation work → closure"
+    "loop": "needs → rights → options → costs → deliberation → vote → execution"
   },
   "SCN-061": {
     "id": "SCN-061",
@@ -3152,11 +3208,13 @@
       "enterprise"
     ],
     "properties": [
+      "high-consequence",
       "role-routing"
     ],
     "domains": [
-      "maintenance",
-      "elevator"
+      "buildings",
+      "public-services",
+      "operations"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -3168,16 +3226,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "logistics",
-      "events",
-      "field-research"
+      "buildings",
+      "public-services",
+      "operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-061.svg",
     "badges": [],
     "related": [],
-    "loop": "signal → cases → context → role → intervention → verification → memory"
+    "loop": "report → building context → affected people → intervention → handoff → proof of restoration"
   },
   "SCN-062": {
     "id": "SCN-062",
@@ -3201,12 +3259,13 @@
       "organization"
     ],
     "settings": [
-      "field",
       "enterprise"
     ],
     "properties": [],
     "domains": [
-      "construction"
+      "construction",
+      "logistics",
+      "events"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -3215,7 +3274,7 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
+      "construction",
       "logistics",
       "events"
     ],
@@ -3224,7 +3283,7 @@
     "preview_image": "/scenarios/placeholders/SCN-062.svg",
     "badges": [],
     "related": [],
-    "loop": "plan → briefing → tasks → dependencies → incidents → replanning → evidence"
+    "loop": "objective → roles → dependencies → windows → execution → updates → closure"
   },
   "SCN-063": {
     "id": "SCN-063",
@@ -3246,14 +3305,19 @@
     "secondary_components": [],
     "entry_trigger": "mandate-or-plan",
     "scales": [
-      "team"
+      "inter-organizational"
     ],
-    "settings": [],
+    "settings": [
+      "education"
+    ],
     "properties": [
+      "multilingual",
       "public-facing"
     ],
     "domains": [
-      "event"
+      "schools",
+      "travel",
+      "community-events"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -3264,16 +3328,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "field-research"
+      "schools",
+      "travel",
+      "community-events"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-063.svg",
     "badges": [],
     "related": [],
-    "loop": "concept → decisions → plan → tasks → event → debrief"
+    "loop": "project → roles → commitments → confirmations → dependencies → travel → performance"
   },
   "SCN-064": {
     "id": "SCN-064",
@@ -3295,7 +3359,7 @@
     "secondary_components": [],
     "entry_trigger": "mandate-or-plan",
     "scales": [
-      "organization"
+      "inter-organizational"
     ],
     "settings": [
       "enterprise"
@@ -3303,7 +3367,8 @@
     "properties": [],
     "domains": [
       "logistics",
-      "supply-chain"
+      "health",
+      "industry"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -3317,16 +3382,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "events",
-      "field-research"
+      "logistics",
+      "health",
+      "industry"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-064.svg",
     "badges": [],
     "related": [],
-    "loop": "incident → dependencies → alternatives → decision → tasks → delivery"
+    "loop": "disruption → inventory → constraints → options → reassignments → deliveries → confirmation"
   },
   "SCN-065": {
     "id": "SCN-065",
@@ -3348,15 +3413,15 @@
     "secondary_components": [],
     "entry_trigger": "mandate-or-plan",
     "scales": [
-      "individual",
-      "organization"
+      "public-institution"
     ],
     "settings": [
-      "enterprise"
+      "public-service"
     ],
     "properties": [],
     "domains": [
-      "fleet",
+      "municipal-government",
+      "transportation",
       "maintenance"
     ],
     "signature_patterns": [
@@ -3369,16 +3434,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "logistics",
-      "events",
-      "field-research"
+      "municipal-government",
+      "transportation",
+      "maintenance"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-065.svg",
     "badges": [],
     "related": [],
-    "loop": "pattern → decision → campaign → tasks → inspections → results"
+    "loop": "fleet → condition → parts → skills → priorities → interventions → availability"
   },
   "SCN-066": {
     "id": "SCN-066",
@@ -3407,6 +3472,8 @@
     ],
     "properties": [],
     "domains": [
+      "restaurants",
+      "events",
       "hospitality"
     ],
     "signature_patterns": [
@@ -3418,16 +3485,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "restaurants",
+      "events",
+      "hospitality"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-066.svg",
     "badges": [],
     "related": [],
-    "loop": "context → briefing → tasks → service → incidents → improvement"
+    "loop": "menu → constraints → inventory → substitutions → roles → preparation → service"
   },
   "SCN-067": {
     "id": "SCN-067",
@@ -3449,7 +3516,7 @@
     "secondary_components": [],
     "entry_trigger": "mandate-or-plan",
     "scales": [
-      "organization"
+      "inter-organizational"
     ],
     "settings": [
       "enterprise"
@@ -3458,8 +3525,9 @@
       "high-consequence"
     ],
     "domains": [
-      "airport",
-      "aviation"
+      "airports",
+      "transportation",
+      "complex-operations"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -3471,16 +3539,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "airports",
+      "transportation",
+      "complex-operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-067.svg",
     "badges": [],
     "related": [],
-    "loop": "disruption → situation → decisions → coordination → recovery → debrief"
+    "loop": "disruption → shared situation → options → reassignments → communications → recovery"
   },
   "SCN-068": {
     "id": "SCN-068",
@@ -3504,15 +3572,15 @@
       "team"
     ],
     "settings": [
-      "research",
       "field"
     ],
     "properties": [
       "offline"
     ],
     "domains": [
+      "field-research",
       "oceanography",
-      "research"
+      "expeditions"
     ],
     "signature_patterns": [
       "SIG-05",
@@ -3526,16 +3594,16 @@
       "POS-FIELD-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "field-research",
+      "oceanography",
+      "expeditions"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-068.svg",
     "badges": [],
     "related": [],
-    "loop": "question → protocol → mission → tasks → observations → data → memory"
+    "loop": "objectives → protocols → resources → dependencies → window → fieldwork → data → closure"
   },
   "SCN-069": {
     "id": "SCN-069",
@@ -3560,13 +3628,13 @@
       "organization"
     ],
     "settings": [
-      "field",
-      "enterprise"
+      "field"
     ],
     "properties": [],
     "domains": [
-      "viticulture",
-      "agriculture"
+      "agriculture",
+      "seasonal-operations",
+      "production"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -3580,16 +3648,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "agriculture",
+      "seasonal-operations",
+      "production"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-069.svg",
     "badges": [],
     "related": [],
-    "loop": "observations → priority → teams → harvest → quality → memory"
+    "loop": "ripeness → weather → plots → resources → priorities → harvest → intake"
   },
   "SCN-070": {
     "id": "SCN-070",
@@ -3620,8 +3688,9 @@
       "sensitive-data"
     ],
     "domains": [
-      "data-center",
-      "it"
+      "digital-infrastructure",
+      "energy",
+      "critical-maintenance"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -3633,16 +3702,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "digital-infrastructure",
+      "energy",
+      "critical-maintenance"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-070.svg",
     "badges": [],
     "related": [],
-    "loop": "change → context → approval → tasks → intervention → verification → postmortem"
+    "loop": "risk → plan → validations → dependencies → intervention → verification → closure"
   },
   "SCN-071": {
     "id": "SCN-071",
@@ -3671,6 +3740,7 @@
     "properties": [],
     "domains": [
       "film",
+      "events",
       "production"
     ],
     "signature_patterns": [],
@@ -3679,16 +3749,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "film",
+      "events",
+      "production"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-071.svg",
     "badges": [],
     "related": [],
-    "loop": "change → impacts → decision → redistribution → shoot → debrief"
+    "loop": "disruption → constraints → options → replanning → roles → shoot → memory"
   },
   "SCN-072": {
     "id": "SCN-072",
@@ -3718,8 +3788,9 @@
       "role-routing"
     ],
     "domains": [
-      "hotel",
-      "service"
+      "hospitality",
+      "private-events",
+      "services"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -3730,16 +3801,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "hospitality",
+      "private-events",
+      "services"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-072.svg",
     "badges": [],
     "related": [],
-    "loop": "request → cases → roles → tasks → handoff → resolution → memory"
+    "loop": "request → constraints → roles → bookings → dependencies → confirmations → experience"
   },
   "SCN-073": {
     "id": "SCN-073",
@@ -3766,10 +3837,13 @@
     "settings": [
       "public-service"
     ],
-    "properties": [],
+    "properties": [
+      "public-facing"
+    ],
     "domains": [
-      "municipality",
-      "administration"
+      "infrastructure",
+      "public-policy",
+      "major-projects"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -3783,16 +3857,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "infrastructure",
+      "public-policy",
+      "major-projects"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-073.svg",
     "badges": [],
     "related": [],
-    "loop": "decision → mandate → services → tasks → results → memory"
+    "loop": "decision → objectives → phases → roles → dependencies → construction → measurements → adjustments"
   },
   "SCN-074": {
     "id": "SCN-074",
@@ -3822,7 +3896,9 @@
       "sensitive-data"
     ],
     "domains": [
-      "laboratory"
+      "research",
+      "public-health",
+      "environment"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -3834,16 +3910,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "research",
+      "public-health",
+      "environment"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-074.svg",
     "badges": [],
     "related": [],
-    "loop": "samples → plan → tasks → analyses → controls → review"
+    "loop": "protocol → sites → kits → roles → collection → validation → data"
   },
   "SCN-075": {
     "id": "SCN-075",
@@ -3867,13 +3943,13 @@
       "organization"
     ],
     "settings": [
-      "enterprise",
-      "field"
+      "enterprise"
     ],
     "properties": [],
     "domains": [
-      "port",
-      "infrastructure"
+      "ports",
+      "transportation",
+      "industry"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -3885,16 +3961,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "maintenance",
-      "logistics",
-      "events"
+      "ports",
+      "transportation",
+      "industry"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-075.svg",
     "badges": [],
     "related": [],
-    "loop": "inspection → decision → plan → tasks → implementation work → validation → memory"
+    "loop": "infrastructure → windows → ships → teams → dependencies → intervention → return to service"
   },
   "SCN-076": {
     "id": "SCN-076",
@@ -3923,10 +3999,13 @@
       "crisis"
     ],
     "properties": [
+      "high-consequence",
       "sensitive-data"
     ],
     "domains": [
-      "cybersecurity"
+      "public-safety",
+      "crisis-management",
+      "continuity"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -3938,16 +4017,16 @@
       "POS-FIELD-002"
     ],
     "transfer_domains": [
-      "infrastructure",
-      "humanitarian",
-      "public-service"
+      "public-safety",
+      "crisis-management",
+      "continuity"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-076.svg",
     "badges": [],
     "related": [],
-    "loop": "alert → situation → analysis → decision → remediation → evidence → lessons"
+    "loop": "report → verified facts → roles → decisions → authorized actions → new facts → resolution → after-action review"
   },
   "SCN-077": {
     "id": "SCN-077",
@@ -3979,13 +4058,16 @@
       "crisis"
     ],
     "properties": [
-      "offline",
+      "high-consequence",
+      "intermittent-connectivity",
+      "local-first",
       "multilingual",
-      "high-consequence"
+      "offline"
     ],
     "domains": [
-      "crisis-management",
-      "municipality"
+      "disasters",
+      "field-operations",
+      "remote-regions"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -4001,16 +4083,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "disasters",
+      "field-operations",
+      "remote-regions"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-077.svg",
     "badges": [],
     "related": [],
-    "loop": "signals → situation → priorities → teams → tasks → results → update"
+    "loop": "alert → sectors → local plans → offline work → observations → synchronization → common situation"
   },
   "SCN-078": {
     "id": "SCN-078",
@@ -4035,14 +4117,18 @@
     "scales": [
       "public-institution"
     ],
-    "settings": [],
+    "settings": [
+      "crisis"
+    ],
     "properties": [
       "high-consequence",
-      "multilingual"
+      "multilingual",
+      "sensitive-data"
     ],
     "domains": [
-      "emergency",
-      "911"
+      "emergency-response",
+      "civil-protection",
+      "operations-centers"
     ],
     "signature_patterns": [
       "SIG-02"
@@ -4053,16 +4139,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "emergency-response",
+      "civil-protection",
+      "operations-centers"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-078.svg",
     "badges": [],
     "related": [],
-    "loop": "call → context → resources → authoritative dispatch → coordination → report"
+    "loop": "calls → location → correlations → hypotheses → resources → situation → resolution"
   },
   "SCN-079": {
     "id": "SCN-079",
@@ -4088,18 +4174,22 @@
     ],
     "entry_trigger": "incident-or-change",
     "scales": [
-      "organization"
+      "inter-organizational"
     ],
     "settings": [
-      "field"
+      "crisis"
     ],
     "properties": [
-      "offline",
+      "high-consequence",
+      "intermittent-connectivity",
+      "local-first",
       "multilingual",
-      "intermittent-connectivity"
+      "offline"
     ],
     "domains": [
-      "humanitarian"
+      "humanitarian-response",
+      "field-operations",
+      "logistics"
     ],
     "signature_patterns": [
       "SIG-02",
@@ -4114,16 +4204,16 @@
       "POS-SOV-003"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "public-service"
+      "humanitarian-response",
+      "field-operations",
+      "logistics"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-079.svg",
     "badges": [],
     "related": [],
-    "loop": "needs → local situation → skills → tasks → distribution → evidence → sync"
+    "loop": "needs → inventory → local teams → offline work → transfers → synchronization → new needs"
   },
   "SCN-080": {
     "id": "SCN-080",
@@ -4146,15 +4236,18 @@
     "scales": [
       "organization"
     ],
-    "settings": [],
+    "settings": [
+      "crisis"
+    ],
     "properties": [
       "high-consequence",
-      "sensitive-data",
-      "local-first"
+      "local-first",
+      "sensitive-data"
     ],
     "domains": [
       "energy",
-      "power-plant"
+      "infrastructure",
+      "critical-operations"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -4162,16 +4255,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "cybersecurity",
+      "energy",
       "infrastructure",
-      "humanitarian"
+      "critical-operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-080.svg",
     "badges": [],
     "related": [],
-    "loop": "alarm → context → procedure → authorized action → verification → lessons learned"
+    "loop": "signals → grid state → hypotheses → decisions → effects → new measurements → stabilization"
   },
   "SCN-081": {
     "id": "SCN-081",
@@ -4193,17 +4286,18 @@
     "secondary_components": [],
     "entry_trigger": "incident-or-change",
     "scales": [
-      "organization"
+      "inter-organizational"
     ],
     "settings": [
-      "enterprise"
+      "crisis"
     ],
     "properties": [
       "high-consequence"
     ],
     "domains": [
-      "food",
-      "quality"
+      "food-safety",
+      "restaurants",
+      "food-supply-chain"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -4213,16 +4307,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "food-safety",
+      "restaurants",
+      "food-supply-chain"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-081.svg",
     "badges": [],
     "related": [],
-    "loop": "signal → tracing → containment → investigation → correction → memory"
+    "loop": "reports → batches → recipes → suppliers → hypotheses → precautionary actions → confirmation"
   },
   "SCN-082": {
     "id": "SCN-082",
@@ -4244,16 +4338,17 @@
     "secondary_components": [],
     "entry_trigger": "incident-or-change",
     "scales": [
-      "organization"
+      "inter-organizational"
     ],
     "settings": [
-      "enterprise"
+      "crisis"
     ],
     "properties": [
       "high-consequence"
     ],
     "domains": [
-      "aviation",
+      "transportation",
+      "large-networks",
       "operations"
     ],
     "signature_patterns": [
@@ -4265,16 +4360,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "transportation",
+      "large-networks",
+      "operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-082.svg",
     "badges": [],
     "related": [],
-    "loop": "disruption → impacts → decisions → tasks → recovery → debrief"
+    "loop": "events → shared situation → constraints → priorities → replanning → communications → recovery"
   },
   "SCN-083": {
     "id": "SCN-083",
@@ -4299,14 +4394,18 @@
       "organization"
     ],
     "settings": [
-      "field"
+      "crisis"
     ],
     "properties": [
-      "offline",
-      "high-consequence"
+      "high-consequence",
+      "intermittent-connectivity",
+      "local-first",
+      "offline"
     ],
     "domains": [
-      "mining"
+      "mining",
+      "tunnels",
+      "field-operations"
     ],
     "signature_patterns": [
       "SIG-05",
@@ -4320,16 +4419,16 @@
       "POS-FIELD-001"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "mining",
+      "tunnels",
+      "field-operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-083.svg",
     "badges": [],
     "related": [],
-    "loop": "incident → site safety → situation → roles → actions → evidence → lessons"
+    "loop": "incident → sectors → roles → local work → observations → reconnection → review"
   },
   "SCN-084": {
     "id": "SCN-084",
@@ -4354,14 +4453,15 @@
       "organization"
     ],
     "settings": [
-      "field"
+      "crisis"
     ],
     "properties": [
       "high-consequence"
     ],
     "domains": [
-      "pipeline",
-      "infrastructure"
+      "environment",
+      "pipelines",
+      "public-utilities"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -4372,16 +4472,16 @@
       "POS-FIELD-002"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "humanitarian",
-      "public-service"
+      "environment",
+      "pipelines",
+      "public-utilities"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-084.svg",
     "badges": [],
     "related": [],
-    "loop": "signal → context → inspection → decision → correction → validation"
+    "loop": "signal → location → environment → hypotheses → precautionary measures → verification → restoration"
   },
   "SCN-085": {
     "id": "SCN-085",
@@ -4406,14 +4506,16 @@
       "community"
     ],
     "settings": [
-      "community"
+      "crisis"
     ],
     "properties": [
+      "high-consequence",
       "sensitive-data"
     ],
     "domains": [
-      "animals",
-      "shelter"
+      "animal-health",
+      "shelters",
+      "livestock"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -4424,16 +4526,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "animal-health",
+      "shelters",
+      "livestock"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-085.svg",
     "badges": [],
     "related": [],
-    "loop": "cases → pattern → expertise → measures → follow-up → memory"
+    "loop": "cases → contacts → batches → environment → hypotheses → measures → follow-up"
   },
   "SCN-086": {
     "id": "SCN-086",
@@ -4458,11 +4560,14 @@
       "organization"
     ],
     "settings": [
-      "enterprise"
+      "crisis"
     ],
-    "properties": [],
+    "properties": [
+      "high-consequence"
+    ],
     "domains": [
-      "building",
+      "buildings",
+      "property-loss",
       "maintenance"
     ],
     "signature_patterns": [
@@ -4474,16 +4579,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "buildings",
+      "property-loss",
+      "maintenance"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-086.svg",
     "badges": [],
     "related": [],
-    "loop": "signal → cases → intervention → consequences → closure → pattern"
+    "loop": "alert → zone → people → authorized shutoffs → interventions → drying → restoration"
   },
   "SCN-087": {
     "id": "SCN-087",
@@ -4505,15 +4610,18 @@
     "secondary_components": [],
     "entry_trigger": "incident-or-change",
     "scales": [
-      "organization"
+      "inter-organizational"
     ],
     "settings": [
-      "enterprise",
       "crisis"
     ],
-    "properties": [],
+    "properties": [
+      "high-consequence"
+    ],
     "domains": [
-      "telecommunications"
+      "telecommunications",
+      "emergency-response",
+      "infrastructure"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -4524,16 +4632,16 @@
       "POS-FIELD-002"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "telecommunications",
+      "emergency-response",
+      "infrastructure"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-087.svg",
     "badges": [],
     "related": [],
-    "loop": "alarm → situation → hypotheses → teams → actions → recovery → postmortem"
+    "loop": "outage → service map → priorities → repairs → temporary capabilities → recovery"
   },
   "SCN-088": {
     "id": "SCN-088",
@@ -4558,14 +4666,17 @@
       "organization"
     ],
     "settings": [
-      "enterprise"
+      "crisis"
     ],
     "properties": [
+      "high-consequence",
+      "public-facing",
       "sensitive-data"
     ],
     "domains": [
-      "casino",
-      "operations"
+      "events",
+      "stadiums",
+      "transportation"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -4575,16 +4686,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "events",
+      "stadiums",
+      "transportation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-088.svg",
     "badges": [],
     "related": [],
-    "loop": "incident → qualification → roles → actions → closure → audit"
+    "loop": "incident → zones → capacity → decisions → roles → communications → stabilization"
   },
   "SCN-089": {
     "id": "SCN-089",
@@ -4616,7 +4727,8 @@
       "public-facing"
     ],
     "domains": [
-      "communication",
+      "communications",
+      "deepfakes",
       "reputation"
     ],
     "signature_patterns": [
@@ -4631,16 +4743,16 @@
       "POS-ORG-002"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "communications",
+      "deepfakes",
+      "reputation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-089.svg",
     "badges": [],
     "related": [],
-    "loop": "public signals → verification → crisis team → decision → actions/messages → follow-up"
+    "loop": "content → provenance → verification → stakeholders → response → follow-up → lesson"
   },
   "SCN-090": {
     "id": "SCN-090",
@@ -4664,14 +4776,18 @@
       "team"
     ],
     "settings": [
-      "field"
+      "crisis"
     ],
     "properties": [
-      "offline",
-      "intermittent-connectivity"
+      "high-consequence",
+      "intermittent-connectivity",
+      "local-first",
+      "offline"
     ],
     "domains": [
-      "field-research"
+      "expeditions",
+      "field-operations",
+      "remote-regions"
     ],
     "signature_patterns": [
       "SIG-05",
@@ -4685,16 +4801,16 @@
       "POS-SOV-003"
     ],
     "transfer_domains": [
-      "cybersecurity",
-      "infrastructure",
-      "humanitarian"
+      "expeditions",
+      "field-operations",
+      "remote-regions"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-090.svg",
     "badges": [],
     "related": [],
-    "loop": "local mission → collection → tasks → storage → sync queue → reconnection"
+    "loop": "disruption → local state → priorities → offline work → observations → synchronization → return"
   },
   "SCN-091": {
     "id": "SCN-091",
@@ -4725,7 +4841,9 @@
       "sensitive-data"
     ],
     "domains": [
-      "cybersecurity"
+      "cybersecurity",
+      "emergency-response",
+      "operations"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -4737,16 +4855,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "cybersecurity",
+      "emergency-response",
+      "operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-091.svg",
     "badges": [],
     "related": [],
-    "loop": "incident → timeline → causes → lessons → changes → training"
+    "loop": "timeline → state of knowledge → decisions → consequences → lessons → changes → future exercise"
   },
   "SCN-092": {
     "id": "SCN-092",
@@ -4774,8 +4892,9 @@
     ],
     "properties": [],
     "domains": [
-      "maintenance",
-      "industry"
+      "industry",
+      "it",
+      "maintenance"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -4789,16 +4908,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "industry",
+      "it",
+      "maintenance"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-092.svg",
     "badges": [],
     "related": [],
-    "loop": "historical cases → pattern → cause → decision → action → new baseline"
+    "loop": "incidents → normalization → relationships → pattern → cause → systemic action → verification"
   },
   "SCN-093": {
     "id": "SCN-093",
@@ -4822,13 +4941,13 @@
       "public-institution"
     ],
     "settings": [
-      "public-service",
-      "crisis"
+      "public-service"
     ],
     "properties": [],
     "domains": [
-      "crisis-management",
-      "municipality"
+      "municipal-government",
+      "climate",
+      "civil-protection"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -4841,16 +4960,16 @@
       "POS-FIELD-002"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "municipal-government",
+      "climate",
+      "civil-protection"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-093.svg",
     "badges": [],
     "related": [],
-    "loop": "event → evidence → analysis → lessons → procedures → preparation"
+    "loop": "incident → timeline → results → lessons → decisions → projects → next event"
   },
   "SCN-094": {
     "id": "SCN-094",
@@ -4878,7 +4997,9 @@
     ],
     "properties": [],
     "domains": [
-      "project-management"
+      "project-management",
+      "product",
+      "organizations"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -4887,16 +5008,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "project-management",
+      "product",
+      "organizations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-094.svg",
     "badges": [],
     "related": [],
-    "loop": "project → results → gaps → causes → lessons → reuse"
+    "loop": "projects → lessons → patterns → actions → verification → recurrence or improvement"
   },
   "SCN-095": {
     "id": "SCN-095",
@@ -4924,8 +5045,9 @@
     ],
     "properties": [],
     "domains": [
-      "science",
-      "reproducibility"
+      "research",
+      "r-and-d",
+      "innovation"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -4933,16 +5055,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "quality",
       "research",
-      "projects"
+      "r-and-d",
+      "innovation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-095.svg",
     "badges": [],
     "related": [],
-    "loop": "question → protocol → versions → data → result → reusable package"
+    "loop": "hypothesis → protocol → result → useful failure → conditions → reuse → new hypothesis"
   },
   "SCN-096": {
     "id": "SCN-096",
@@ -4969,8 +5091,9 @@
     ],
     "properties": [],
     "domains": [
-      "institutional-memory",
-      "human-resources"
+      "maintenance",
+      "diagnosis",
+      "rare-expertise"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -4983,16 +5106,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "maintenance",
+      "diagnosis",
+      "rare-expertise"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-096.svg",
     "badges": [],
     "related": [],
-    "loop": "tacit knowledge → objects/cases → transfer → role → continuity"
+    "loop": "case → cues → hypotheses → decision → outcome → principles → transmission"
   },
   "SCN-097": {
     "id": "SCN-097",
@@ -5019,8 +5142,9 @@
     ],
     "properties": [],
     "domains": [
-      "hospitality",
-      "quality"
+      "services",
+      "product",
+      "operations"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -5031,16 +5155,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "research",
-      "projects",
-      "public-service"
+      "services",
+      "product",
+      "operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-097.svg",
     "badges": [],
     "related": [],
-    "loop": "change → period → results → comparison → lesson → new standard"
+    "loop": "changes → periods → metrics → hypotheses → comparison → cautious attribution → next test"
   },
   "SCN-098": {
     "id": "SCN-098",
@@ -5064,11 +5188,14 @@
       "individual",
       "team"
     ],
-    "settings": [],
+    "settings": [
+      "enterprise"
+    ],
     "properties": [],
     "domains": [
       "sport",
-      "performance"
+      "strategy",
+      "investment"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -5080,16 +5207,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "sport",
+      "strategy",
+      "investment"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-098.svg",
     "badges": [],
     "related": [],
-    "loop": "hypothesis → plan → match → data → review → adaptation"
+    "loop": "predictions → plan → game → result → gaps → lessons → next hypothesis"
   },
   "SCN-099": {
     "id": "SCN-099",
@@ -5118,7 +5245,9 @@
       "offline"
     ],
     "domains": [
-      "agriculture"
+      "agriculture",
+      "climate",
+      "ecology"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -5128,16 +5257,16 @@
       "POS-FIELD-001"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "agriculture",
+      "climate",
+      "ecology"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-099.svg",
     "badges": [],
     "related": [],
-    "loop": "season → conditions → decisions → yield → comparison → lessons"
+    "loop": "seasons → practices → conditions → yields → patterns → hypotheses → next season"
   },
   "SCN-100": {
     "id": "SCN-100",
@@ -5161,12 +5290,13 @@
       "organization"
     ],
     "settings": [
-      "culture",
-      "research"
+      "culture"
     ],
     "properties": [],
     "domains": [
-      "art-conservation"
+      "heritage",
+      "maintenance",
+      "medicine"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -5175,16 +5305,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "heritage",
+      "maintenance",
+      "medicine"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-100.svg",
     "badges": [],
     "related": [],
-    "loop": "diagnosis → options → decision → treatment → evidence → artwork memory"
+    "loop": "initial state → choices → materials → intervention → evidence → final state → reversibility"
   },
   "SCN-101": {
     "id": "SCN-101",
@@ -5214,7 +5344,8 @@
     "properties": [],
     "domains": [
       "audit",
-      "compliance"
+      "compliance",
+      "quality"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -5226,16 +5357,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "audit",
+      "compliance",
+      "quality"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-101.svg",
     "badges": [],
     "related": [],
-    "loop": "finding → action → evidence → closure → recurrence? → lesson"
+    "loop": "findings → actions → owners → results → recurrences → systemic cause"
   },
   "SCN-102": {
     "id": "SCN-102",
@@ -5263,8 +5394,9 @@
     ],
     "properties": [],
     "domains": [
-      "support",
-      "product"
+      "customer-service",
+      "software",
+      "public-services"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -5276,16 +5408,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "customer-service",
+      "software",
+      "public-services"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-102.svg",
     "badges": [],
     "related": [],
-    "loop": "cases → clustering → pattern → product team → correction → fewer cases"
+    "loop": "requests → concepts → clusters → hypotheses → product → change → new requests"
   },
   "SCN-103": {
     "id": "SCN-103",
@@ -5314,7 +5446,8 @@
     "properties": [],
     "domains": [
       "quality",
-      "industry"
+      "policy",
+      "operations"
     ],
     "signature_patterns": [
       "SIG-08"
@@ -5326,16 +5459,16 @@
       "POS-INST-001"
     ],
     "transfer_domains": [
-      "research",
-      "projects",
-      "public-service"
+      "quality",
+      "policy",
+      "operations"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-103.svg",
     "badges": [],
     "related": [],
-    "loop": "cause → action → period → measures → verification → standard/reopen"
+    "loop": "problem → action → metrics → side effects → reevaluation → adjustment"
   },
   "SCN-104": {
     "id": "SCN-104",
@@ -5364,7 +5497,8 @@
     "properties": [],
     "domains": [
       "education",
-      "evaluation"
+      "social-policy",
+      "hr"
     ],
     "signature_patterns": [
       "SIG-01"
@@ -5376,16 +5510,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "education",
+      "social-policy",
+      "hr"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-104.svg",
     "badges": [],
     "related": [],
-    "loop": "pilot → evidence → feedback → analysis → decision → resources"
+    "loop": "program → hypotheses → cohorts → results → subgroups → revision → new pilot"
   },
   "SCN-105": {
     "id": "SCN-105",
@@ -5415,8 +5549,9 @@
       "public-facing"
     ],
     "domains": [
-      "policy",
-      "evaluation"
+      "governance",
+      "strategy",
+      "public-policy"
     ],
     "signature_patterns": [
       "SIG-01",
@@ -5430,16 +5565,16 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "quality",
-      "research",
-      "projects"
+      "governance",
+      "strategy",
+      "public-policy"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-105.svg",
     "badges": [],
     "related": [],
-    "loop": "evidence → decision → implementation → results → revision → new knowledge"
+    "loop": "policy → hypotheses → predictions → implementation → results → comparison → learning"
   },
   "SCN-106": {
     "id": "SCN-106",
@@ -5468,12 +5603,13 @@
       "research"
     ],
     "properties": [
-      "public-facing",
-      "ai-optional"
+      "ai-optional",
+      "public-facing"
     ],
     "domains": [
       "science",
-      "mediation"
+      "health",
+      "climate"
     ],
     "signature_patterns": [
       "SIG-07"
@@ -5484,16 +5620,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "public-service",
-      "culture"
+      "science",
+      "health",
+      "climate"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-106.svg",
     "badges": [],
     "related": [],
-    "loop": "research → validation → mediation → formats → audiences → feedback"
+    "loop": "result → sources → limits → narrative → media → questions → updates"
   },
   "SCN-107": {
     "id": "SCN-107",
@@ -5517,20 +5653,20 @@
     ],
     "entry_trigger": "knowledge-to-publish",
     "scales": [
-      "community",
       "public-institution"
     ],
     "settings": [
       "public-service"
     ],
     "properties": [
-      "public-facing",
+      "ai-optional",
       "multilingual",
-      "ai-optional"
+      "public-facing"
     ],
     "domains": [
-      "municipality",
-      "communication"
+      "municipal-government",
+      "governance",
+      "major-projects"
     ],
     "signature_patterns": [
       "SIG-02",
@@ -5543,16 +5679,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "municipal-government",
+      "governance",
+      "major-projects"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-107.svg",
     "badges": [],
     "related": [],
-    "loop": "decision → reasons → narrative → languages/formats → audience → questions"
+    "loop": "decision → reasons → sources → objections → public narrative → questions → updates"
   },
   "SCN-108": {
     "id": "SCN-108",
@@ -5576,15 +5712,16 @@
       "community"
     ],
     "settings": [
-      "field"
+      "culture"
     ],
     "properties": [
-      "public-facing",
-      "offline"
+      "offline",
+      "public-facing"
     ],
     "domains": [
+      "cooking",
       "agriculture",
-      "cooperative"
+      "food-science"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -5595,16 +5732,16 @@
       "POS-FIELD-001"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "cooking",
+      "agriculture",
+      "food-science"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-108.svg",
     "badges": [],
     "related": [],
-    "loop": "practice → evidence → review → tutorial → dissemination → field feedback"
+    "loop": "ingredients → properties → techniques → combinations → experiments → results → new possibilities"
   },
   "SCN-109": {
     "id": "SCN-109",
@@ -5634,8 +5771,9 @@
       "public-facing"
     ],
     "domains": [
-      "museum",
-      "media-library"
+      "digital-humanities",
+      "arts",
+      "encyclopedias"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -5644,16 +5782,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "digital-humanities",
+      "arts",
+      "encyclopedias"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-109.svg",
     "badges": [],
     "related": [],
-    "loop": "exhibition → media → collections → publication → reuse"
+    "loop": "real world → work → universe → entities → versions → media → updates"
   },
   "SCN-110": {
     "id": "SCN-110",
@@ -5678,15 +5816,19 @@
     "scales": [
       "public-institution"
     ],
-    "settings": [],
+    "settings": [
+      "public-service"
+    ],
     "properties": [
-      "public-facing",
+      "high-consequence",
       "multilingual",
-      "high-consequence"
+      "offline",
+      "public-facing"
     ],
     "domains": [
-      "emergency",
-      "communication"
+      "emergency-response",
+      "public-health",
+      "services"
     ],
     "signature_patterns": [
       "SIG-02"
@@ -5698,16 +5840,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "emergency-response",
+      "public-health",
+      "services"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-110.svg",
     "badges": [],
     "related": [],
-    "loop": "procedure → version → renderings → channels → audiences → update"
+    "loop": "source instruction → translations → formats → distribution → update → propagation"
   },
   "SCN-111": {
     "id": "SCN-111",
@@ -5737,7 +5879,8 @@
       "public-facing"
     ],
     "domains": [
-      "trade",
+      "trades",
+      "heritage",
       "training"
     ],
     "signature_patterns": [],
@@ -5747,16 +5890,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "trades",
+      "heritage",
+      "training"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-111.svg",
     "badges": [],
     "related": [],
-    "loop": "expertise → capture → review → tutorial → dissemination → adaptations"
+    "loop": "practice → capture → modules → demonstrations → limits → publication → feedback"
   },
   "SCN-112": {
     "id": "SCN-112",
@@ -5782,15 +5925,16 @@
       "organization"
     ],
     "settings": [
-      "research"
+      "education"
     ],
     "properties": [
-      "public-facing",
-      "ai-optional"
+      "ai-optional",
+      "public-facing"
     ],
     "domains": [
       "climate",
-      "mediation"
+      "education",
+      "local-media"
     ],
     "signature_patterns": [
       "SIG-07"
@@ -5801,16 +5945,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
+      "climate",
       "education",
-      "science",
-      "public-service"
+      "local-media"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-112.svg",
     "badges": [],
     "related": [],
-    "loop": "data → territory → interpretation → media → audience → contribution"
+    "loop": "data → places → observations → narrative → media → discussion → new observations"
   },
   "SCN-113": {
     "id": "SCN-113",
@@ -5834,14 +5978,17 @@
     "scales": [
       "organization"
     ],
-    "settings": [],
+    "settings": [
+      "enterprise"
+    ],
     "properties": [
-      "public-facing",
-      "ai-optional"
+      "ai-optional",
+      "public-facing"
     ],
     "domains": [
-      "ngo",
-      "reporting"
+      "companies",
+      "ngos",
+      "public-administration"
     ],
     "signature_patterns": [
       "SIG-07"
@@ -5852,16 +5999,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "companies",
+      "ngos",
+      "public-administration"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-113.svg",
     "badges": [],
     "related": [],
-    "loop": "results → relationships → synthesis → formats → publication → reuse"
+    "loop": "data → commitments → narrative → publication → updates → public follow-up"
   },
   "SCN-114": {
     "id": "SCN-114",
@@ -5891,8 +6038,9 @@
       "public-facing"
     ],
     "domains": [
-      "education",
-      "portfolio"
+      "schools",
+      "makerspaces",
+      "universities"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -5901,16 +6049,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "science",
-      "public-service",
-      "culture"
+      "schools",
+      "makerspaces",
+      "universities"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-114.svg",
     "badges": [],
     "related": [],
-    "loop": "project → evidence → review → publication → inspiration"
+    "loop": "project → sources → creation → publication → comments → reuse → new creation"
   },
   "SCN-115": {
     "id": "SCN-115",
@@ -5937,13 +6085,15 @@
       "field"
     ],
     "properties": [
-      "offline",
       "intermittent-connectivity",
+      "local-first",
+      "offline",
       "public-facing"
     ],
     "domains": [
-      "humanitarian",
-      "training"
+      "humanitarian-response",
+      "remote-regions",
+      "research"
     ],
     "signature_patterns": [
       "SIG-03"
@@ -5956,16 +6106,16 @@
       "POS-SOV-003"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "humanitarian-response",
+      "remote-regions",
+      "research"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-115.svg",
     "badges": [],
     "related": [],
-    "loop": "corpus → pack → transport → local use → new evidence → sync"
+    "loop": "corpus → offline package → field use → annotations → synchronization → new edition"
   },
   "SCN-116": {
     "id": "SCN-116",
@@ -5992,12 +6142,15 @@
       "community"
     ],
     "properties": [
+      "local-first",
+      "multilingual",
       "public-facing",
-      "local-first"
+      "sensitive-data"
     ],
     "domains": [
-      "commons",
-      "media"
+      "communities",
+      "heritage",
+      "organizations"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -6006,16 +6159,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "communities",
+      "heritage",
+      "organizations"
     ],
     "derivation": "DERIVED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-116.svg",
     "badges": [],
     "related": [],
-    "loop": "knowledge → governance → content → local channel → audience → feedback"
+    "loop": "knowledge → rules → roles → publication → access → transmission → governance"
   },
   "SCN-117": {
     "id": "SCN-117",
@@ -6044,11 +6197,12 @@
       "research"
     ],
     "properties": [
-      "public-facing",
-      "ai-optional"
+      "ai-optional",
+      "public-facing"
     ],
     "domains": [
-      "university",
+      "universities",
+      "open-science",
       "media"
     ],
     "signature_patterns": [
@@ -6060,16 +6214,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "universities",
+      "open-science",
+      "media"
     ],
     "derivation": "DERIVED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-117.svg",
     "badges": [],
     "related": [],
-    "loop": "project → results → mediation → channel → audiences → new questions"
+    "loop": "research → status → sources → media → public → critique → update"
   },
   "SCN-118": {
     "id": "SCN-118",
@@ -6098,12 +6252,13 @@
       "public-service"
     ],
     "properties": [
-      "public-facing",
-      "multilingual"
+      "multilingual",
+      "public-facing"
     ],
     "domains": [
-      "municipality",
-      "civic"
+      "cities",
+      "transparency",
+      "heritage"
     ],
     "signature_patterns": [
       "SIG-02"
@@ -6115,16 +6270,16 @@
       "POS-LANG-004"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "cities",
+      "transparency",
+      "heritage"
     ],
     "derivation": "DERIVED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-118.svg",
     "badges": [],
     "related": [],
-    "loop": "public objects → selection → explanation → media library → residents"
+    "loop": "local object → knowledge → decisions → media → questions → participation"
   },
   "SCN-119": {
     "id": "SCN-119",
@@ -6149,15 +6304,15 @@
       "community"
     ],
     "settings": [
-      "enterprise",
-      "community"
+      "enterprise"
     ],
     "properties": [
       "public-facing"
     ],
     "domains": [
-      "professional-network",
-      "training"
+      "trades",
+      "health",
+      "industry"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -6166,16 +6321,16 @@
       "POS-LEARN-001"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "trades",
+      "health",
+      "industry"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-119.svg",
     "badges": [],
     "related": [],
-    "loop": "experience → review → standard/practice → content → network → adaptation"
+    "loop": "practice → context → evidence → publication → variants → feedback → evolution"
   },
   "SCN-120": {
     "id": "SCN-120",
@@ -6197,13 +6352,16 @@
     "scales": [
       "organization"
     ],
-    "settings": [],
+    "settings": [
+      "education"
+    ],
     "properties": [
       "public-facing"
     ],
     "domains": [
       "media",
-      "archives"
+      "training",
+      "documentation"
     ],
     "signature_patterns": [],
     "canon_refs": [
@@ -6212,15 +6370,15 @@
       "POS-ORG-005"
     ],
     "transfer_domains": [
-      "education",
-      "science",
-      "public-service"
+      "media",
+      "training",
+      "documentation"
     ],
     "derivation": "COMPOSED",
     "runtime_evidence": "UNVERIFIED",
     "preview_image": "/scenarios/placeholders/SCN-120.svg",
     "badges": [],
     "related": [],
-    "loop": "media → source/version → change → alert → update/annotation"
+    "loop": "source knowledge → derivative media → change → impact detection → revision → republication"
   }
 }

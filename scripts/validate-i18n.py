@@ -58,7 +58,10 @@ fr_detail=R/'preview/fr/uses/SCN-061/index.html'
 if not fr_detail.exists(): errors.append('French detailed scenario page missing')
 else:
     t=fr_detail.read_text(encoding='utf-8')
-    for token in ('Un ascenseur tombe en panne','Point de départ','Ce qui peut se perdre','Koali maintient le lien','Déroulé','Transposable à'):
+    fr_source=R/'src/content/scenarios/fr/SCN-061.md'
+    fr_title_match=re.search(r'(?m)^title:\s*(.+)$', fr_source.read_text(encoding='utf-8'))
+    fr_title=fr_title_match.group(1).strip().strip("'\"") if fr_title_match else 'SCN-061'
+    for token in (fr_title,'Point de départ','Ce qui peut se perdre','Koali maintient le lien','Déroulé','Transposable à'):
         if token not in t: errors.append(f'French public scenario detail missing {token}')
     for stale in ('What can get lost','Koali keeps connected','Transferable to','PAT-','POS-','COMPOSED','UNVERIFIED'):
         if stale in t: errors.append(f'French public scenario detail leaks internal/English token: {stale}')

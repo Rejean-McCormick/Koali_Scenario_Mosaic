@@ -52,7 +52,7 @@ if 'scenario-info-mosaic' not in scenario_css or 'detail-hex--continuity' not in
 if 'scenario = null' not in preview_component or "data-image-state={selected ? 'scenario' : 'cover'}" not in preview_component: errors.append('shared preview selected-state contract')
 
 # Generated public detail pages must not expose editorial/internal governance markers.
-internal_markers=('PAT-','SIG-','POS-','COMPOSED','UNVERIFIED','PARTIALLY-VALIDATED','DOCUMENTED','Kristal','Konnaxion','Orgo','UCKK')
+internal_markers=('PAT-','SIG-','POS-','COMPOSED','UNVERIFIED','PARTIALLY-VALIDATED','DOCUMENTED','Kristal','KristALL','Konnaxion','Orgo','UCKK')
 for locale in ('en','fr'):
     pages=sorted((R/f'preview/{locale}/uses').glob('SCN-*/index.html'))
     if len(pages)!=120: errors.append(f'{locale} offline public scenario page count')

@@ -23,5 +23,11 @@ Does wording match `derivation` and `runtime_evidence`?
 ## 7. Distinctiveness
 Does the card show something more interesting than “store a document,” “send a message,” or “create a task” in isolation?
 
+## 8. Narrative hook
+Can a reader remember the scenario an hour later because it contains a concrete tension, constraint, surprise, or consequence rather than a generic job description?
+
+## 9. Stress-test value
+Does the scenario expose a boundary that ordinary happy-path examples hide — authority, provenance, uncertainty, confidentiality, offline work, conflicting realities, irreversible consequences, or long-term memory?
+
 ## Acceptance
-A strong scenario should pass all seven criteria. Weak scenarios should be merged, rewritten around a stronger pattern, or removed.
+A strong scenario should pass all nine criteria. Weak scenarios should be merged, rewritten around a stronger pattern, or removed.

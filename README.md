@@ -1,8 +1,12 @@
-# Koali Scenario Mosaic — v4.2 Bilingual
+# Koali Scenario Mosaic — v4.3 Bilingual
 
 **Koali, the Sociotechnical Operating System**
 
 Koali Scenario Mosaic is a public-facing panorama of **120 stable scenario identities**, now available in **English and French** without duplicating the Mosaic geometry or machine-facing scenario metadata.
+
+## v4.3 scenario refresh
+
+The 120 scenario identities and 24 pattern families are preserved, but the editorial layer has been rebuilt around more memorable pressure tests: rare failures, disputed provenance, inter-community learning, intellectual provenance, collective governance, political legitimacy, crisis coordination, long-term knowledge transfer, fictional realities, and combinatorial domains such as cooking. English and French are refreshed together, and shared public metadata is synchronized with the new stories.
 
 ## Open immediately
 
