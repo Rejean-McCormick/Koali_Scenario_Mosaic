@@ -440,3 +440,63 @@
     gap:.32rem .55rem;
   }
 }
+
+/* Smartphone reading order: copy first, profile second, image last.
+   Keep the profile strictly single-column on narrow screens. */
+@media(max-width:720px){
+  .preview-copy{
+    grid-column:1;
+    grid-row:1;
+  }
+
+  .preview-profile{
+    grid-column:1;
+    grid-row:2;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto auto auto auto;
+    gap:.72rem;
+  }
+
+  .preview-image-shell{
+    grid-column:1;
+    grid-row:3;
+    width:min(176px,52vw);
+    margin-top:.1rem;
+  }
+
+  .profile-heading,
+  .profile-pattern,
+  .profile-actions,
+  .profile-context{
+    grid-column:1;
+    width:100%;
+  }
+
+  .profile-heading{
+    grid-row:1;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    justify-content:stretch;
+    gap:.28rem;
+  }
+
+  .profile-category{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+  }
+
+  .profile-pattern{grid-row:2}
+  .profile-actions{grid-row:3}
+  .profile-context{grid-row:4}
+
+  .activity-signature{
+    grid-template-columns:minmax(0,1fr);
+    gap:.36rem;
+  }
+
+  .profile-context>div{
+    grid-template-columns:minmax(0,1fr);
+    gap:.12rem;
+  }
+}
