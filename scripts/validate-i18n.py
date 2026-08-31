@@ -58,8 +58,10 @@ fr_detail=R/'preview/fr/uses/SCN-061/index.html'
 if not fr_detail.exists(): errors.append('French detailed scenario page missing')
 else:
     t=fr_detail.read_text(encoding='utf-8')
-    for token in ('Un ascenseur tombe en panne','Ce qui se perd habituellement','Avec Koali','Ancrage canonique'):
-        if token not in t: errors.append(f'French detailed scenario missing {token}')
+    for token in ('Un ascenseur tombe en panne','Point de départ','Ce qui peut se perdre','Koali maintient le lien','Déroulé','Transposable à'):
+        if token not in t: errors.append(f'French public scenario detail missing {token}')
+    for stale in ('What can get lost','Koali keeps connected','Transferable to','PAT-','POS-','COMPOSED','UNVERIFIED'):
+        if stale in t: errors.append(f'French public scenario detail leaks internal/English token: {stale}')
 
 print('Bilingual contract: 120 shared identities + 120 EN + 120 FR editorial documents')
 if errors:

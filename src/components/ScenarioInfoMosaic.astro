@@ -1,0 +1,49 @@
+---
+import { getUi, humanizeTag, localizeEntryTrigger, type Locale } from '../i18n/ui';
+import { extractScenarioPublicDetails } from '../lib/scenario-public';
+
+const { scenario, locale = 'en' as Locale } = Astro.props;
+const s = getUi(locale);
+const details = extractScenarioPublicDetails(scenario.entry.body ?? '', locale);
+const transfer = (scenario.data.transfer_domains ?? []).map((x:string) => humanizeTag(locale, x));
+const continuityFallback = locale === 'fr'
+  ? 'Koali préserve le contexte utile tout au long du parcours, afin que compréhension, action et apprentissage restent reliés.'
+  : 'Koali preserves the useful context across the whole journey so understanding, action, and learning remain connected.';
+const flowFallback = scenario.data.pattern;
+---
+<section class="scenario-info-mosaic" data-category={scenario.data.primary_category} aria-label={locale === 'fr' ? 'Informations complémentaires du scénario' : 'Additional scenario information'}>
+  <article class="detail-hex detail-hex--trigger">
+    <div class="detail-hex-inner">
+      <span>{s.detailStartsWith}</span>
+      <strong>{localizeEntryTrigger(locale, scenario.data.entry_trigger)}</strong>
+    </div>
+  </article>
+
+  <article class="detail-hex detail-hex--loss">
+    <div class="detail-hex-inner">
+      <span>{s.detailWhatGetsLost}</span>
+      <p>{scenario.data.continuity_gap}</p>
+    </div>
+  </article>
+
+  <article class="detail-hex detail-hex--continuity">
+    <div class="detail-hex-inner">
+      <span>{s.detailKoaliContinuity}</span>
+      <p>{details.continuity || continuityFallback}</p>
+    </div>
+  </article>
+
+  <article class="detail-hex detail-hex--flow">
+    <div class="detail-hex-inner">
+      <span>{s.detailFlow}</span>
+      <p class="detail-flow">{details.flow || flowFallback}</p>
+    </div>
+  </article>
+
+  <article class="detail-hex detail-hex--transfer">
+    <div class="detail-hex-inner">
+      <span>{s.detailTransferable}</span>
+      <strong>{transfer.join(' · ')}</strong>
+    </div>
+  </article>
+</section>

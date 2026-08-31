@@ -67,3 +67,7 @@ See [`39_Koali_BRAND_IDENTITY.md`](39_Koali_BRAND_IDENTITY.md) for canonical cap
 The public interface is now available in English and French using one shared 120-scenario identity layer and one shared Mosaic geography. See [`40_BILINGUAL_ARCHITECTURE.md`](40_BILINGUAL_ARCHITECTURE.md).
 
 Public routes: `/en/uses/` and `/fr/uses/`. The language switch preserves the current scenario.
+
+## Current public scenario-page model
+
+See [`42_PUBLIC_SCENARIO_SELECTED_STATE.md`](42_PUBLIC_SCENARIO_SELECTED_STATE.md). In v4.2, a public scenario page reuses the main Mosaic preview and replaces the 120-cell panorama with five supplemental public information hexagons. Internal/editorial Markdown remains in source but is not rendered on the general-public route.

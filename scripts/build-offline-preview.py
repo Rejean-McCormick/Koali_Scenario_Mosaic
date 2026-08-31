@@ -41,6 +41,7 @@ UI = {
   'search':'Search the mosaic…','surprise':'Surprise me','reset':'Reset','legend':'Scenario color legend',
   'hint':'Each color is a scenario family. Hover or focus one hexagon to inspect it above.',
   'back':'← Back to mosaic','all':'All scenarios',
+  'detail_starts':'Starts with','detail_loss':'What can get lost','detail_continuity':'Koali keeps connected','detail_flow':'Flow','detail_transfer':'Transferable to','detail_back':'Back to the full Mosaic',
   'activities':{'understand':'Understand','learn':'Learn & share','create':'Create together','decide':'Decide','act':'Organize & act','respond':'Respond','remember':'Remember & share'},
   'involved':'involved','notCentral':'not central','lang':'Language',
 },
@@ -53,9 +54,51 @@ UI = {
   'search':'Rechercher dans la mosaïque…','surprise':'Au hasard','reset':'Réinitialiser','legend':'Légende des couleurs des scénarios',
   'hint':'Chaque couleur représente une famille de scénarios. Survolez ou ciblez un hexagone pour l’examiner ci-dessus.',
   'back':'← Retour à la mosaïque','all':'Tous les scénarios',
+  'detail_starts':'Point de départ','detail_loss':'Ce qui peut se perdre','detail_continuity':'Koali maintient le lien','detail_flow':'Déroulé','detail_transfer':'Transposable à','detail_back':'Retour à la mosaïque complète',
   'activities':{'understand':'Comprendre','learn':'Apprendre & transmettre','create':'Créer ensemble','decide':'Décider','act':'Organiser & agir','respond':'Répondre','remember':'Se souvenir & partager'},
   'involved':'impliqué','notCentral':'non central','lang':'Langue',
 }}
+
+ENTRY_TRIGGER_LABELS = {
+'en': {
+  'question-or-signal':'A question, signal, or anomaly',
+  'knowledge-to-transfer':'Knowledge that needs to be transmitted',
+  'idea-or-goal':'An idea or goal to develop together',
+  'decision-to-make':'A choice that needs to be made',
+  'mandate-or-plan':'A mandate or plan that must become action',
+  'incident-or-change':'An incident or changing situation',
+  'result-or-lessons-learned':'A result or lesson worth preserving',
+  'knowledge-to-publish':'Knowledge that needs to reach a public',
+},
+'fr': {
+  'question-or-signal':'Une question, un signal ou une anomalie',
+  'knowledge-to-transfer':'Un savoir qui doit être transmis',
+  'idea-or-goal':'Une idée ou un objectif à développer ensemble',
+  'decision-to-make':'Un choix qui doit être fait',
+  'mandate-or-plan':'Un mandat ou un plan qui doit devenir action',
+  'incident-or-change':'Un incident ou une situation qui évolue',
+  'result-or-lessons-learned':'Un résultat ou une leçon à préserver',
+  'knowledge-to-publish':'Un savoir qui doit rejoindre un public',
+}}
+
+def clean_md(value):
+    value=re.sub(r'`([^`]+)`',r'\1',value)
+    value=re.sub(r'\*\*([^*]+)\*\*',r'\1',value)
+    value=re.sub(r'\*([^*]+)\*',r'\1',value)
+    return re.sub(r'\s+',' ',value).strip()
+
+def extract_section(body, heading):
+    m=re.search(r'^## '+re.escape(heading)+r'\s*$([\s\S]*?)(?=^## |\Z)',body,re.M)
+    return clean_md(m.group(1)) if m else ''
+
+def public_details(x, locale):
+    continuity_heading='Ce qui rend ce scénario caractéristique de Koali' if locale=='fr' else 'What makes this characteristically Koali'
+    loop_heading='Boucle' if locale=='fr' else 'Loop'
+    continuity=extract_section(x['body'],continuity_heading)
+    flow=extract_section(x['body'],loop_heading)
+    if not continuity:
+        continuity='Koali préserve le contexte utile tout au long du parcours, afin que compréhension, action et apprentissage restent reliés.' if locale=='fr' else 'Koali preserves the useful context across the whole journey so understanding, action, and learning remain connected.'
+    return continuity, flow or x['pattern']
 
 def parse_localized(locale):
     out=[]
@@ -153,7 +196,26 @@ for locale in ('en','fr'):
         d=base/'uses'/x['id']; d.mkdir(parents=True,exist_ok=True)
         alt=f'../../../{other}/uses/{x["id"]}/index.html'
         switch_detail=f'<nav class="language-switcher"><a class="{"active" if locale=="en" else ""}" href="{"index.html" if locale=="en" else alt}">EN</a><span>/</span><a class="{"active" if locale=="fr" else ""}" href="{"index.html" if locale=="fr" else alt}">FR</a></nav>'
-        page=f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="../../../assets/styles.css"><title>{html.escape(x['title'])}</title></head><body><header class="site-header"><a class="brand" href="../../index.html"><img class="brand-mark" src="../../../assets/brand/koali-mark.svg" alt=""><span class="brand-copy"><span class="brand-product"><strong>Koali</strong><span>{html.escape(s['product'])}</span></span><small>the Sociotechnical Operating System</small></span></a>{switch_detail}</header><main><article class="scenario-shell"><a class="back-link" href="../../index.html">{html.escape(s['back'])}</a><h1>{html.escape(x['title'])}</h1><p class="scenario-dek">{html.escape(x['preview_summary'])}</p><div class="scenario-body">{markdown_to_html(x['body'])}</div></article></main></body></html>'''
+
+        contexts=list(dict.fromkeys([*x.get('settings',[]),*x.get('domains',[])]))[:3]
+        scales=[humanize(locale,v) for v in x.get('scales',[])]
+        context_labels=[humanize(locale,v) for v in contexts]
+        props=[humanize(locale,v) for v in x.get('properties',[])]
+        activities={k:any(v in x['palette'] for v in vals) for k,vals in groups.items()}
+        acts=''.join(f'<span class="{"is-active" if activities[key] else ""}" data-activity="{key}"><i></i>{html.escape(label)}</span>' for key,label in s['activities'].items())
+        scenario_profile=f'''<aside class="preview-profile" data-preview-profile data-category="{x['primary_category']}"><div class="profile-heading"><span class="profile-title">{html.escape(s['profile'])}</span><span class="profile-category"><span class="category-swatch"></span><strong data-preview-category-label>{html.escape(x['category_label'])}</strong></span></div><div class="profile-pattern"><span>{html.escape(s['motion'])}</span><small data-preview-pattern>{html.escape(x['pattern_label'])}</small></div><div class="profile-actions"><span class="profile-section-label">{html.escape(s['what'])}</span><div class="activity-signature">{acts}</div></div><div class="profile-context"><div><span>{html.escape(s['scale'])}</span><strong data-preview-scales>{html.escape(' · '.join(scales))}</strong></div><div><span>{html.escape(s['context'])}</span><strong data-preview-context>{html.escape(' · '.join(context_labels))}</strong></div><div><span>{html.escape(s['conditions'])}</span><strong data-preview-properties>{html.escape(' · '.join(props) if props else s['none'])}</strong></div></div></aside>'''
+        pal=''.join(f'<span class="tag">{html.escape(palette_label(locale,v))}</span>' for v in x['palette'][:5])
+        number=x['id'].split('-')[1]
+        png=R/'public/scenarios/images'/f'scenario_{number}.png'
+        if png.exists(): img=f'../../../../public/scenarios/images/{png.name}'
+        else: img=f'../../../assets/scenarios/{Path(x["preview_image"]).name}'
+
+        continuity,flow=public_details(x,locale)
+        trigger=ENTRY_TRIGGER_LABELS[locale].get(x['entry_trigger'], humanize(locale,x['entry_trigger']))
+        transfer=' · '.join(humanize(locale,v) for v in x.get('transfer_domains',[]))
+        info=f'''<section class="scenario-info-mosaic" data-category="{x['primary_category']}"><article class="detail-hex detail-hex--trigger"><div class="detail-hex-inner"><span>{html.escape(s['detail_starts'])}</span><strong>{html.escape(trigger)}</strong></div></article><article class="detail-hex detail-hex--loss"><div class="detail-hex-inner"><span>{html.escape(s['detail_loss'])}</span><p>{html.escape(x['continuity_gap'])}</p></div></article><article class="detail-hex detail-hex--continuity"><div class="detail-hex-inner"><span>{html.escape(s['detail_continuity'])}</span><p>{html.escape(continuity)}</p></div></article><article class="detail-hex detail-hex--flow"><div class="detail-hex-inner"><span>{html.escape(s['detail_flow'])}</span><p class="detail-flow">{html.escape(flow)}</p></div></article><article class="detail-hex detail-hex--transfer"><div class="detail-hex-inner"><span>{html.escape(s['detail_transfer'])}</span><strong>{html.escape(transfer)}</strong></div></article></section>'''
+        preview=f'''<section class="scenario-preview"><div class="preview-image-shell"><img data-preview-image data-image-state="scenario" src="{img}" alt="{html.escape(x['preview_image_alt'])}"></div><div class="preview-copy"><p class="preview-eyebrow"><span data-preview-id>{x['id']}</span> · <span data-preview-category>{html.escape(x['category_label'])}</span></p><h1 data-preview-title>{html.escape(x['title'])}</h1><p class="preview-summary" data-preview-summary>{html.escape(x['preview_summary'])}</p><div class="preview-tags" data-preview-palette>{pal}</div><a class="preview-cta" href="../../index.html">← {html.escape(s['detail_back'])}</a></div>{scenario_profile}</section>'''
+        page=f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="theme-color" content="#1e6864"><link rel="icon" href="../../../assets/brand/koali-mark.svg"><link rel="stylesheet" href="../../../assets/styles.css"><title>{html.escape(x['title'])}</title></head><body><header class="site-header"><a class="brand" href="../../index.html"><img class="brand-mark" src="../../../assets/brand/koali-mark.svg" alt=""><span class="brand-copy"><span class="brand-product"><strong>Koali</strong><span>{html.escape(s['product'])}</span></span><small>the Sociotechnical Operating System</small></span></a>{switch_detail}</header><main><div class="mosaic-experience scenario-detail-experience">{preview}{info}</div></main></body></html>'''
         (d/'index.html').write_text(page,encoding='utf-8')
 
 # Root offline language redirect. This remains file:// safe.

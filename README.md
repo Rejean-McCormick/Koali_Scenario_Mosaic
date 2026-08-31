@@ -1,4 +1,4 @@
-# Koali Scenario Mosaic — v4.1 Bilingual
+# Koali Scenario Mosaic — v4.2 Bilingual
 
 **Koali, the Sociotechnical Operating System**
 
@@ -59,7 +59,7 @@ The French edition includes:
 - all **24 recurring pattern names and descriptions**;
 - all **8 public category names**;
 - localized scale, context, domain, property, and palette labels;
-- complete French detailed scenario bodies;
+- complete French editorial scenario sources;
 - French search, legend, controls, profile labels, accessibility text, and cover;
 - French offline pages under `preview/fr/`.
 
@@ -90,6 +90,23 @@ The v4.1 preview explicitly separates the **initial cover** from **scenario imag
 - only the Mosaic itself becomes horizontally scrollable on narrow screens.
 
 This prevents the preview panel from spilling outside the viewport and prevents the cover branding from being cropped.
+
+
+## Scenario pages: selected Mosaic state
+
+A public scenario page is no longer a separate article layout. It reuses the **same Koali header and the same scenario-preview panel** as the main Mosaic. The only major visual change is the lower honeycomb.
+
+On the main page, that honeycomb contains the 120 scenarios. On a selected scenario page, it becomes five public information hexagons:
+
+- **Starts with / Point de départ**;
+- **What can get lost / Ce qui peut se perdre**;
+- **Koali keeps connected / Koali maintient le lien**;
+- **Flow / Déroulé**;
+- **Transferable to / Transposable à**.
+
+The public route intentionally does **not render the full editorial Markdown**. Internal architecture and claim-governance material such as component scores, `PAT-*`, `SIG-*`, `POS-*`, derivation states, and runtime-evidence states remain in the repository source for editorial/governance use, but are not part of the general-public reading experience.
+
+This makes a scenario feel like a **selected state of the Mosaic**, not a jump into a different documentation system.
 
 ## Develop locally
 
@@ -176,4 +193,4 @@ Both languages share the same scenario image. Missing PNGs automatically use the
 - French interface: **Mosaïque de scénarios Koali**;
 - npm package: `koali-scenario-mosaic`.
 
-See [`docs/40_BILINGUAL_ARCHITECTURE.md`](docs/40_BILINGUAL_ARCHITECTURE.md) for the v4 language architecture and [`docs/41_RESPONSIVE_PREVIEW_AND_COVER.md`](docs/41_RESPONSIVE_PREVIEW_AND_COVER.md) for the v4.1 responsive-preview contract.
+See [`docs/40_BILINGUAL_ARCHITECTURE.md`](docs/40_BILINGUAL_ARCHITECTURE.md) for the v4 language architecture, [`docs/41_RESPONSIVE_PREVIEW_AND_COVER.md`](docs/41_RESPONSIVE_PREVIEW_AND_COVER.md) for the responsive-preview contract, and [`docs/42_PUBLIC_SCENARIO_SELECTED_STATE.md`](docs/42_PUBLIC_SCENARIO_SELECTED_STATE.md) for the v4.2 public scenario-page model.

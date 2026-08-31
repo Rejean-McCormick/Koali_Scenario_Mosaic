@@ -1,4 +1,4 @@
-# Validation report — v4.1 bilingual
+# Validation report — v4.2 bilingual
 
 ## Corpus
 
@@ -18,6 +18,18 @@
 - language switch preserves the current scenario path;
 - root browser-language chooser present;
 - zero-install preview generated in both languages.
+
+## Public scenario-page contract
+
+The v4.2 public scenario route is validated as a **selected state of the Mosaic**:
+
+- same `ScenarioPreview` component as the main Mosaic;
+- same Koali header and public profile;
+- no second article title/summary block;
+- no rendered full Markdown body;
+- five supplemental public hexagons: trigger, continuity gap, Koali continuity, flow, transfer contexts;
+- all **240 generated EN/FR public scenario pages** checked for absence of internal markers including `PAT-*`, `SIG-*`, `POS-*`, `COMPOSED`, `UNVERIFIED`, Kristal, Konnaxion, Orgo, and UCKK;
+- internal/editorial source material remains versioned in the repository but is not injected into public scenario HTML.
 
 ## Interaction contract
 
@@ -50,9 +62,9 @@ Generated HTML files: **245**:
 - 1 language chooser;
 - 2 Mosaic pages;
 - 2 localized scenario lists;
-- 240 localized detailed scenario pages.
+- 240 localized public scenario pages.
 
-A structural local-reference audit checked **1,942** `href`/`src` references with **0 broken local references**.
+A structural local-reference audit checked **2,422** local `href`/`src` references with **0 broken local references**.
 
 ## Production build environment
 
@@ -66,8 +78,8 @@ Production configuration:
 
 ## Current environment note
 
-All repository, geometry, image, copy, i18n, and naming validators pass locally. A fresh `npm install` could not be completed in the artifact container because dependency download timed out, so a fresh Astro dependency build was not claimed from this environment. Netlify/GitHub environments are configured to install dependencies and run the same production build.
+All repository, geometry, image, copy, i18n, naming, public-page, and offline-link validators pass locally. A fresh `npm install` in the artifact container timed out while downloading dependencies, so a fresh Astro dependency build is not claimed from this environment.
 
 ## Result
 
-**PASS — source/preview validation.**
+**PASS — source, public-page, bilingual-preview, and local-reference validation.**

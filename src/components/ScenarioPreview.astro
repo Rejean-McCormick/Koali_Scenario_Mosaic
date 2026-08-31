@@ -1,31 +1,75 @@
 ---
-import { getUi, type Locale } from '../i18n/ui';
-const { total = 120, locale = 'en' as Locale } = Astro.props;
+import { getUi, humanizeTag, localizePalette, type Locale } from '../i18n/ui';
+import { getPublicActivities } from '../lib/public-profile';
+import { resolveScenarioPreviewImage } from '../lib/scenario-image';
+
+const {
+  total = 120,
+  locale = 'en' as Locale,
+  scenario = null,
+} = Astro.props;
+
 const s = getUi(locale);
+const selected = Boolean(scenario);
+const data = scenario?.data;
+const activities = selected ? getPublicActivities(data.palette ?? []) : null;
+const scales = selected ? (data.scales ?? []).map((x:string) => humanizeTag(locale, x)) : [];
+const contexts = selected ? [...new Set([
+  ...(data.settings ?? []),
+  ...(data.domains ?? []),
+])].map((x:string) => humanizeTag(locale, x)).slice(0, 3) : [];
+const properties = selected ? (data.properties ?? []).map((x:string) => humanizeTag(locale, x)) : [];
+const image = selected ? resolveScenarioPreviewImage(data.id, data.preview_image) : (locale === 'fr' ? '/mosaic-cover-fr.svg' : '/mosaic-cover.svg');
+const palette = selected ? (data.palette ?? []).map((x:string) => localizePalette(locale, x)) : [];
 ---
 <section class="scenario-preview">
   <div class="preview-image-shell">
-    <img data-preview-image data-image-state="cover" src={locale === 'fr' ? '/mosaic-cover-fr.svg' : '/mosaic-cover.svg'} alt={locale === 'fr' ? 'Aperçu de la Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic scenario preview'} />
+    <img
+      data-preview-image
+      data-image-state={selected ? 'scenario' : 'cover'}
+      src={image}
+      alt={selected ? data.preview_image_alt : (locale === 'fr' ? 'Aperçu de la Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic scenario preview')}
+    />
   </div>
   <div class="preview-copy">
-    <p class="preview-eyebrow"><span data-preview-id>{locale === 'fr' ? 'Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic'}</span> · <span data-preview-category>{total} {s.scenarios}</span></p>
-    <h1 data-preview-title>{s.exploreWays(total)}</h1>
-    <p class="preview-summary" data-preview-summary>{s.hoverIntro}</p>
-    <div class="preview-tags" data-preview-palette><span class="tag">{s.hoverHint}</span></div>
-    <a class="preview-cta" data-preview-link hidden>{s.readScenario} →</a>
+    <p class="preview-eyebrow">
+      <span data-preview-id>{selected ? data.id : (locale === 'fr' ? 'Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic')}</span>
+      <span aria-hidden="true"> · </span>
+      <span data-preview-category>{selected ? data.category_label : `${total} ${s.scenarios}`}</span>
+    </p>
+    <h1 data-preview-title>{selected ? data.title : s.exploreWays(total)}</h1>
+    <p class="preview-summary" data-preview-summary>{selected ? data.preview_summary : s.hoverIntro}</p>
+    <div class="preview-tags" data-preview-palette>
+      {selected
+        ? palette.slice(0,5).map((label:string) => <span class="tag">{label}</span>)
+        : <span class="tag">{s.hoverHint}</span>}
+    </div>
+    {selected
+      ? <a class="preview-cta" href={`/${locale}/uses/`}>← {s.detailBack}</a>
+      : <a class="preview-cta" data-preview-link hidden>{s.readScenario} →</a>}
   </div>
-  <aside class="preview-profile" data-preview-profile>
-    <div class="profile-heading"><span class="profile-title">{s.scenarioProfile}</span><span class="profile-category"><span class="category-swatch"></span><strong data-preview-category-label>{s.exploreMosaic}</strong></span></div>
-    <div class="profile-pattern"><span>{s.typicalMotion}</span><small data-preview-pattern>{s.hoverInspect}</small></div>
-    <div class="profile-actions"><span class="profile-section-label">{s.whatHappens}</span><div class="activity-signature">
-      <span data-activity="understand"><i></i>{s.activityLabels.understand}</span>
-      <span data-activity="learn"><i></i>{s.activityLabels.learn}</span>
-      <span data-activity="create"><i></i>{s.activityLabels.create}</span>
-      <span data-activity="decide"><i></i>{s.activityLabels.decide}</span>
-      <span data-activity="act"><i></i>{s.activityLabels.act}</span>
-      <span data-activity="respond"><i></i>{s.activityLabels.respond}</span>
-      <span data-activity="remember"><i></i>{s.activityLabels.remember}</span>
-    </div></div>
-    <div class="profile-context"><div><span>{s.scale}</span><strong data-preview-scales>—</strong></div><div><span>{s.context}</span><strong data-preview-context>—</strong></div><div><span>{s.specialConditions}</span><strong data-preview-properties>{s.noneHighlighted}</strong></div></div>
+  <aside class="preview-profile" data-preview-profile data-category={selected ? data.primary_category : undefined}>
+    <div class="profile-heading">
+      <span class="profile-title">{s.scenarioProfile}</span>
+      <span class="profile-category"><span class="category-swatch"></span><strong data-preview-category-label>{selected ? data.category_label : s.exploreMosaic}</strong></span>
+    </div>
+    <div class="profile-pattern"><span>{s.typicalMotion}</span><small data-preview-pattern>{selected ? data.pattern_label : s.hoverInspect}</small></div>
+    <div class="profile-actions">
+      <span class="profile-section-label">{s.whatHappens}</span>
+      <div class="activity-signature">
+        <span class:list={[{'is-active': selected && activities?.understand}]} data-activity="understand"><i></i>{s.activityLabels.understand}</span>
+        <span class:list={[{'is-active': selected && activities?.learn}]} data-activity="learn"><i></i>{s.activityLabels.learn}</span>
+        <span class:list={[{'is-active': selected && activities?.create}]} data-activity="create"><i></i>{s.activityLabels.create}</span>
+        <span class:list={[{'is-active': selected && activities?.decide}]} data-activity="decide"><i></i>{s.activityLabels.decide}</span>
+        <span class:list={[{'is-active': selected && activities?.act}]} data-activity="act"><i></i>{s.activityLabels.act}</span>
+        <span class:list={[{'is-active': selected && activities?.respond}]} data-activity="respond"><i></i>{s.activityLabels.respond}</span>
+        <span class:list={[{'is-active': selected && activities?.remember}]} data-activity="remember"><i></i>{s.activityLabels.remember}</span>
+      </div>
+    </div>
+    <div class="profile-context">
+      <div><span>{s.scale}</span><strong data-preview-scales>{selected ? scales.join(' · ') : '—'}</strong></div>
+      <div><span>{s.context}</span><strong data-preview-context>{selected ? contexts.join(' · ') : '—'}</strong></div>
+      <div><span>{s.specialConditions}</span><strong data-preview-properties>{selected ? (properties.join(' · ') || s.noneHighlighted) : s.noneHighlighted}</strong></div>
+    </div>
   </aside>
 </section>

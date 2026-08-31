@@ -38,6 +38,30 @@ if '<text ' in cover: errors.append('initial cover repeats product text')
 if not (R/'src/pages/[lang]/uses/index.astro').exists(): errors.append('localized mosaic route')
 if not (R/'src/pages/[lang]/uses/[id].astro').exists(): errors.append('localized scenario route')
 if not (R/'preview/en/index.html').exists() or not (R/'preview/fr/index.html').exists(): errors.append('bilingual offline preview')
+
+# Public scenario page contract: same preview shell, supplemental public hexes, no internal Markdown dump.
+scenario_route=(R/'src/pages/[lang]/uses/[id].astro').read_text(encoding='utf-8')
+preview_component=(R/'src/components/ScenarioPreview.astro').read_text(encoding='utf-8')
+detail_component=(R/'src/components/ScenarioInfoMosaic.astro').read_text(encoding='utf-8')
+scenario_css=(R/'src/styles/scenario.css').read_text(encoding='utf-8')
+if 'ScenarioPreview' not in scenario_route or 'ScenarioInfoMosaic' not in scenario_route: errors.append('scenario selected-state composition')
+if 'render(' in scenario_route or '<Content' in scenario_route or 'scenario-body' in scenario_route: errors.append('public scenario still renders internal markdown')
+for token in ('detailStartsWith','detailWhatGetsLost','detailKoaliContinuity','detailFlow','detailTransferable'):
+    if token not in detail_component: errors.append(f'missing public detail token {token}')
+if 'scenario-info-mosaic' not in scenario_css or 'detail-hex--continuity' not in scenario_css: errors.append('public detail honeycomb styling')
+if 'scenario = null' not in preview_component or "data-image-state={selected ? 'scenario' : 'cover'}" not in preview_component: errors.append('shared preview selected-state contract')
+
+# Generated public detail pages must not expose editorial/internal governance markers.
+internal_markers=('PAT-','SIG-','POS-','COMPOSED','UNVERIFIED','PARTIALLY-VALIDATED','DOCUMENTED','Kristal','Konnaxion','Orgo','UCKK')
+for locale in ('en','fr'):
+    pages=sorted((R/f'preview/{locale}/uses').glob('SCN-*/index.html'))
+    if len(pages)!=120: errors.append(f'{locale} offline public scenario page count')
+    for page in pages:
+        html=page.read_text(encoding='utf-8')
+        for marker in internal_markers:
+            if marker in html: errors.append(f'internal marker leaked into {locale}/{page.parent.name}: {marker}')
+        if 'scenario-info-mosaic' not in html: errors.append(f'{locale}/{page.parent.name} missing public detail honeycomb')
+
 print('120 shared scenarios; 240 localized documents; 20 × 6 panoramic honeycomb; bilingual EN/FR routes')
 if errors:
     print(errors); sys.exit(1)
