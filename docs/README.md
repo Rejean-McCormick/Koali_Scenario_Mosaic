@@ -13,4 +13,4 @@ The pack contains:
 - site information architecture;
 - visual and editorial guidelines.
 
-Start with [`00_START_HERE.md`](00_START_HERE.md).
+Start with [`00_START_HERE.md`](00_START_HERE.md). For the current Mosaic interaction implementation, see [`44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md`](44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md). For the refreshed v4.3.1 scenario corpus and its integration into the magnetic interface, see [`45_SCENARIO_EDITORIAL_REFRESH.md`](45_SCENARIO_EDITORIAL_REFRESH.md) and [`46_REFRESHED_SCENARIOS_MAGNETIC_INTEGRATION.md`](46_REFRESHED_SCENARIOS_MAGNETIC_INTEGRATION.md).

@@ -65,6 +65,21 @@ for locale in ('en','fr'):
             if marker in html: errors.append(f'internal marker leaked into {locale}/{page.parent.name}: {marker}')
         if 'scenario-info-mosaic' not in html: errors.append(f'{locale}/{page.parent.name} missing public detail honeycomb')
 
+
+# Magnetic territory-label contract: visual legend replaced by embedded, non-intercepting labels.
+territory_component=(R/'src/components/MosaicTerritoryLabels.astro').read_text(encoding='utf-8') if (R/'src/components/MosaicTerritoryLabels.astro').exists() else ''
+territory_script=(R/'src/scripts/territory-repulsion.ts').read_text(encoding='utf-8') if (R/'src/scripts/territory-repulsion.ts').exists() else ''
+if 'MosaicTerritoryLabels' not in component or 'data-mosaic-canvas' not in component: errors.append('magnetic territory labels not integrated')
+if 'sr-only' not in (R/'src/components/MosaicLegend.astro').read_text(encoding='utf-8'): errors.append('detached legend still visually exposed')
+if 'data-territory-label-layer' not in territory_component or 'aria-hidden="true"' not in territory_component: errors.append('territory overlay accessibility')
+if "from 'gsap/SplitText'" not in territory_script or 'maxOffset: 11' not in territory_script: errors.append('territory repulsion implementation')
+if 'prefers-reduced-motion: reduce' not in territory_script or '(hover: hover) and (pointer: fine)' not in territory_script: errors.append('territory motion eligibility')
+if len(layout.get('territoryLabels',{})) != 8: errors.append('territory label anchors')
+for locale in ('en','fr'):
+    t=(R/f'preview/{locale}/index.html').read_text(encoding='utf-8')
+    if t.count('data-territory-id=') != 8: errors.append(f'{locale} offline territory labels')
+    if 'territory-legend sr-only' not in t: errors.append(f'{locale} semantic legend fallback')
+
 print('120 shared scenarios; 240 localized documents; 20 × 6 panoramic honeycomb; bilingual EN/FR routes')
 if errors:
     print(errors); sys.exit(1)

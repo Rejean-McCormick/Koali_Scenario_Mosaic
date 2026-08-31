@@ -13,14 +13,14 @@
   margin:.8rem auto 0;
   align-items:stretch;
 }
-.scenario-info-mosaic[data-category="CAT-01"]{--detail-accent:#6ea8fe}
-.scenario-info-mosaic[data-category="CAT-02"]{--detail-accent:#55d6be}
-.scenario-info-mosaic[data-category="CAT-03"]{--detail-accent:#74c69d}
-.scenario-info-mosaic[data-category="CAT-04"]{--detail-accent:#9b87f5}
-.scenario-info-mosaic[data-category="CAT-05"]{--detail-accent:#f4a261}
-.scenario-info-mosaic[data-category="CAT-06"]{--detail-accent:#e76f51}
-.scenario-info-mosaic[data-category="CAT-07"]{--detail-accent:#e9c46a}
-.scenario-info-mosaic[data-category="CAT-08"]{--detail-accent:#e879b9}
+.scenario-info-mosaic[data-category="CAT-01"]{--detail-accent:var(--territory-tone-a)}
+.scenario-info-mosaic[data-category="CAT-02"]{--detail-accent:var(--territory-tone-b)}
+.scenario-info-mosaic[data-category="CAT-03"]{--detail-accent:var(--territory-tone-a)}
+.scenario-info-mosaic[data-category="CAT-04"]{--detail-accent:var(--territory-tone-b)}
+.scenario-info-mosaic[data-category="CAT-05"]{--detail-accent:var(--territory-tone-b)}
+.scenario-info-mosaic[data-category="CAT-06"]{--detail-accent:var(--territory-tone-a)}
+.scenario-info-mosaic[data-category="CAT-07"]{--detail-accent:var(--territory-tone-b)}
+.scenario-info-mosaic[data-category="CAT-08"]{--detail-accent:var(--territory-tone-a)}
 
 .detail-hex{
   position:relative;

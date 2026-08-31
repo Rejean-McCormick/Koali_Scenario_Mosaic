@@ -1,12 +1,29 @@
-# Koali Scenario Mosaic — v4.3 Bilingual
+# Koali Scenario Mosaic — v4.3.4 Two-tone Brand Checker + Magnetic Territories
 
 **Koali, the Sociotechnical Operating System**
 
 Koali Scenario Mosaic is a public-facing panorama of **120 stable scenario identities**, now available in **English and French** without duplicating the Mosaic geometry or machine-facing scenario metadata.
 
-## v4.3 scenario refresh
 
-The 120 scenario identities and 24 pattern families are preserved, but the editorial layer has been rebuilt around more memorable pressure tests: rare failures, disputed provenance, inter-community learning, intellectual provenance, collective governance, political legitimacy, crisis coordination, long-term knowledge transfer, fictional realities, and combinatorial domains such as cooking. English and French are refreshed together, and shared public metadata is synchronized with the new stories.
+## v4.3.4 — two-tone Koali brand checker
+
+The eight category hues have been replaced by a **two-tone checker derived from Koali green**. The top territories alternate A/B/A/B and the lower row alternates B/A/B/A, so neighboring territories remain distinct without the former rainbow palette. Magnetic territory labels are also brighter at rest and on hover for stronger contrast. See [`docs/47_TWO_TONE_BRAND_CHECKER.md`](docs/47_TWO_TONE_BRAND_CHECKER.md).
+
+## v4.3.2 — refreshed scenarios integrated into the magnetic interface
+
+The **v4.3.1 scenario corpus is the new editorial source of truth** in this repository. All 120 English and all 120 French scenario documents, plus their shared public metadata and French tag vocabulary, are carried over exactly from the supplied v4.3.1 refresh.
+
+The magnetic Mosaic remains the interaction shell:
+
+- the same 20 × 6 geometry and 8 category territories;
+- the same embedded magnetic territory labels;
+- the same public selected-scenario layout;
+- the same EN/FR route continuity;
+- refreshed titles, summaries, contexts, domains, flows, and transferable domains everywhere the interface reads scenario data.
+
+Because the refreshed corpus contains longer, more narrative titles, the preview now uses an **adaptive three-line title box** with short / medium / long density states. Hovering a new scenario updates this density without changing the Mosaic geometry.
+
+See [`docs/45_SCENARIO_EDITORIAL_REFRESH.md`](docs/45_SCENARIO_EDITORIAL_REFRESH.md) and [`docs/46_REFRESHED_SCENARIOS_MAGNETIC_INTEGRATION.md`](docs/46_REFRESHED_SCENARIOS_MAGNETIC_INTEGRATION.md).
 
 ## Open immediately
 
@@ -73,13 +90,13 @@ Translations are versioned source content. There is **no runtime machine transla
 
 - 20 × 6 panoramic honeycomb;
 - 8 contiguous category territories;
-- color legend aligned with those territories;
+- eight territory names embedded directly over their color regions;
 - one highlighted hexagon at a time;
 - stable fixed-height preview;
-- two-line title box without clipping;
+- adaptive three-line title box for the refreshed, longer scenario hooks;
 - public-language scenario profile;
 - automatic PNG scenario image loading with SVG fallback;
-- Koali brand color `#1e6864` and supplied SVG logo.
+- two-tone Koali brand checker (`#1e6864` / `#4a9690`) and supplied SVG logo.
 
 
 ## Responsive preview behavior
@@ -111,6 +128,26 @@ On the main page, that honeycomb contains the 120 scenarios. On a selected scena
 The public route intentionally does **not render the full editorial Markdown**. Internal architecture and claim-governance material such as component scores, `PAT-*`, `SIG-*`, `POS-*`, derivation states, and runtime-evidence states remain in the repository source for editorial/governance use, but are not part of the general-public reading experience.
 
 This makes a scenario feel like a **selected state of the Mosaic**, not a jump into a different documentation system.
+
+## Magnetic territory labels — retained in v4.3.2
+
+The detached visual color legend has been replaced by **eight localized territory names embedded directly over the honeycomb**. On desktop/fine-pointer devices, individual letters are repelled by pointer proximity and return with a short spring/bounce.
+
+The governing invariant remains:
+
+> **The map stays still. Meaning becomes alive.**
+
+Implementation details:
+
+- production: pinned **GSAP 3.13.0 + SplitText** with a custom proximity/spring controller;
+- exactly eight versioned normalized anchors in `mosaic-layout.json`;
+- letters only move by `transform`; hexagon geometry never changes;
+- active scenario hover/focus raises only the matching territory-label opacity;
+- touch/coarse-pointer and `prefers-reduced-motion` receive complete static labels;
+- the former category legend remains as a screen-reader-only semantic list;
+- offline `START.html` preview mirrors the effect with a dependency-free `requestAnimationFrame` implementation so it also works under `file://`.
+
+See [`docs/43_MAGNETIC_TERRITORY_LABELS_TECHNICAL_SPEC.md`](docs/43_MAGNETIC_TERRITORY_LABELS_TECHNICAL_SPEC.md) and [`docs/44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md`](docs/44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md).
 
 ## Develop locally
 
@@ -163,7 +200,9 @@ The validation contract checks:
 - both offline previews;
 - 20 × 6 Mosaic geometry and category territories;
 - PNG/SVG image resolution;
-- canonical Koali branding.
+- canonical Koali branding;
+- eight territory anchors and localized map labels;
+- GSAP/SplitText magnetic-label lifecycle, reduced-motion, fine-pointer, and observer contracts.
 
 ## Netlify
 
@@ -197,4 +236,8 @@ Both languages share the same scenario image. Missing PNGs automatically use the
 - French interface: **Mosaïque de scénarios Koali**;
 - npm package: `koali-scenario-mosaic`.
 
-See [`docs/40_BILINGUAL_ARCHITECTURE.md`](docs/40_BILINGUAL_ARCHITECTURE.md) for the v4 language architecture, [`docs/41_RESPONSIVE_PREVIEW_AND_COVER.md`](docs/41_RESPONSIVE_PREVIEW_AND_COVER.md) for the responsive-preview contract, and [`docs/42_PUBLIC_SCENARIO_SELECTED_STATE.md`](docs/42_PUBLIC_SCENARIO_SELECTED_STATE.md) for the v4.2 public scenario-page model.
+See [`docs/40_BILINGUAL_ARCHITECTURE.md`](docs/40_BILINGUAL_ARCHITECTURE.md) for the v4 language architecture, [`docs/41_RESPONSIVE_PREVIEW_AND_COVER.md`](docs/41_RESPONSIVE_PREVIEW_AND_COVER.md) for the responsive-preview contract, [`docs/42_PUBLIC_SCENARIO_SELECTED_STATE.md`](docs/42_PUBLIC_SCENARIO_SELECTED_STATE.md) for the public scenario-page model, and [`docs/44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md`](docs/44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md) for v4.3.2.
+
+## v4.3.5 — softer magnetic motion
+
+Territory labels keep their pointer-repulsion behavior, but the spring is now strongly damped to avoid repeated bounce / visual flicker. The field is broader, displacement is shorter, pointer input is smoothed, and character velocity is capped. See `docs/48_SOFT_MAGNETIC_MOTION.md`.

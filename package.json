@@ -1,6 +1,6 @@
 {
   "name": "koali-scenario-mosaic",
-  "version": "4.3.1",
+  "version": "4.3.5",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,15 +8,17 @@
     "build": "npm run validate && astro build",
     "validate:mosaic": "node scripts/validate-mosaic.mjs",
     "validate:repo": "python scripts/validate-repo.py",
-    "validate": "npm run validate:mosaic && npm run validate:repo && npm run validate:images && npm run validate:copy && npm run validate:i18n && npm run validate:name",
+    "validate": "npm run validate:mosaic && npm run validate:territory-labels && npm run validate:repo && npm run validate:images && npm run validate:copy && npm run validate:i18n && npm run validate:name",
     "preview:offline": "python scripts/build-offline-preview.py",
     "validate:images": "python scripts/validate-images.py",
     "validate:name": "node scripts/validate-name.mjs",
     "validate:copy": "python scripts/validate-copy.py",
-    "validate:i18n": "python scripts/validate-i18n.py"
+    "validate:i18n": "python scripts/validate-i18n.py",
+    "validate:territory-labels": "node scripts/validate-territory-labels.mjs"
   },
   "dependencies": {
-    "astro": "7.2.9"
+    "astro": "7.2.9",
+    "gsap": "3.13.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

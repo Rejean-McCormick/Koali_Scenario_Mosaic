@@ -1,6 +1,6 @@
 # File index
 
-## Documentation included in this repository
+## Core editorial documents
 
 - [00_START_HERE.md](00_START_HERE.md)
 - [01_MASTER_ARCHITECTURE.md](01_MASTER_ARCHITECTURE.md)
@@ -26,23 +26,52 @@
 - [21_CHANGELOG_V2.md](21_CHANGELOG_V2.md)
 - [22_MESSAGE_HIERARCHY.md](22_MESSAGE_HIERARCHY.md)
 - [23_VISUAL_SYSTEM.md](23_VISUAL_SYSTEM.md)
-- [32_REGULAR_HONEYCOMB_AND_SINGLE_HOVER.md](32_REGULAR_HONEYCOMB_AND_SINGLE_HOVER.md)
-- [33_TITLE_LINE_BOX_STABILITY.md](33_TITLE_LINE_BOX_STABILITY.md)
-- [34_PNG_SCENARIO_IMAGE_LOADING.md](34_PNG_SCENARIO_IMAGE_LOADING.md)
-- [35_Koali_SCENARIO_MOSAIC_NAMING.md](35_Koali_SCENARIO_MOSAIC_NAMING.md)
-- [36_PANORAMIC_SPREAD_AND_COLOR_LEGEND.md](36_PANORAMIC_SPREAD_AND_COLOR_LEGEND.md)
-- [37_PREVIEW_COPY_DEDUPLICATION.md](37_PREVIEW_COPY_DEDUPLICATION.md)
-- [38_PROFILE_CONTEXT_BASELINE_ALIGNMENT.md](38_PROFILE_CONTEXT_BASELINE_ALIGNMENT.md)
+- [README.md](README.md)
 - [39_Koali_BRAND_IDENTITY.md](39_Koali_BRAND_IDENTITY.md)
 - [40_BILINGUAL_ARCHITECTURE.md](40_BILINGUAL_ARCHITECTURE.md)
 - [41_RESPONSIVE_PREVIEW_AND_COVER.md](41_RESPONSIVE_PREVIEW_AND_COVER.md)
 - [42_PUBLIC_SCENARIO_SELECTED_STATE.md](42_PUBLIC_SCENARIO_SELECTED_STATE.md)
-- [43_SCENARIO_EDITORIAL_REFRESH.md](43_SCENARIO_EDITORIAL_REFRESH.md)
-- [README.md](README.md)
+- [43_MAGNETIC_TERRITORY_LABELS_TECHNICAL_SPEC.md](43_MAGNETIC_TERRITORY_LABELS_TECHNICAL_SPEC.md)
+- [44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md](44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md)
+- [45_SCENARIO_EDITORIAL_REFRESH.md](45_SCENARIO_EDITORIAL_REFRESH.md)
+- [46_REFRESHED_SCENARIOS_MAGNETIC_INTEGRATION.md](46_REFRESHED_SCENARIOS_MAGNETIC_INTEGRATION.md)
 - [VALIDATION.md](VALIDATION.md)
+
+## Category files
+
+- [CAT-01 — Find & Understand](categories/CAT-01_find-understand.md)
+- [CAT-02 — Learn & Share](categories/CAT-02_learn-share.md)
+- [CAT-03 — Collaborate & Create](categories/CAT-03_collaborate-create.md)
+- [CAT-04 — Choose & Govern](categories/CAT-04_choose-govern.md)
+- [CAT-05 — Organize & Act](categories/CAT-05_organize-act.md)
+- [CAT-06 — Respond & Coordinate](categories/CAT-06_respond-coordinate.md)
+- [CAT-07 — Remember & Improve](categories/CAT-07_remember-improve.md)
+- [CAT-08 — Disseminate & Connect to the Public](categories/CAT-08_disseminate-connect-to-the-public.md)
+
+## Lenses
+
+- [AI_OPTIONAL](lenses/AI_OPTIONAL.md)
+- [GENERAL_COMPUTING_LINUX](lenses/GENERAL_COMPUTING_LINUX.md)
+- [KONNAXION](lenses/KONNAXION.md)
+- [KRISTAL](lenses/KRISTAL.md)
+- [MULTILINGUAL](lenses/MULTILINGUAL.md)
+- [OFFLINE_LOCAL](lenses/OFFLINE_LOCAL.md)
+- [ORGO](lenses/ORGO.md)
+- [PHYSICAL_Koali](lenses/PHYSICAL_Koali.md)
+- [UCKK](lenses/UCKK.md)
+
+## Maps
+
+- [BY_COMPONENT](maps/BY_COMPONENT.md)
+- [BY_CONTEXT_PROPERTY](maps/BY_CONTEXT_PROPERTY.md)
+- [BY_DOMAIN](maps/BY_DOMAIN.md)
+- [BY_ENTRY_TRIGGER](maps/BY_ENTRY_TRIGGER.md)
+- [BY_PALETTE](maps/BY_PALETTE.md)
+- [BY_PATTERN_FAMILY](maps/BY_PATTERN_FAMILY.md)
+- [BY_SCALE](maps/BY_SCALE.md)
+- [BY_SIGNATURE](maps/BY_SIGNATURE.md)
+- [START_FROM_MY_NEED](maps/START_FROM_MY_NEED.md)
 
 ## Scenarios
 
-- 120 English editorial scenario cards under `src/content/scenarios/en/`;
-- 120 French editorial scenario cards under `src/content/scenarios/fr/`;
-- see [15_MASTER_INDEX.md](15_MASTER_INDEX.md) for the complete refreshed index.
+- 120 scenario cards; see [master index](15_MASTER_INDEX.md).

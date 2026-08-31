@@ -6,6 +6,7 @@ if (root) {
   const cells = [...root.querySelectorAll<SVGAElement>('[data-scenario-id]')];
   const search = root.querySelector<HTMLInputElement>('[data-mosaic-search]');
   const count = root.querySelector<HTMLOutputElement>('[data-mosaic-result-count]');
+  const canvas = root.querySelector<HTMLElement>('[data-mosaic-canvas]');
 
   const setText = (query:string, value:string) => {
     const element = root.querySelector<HTMLElement>(query);
@@ -32,6 +33,7 @@ if (root) {
     const scenario = data[id];
     if (!scenario) return;
     selectOnly(id);
+    if (canvas) canvas.dataset.activeTerritory = scenario.categoryId;
     setText('[data-preview-id]', scenario.id);
     setText('[data-preview-category]', scenario.category);
     setText('[data-preview-title]', scenario.title);
@@ -106,6 +108,7 @@ if (root) {
   root.querySelector('[data-mosaic-reset]')?.addEventListener('click', () => {
     if (search) search.value = '';
     cells.forEach((cell) => cell.classList.remove('is-filtered-out', 'is-active'));
+    if (canvas) delete canvas.dataset.activeTerritory;
     if (count) count.value = `${cells.length} ${i18n.scenarios}`;
   });
 }

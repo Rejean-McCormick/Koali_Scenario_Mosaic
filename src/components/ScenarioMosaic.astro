@@ -3,6 +3,7 @@ import ScenarioCell from './ScenarioCell.astro';
 import ScenarioPreview from './ScenarioPreview.astro';
 import MosaicControls from './MosaicControls.astro';
 import MosaicLegend from './MosaicLegend.astro';
+import MosaicTerritoryLabels from './MosaicTerritoryLabels.astro';
 import layout from '../data/mosaic-layout.json';
 import { getPublicActivities } from '../lib/public-profile';
 import { resolveScenarioPreviewImage } from '../lib/scenario-image';
@@ -60,8 +61,10 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
   <MosaicControls total={scenarios.length} locale={locale} />
   <MosaicLegend categories={categories} locale={locale} />
 
-  <div class="mosaic-stage">
-    <svg class="mosaic" viewBox={layout.viewBox.join(' ')} role="group" aria-labelledby="mosaic-title mosaic-description" preserveAspectRatio="xMidYMid meet">
+  <div class="mosaic-stage" data-mosaic-stage>
+    <div class="mosaic-scroll">
+      <div class="mosaic-canvas" data-mosaic-canvas>
+        <svg class="mosaic" viewBox={layout.viewBox.join(' ')} role="group" aria-labelledby="mosaic-title mosaic-description" preserveAspectRatio="xMidYMid meet">
       <title id="mosaic-title">{strings.mosaicTitle}</title>
       <desc id="mosaic-description">{strings.mosaicDescription}</desc>
       {Object.entries(layout.assignments).map(([scenarioId, slotId]) => {
@@ -77,7 +80,10 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
           size={slot.size}
         />;
       })}
-    </svg>
+        </svg>
+        <MosaicTerritoryLabels locale={locale} />
+      </div>
+    </div>
     <p class="mosaic-hint">{strings.mosaicHint}</p>
   </div>
 
@@ -92,4 +98,7 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
 </div>
 <script>
   import '../scripts/mosaic.ts';
+</script>
+<script>
+  import '../scripts/territory-repulsion.ts';
 </script>

@@ -1,6 +1,8 @@
 :root{
   color-scheme:dark;
   --brand:#1e6864;
+  --territory-tone-a:#1e6864;
+  --territory-tone-b:#4a9690;
   --line:#263142;
   --text:#eef3f9;
   font-family:Inter,system-ui,sans-serif
@@ -18,7 +20,7 @@ a{color:inherit}
 .brand-copy small{font-size:.59rem;line-height:1.1;color:#7f8b9e;letter-spacing:.035em;white-space:nowrap}
 .brand:hover .brand-product strong,.brand:focus-visible .brand-product strong{color:#48a39d}
 .brand:focus-visible{outline:2px solid var(--brand);outline-offset:5px;border-radius:4px}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
 .language-switcher{display:flex;align-items:center;gap:.42rem;margin-left:auto;font-size:.72rem;font-weight:760;letter-spacing:.06em;color:#7f8b9e}
 .language-switcher a{text-decoration:none;padding:.28rem .36rem;border-radius:6px}
 .language-switcher a.active{color:#fff;background:color-mix(in srgb,var(--brand) 26%,transparent)}
