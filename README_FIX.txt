@@ -1,26 +1,20 @@
-KOALI_USAGE_MOSAIC — mobile unclipped backlights
+KOALI_USAGE_MOSAIC — mobile profile text unclipping
 
-Fixes the mobile clipping visible in the screenshot.
+Fixes the truncated two-column list visible in the mobile screenshot.
 
-Problem
--------
-The mobile preview used fixed grid row heights. After adding two-line backlight
-buttons and larger typography, the backlight row overflowed into the next row,
-so icons/text (for example the lightbulb) were visibly cut.
-
-Fix
----
-On screens <= 720px:
-- scenario preview height becomes content-driven
-- title and summary are no longer height-clamped by the container
-- backlights use 4 columns x 2 rows, 48px each
-- icons and labels are fully visible
-- profile height becomes automatic
-- touch-only "Open full dossier" link remains visible below the backlights
+On <= 720px:
+- "Ce qui se passe ici" spans the full profile-card width
+- it remains a 2-column list
+- labels may wrap naturally instead of showing ellipses
+- "Échelle / Contexte / Conditions particulières" also span full width
+- context values may wrap instead of being truncated
+- heading + typical motion remain side by side at the top
 
 Desktop is unchanged.
 
-Files
------
+Files:
 - src/styles/mosaic.css
 - preview/assets/styles.css
+
+Apply after:
+KOALI_USAGE_MOSAIC_mobile_unclipped_backlights_overlay.zip

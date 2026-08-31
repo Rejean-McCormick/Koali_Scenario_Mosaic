@@ -555,3 +555,73 @@ a{color:inherit}
     grid-auto-rows:48px;
   }
 }
+
+
+/* Mobile profile: give the two-column activity list the full card width. */
+@media(max-width:720px){
+  .preview-profile{
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+    grid-template-rows:auto auto auto;
+  }
+
+  .profile-heading{
+    grid-column:1;
+    grid-row:1;
+  }
+
+  .profile-pattern{
+    grid-column:2;
+    grid-row:1;
+  }
+
+  .profile-actions{
+    grid-column:1 / -1;
+    grid-row:2;
+    width:100%;
+    overflow:visible;
+  }
+
+  .activity-signature{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.34rem .8rem;
+    width:100%;
+  }
+
+  .activity-signature>span{
+    min-width:0;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    align-items:flex-start;
+    line-height:1.22;
+  }
+
+  .activity-signature i{
+    margin-top:.22em;
+  }
+
+  .profile-context{
+    grid-column:1 / -1;
+    grid-row:3;
+    width:100%;
+    overflow:visible;
+  }
+
+  .profile-context>div{
+    grid-template-columns:minmax(76px,.32fr) minmax(0,1fr);
+    align-items:start;
+  }
+
+  .profile-context strong{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    line-height:1.24;
+  }
+}
+
+@media(max-width:420px){
+  .activity-signature{
+    gap:.32rem .55rem;
+  }
+}
