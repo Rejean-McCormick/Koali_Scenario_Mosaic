@@ -1,25 +1,26 @@
-KOALI_USAGE_MOSAIC — touch-only full dossier link
+KOALI_USAGE_MOSAIC — mobile unclipped backlights
 
-Behavior
---------
-On smartphones/tablets (touch/coarse pointer):
-- tapping a mosaic cell still opens the temporary preview
-- once a scenario is selected, a button appears:
-    FR: Ouvrir le dossier complet
-    EN: Open full scenario
-- that button opens the normal full scenario route
+Fixes the mobile clipping visible in the screenshot.
 
-On desktop/fine pointer:
-- the button is completely hidden
-- hover behavior remains unchanged
+Problem
+-------
+The mobile preview used fixed grid row heights. After adding two-line backlight
+buttons and larger typography, the backlight row overflowed into the next row,
+so icons/text (for example the lightbulb) were visibly cut.
+
+Fix
+---
+On screens <= 720px:
+- scenario preview height becomes content-driven
+- title and summary are no longer height-clamped by the container
+- backlights use 4 columns x 2 rows, 48px each
+- icons and labels are fully visible
+- profile height becomes automatic
+- touch-only "Open full dossier" link remains visible below the backlights
+
+Desktop is unchanged.
 
 Files
 -----
-- src/components/ScenarioPreview.astro
 - src/styles/mosaic.css
-- scripts/build-offline-preview.py
 - preview/assets/styles.css
-- preview/en/index.html
-- preview/fr/index.html
-
-Apply after the current backlight/path-fix/typography overlays.
