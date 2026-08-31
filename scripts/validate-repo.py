@@ -18,7 +18,7 @@ if '.mosaic-cell:focus-visible' in css: errors.append('independent focus highlig
 if 'selectOnly' not in js: errors.append('single select')
 title_rule = re.search(r'\.preview-copy h1\{([^}]*)\}', css)
 title_css = title_rule.group(1) if title_rule else ''
-if 'line-height:1.08' not in title_css or 'height:6.7rem' not in title_css: errors.append('title line box')
+if 'line-height:1.08' not in title_css or 'height:auto' not in title_css or 'height:6.7rem' in title_css: errors.append('adaptive title flow')
 if '-webkit-line-clamp:3' not in title_css: errors.append('title clamp')
 if 'data-title-density' not in css or 'titleDensity' not in js: errors.append('adaptive title density')
 if 'height:286px' not in css or 'height:clamp(180px,24vh,220px)' not in css: errors.append('one-viewport compact sizing')
