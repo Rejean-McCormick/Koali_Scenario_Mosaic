@@ -2,8 +2,10 @@
 
 /* Compact, layout-stable preview: the panorama remains visible below on a laptop viewport. */
 .scenario-preview{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.45fr) minmax(0,.82fr);gap:1rem;width:100%;max-width:100%;min-width:0;height:286px;padding:.9rem;border:1px solid var(--line);border-radius:20px;background:#101722;overflow:hidden}
-.preview-image-shell{overflow:hidden;border-radius:14px;min-width:0;min-height:0;background:#0b1018;aspect-ratio:1/1;height:100%;width:auto;max-width:100%;justify-self:center;align-self:center}
-.preview-image-shell img{width:100%;height:100%;display:block;min-width:0;min-height:0}
+.preview-image-shell{overflow:hidden;border-radius:14px;min-width:0;min-height:0;background:#0b1018;aspect-ratio:1/1;height:100%;width:auto;max-width:100%;justify-self:center;align-self:center;display:grid;place-items:center}
+.preview-image-shell [hidden]{display:none!important}
+.preview-image-shell img{grid-area:1/1;width:100%;height:100%;display:block;min-width:0;min-height:0}
+.preview-image-prompt{grid-area:1/1;margin:0;padding:1.15rem;max-width:18rem;color:#dce5ef;font-size:clamp(1rem,1.35vw,1.2rem);font-weight:750;line-height:1.32;text-align:center;text-wrap:balance}
 .preview-image-shell img[data-image-state="cover"]{object-fit:contain;padding:.75rem;background:#0b1018}
 .preview-image-shell img[data-image-state="scenario"]{object-fit:cover;padding:0;background:#0b1018}
 .preview-copy{display:flex;flex-direction:column;overflow:hidden;min-width:0}
@@ -55,9 +57,11 @@
 .mosaic-hint{text-align:center;color:#718096;font-size:.7rem;margin:.15rem 0 0}
 
 .mosaic-cell{outline:none;transform-box:fill-box;transform-origin:center;transition:transform .1s ease,filter .1s ease,opacity .1s ease}
-.mosaic-cell polygon{fill:var(--cell);fill-opacity:.78;stroke:rgba(255,255,255,.18);stroke-width:1.05}
+.mosaic-cell-thumbnail{opacity:.78;filter:saturate(.72) brightness(.78) contrast(.96);pointer-events:none;transition:opacity .1s ease,filter .1s ease}
+.mosaic-cell polygon{fill:var(--cell);fill-opacity:.34;stroke:rgba(255,255,255,.22);stroke-width:1.05}
 .mosaic-cell.is-active{transform:scale(1.18);filter:drop-shadow(0 5px 8px rgba(0,0,0,.48))}
-.mosaic-cell.is-active polygon{fill-opacity:1;stroke:#fff;stroke-width:1.8}
+.mosaic-cell.is-active .mosaic-cell-thumbnail{opacity:.94;filter:saturate(.92) brightness(.98) contrast(1.02)}
+.mosaic-cell.is-active polygon{fill-opacity:.18;stroke:#fff;stroke-width:1.8}
 .mosaic-cell.is-filtered-out{opacity:.07;pointer-events:none}
 .cat-01,.cat-03,.cat-06,.cat-08{--cell:var(--territory-tone-a)}
 .cat-02,.cat-04,.cat-05,.cat-07{--cell:var(--territory-tone-b)}

@@ -4,17 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "npm run generate:thumbnails && astro dev",
     "build": "npm run validate && astro build",
     "validate:mosaic": "node scripts/validate-mosaic.mjs",
     "validate:repo": "python scripts/validate-repo.py",
-    "validate": "npm run validate:mosaic && npm run validate:territory-labels && npm run validate:repo && npm run validate:images && npm run validate:copy && npm run validate:i18n && npm run validate:name",
-    "preview:offline": "python scripts/build-offline-preview.py",
+    "validate": "npm run generate:thumbnails && npm run validate:mosaic && npm run validate:territory-labels && npm run validate:repo && npm run validate:images && npm run validate:copy && npm run validate:i18n && npm run validate:name",
+    "preview:offline": "npm run generate:thumbnails && python scripts/build-offline-preview.py",
     "validate:images": "python scripts/validate-images.py",
     "validate:name": "node scripts/validate-name.mjs",
     "validate:copy": "python scripts/validate-copy.py",
     "validate:i18n": "python scripts/validate-i18n.py",
-    "validate:territory-labels": "node scripts/validate-territory-labels.mjs"
+    "validate:territory-labels": "node scripts/validate-territory-labels.mjs",
+    "generate:thumbnails": "node scripts/generate-scenario-thumbnails.mjs"
   },
   "dependencies": {
     "astro": "7.2.9",
@@ -22,7 +23,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "sharp": "0.34.3"
   },
   "engines": {
     "node": ">=22.12.0"

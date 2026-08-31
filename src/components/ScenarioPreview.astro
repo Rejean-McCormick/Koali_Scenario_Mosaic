@@ -20,7 +20,7 @@ const contexts = selected ? [...new Set([
   ...(data.domains ?? []),
 ])].map((x:string) => humanizeTag(locale, x)).slice(0, 3) : [];
 const properties = selected ? (data.properties ?? []).map((x:string) => humanizeTag(locale, x)) : [];
-const image = selected ? resolveScenarioPreviewImage(data.id, data.preview_image) : (locale === 'fr' ? '/mosaic-cover-fr.svg' : '/mosaic-cover.svg');
+const image = selected ? resolveScenarioPreviewImage(data.id, data.preview_image) : null;
 const paletteKeys = selected ? (data.palette ?? []) : [];
 const paletteBacklights = paletteBacklightGroups.map((group) => ({
   ...group,
@@ -32,12 +32,14 @@ const titleText = selected ? data.title : s.exploreWays(total);
 const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'medium' : 'short';
 ---
 <section class="scenario-preview">
-  <div class="preview-image-shell">
+  <div class="preview-image-shell" data-preview-media>
+    <p class="preview-image-prompt" data-preview-prompt hidden={selected}>{s.selectCellPrompt}</p>
     <img
       data-preview-image
-      data-image-state={selected ? 'scenario' : 'cover'}
-      src={image}
-      alt={selected ? data.preview_image_alt : (locale === 'fr' ? 'Aperçu de la Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic scenario preview')}
+      data-image-state={selected ? 'scenario' : 'empty'}
+      src={image ?? undefined}
+      alt={selected ? data.preview_image_alt : ''}
+      hidden={!selected}
     />
   </div>
   <div class="preview-copy">

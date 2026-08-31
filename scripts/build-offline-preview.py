@@ -5,6 +5,7 @@ R = Path(__file__).resolve().parents[1]
 O = R / 'preview'
 if O.exists(): shutil.rmtree(O)
 (O / 'assets/scenarios').mkdir(parents=True)
+(O / 'assets/scenarios/thumbnails').mkdir(parents=True)
 (O / 'assets/brand').mkdir(parents=True)
 (O / 'assets/icons/palette').mkdir(parents=True)
 
@@ -14,6 +15,8 @@ layout = json.loads((R / 'src/data/mosaic-layout.json').read_text(encoding='utf-
 
 for p in (R / 'public/scenarios/placeholders').glob('*.svg'):
     shutil.copy2(p, O / 'assets/scenarios' / p.name)
+for p in (R / 'public/scenarios/thumbnails').glob('*.png'):
+    shutil.copy2(p, O / 'assets/scenarios/thumbnails' / p.name)
 shutil.copy2(R / 'public/mosaic-cover.svg', O / 'assets/mosaic-cover.svg')
 shutil.copy2(R / 'public/mosaic-cover-fr.svg', O / 'assets/mosaic-cover-fr.svg')
 shutil.copy2(R / 'public/brand/koali-mark.svg', O / 'assets/brand/koali-mark.svg')
@@ -42,6 +45,7 @@ UI = {
 'en': {
   'product':'Scenario Mosaic','scenarios':'scenarios','explore':'Explore 120 ways to use Koali',
   'hover':'Hover a cell to discover a concrete situation and its public scenario profile.',
+  'select_prompt':'Click a hexagonal cell to discover a scenario.',
   'hover_tag':'Hover or focus a cell','read':'Read the scenario','profile':'Scenario profile',
   'explore_mosaic':'Explore the Mosaic','motion':'Typical motion','inspect':'Hover a cell to inspect it.',
   'what':'What happens here','scale':'Scale','context':'Context','conditions':'Special conditions','none':'None highlighted',
@@ -56,6 +60,7 @@ UI = {
 'fr': {
   'product':'Mosaïque de scénarios','scenarios':'scénarios','explore':'Explorez 120 façons d’utiliser Koali',
   'hover':'Survolez une cellule pour découvrir une situation concrète et son profil public.',
+  'select_prompt':'Cliquez sur une cellule hexagonale pour découvrir un scénario.',
   'hover_tag':'Survolez ou ciblez une cellule','read':'Lire le scénario','profile':'Profil du scénario',
   'explore_mosaic':'Explorer la mosaïque','motion':'Dynamique typique','inspect':'Survolez une cellule pour l’examiner.',
   'what':'Ce qui se passe ici','scale':'Échelle','context':'Contexte','conditions':'Conditions particulières','none':'Aucune mise en évidence',
@@ -200,7 +205,8 @@ app_js = r'''(() => {
     setText('[data-preview-id]',s.id);setText('[data-preview-category]',s.category);setText('[data-preview-title]',s.title);setText('[data-preview-summary]',s.summary);setText('[data-preview-category-label]',s.category);setText('[data-preview-pattern]',s.pattern);setText('[data-preview-scales]',compact(s.scales));setText('[data-preview-context]',compact(s.contexts));setText('[data-preview-properties]',compact(s.properties,tr.noneHighlighted,2));
     const title=root.querySelector('[data-preview-title]');if(title)title.dataset.titleDensity=titleDensity(s.title);
     const p=root.querySelector('[data-preview-profile]');if(p)p.dataset.category=s.categoryId;
-    const img=root.querySelector('[data-preview-image]');if(img){img.src=s.image;img.alt=s.imageAlt;img.dataset.imageState='scenario';}
+    const prompt=root.querySelector('[data-preview-prompt]');if(prompt)prompt.hidden=true;
+    const img=root.querySelector('[data-preview-image]');if(img){img.src=s.image;img.alt=s.imageAlt;img.dataset.imageState='scenario';img.hidden=false;}
     const link=root.querySelector('[data-preview-link]');if(link){link.href=s.href;link.hidden=false;}
     const activePalette=new Set(s.paletteKeys||[]);
     const backlightGroups=[{"key":"find","palette":["find","verify"]},{"key":"understand","palette":["understand"]},{"key":"learn","palette":["learn","teach-share"]},{"key":"collaborate","palette":["collaborate","create"]},{"key":"choose","palette":["deliberate","choose"]},{"key":"act","palette":["organize","act"]},{"key":"respond","palette":["respond","coordinate"]},{"key":"remember","palette":["remember","disseminate"]}];
@@ -254,7 +260,8 @@ for locale in ('en','fr'):
     for sid,slotid in layout['assignments'].items():
         p=layout['slots'][slotid];z=p['size']
         pts=' '.join(f'{p["x"]+z*math.cos(math.pi/3*i-math.pi/6):.2f},{p["y"]+z*math.sin(math.pi/3*i-math.pi/6):.2f}' for i in range(6))
-        cells.append(f'<a class="mosaic-cell {by[sid]["primary_category"].lower()}" href="./uses/{sid}/index.html" data-scenario-id="{sid}" tabindex="0" aria-label="{html.escape(sid+": "+by[sid]["title"])}"><polygon points="{pts}"/></a>')
+        thumb=f'../assets/scenarios/thumbnails/{sid}.png'
+        cells.append(f'<a class="mosaic-cell {by[sid]["primary_category"].lower()}" href="./uses/{sid}/index.html" data-scenario-id="{sid}" tabindex="0" aria-label="{html.escape(sid+": "+by[sid]["title"])}"><image class="mosaic-cell-thumbnail" href="{thumb}" x="{p["x"]-z:.2f}" y="{p["y"]-z:.2f}" width="{2*z:.2f}" height="{2*z:.2f}" preserveAspectRatio="xMidYMid slice" clip-path="url(#mosaic-thumbnail-clip)" aria-hidden="true"/><polygon points="{pts}"/></a>')
     category_labels=[]; seen=set()
     for x in scenarios:
         cid=x['primary_category']
@@ -269,9 +276,8 @@ for locale in ('en','fr'):
     territory_layer='<div class="territory-label-layer" aria-hidden="true" data-territory-label-layer>'+''.join(territory_labels)+'</div>'
     acts=''.join(f'<span data-activity="{key}"><i></i>{html.escape(label)}</span>' for key,label in s['activities'].items())
     profile=f'''<aside class="preview-profile" data-preview-profile><div class="profile-heading"><span class="profile-title">{html.escape(s['profile'])}</span><span class="profile-category"><span class="category-swatch"></span><strong data-preview-category-label>{html.escape(s['explore_mosaic'])}</strong></span></div><div class="profile-pattern"><span>{html.escape(s['motion'])}</span><small data-preview-pattern>{html.escape(s['inspect'])}</small></div><div class="profile-actions"><span class="profile-section-label">{html.escape(s['what'])}</span><div class="activity-signature">{acts}</div></div><div class="profile-context"><div><span>{html.escape(s['scale'])}</span><strong data-preview-scales>—</strong></div><div><span>{html.escape(s['context'])}</span><strong data-preview-context>—</strong></div><div><span>{html.escape(s['conditions'])}</span><strong data-preview-properties>{html.escape(s['none'])}</strong></div></div></aside>'''
-    cover = '../assets/mosaic-cover-fr.svg' if locale == 'fr' else '../assets/mosaic-cover.svg'
     switch=f'<nav class="language-switcher" aria-label="{html.escape(s["lang"])}"><a class="{"active" if locale=="en" else ""}" href="../en/index.html">EN</a><span>/</span><a class="{"active" if locale=="fr" else ""}" href="../fr/index.html">FR</a></nav>'
-    index=f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="theme-color" content="#1e6864"><link rel="icon" href="../assets/brand/koali-mark.svg"><link rel="stylesheet" href="../assets/styles.css"><title>{'Mosaïque de scénarios Koali' if locale=='fr' else 'Koali Scenario Mosaic'}</title></head><body><header class="site-header"><a class="brand" href="./index.html"><img class="brand-mark" src="../assets/brand/koali-mark.svg" alt=""><span class="brand-copy"><span class="brand-product"><strong>Koali</strong><span>{html.escape(s['product'])}</span></span><small>the Sociotechnical Operating System</small></span></a>{switch}</header><main><div class="mosaic-experience" data-mosaic-root><section class="scenario-preview"><div class="preview-image-shell"><img data-preview-image data-image-state="cover" src="{cover}"></div><div class="preview-copy"><p class="preview-eyebrow"><span data-preview-id>{'Mosaïque de scénarios Koali' if locale=='fr' else 'Koali Scenario Mosaic'}</span> · <span data-preview-category>120 {s['scenarios']}</span></p><h1 data-preview-title data-title-density="short">{html.escape(s['explore'])}</h1><p class="preview-summary" data-preview-summary>{html.escape(s['hover'])}</p><div class="preview-tags preview-backlights" data-preview-palette>{backlight_strip(locale, [], "../assets/icons/palette")}</div><a class="preview-cta touch-full-link" data-preview-link hidden>{'Ouvrir le dossier complet' if locale=='fr' else 'Open full scenario'} <span aria-hidden="true">→</span></a></div>{profile}</section><div class="mosaic-controls"><label class="search-box"><input data-mosaic-search placeholder="{html.escape(s['search'])}"></label><button class="ghost-button" data-mosaic-surprise>{html.escape(s['surprise'])}</button><button class="ghost-button" data-mosaic-reset>{html.escape(s['reset'])}</button><output data-mosaic-result-count>120 {s['scenarios']}</output></div><div class="territory-legend sr-only" aria-label="{html.escape(s['legend'])}">{legend}</div><div class="mosaic-stage" data-mosaic-stage><div class="mosaic-scroll"><div class="mosaic-canvas" data-mosaic-canvas><svg class="mosaic" viewBox="{' '.join(map(str,layout['viewBox']))}">{''.join(cells)}</svg>{territory_layer}</div></div><p class="mosaic-hint">{html.escape(s['hint'])}</p></div><script type="application/json" data-mosaic-data>{json.dumps(data,ensure_ascii=False).replace('</','<\\/')}</script><script type="application/json" data-mosaic-i18n>{json.dumps({'noneHighlighted':s['none'],'scenarios':s['scenarios'],'scenarioSingular':'scénario' if locale=='fr' else 'scenario','involved':s['involved'],'notCentral':s['notCentral']},ensure_ascii=False)}</script></div></main><script src="../assets/app.js"></script></body></html>'''
+    index=f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="theme-color" content="#1e6864"><link rel="icon" href="../assets/brand/koali-mark.svg"><link rel="stylesheet" href="../assets/styles.css"><title>{'Mosaïque de scénarios Koali' if locale=='fr' else 'Koali Scenario Mosaic'}</title></head><body><header class="site-header"><a class="brand" href="./index.html"><img class="brand-mark" src="../assets/brand/koali-mark.svg" alt=""><span class="brand-copy"><span class="brand-product"><strong>Koali</strong><span>{html.escape(s['product'])}</span></span><small>the Sociotechnical Operating System</small></span></a>{switch}</header><main><div class="mosaic-experience" data-mosaic-root><section class="scenario-preview"><div class="preview-image-shell" data-preview-media><p class="preview-image-prompt" data-preview-prompt>{html.escape(s['select_prompt'])}</p><img data-preview-image data-image-state="empty" alt="" hidden></div><div class="preview-copy"><p class="preview-eyebrow"><span data-preview-id>{'Mosaïque de scénarios Koali' if locale=='fr' else 'Koali Scenario Mosaic'}</span> · <span data-preview-category>120 {s['scenarios']}</span></p><h1 data-preview-title data-title-density="short">{html.escape(s['explore'])}</h1><p class="preview-summary" data-preview-summary>{html.escape(s['hover'])}</p><div class="preview-tags preview-backlights" data-preview-palette>{backlight_strip(locale, [], "../assets/icons/palette")}</div><a class="preview-cta touch-full-link" data-preview-link hidden>{'Ouvrir le dossier complet' if locale=='fr' else 'Open full scenario'} <span aria-hidden="true">→</span></a></div>{profile}</section><div class="mosaic-controls"><label class="search-box"><input data-mosaic-search placeholder="{html.escape(s['search'])}"></label><button class="ghost-button" data-mosaic-surprise>{html.escape(s['surprise'])}</button><button class="ghost-button" data-mosaic-reset>{html.escape(s['reset'])}</button><output data-mosaic-result-count>120 {s['scenarios']}</output></div><div class="territory-legend sr-only" aria-label="{html.escape(s['legend'])}">{legend}</div><div class="mosaic-stage" data-mosaic-stage><div class="mosaic-scroll"><div class="mosaic-canvas" data-mosaic-canvas><svg class="mosaic" viewBox="{' '.join(map(str,layout['viewBox']))}"><defs><clipPath id="mosaic-thumbnail-clip" clipPathUnits="objectBoundingBox"><polygon points="0.933,0.25 0.933,0.75 0.5,1 0.067,0.75 0.067,0.25 0.5,0"/></clipPath></defs>{''.join(cells)}</svg>{territory_layer}</div></div><p class="mosaic-hint">{html.escape(s['hint'])}</p></div><script type="application/json" data-mosaic-data>{json.dumps(data,ensure_ascii=False).replace('</','<\\/')}</script><script type="application/json" data-mosaic-i18n>{json.dumps({'noneHighlighted':s['none'],'scenarios':s['scenarios'],'scenarioSingular':'scénario' if locale=='fr' else 'scenario','involved':s['involved'],'notCentral':s['notCentral']},ensure_ascii=False)}</script></div></main><script src="../assets/app.js"></script></body></html>'''
     (base/'index.html').write_text(index,encoding='utf-8')
 
     list_items=''.join(f'<p><a href="./{x["id"]}/index.html">{x["id"]} — {html.escape(x["title"])}</a></p>' for x in scenarios)

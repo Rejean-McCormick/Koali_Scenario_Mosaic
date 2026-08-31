@@ -51,11 +51,15 @@ if (root) {
     const profile = root.querySelector<HTMLElement>('[data-preview-profile]');
     if (profile) profile.dataset.category = scenario.categoryId;
 
+    const prompt = root.querySelector<HTMLElement>('[data-preview-prompt]');
+    if (prompt) prompt.hidden = true;
+
     const image = root.querySelector<HTMLImageElement>('[data-preview-image]');
     if (image) {
       image.src = scenario.image;
       image.alt = scenario.imageAlt;
       image.dataset.imageState = 'scenario';
+      image.hidden = false;
     }
 
     const link = root.querySelector<HTMLAnchorElement>('[data-preview-link]');
