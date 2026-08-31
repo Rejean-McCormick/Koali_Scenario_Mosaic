@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run preview:offline && npm run validate && astro build",
+    "build": "python -m pip install PyYAML && npm run preview:offline && npm run validate && astro build",
     "validate:mosaic": "node scripts/validate-mosaic.mjs",
     "validate:repo": "python scripts/validate-repo.py",
     "validate": "npm run validate:mosaic && npm run validate:territory-labels && npm run validate:repo && npm run validate:images && npm run validate:copy && npm run validate:i18n && npm run validate:name",
