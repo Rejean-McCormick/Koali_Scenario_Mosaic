@@ -1,38 +1,19 @@
-KOALI_USAGE_MOSAIC — typography Windows-scale overlay
+KOALI_USAGE_MOSAIC — mobile tap = temporary preview
 
-Goal
-----
-Increase small UI text so it visually aligns better with the Windows/Chrome
-interface visible around the application, while preserving the existing layout.
+Behavior
+--------
+On touch/coarse-pointer devices:
+- tapping a mosaic hexagon DOES NOT navigate to the full scenario page
+- the scenario is loaded into the existing temporary preview panel
+- the page scrolls smoothly to the preview
+- the explicit preview CTA can still be used to open the full page
 
-Main adjustments
-----------------
-Backlight labels:
-  ~8.5 px -> ~10.2 px
-  icons: 14 px -> 16 px
-  height: 38 px -> 44 px
-
-Scenario profile:
-  micro labels: ~9.3 px -> ~10.7 px
-  activity/context values: ~9.9 px -> ~11.2-11.4 px
-  pattern text: ~12.2 px -> ~13.4 px
-
-Scenario hexagons:
-  headings: ~10.6 px -> ~11.8 px
-  body: ~13.4 px -> ~14.7 px
-  strong values: ~15 px -> ~16.3 px
-
-Header:
-  secondary brand text and language switcher enlarged slightly.
-
-The main scenario title is intentionally not enlarged substantially because it
-was already at a strong desktop reading size.
+On desktop/fine-pointer devices:
+- existing hover/focus/navigation behavior is unchanged
 
 Files
 -----
-- src/styles/global.css
-- src/styles/mosaic.css
-- src/styles/scenario.css
-- preview/assets/styles.css
+- src/scripts/mosaic.ts
+- preview/assets/app.js
 
-Apply this overlay over the current backlight/path-fix state.
+Apply this overlay after the current backlight/path-fix overlays.

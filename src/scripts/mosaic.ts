@@ -81,10 +81,28 @@ if (root) {
     });
   }
 
+  const touchPreviewMode = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
   cells.forEach((cell) => {
     const id = cell.dataset.scenarioId!;
     cell.addEventListener('pointerenter', () => show(id));
     cell.addEventListener('focus', () => show(id));
+
+    cell.addEventListener('click', (event) => {
+      if (!touchPreviewMode) return;
+
+      // On touch/mobile, tapping a mosaic cell is a preview action,
+      // not navigation to the full scenario route.
+      event.preventDefault();
+      show(id);
+
+      const preview = root.querySelector<HTMLElement>('.scenario-preview');
+      preview?.scrollIntoView({
+        behavior: reducedMotion.matches ? 'auto' : 'smooth',
+        block: 'start',
+      });
+    });
   });
 
   search?.addEventListener('input', () => {
