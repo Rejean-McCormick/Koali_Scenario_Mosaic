@@ -62,7 +62,10 @@ const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'm
     </div>
     {selected
       ? <a class="preview-cta" href={`/${locale}/uses/`}>← {s.detailBack}</a>
-      : <a class="preview-cta" data-preview-link hidden>{s.readScenario} →</a>}
+      : <a class="preview-cta touch-full-link" data-preview-link hidden>
+          {locale === 'fr' ? 'Ouvrir le dossier complet' : 'Open full scenario'}
+          <span aria-hidden="true"> →</span>
+        </a>}
   </div>
   <aside class="preview-profile" data-preview-profile data-category={selected ? data.primary_category : undefined}>
     <div class="profile-heading">

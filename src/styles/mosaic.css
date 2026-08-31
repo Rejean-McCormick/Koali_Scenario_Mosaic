@@ -234,3 +234,30 @@
   .preview-summary{font-size:.9rem}
   .tag.tag-backlight{font-size:.58rem}
 }
+
+
+/* Touch-only access to the complete scenario dossier. */
+.touch-full-link{display:none!important}
+@media (hover:none), (pointer:coarse){
+  .touch-full-link[hidden]{display:none!important}
+  .touch-full-link:not([hidden]){
+    display:inline-flex!important;
+    align-items:center;
+    align-self:flex-start;
+    margin-top:.6rem;
+    padding:.58rem .8rem;
+    border:1px solid rgba(72,163,157,.58);
+    border-radius:10px;
+    background:rgba(72,163,157,.08);
+    color:#eafcf9;
+    font-size:.86rem;
+    font-weight:720;
+    line-height:1.15;
+    text-decoration:none;
+    box-shadow:inset 0 0 10px rgba(72,163,157,.08);
+  }
+  .touch-full-link:active{
+    background:rgba(72,163,157,.16);
+    border-color:rgba(72,163,157,.82);
+  }
+}
