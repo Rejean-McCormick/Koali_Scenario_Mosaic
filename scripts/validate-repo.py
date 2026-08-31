@@ -52,7 +52,12 @@ if 'render(' in scenario_route or '<Content' in scenario_route or 'scenario-body
 for token in ('detailStartsWith','detailWhatGetsLost','detailKoaliContinuity','detailFlow','detailTransferable'):
     if token not in detail_component: errors.append(f'missing public detail token {token}')
 if 'scenario-info-mosaic' not in scenario_css or 'detail-hex--continuity' not in scenario_css: errors.append('public detail honeycomb styling')
-if 'scenario = null' not in preview_component or "data-image-state={selected ? 'scenario' : 'cover'}" not in preview_component: errors.append('shared preview selected-state contract')
+if (
+    'scenario = null' not in preview_component
+    or "data-image-state={selected ? 'scenario' : 'empty'}" not in preview_component
+    or 'data-preview-prompt' not in preview_component
+    or 'hidden={!selected}' not in preview_component
+): errors.append('shared preview selected-state contract')
 
 # Generated public detail pages must not expose editorial/internal governance markers.
 internal_markers=('PAT-','SIG-','POS-','COMPOSED','UNVERIFIED','PARTIALLY-VALIDATED','DOCUMENTED','Kristal','KristALL','Konnaxion','Orgo','UCKK')
