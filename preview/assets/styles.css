@@ -351,3 +351,71 @@ a{color:inherit}
 @media(max-width:480px){
   .tag.tag-backlight{font-size:.5rem}
 }
+
+
+/* Typography alignment: bring microcopy closer to Windows/Chrome UI scale. */
+.brand-product strong{font-size:1.08rem}
+.brand-product span{font-size:.9rem}
+.brand-copy small{font-size:.68rem;line-height:1.18}
+.language-switcher{font-size:.8rem}
+@media(max-width:620px){
+  .brand-product span{font-size:.84rem}
+}
+
+
+/* Readability pass: preserve layout hierarchy while eliminating sub-10px UI text. */
+.preview-eyebrow{font-size:.76rem}
+.preview-summary{font-size:1rem;line-height:1.42}
+.preview-cta{font-size:.96rem}
+
+.profile-heading{font-size:.74rem}
+.profile-title,
+.profile-section-label,
+.profile-pattern>span,
+.profile-context span{font-size:.67rem;letter-spacing:.03em}
+.profile-pattern small{font-size:.84rem;line-height:1.28}
+.activity-signature>span{font-size:.7rem;line-height:1.15}
+.profile-context strong{font-size:.71rem;line-height:1.16}
+
+.preview-tags.preview-backlights{min-height:44px}
+.tag.tag-backlight{
+  height:44px;
+  font-size:.64rem;
+  line-height:1.05;
+}
+.tag.tag-backlight .tag-icon{
+  width:16px;
+  height:16px;
+  flex-basis:16px;
+}
+
+@media(max-width:900px){
+  .preview-summary{font-size:.95rem}
+  .tag.tag-backlight{font-size:.61rem}
+}
+@media(max-width:480px){
+  .preview-eyebrow{font-size:.72rem}
+  .preview-summary{font-size:.9rem}
+  .tag.tag-backlight{font-size:.58rem}
+}
+
+
+/* Scenario honeycomb: match normal desktop UI reading size more closely. */
+.detail-hex-inner>span{font-size:.74rem;letter-spacing:.065em}
+.detail-hex-inner>strong,
+.detail-hex-inner>p{
+  font-size:.92rem;
+  line-height:1.4;
+}
+.detail-hex-inner>strong{font-size:1.02rem}
+.detail-hex--continuity .detail-hex-inner>p{font-size:.9rem}
+.detail-flow{font-size:.88rem!important}
+
+@media(max-width:900px){
+  .detail-hex-inner>span{font-size:.7rem}
+  .detail-hex-inner>strong,
+  .detail-hex-inner>p{font-size:.88rem;line-height:1.38}
+  .detail-hex-inner>strong{font-size:.96rem}
+  .detail-hex--continuity .detail-hex-inner>p{font-size:.86rem}
+  .detail-flow{font-size:.82rem!important}
+}

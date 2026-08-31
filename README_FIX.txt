@@ -1,34 +1,38 @@
-KOALI_USAGE_MOSAIC — fixed backlight palette overlay
+KOALI_USAGE_MOSAIC — typography Windows-scale overlay
 
-Behavior
---------
-The palette/action indicators no longer disappear, change width, or get rebuilt
-when hovering/focusing another scenario.
+Goal
+----
+Increase small UI text so it visually aligns better with the Windows/Chrome
+interface visible around the application, while preserving the existing layout.
 
-Eight fixed indicators are always visible:
-- Find / Trouver
-- Understand / Comprendre
-- Learn / Apprendre
-- Collaborate / Collaborer
-- Choose / Choisir
-- Act / Agir
-- Respond / Répondre
-- Remember / Se souvenir
+Main adjustments
+----------------
+Backlight labels:
+  ~8.5 px -> ~10.2 px
+  icons: 14 px -> 16 px
+  height: 38 px -> 44 px
 
-Inactive:
-- muted grey
-- low icon opacity
-- no glow
+Scenario profile:
+  micro labels: ~9.3 px -> ~10.7 px
+  activity/context values: ~9.9 px -> ~11.2-11.4 px
+  pattern text: ~12.2 px -> ~13.4 px
 
-Active:
-- brighter foreground
-- teal backlight
-- subtle inner + outer glow
+Scenario hexagons:
+  headings: ~10.6 px -> ~11.8 px
+  body: ~13.4 px -> ~14.7 px
+  strong values: ~15 px -> ~16.3 px
 
-All 15 original palette keys are covered by these 8 stable groups.
+Header:
+  secondary brand text and language switcher enlarged slightly.
 
-This overlay also preserves:
-- local SVG icons
-- two-line icon-over-label layout
-- square scenario image preview
-- generated EN/FR offline preview
+The main scenario title is intentionally not enlarged substantially because it
+was already at a strong desktop reading size.
+
+Files
+-----
+- src/styles/global.css
+- src/styles/mosaic.css
+- src/styles/scenario.css
+- preview/assets/styles.css
+
+Apply this overlay over the current backlight/path-fix state.

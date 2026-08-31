@@ -118,3 +118,24 @@
   .detail-hex-inner{padding:1rem 1.1rem;align-items:flex-start;text-align:left;min-height:112px}
   .detail-hex-inner>strong,.detail-hex-inner>p{max-width:none}
 }
+
+
+/* Scenario honeycomb: match normal desktop UI reading size more closely. */
+.detail-hex-inner>span{font-size:.74rem;letter-spacing:.065em}
+.detail-hex-inner>strong,
+.detail-hex-inner>p{
+  font-size:.92rem;
+  line-height:1.4;
+}
+.detail-hex-inner>strong{font-size:1.02rem}
+.detail-hex--continuity .detail-hex-inner>p{font-size:.9rem}
+.detail-flow{font-size:.88rem!important}
+
+@media(max-width:900px){
+  .detail-hex-inner>span{font-size:.7rem}
+  .detail-hex-inner>strong,
+  .detail-hex-inner>p{font-size:.88rem;line-height:1.38}
+  .detail-hex-inner>strong{font-size:.96rem}
+  .detail-hex--continuity .detail-hex-inner>p{font-size:.86rem}
+  .detail-flow{font-size:.82rem!important}
+}

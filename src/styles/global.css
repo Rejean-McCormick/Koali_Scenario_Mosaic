@@ -32,3 +32,13 @@ a{color:inherit}
   .brand-product span{font-size:.78rem}
   .brand-copy small{display:none}
 }
+
+
+/* Typography alignment: bring microcopy closer to Windows/Chrome UI scale. */
+.brand-product strong{font-size:1.08rem}
+.brand-product span{font-size:.9rem}
+.brand-copy small{font-size:.68rem;line-height:1.18}
+.language-switcher{font-size:.8rem}
+@media(max-width:620px){
+  .brand-product span{font-size:.84rem}
+}
