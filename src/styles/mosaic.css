@@ -500,3 +500,33 @@
     gap:.12rem;
   }
 }
+
+/* Smartphone: the activity signature duplicates the palette icon strip above. */
+@media(max-width:720px){
+  .profile-actions{
+    display:none;
+  }
+
+  .preview-profile{
+    grid-template-rows:auto auto auto;
+  }
+
+  .profile-context{
+    grid-row:3;
+  }
+}
+
+/* Tablet + desktop: the activity list duplicates the palette icon strip above. */
+@media(min-width:721px){
+  .profile-actions{
+    display:none;
+  }
+
+  .preview-profile{
+    grid-template-rows:auto auto 1fr;
+  }
+
+  .profile-context{
+    align-self:end;
+  }
+}
