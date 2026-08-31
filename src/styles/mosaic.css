@@ -530,3 +530,13 @@
     align-self:end;
   }
 }
+
+/* Category identity is already shown beside the scenario id.
+   Do not repeat it inside the profile card. */
+.profile-category{
+  display:none;
+}
+
+.profile-heading{
+  justify-content:flex-start;
+}

@@ -1,0 +1,22 @@
+--- a/src/styles/mosaic.css
++++ b/src/styles/mosaic.css
+@@
+ @media(min-width:721px){
+   .profile-actions{
+     display:none;
+   }
+@@
+   .profile-context{
+     align-self:end;
+   }
+ }
++
++/* Category identity is already shown beside the scenario id.
++   Do not repeat it inside the profile card. */
++.profile-category{
++  display:none;
++}
++
++.profile-heading{
++  justify-content:flex-start;
++}
