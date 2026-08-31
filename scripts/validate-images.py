@@ -3,7 +3,6 @@ import json, re, struct, sys
 
 R=Path(__file__).resolve().parents[1]
 PNG_DIR=R/'public/scenarios/images'
-THUMB_DIR=R/'public/scenarios/thumbnails'
 errors=[]
 pngs=sorted(PNG_DIR.glob('*.png')) if PNG_DIR.exists() else []
 seen=set()
@@ -20,29 +19,6 @@ for p in pngs:
     w,h=struct.unpack('>II',b[16:24])
     if w<64 or h<64: errors.append(f'PNG too small: {p.name} ({w}x{h})')
 
-
-thumbs=sorted(THUMB_DIR.glob('*.png')) if THUMB_DIR.exists() else []
-thumb_bytes=0
-thumb_names={p.name for p in thumbs}
-for i in range(1,121):
-    name=f'SCN-{i:03d}.png'
-    p=THUMB_DIR/name
-    if name not in thumb_names:
-        errors.append(f'Missing generated thumbnail: {name}')
-        continue
-    b=p.read_bytes()
-    thumb_bytes += len(b)
-    if not b.startswith(b'\x89PNG\r\n\x1a\n'):
-        errors.append(f'Invalid thumbnail PNG signature: {name}')
-        continue
-    if len(b)<24 or b[12:16]!=b'IHDR':
-        errors.append(f'Missing thumbnail PNG IHDR: {name}')
-        continue
-    w,h=struct.unpack('>II',b[16:24])
-    if (w,h)!=(96,96):
-        errors.append(f'Thumbnail must be 96x96: {name} ({w}x{h})')
-if thumb_bytes > 2_000_000:
-    errors.append(f'Thumbnails are too heavy in total: {thumb_bytes/1024:.1f} KiB')
 
 for locale in ('en','fr'):
     preview=R/'preview'/locale/'index.html'
@@ -64,9 +40,7 @@ for locale in ('en','fr'):
 helper=R/'src/lib/scenario-image.ts'; component=R/'src/components/ScenarioMosaic.astro'
 if not helper.exists() or 'existsSync' not in helper.read_text(encoding='utf-8'): errors.append('Astro PNG resolver helper missing')
 if not component.exists() or 'resolveScenarioPreviewImage' not in component.read_text(encoding='utf-8'): errors.append('Astro Mosaic does not use PNG resolver')
-if not component.exists() or 'resolveScenarioThumbnail' not in component.read_text(encoding='utf-8'): errors.append('Astro Mosaic does not use generated thumbnails')
 print(f'Scenario PNGs available: {len(pngs)} / 120; SVG fallback: {120-len(pngs)}')
-print(f'Scenario thumbnails: {len(thumbs)} / 120; total: {thumb_bytes/1024:.1f} KiB')
 if errors:
     print('\nIMAGE VALIDATION FAILED')
     for e in errors: print(' -',e)

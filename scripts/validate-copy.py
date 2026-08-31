@@ -34,6 +34,8 @@ for locale in ('en','fr'):
         title=(d['title'] or '').strip(); summary=(d['preview_summary'] or '').strip()
         if not title or not summary: errors.append(f'{sid}/{locale}: missing title or preview_summary'); continue
         if summary.casefold().startswith(title.casefold()): errors.append(f'{sid}/{locale}: preview_summary repeats the title')
+        if 'koali' not in summary.casefold(): errors.append(f'{sid}/{locale}: preview_summary must explain the Koali response, not only the problem')
+        if len(summary) < 150: errors.append(f'{sid}/{locale}: preview_summary is too short for the problem + Koali response format ({len(summary)} chars)')
         nt=re.sub(r'\s+',' ',title).strip().rstrip('.!?;:')
         first=re.split(r'(?<=[.!?])\s+',summary,maxsplit=1)[0]
         nf=re.sub(r'\s+',' ',first).strip().rstrip('.!?;:')

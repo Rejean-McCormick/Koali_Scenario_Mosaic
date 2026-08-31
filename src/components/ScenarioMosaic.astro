@@ -6,7 +6,7 @@ import MosaicLegend from './MosaicLegend.astro';
 import MosaicTerritoryLabels from './MosaicTerritoryLabels.astro';
 import layout from '../data/mosaic-layout.json';
 import { getPublicActivities } from '../lib/public-profile';
-import { resolveScenarioPreviewImage, resolveScenarioThumbnail } from '../lib/scenario-image';
+import { resolveScenarioPreviewImage } from '../lib/scenario-image';
 import { getUi, humanizeTag, localizePalette, type Locale } from '../i18n/ui';
 
 const { scenarios, locale = 'en' as Locale } = Astro.props;
@@ -66,11 +66,6 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
     <div class="mosaic-scroll">
       <div class="mosaic-canvas" data-mosaic-canvas>
         <svg class="mosaic" viewBox={layout.viewBox.join(' ')} role="group" aria-labelledby="mosaic-title mosaic-description" preserveAspectRatio="xMidYMid meet">
-      <defs>
-        <clipPath id="mosaic-thumbnail-clip" clipPathUnits="objectBoundingBox">
-          <polygon points="0.933,0.25 0.933,0.75 0.5,1 0.067,0.75 0.067,0.25 0.5,0" />
-        </clipPath>
-      </defs>
       <title id="mosaic-title">{strings.mosaicTitle}</title>
       <desc id="mosaic-description">{strings.mosaicDescription}</desc>
       {Object.entries(layout.assignments).map(([scenarioId, slotId]) => {
@@ -84,7 +79,6 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
           x={slot.x}
           y={slot.y}
           size={slot.size}
-          thumbnail={resolveScenarioThumbnail(scenarioId)}
         />;
       })}
         </svg>
