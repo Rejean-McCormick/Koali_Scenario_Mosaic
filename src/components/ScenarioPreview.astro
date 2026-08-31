@@ -2,6 +2,7 @@
 import { getUi, humanizeTag, localizePalette, type Locale } from '../i18n/ui';
 import { getPublicActivities } from '../lib/public-profile';
 import { resolveScenarioPreviewImage } from '../lib/scenario-image';
+import { paletteBacklightGroups } from '../lib/palette-icons';
 
 const {
   total = 120,
@@ -20,7 +21,13 @@ const contexts = selected ? [...new Set([
 ])].map((x:string) => humanizeTag(locale, x)).slice(0, 3) : [];
 const properties = selected ? (data.properties ?? []).map((x:string) => humanizeTag(locale, x)) : [];
 const image = selected ? resolveScenarioPreviewImage(data.id, data.preview_image) : (locale === 'fr' ? '/mosaic-cover-fr.svg' : '/mosaic-cover.svg');
-const palette = selected ? (data.palette ?? []).map((x:string) => localizePalette(locale, x)) : [];
+const paletteKeys = selected ? (data.palette ?? []) : [];
+const paletteBacklights = paletteBacklightGroups.map((group) => ({
+  ...group,
+  active: selected && group.palette.some((key) => paletteKeys.includes(key)),
+  label: group.label[locale],
+  iconPath: `/icons/palette/${group.icon}`,
+}));
 const titleText = selected ? data.title : s.exploreWays(total);
 const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'medium' : 'short';
 ---
@@ -41,10 +48,17 @@ const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'm
     </p>
     <h1 data-preview-title data-title-density={titleDensity}>{titleText}</h1>
     <p class="preview-summary" data-preview-summary>{selected ? data.preview_summary : s.hoverIntro}</p>
-    <div class="preview-tags" data-preview-palette>
-      {selected
-        ? palette.slice(0,5).map((label:string) => <span class="tag">{label}</span>)
-        : <span class="tag">{s.hoverHint}</span>}
+    <div class="preview-tags preview-backlights" data-preview-palette>
+      {paletteBacklights.map((item) => (
+        <span
+          class:list={['tag', 'tag-backlight', {'is-active': item.active}]}
+          data-backlight-key={item.key}
+          aria-label={`${item.label}: ${item.active ? (locale === 'fr' ? 'actif' : 'active') : (locale === 'fr' ? 'inactif' : 'inactive')}`}
+        >
+          <img class="tag-icon" src={item.iconPath} alt="" aria-hidden="true" />
+          <span class="tag-label">{item.label}</span>
+        </span>
+      ))}
     </div>
     {selected
       ? <a class="preview-cta" href={`/${locale}/uses/`}>← {s.detailBack}</a>

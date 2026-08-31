@@ -6,6 +6,7 @@ O = R / 'preview'
 if O.exists(): shutil.rmtree(O)
 (O / 'assets/scenarios').mkdir(parents=True)
 (O / 'assets/brand').mkdir(parents=True)
+(O / 'assets/icons/palette').mkdir(parents=True)
 
 metadata = json.loads((R / 'src/data/scenarios.json').read_text(encoding='utf-8'))
 fr_tags = json.loads((R / 'src/i18n/fr-tags.json').read_text(encoding='utf-8'))
@@ -16,6 +17,8 @@ for p in (R / 'public/scenarios/placeholders').glob('*.svg'):
 shutil.copy2(R / 'public/mosaic-cover.svg', O / 'assets/mosaic-cover.svg')
 shutil.copy2(R / 'public/mosaic-cover-fr.svg', O / 'assets/mosaic-cover-fr.svg')
 shutil.copy2(R / 'public/brand/koali-mark.svg', O / 'assets/brand/koali-mark.svg')
+for p in (R / 'public/icons/palette').glob('*.svg'):
+    shutil.copy2(p, O / 'assets/icons/palette' / p.name)
 (O / 'assets/styles.css').write_text(
     (R / 'src/styles/global.css').read_text(encoding='utf-8') +
     (R / 'src/styles/mosaic.css').read_text(encoding='utf-8') +
@@ -30,6 +33,10 @@ groups = {
     'respond':['respond','coordinate'],
     'remember':['remember','disseminate'],
 }
+
+BACKLIGHT_GROUPS = [{'key': 'find', 'palette': ['find', 'verify'], 'icon': 'search.svg', 'label': {'en': 'Find', 'fr': 'Trouver'}}, {'key': 'understand', 'palette': ['understand'], 'icon': 'lightbulb.svg', 'label': {'en': 'Understand', 'fr': 'Comprendre'}}, {'key': 'learn', 'palette': ['learn', 'teach-share'], 'icon': 'book-open.svg', 'label': {'en': 'Learn', 'fr': 'Apprendre'}}, {'key': 'collaborate', 'palette': ['collaborate', 'create'], 'icon': 'users.svg', 'label': {'en': 'Collaborate', 'fr': 'Collaborer'}}, {'key': 'choose', 'palette': ['deliberate', 'choose'], 'icon': 'git-branch.svg', 'label': {'en': 'Choose', 'fr': 'Choisir'}}, {'key': 'act', 'palette': ['organize', 'act'], 'icon': 'zap.svg', 'label': {'en': 'Act', 'fr': 'Agir'}}, {'key': 'respond', 'palette': ['respond', 'coordinate'], 'icon': 'message-circle-reply.svg', 'label': {'en': 'Respond', 'fr': 'Répondre'}}, {'key': 'remember', 'palette': ['remember', 'disseminate'], 'icon': 'history.svg', 'label': {'en': 'Remember', 'fr': 'Se souvenir'}}]
+
+PALETTE_ICONS = {'find': 'search.svg', 'understand': 'lightbulb.svg', 'verify': 'badge-check.svg', 'learn': 'book-open.svg', 'teach-share': 'graduation-cap.svg', 'collaborate': 'users.svg', 'create': 'sparkles.svg', 'deliberate': 'messages-square.svg', 'choose': 'git-branch.svg', 'organize': 'list-checks.svg', 'act': 'zap.svg', 'respond': 'message-circle-reply.svg', 'coordinate': 'network.svg', 'remember': 'history.svg', 'disseminate': 'radio.svg'}
 
 UI = {
 'en': {
@@ -119,6 +126,24 @@ def palette_label(locale,value):
     if locale=='fr': return fr_tags.get(value,value)
     return value.replace('-',' ')
 
+def palette_tag(locale, value, icon_prefix):
+    label=html.escape(palette_label(locale,value))
+    filename=PALETTE_ICONS.get(value)
+    icon=f'<img class="tag-icon" src="{icon_prefix}/{filename}" alt="" aria-hidden="true">' if filename else ''
+    return f'<span class="tag" data-palette-key="{html.escape(value)}">{icon}{label}</span>'
+
+
+def backlight_strip(locale, palette_values, icon_prefix):
+    active=set(palette_values)
+    tags=[]
+    for group in BACKLIGHT_GROUPS:
+        is_active=any(key in active for key in group['palette'])
+        state=' is-active' if is_active else ''
+        label=html.escape(group['label'][locale])
+        icon=f'<img class="tag-icon" src="{icon_prefix}/{group["icon"]}" alt="" aria-hidden="true">'
+        tags.append(f'<span class="tag tag-backlight{state}" data-backlight-key="{group["key"]}">{icon}<span class="tag-label">{label}</span></span>')
+    return ''.join(tags)
+
 def preview_image(x, locale):
     png=R/'public/scenarios/images'/f'{x["id"]}.png'
     # index.html is preview/<locale>/index.html
@@ -165,6 +190,7 @@ app_js = r'''(() => {
   const canvas = root.querySelector('[data-mosaic-canvas]');
   const setText = (q,v) => { const e=root.querySelector(q); if(e){e.textContent=v;e.title=v;} };
   const compact = (a,empty='—',limit=3) => !a||!a.length ? empty : (a.length>limit ? `${a.slice(0,limit).join(' · ')} +${a.length-limit}` : a.join(' · '));
+  const paletteIcons={"find":"search.svg","understand":"lightbulb.svg","verify":"badge-check.svg","learn":"book-open.svg","teach-share":"graduation-cap.svg","collaborate":"users.svg","create":"sparkles.svg","deliberate":"messages-square.svg","choose":"git-branch.svg","organize":"list-checks.svg","act":"zap.svg","respond":"message-circle-reply.svg","coordinate":"network.svg","remember":"history.svg","disseminate":"radio.svg"};
   const titleDensity = value => value.length > 96 ? 'long' : value.length > 72 ? 'medium' : 'short';
   const selectOnly = id => cells.forEach(c => c.classList.toggle('is-active',c.dataset.scenarioId===id));
   function show(id){
@@ -176,7 +202,9 @@ app_js = r'''(() => {
     const p=root.querySelector('[data-preview-profile]');if(p)p.dataset.category=s.categoryId;
     const img=root.querySelector('[data-preview-image]');if(img){img.src=s.image;img.alt=s.imageAlt;img.dataset.imageState='scenario';}
     const link=root.querySelector('[data-preview-link]');if(link){link.href=s.href;link.hidden=false;}
-    const pal=root.querySelector('[data-preview-palette]');if(pal)pal.innerHTML=s.palette.slice(0,5).map(x=>`<span class="tag">${x}</span>`).join('');
+    const activePalette=new Set(s.paletteKeys||[]);
+    const backlightGroups=[{"key":"find","palette":["find","verify"]},{"key":"understand","palette":["understand"]},{"key":"learn","palette":["learn","teach-share"]},{"key":"collaborate","palette":["collaborate","create"]},{"key":"choose","palette":["deliberate","choose"]},{"key":"act","palette":["organize","act"]},{"key":"respond","palette":["respond","coordinate"]},{"key":"remember","palette":["remember","disseminate"]}];
+    root.querySelectorAll('[data-backlight-key]').forEach(el=>{const g=backlightGroups.find(x=>x.key===el.dataset.backlightKey);el.classList.toggle('is-active',!!g&&g.palette.some(k=>activePalette.has(k)));});
     root.querySelectorAll('[data-activity]').forEach(el=>{const k=el.dataset.activity;const on=!!s.activities[k];el.classList.toggle('is-active',on);el.setAttribute('aria-label',`${el.textContent.trim()}: ${on?tr.involved:tr.notCentral}`);});
   }
   cells.forEach(c=>{const id=c.dataset.scenarioId;c.addEventListener('pointerenter',()=>show(id));c.addEventListener('focus',()=>show(id));});
@@ -214,6 +242,7 @@ for locale in ('en','fr'):
         contexts=list(dict.fromkeys([*x.get('settings',[]),*x.get('domains',[])]))[:3]
         data[x['id']]={
           'id':x['id'],'title':x['title'],'category':x['category_label'],'categoryId':x['primary_category'],'pattern':x['pattern_label'],'summary':x['preview_summary'],
+          'paletteKeys':list(x['palette']),
           'palette':[palette_label(locale,v) for v in x['palette']],
           'activities':{k:any(v in x['palette'] for v in vals) for k,vals in groups.items()},
           'scales':[humanize(locale,v) for v in x.get('scales',[])],
@@ -242,7 +271,7 @@ for locale in ('en','fr'):
     profile=f'''<aside class="preview-profile" data-preview-profile><div class="profile-heading"><span class="profile-title">{html.escape(s['profile'])}</span><span class="profile-category"><span class="category-swatch"></span><strong data-preview-category-label>{html.escape(s['explore_mosaic'])}</strong></span></div><div class="profile-pattern"><span>{html.escape(s['motion'])}</span><small data-preview-pattern>{html.escape(s['inspect'])}</small></div><div class="profile-actions"><span class="profile-section-label">{html.escape(s['what'])}</span><div class="activity-signature">{acts}</div></div><div class="profile-context"><div><span>{html.escape(s['scale'])}</span><strong data-preview-scales>—</strong></div><div><span>{html.escape(s['context'])}</span><strong data-preview-context>—</strong></div><div><span>{html.escape(s['conditions'])}</span><strong data-preview-properties>{html.escape(s['none'])}</strong></div></div></aside>'''
     cover = '../assets/mosaic-cover-fr.svg' if locale == 'fr' else '../assets/mosaic-cover.svg'
     switch=f'<nav class="language-switcher" aria-label="{html.escape(s["lang"])}"><a class="{"active" if locale=="en" else ""}" href="../en/index.html">EN</a><span>/</span><a class="{"active" if locale=="fr" else ""}" href="../fr/index.html">FR</a></nav>'
-    index=f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="theme-color" content="#1e6864"><link rel="icon" href="../assets/brand/koali-mark.svg"><link rel="stylesheet" href="../assets/styles.css"><title>{'Mosaïque de scénarios Koali' if locale=='fr' else 'Koali Scenario Mosaic'}</title></head><body><header class="site-header"><a class="brand" href="./index.html"><img class="brand-mark" src="../assets/brand/koali-mark.svg" alt=""><span class="brand-copy"><span class="brand-product"><strong>Koali</strong><span>{html.escape(s['product'])}</span></span><small>the Sociotechnical Operating System</small></span></a>{switch}</header><main><div class="mosaic-experience" data-mosaic-root><section class="scenario-preview"><div class="preview-image-shell"><img data-preview-image data-image-state="cover" src="{cover}"></div><div class="preview-copy"><p class="preview-eyebrow"><span data-preview-id>{'Mosaïque de scénarios Koali' if locale=='fr' else 'Koali Scenario Mosaic'}</span> · <span data-preview-category>120 {s['scenarios']}</span></p><h1 data-preview-title data-title-density="short">{html.escape(s['explore'])}</h1><p class="preview-summary" data-preview-summary>{html.escape(s['hover'])}</p><div class="preview-tags" data-preview-palette><span class="tag">{html.escape(s['hover_tag'])}</span></div><a class="preview-cta" data-preview-link hidden>{html.escape(s['read'])} →</a></div>{profile}</section><div class="mosaic-controls"><label class="search-box"><input data-mosaic-search placeholder="{html.escape(s['search'])}"></label><button class="ghost-button" data-mosaic-surprise>{html.escape(s['surprise'])}</button><button class="ghost-button" data-mosaic-reset>{html.escape(s['reset'])}</button><output data-mosaic-result-count>120 {s['scenarios']}</output></div><div class="territory-legend sr-only" aria-label="{html.escape(s['legend'])}">{legend}</div><div class="mosaic-stage" data-mosaic-stage><div class="mosaic-scroll"><div class="mosaic-canvas" data-mosaic-canvas><svg class="mosaic" viewBox="{' '.join(map(str,layout['viewBox']))}">{''.join(cells)}</svg>{territory_layer}</div></div><p class="mosaic-hint">{html.escape(s['hint'])}</p></div><script type="application/json" data-mosaic-data>{json.dumps(data,ensure_ascii=False).replace('</','<\\/')}</script><script type="application/json" data-mosaic-i18n>{json.dumps({'noneHighlighted':s['none'],'scenarios':s['scenarios'],'scenarioSingular':'scénario' if locale=='fr' else 'scenario','involved':s['involved'],'notCentral':s['notCentral']},ensure_ascii=False)}</script></div></main><script src="../assets/app.js"></script></body></html>'''
+    index=f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="theme-color" content="#1e6864"><link rel="icon" href="../assets/brand/koali-mark.svg"><link rel="stylesheet" href="../assets/styles.css"><title>{'Mosaïque de scénarios Koali' if locale=='fr' else 'Koali Scenario Mosaic'}</title></head><body><header class="site-header"><a class="brand" href="./index.html"><img class="brand-mark" src="../assets/brand/koali-mark.svg" alt=""><span class="brand-copy"><span class="brand-product"><strong>Koali</strong><span>{html.escape(s['product'])}</span></span><small>the Sociotechnical Operating System</small></span></a>{switch}</header><main><div class="mosaic-experience" data-mosaic-root><section class="scenario-preview"><div class="preview-image-shell"><img data-preview-image data-image-state="cover" src="{cover}"></div><div class="preview-copy"><p class="preview-eyebrow"><span data-preview-id>{'Mosaïque de scénarios Koali' if locale=='fr' else 'Koali Scenario Mosaic'}</span> · <span data-preview-category>120 {s['scenarios']}</span></p><h1 data-preview-title data-title-density="short">{html.escape(s['explore'])}</h1><p class="preview-summary" data-preview-summary>{html.escape(s['hover'])}</p><div class="preview-tags preview-backlights" data-preview-palette>{backlight_strip(locale, [], "../assets/icons/palette")}</div><a class="preview-cta" data-preview-link hidden>{html.escape(s['read'])} →</a></div>{profile}</section><div class="mosaic-controls"><label class="search-box"><input data-mosaic-search placeholder="{html.escape(s['search'])}"></label><button class="ghost-button" data-mosaic-surprise>{html.escape(s['surprise'])}</button><button class="ghost-button" data-mosaic-reset>{html.escape(s['reset'])}</button><output data-mosaic-result-count>120 {s['scenarios']}</output></div><div class="territory-legend sr-only" aria-label="{html.escape(s['legend'])}">{legend}</div><div class="mosaic-stage" data-mosaic-stage><div class="mosaic-scroll"><div class="mosaic-canvas" data-mosaic-canvas><svg class="mosaic" viewBox="{' '.join(map(str,layout['viewBox']))}">{''.join(cells)}</svg>{territory_layer}</div></div><p class="mosaic-hint">{html.escape(s['hint'])}</p></div><script type="application/json" data-mosaic-data>{json.dumps(data,ensure_ascii=False).replace('</','<\\/')}</script><script type="application/json" data-mosaic-i18n>{json.dumps({'noneHighlighted':s['none'],'scenarios':s['scenarios'],'scenarioSingular':'scénario' if locale=='fr' else 'scenario','involved':s['involved'],'notCentral':s['notCentral']},ensure_ascii=False)}</script></div></main><script src="../assets/app.js"></script></body></html>'''
     (base/'index.html').write_text(index,encoding='utf-8')
 
     list_items=''.join(f'<p><a href="./{x["id"]}/index.html">{x["id"]} — {html.escape(x["title"])}</a></p>' for x in scenarios)
@@ -260,7 +289,7 @@ for locale in ('en','fr'):
         activities={k:any(v in x['palette'] for v in vals) for k,vals in groups.items()}
         acts=''.join(f'<span class="{"is-active" if activities[key] else ""}" data-activity="{key}"><i></i>{html.escape(label)}</span>' for key,label in s['activities'].items())
         scenario_profile=f'''<aside class="preview-profile" data-preview-profile data-category="{x['primary_category']}"><div class="profile-heading"><span class="profile-title">{html.escape(s['profile'])}</span><span class="profile-category"><span class="category-swatch"></span><strong data-preview-category-label>{html.escape(x['category_label'])}</strong></span></div><div class="profile-pattern"><span>{html.escape(s['motion'])}</span><small data-preview-pattern>{html.escape(x['pattern_label'])}</small></div><div class="profile-actions"><span class="profile-section-label">{html.escape(s['what'])}</span><div class="activity-signature">{acts}</div></div><div class="profile-context"><div><span>{html.escape(s['scale'])}</span><strong data-preview-scales>{html.escape(' · '.join(scales))}</strong></div><div><span>{html.escape(s['context'])}</span><strong data-preview-context>{html.escape(' · '.join(context_labels))}</strong></div><div><span>{html.escape(s['conditions'])}</span><strong data-preview-properties>{html.escape(' · '.join(props) if props else s['none'])}</strong></div></div></aside>'''
-        pal=''.join(f'<span class="tag">{html.escape(palette_label(locale,v))}</span>' for v in x['palette'][:5])
+        pal=backlight_strip(locale,x['palette'],'../../../assets/icons/palette')
         png=R/'public/scenarios/images'/f'{x["id"]}.png'
         if png.exists(): img=f'../../../../public/scenarios/images/{png.name}'
         else: img=f'../../../assets/scenarios/{Path(x["preview_image"]).name}'
@@ -269,7 +298,7 @@ for locale in ('en','fr'):
         trigger=ENTRY_TRIGGER_LABELS[locale].get(x['entry_trigger'], humanize(locale,x['entry_trigger']))
         transfer=' · '.join(humanize(locale,v) for v in x.get('transfer_domains',[]))
         info=f'''<section class="scenario-info-mosaic" data-category="{x['primary_category']}"><article class="detail-hex detail-hex--trigger"><div class="detail-hex-inner"><span>{html.escape(s['detail_starts'])}</span><strong>{html.escape(trigger)}</strong></div></article><article class="detail-hex detail-hex--loss"><div class="detail-hex-inner"><span>{html.escape(s['detail_loss'])}</span><p>{html.escape(x['continuity_gap'])}</p></div></article><article class="detail-hex detail-hex--continuity"><div class="detail-hex-inner"><span>{html.escape(s['detail_continuity'])}</span><p>{html.escape(continuity)}</p></div></article><article class="detail-hex detail-hex--flow"><div class="detail-hex-inner"><span>{html.escape(s['detail_flow'])}</span><p class="detail-flow">{html.escape(flow)}</p></div></article><article class="detail-hex detail-hex--transfer"><div class="detail-hex-inner"><span>{html.escape(s['detail_transfer'])}</span><strong>{html.escape(transfer)}</strong></div></article></section>'''
-        preview=f'''<section class="scenario-preview"><div class="preview-image-shell"><img data-preview-image data-image-state="scenario" src="{img}" alt="{html.escape(x['preview_image_alt'])}"></div><div class="preview-copy"><p class="preview-eyebrow"><span data-preview-id>{x['id']}</span> · <span data-preview-category>{html.escape(x['category_label'])}</span></p><h1 data-preview-title data-title-density="{'long' if len(x['title']) > 96 else 'medium' if len(x['title']) > 72 else 'short'}">{html.escape(x['title'])}</h1><p class="preview-summary" data-preview-summary>{html.escape(x['preview_summary'])}</p><div class="preview-tags" data-preview-palette>{pal}</div><a class="preview-cta" href="../../index.html">← {html.escape(s['detail_back'])}</a></div>{scenario_profile}</section>'''
+        preview=f'''<section class="scenario-preview"><div class="preview-image-shell"><img data-preview-image data-image-state="scenario" src="{img}" alt="{html.escape(x['preview_image_alt'])}"></div><div class="preview-copy"><p class="preview-eyebrow"><span data-preview-id>{x['id']}</span> · <span data-preview-category>{html.escape(x['category_label'])}</span></p><h1 data-preview-title data-title-density="{'long' if len(x['title']) > 96 else 'medium' if len(x['title']) > 72 else 'short'}">{html.escape(x['title'])}</h1><p class="preview-summary" data-preview-summary>{html.escape(x['preview_summary'])}</p><div class="preview-tags preview-backlights" data-preview-palette>{pal}</div><a class="preview-cta" href="../../index.html">← {html.escape(s['detail_back'])}</a></div>{scenario_profile}</section>'''
         page=f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="theme-color" content="#1e6864"><link rel="icon" href="../../../assets/brand/koali-mark.svg"><link rel="stylesheet" href="../../../assets/styles.css"><title>{html.escape(x['title'])}</title></head><body><header class="site-header"><a class="brand" href="../../index.html"><img class="brand-mark" src="../../../assets/brand/koali-mark.svg" alt=""><span class="brand-copy"><span class="brand-product"><strong>Koali</strong><span>{html.escape(s['product'])}</span></span><small>the Sociotechnical Operating System</small></span></a>{switch_detail}</header><main><div class="mosaic-experience scenario-detail-experience">{preview}{info}</div></main></body></html>'''
         (d/'index.html').write_text(page,encoding='utf-8')
 

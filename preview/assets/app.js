@@ -20,7 +20,9 @@
     const p=root.querySelector('[data-preview-profile]');if(p)p.dataset.category=s.categoryId;
     const img=root.querySelector('[data-preview-image]');if(img){img.src=s.image;img.alt=s.imageAlt;img.dataset.imageState='scenario';}
     const link=root.querySelector('[data-preview-link]');if(link){link.href=s.href;link.hidden=false;}
-    const pal=root.querySelector('[data-preview-palette]');if(pal)pal.innerHTML=s.palette.slice(0,5).map(x=>`<span class="tag">${x}</span>`).join('');
+    const activePalette=new Set(s.paletteKeys||[]);
+    const backlightGroups=[{"key":"find","palette":["find","verify"]},{"key":"understand","palette":["understand"]},{"key":"learn","palette":["learn","teach-share"]},{"key":"collaborate","palette":["collaborate","create"]},{"key":"choose","palette":["deliberate","choose"]},{"key":"act","palette":["organize","act"]},{"key":"respond","palette":["respond","coordinate"]},{"key":"remember","palette":["remember","disseminate"]}];
+    root.querySelectorAll('[data-backlight-key]').forEach(el=>{const g=backlightGroups.find(x=>x.key===el.dataset.backlightKey);el.classList.toggle('is-active',!!g&&g.palette.some(k=>activePalette.has(k)));});
     root.querySelectorAll('[data-activity]').forEach(el=>{const k=el.dataset.activity;const on=!!s.activities[k];el.classList.toggle('is-active',on);el.setAttribute('aria-label',`${el.textContent.trim()}: ${on?tr.involved:tr.notCentral}`);});
   }
   cells.forEach(c=>{const id=c.dataset.scenarioId;c.addEventListener('pointerenter',()=>show(id));c.addEventListener('focus',()=>show(id));});

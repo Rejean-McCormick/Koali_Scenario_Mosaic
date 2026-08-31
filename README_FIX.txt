@@ -1,20 +1,34 @@
-KOALI_USAGE_MOSAIC — SCN image filename fix v4
+KOALI_USAGE_MOSAIC — fixed backlight palette overlay
 
-This overlay follows the repository's validation contract.
+Behavior
+--------
+The palette/action indicators no longer disappear, change width, or get rebuilt
+when hovering/focusing another scenario.
 
-Included:
-- package.json
-- src/lib/scenario-image.ts
-- scripts/validate-images.py
-- scripts/build-offline-preview.py
-- regenerated preview/ directory (247 files)
+Eight fixed indicators are always visible:
+- Find / Trouver
+- Understand / Comprendre
+- Learn / Apprendre
+- Collaborate / Collaborer
+- Choose / Choisir
+- Act / Agir
+- Respond / Répondre
+- Remember / Se souvenir
 
-Production build restored to:
-  npm run validate && astro build
+Inactive:
+- muted grey
+- low icon opacity
+- no glow
 
-The offline preview is pre-generated/committed instead of generated inside
-the Netlify production build.
+Active:
+- brighter foreground
+- teal backlight
+- subtle inner + outer glow
 
-Image resolution:
-- SCN-001 through SCN-060 -> public/scenarios/images/SCN-###.png
-- SCN-061 through SCN-120 -> SVG fallback
+All 15 original palette keys are covered by these 8 stable groups.
+
+This overlay also preserves:
+- local SVG icons
+- two-line icon-over-label layout
+- square scenario image preview
+- generated EN/FR offline preview

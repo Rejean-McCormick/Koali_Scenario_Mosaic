@@ -34,6 +34,7 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
     categoryId: entry.data.primary_category,
     pattern: entry.data.pattern_label,
     summary: entry.data.preview_summary,
+    paletteKeys: entry.data.palette,
     palette: entry.data.palette.map((x:string) => localizePalette(locale, x)),
     activities: getPublicActivities(entry.data.palette),
     scales,

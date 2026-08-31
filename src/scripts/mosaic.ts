@@ -1,3 +1,5 @@
+import { paletteBacklightGroups } from '../lib/palette-icons';
+
 const root = document.querySelector<HTMLElement>('[data-mosaic-root]');
 
 if (root) {
@@ -62,13 +64,13 @@ if (root) {
       link.hidden = false;
     }
 
-    const palette = root.querySelector<HTMLElement>('[data-preview-palette]');
-    if (palette) {
-      palette.innerHTML = scenario.palette
-        .slice(0,5)
-        .map((value:string) => `<span class="tag">${value}</span>`)
-        .join('');
-    }
+    const activePalette = new Set<string>(scenario.paletteKeys ?? []);
+    root.querySelectorAll<HTMLElement>('[data-backlight-key]').forEach((el) => {
+      const group = paletteBacklightGroups.find((item) => item.key === el.dataset.backlightKey);
+      const active = !!group?.palette.some((key) => activePalette.has(key));
+      el.classList.toggle('is-active', active);
+      el.setAttribute('aria-label', `${el.querySelector('.tag-label')?.textContent ?? ''}: ${active ? 'active' : 'inactive'}`);
+    });
 
     root.querySelectorAll<HTMLElement>('[data-activity]').forEach((element) => {
       const key = element.dataset.activity!;
