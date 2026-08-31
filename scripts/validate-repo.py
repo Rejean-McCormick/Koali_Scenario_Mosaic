@@ -26,6 +26,15 @@ if 'NODE_VERSION = "24.20.0"' not in netlify or 'publish = "dist"' not in netlif
 if 'align-items:end' not in css or '.profile-context span{line-height:1.12}' not in css: errors.append('profile context bottom alignment')
 if layout['geometry']['rows']!=6 or layout['geometry']['columns']!=20: errors.append('panorama geometry')
 if layout['geometry'].get('territories')!=8: errors.append('territory count')
+
+# Responsive preview contract: no horizontal spill and no branded cover crop.
+if 'grid-template-columns:minmax(180px,.72fr) minmax(0,1.28fr)' not in css: errors.append('tablet preview grid contract')
+if '@media(max-width:720px)' not in css or 'grid-template-columns:1fr' not in css: errors.append('narrow preview stack contract')
+if 'img[data-image-state="cover"]{object-fit:contain' not in css: errors.append('cover contain contract')
+if 'img[data-image-state="scenario"]{object-fit:cover' not in css: errors.append('scenario image cover contract')
+if "dataset.imageState = 'scenario'" not in js: errors.append('scenario image state switch')
+cover=(R/'public/mosaic-cover.svg').read_text(encoding='utf-8')
+if '<text ' in cover: errors.append('initial cover repeats product text')
 if not (R/'src/pages/[lang]/uses/index.astro').exists(): errors.append('localized mosaic route')
 if not (R/'src/pages/[lang]/uses/[id].astro').exists(): errors.append('localized scenario route')
 if not (R/'preview/en/index.html').exists() or not (R/'preview/fr/index.html').exists(): errors.append('bilingual offline preview')

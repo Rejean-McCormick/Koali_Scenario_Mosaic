@@ -1,4 +1,4 @@
-# Validation report — v4.0 bilingual
+# Validation report — v4.1 bilingual
 
 ## Corpus
 
@@ -28,6 +28,10 @@
 - one active/highlighted hexagon at a time;
 - no related-cell highlight;
 - fixed preview geometry;
+- tablet preview constrained to viewport width;
+- single-column preview below 720 px;
+- initial cover uses contain while scenario images use cover;
+- color legend does not impose a page-level minimum width;
 - two-line title box without clipping;
 - color legend present;
 - bottom-aligned profile metadata.

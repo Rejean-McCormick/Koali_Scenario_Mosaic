@@ -1,4 +1,4 @@
-# Koali Scenario Mosaic — v4.0 Bilingual
+# Koali Scenario Mosaic — v4.1 Bilingual
 
 **Koali, the Sociotechnical Operating System**
 
@@ -76,6 +76,20 @@ Translations are versioned source content. There is **no runtime machine transla
 - public-language scenario profile;
 - automatic PNG scenario image loading with SVG fallback;
 - Koali brand color `#1e6864` and supplied SVG logo.
+
+
+## Responsive preview behavior
+
+The v4.1 preview explicitly separates the **initial cover** from **scenario images**:
+
+- the initial cover is a text-free abstract territory graphic and uses `object-fit: contain`;
+- scenario PNG/SVG images switch to `object-fit: cover` after hover/focus;
+- at tablet widths the preview uses a bounded two-column top row and a full-width profile strip;
+- below 720 px the preview becomes a single-column stack;
+- the legend no longer forces a 760 px page width;
+- only the Mosaic itself becomes horizontally scrollable on narrow screens.
+
+This prevents the preview panel from spilling outside the viewport and prevents the cover branding from being cropped.
 
 ## Develop locally
 
@@ -162,4 +176,4 @@ Both languages share the same scenario image. Missing PNGs automatically use the
 - French interface: **Mosaïque de scénarios Koali**;
 - npm package: `koali-scenario-mosaic`.
 
-See [`docs/40_BILINGUAL_ARCHITECTURE.md`](docs/40_BILINGUAL_ARCHITECTURE.md) for the v4 language architecture and editorial workflow.
+See [`docs/40_BILINGUAL_ARCHITECTURE.md`](docs/40_BILINGUAL_ARCHITECTURE.md) for the v4 language architecture and [`docs/41_RESPONSIVE_PREVIEW_AND_COVER.md`](docs/41_RESPONSIVE_PREVIEW_AND_COVER.md) for the v4.1 responsive-preview contract.

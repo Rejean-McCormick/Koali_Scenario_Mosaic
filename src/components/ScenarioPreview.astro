@@ -5,7 +5,7 @@ const s = getUi(locale);
 ---
 <section class="scenario-preview">
   <div class="preview-image-shell">
-    <img data-preview-image src={locale === 'fr' ? '/mosaic-cover-fr.svg' : '/mosaic-cover.svg'} alt={locale === 'fr' ? 'Aperçu de la Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic scenario preview'} />
+    <img data-preview-image data-image-state="cover" src={locale === 'fr' ? '/mosaic-cover-fr.svg' : '/mosaic-cover.svg'} alt={locale === 'fr' ? 'Aperçu de la Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic scenario preview'} />
   </div>
   <div class="preview-copy">
     <p class="preview-eyebrow"><span data-preview-id>{locale === 'fr' ? 'Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic'}</span> · <span data-preview-category>{total} {s.scenarios}</span></p>

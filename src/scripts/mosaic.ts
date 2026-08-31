@@ -47,6 +47,7 @@ if (root) {
     if (image) {
       image.src = scenario.image;
       image.alt = scenario.imageAlt;
+      image.dataset.imageState = 'scenario';
     }
 
     const link = root.querySelector<HTMLAnchorElement>('[data-preview-link]');
