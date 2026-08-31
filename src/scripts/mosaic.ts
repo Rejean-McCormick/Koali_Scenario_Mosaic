@@ -22,6 +22,8 @@ if (root) {
       : values.join(' · ');
   };
 
+  const titleDensity = (value:string) => value.length > 96 ? 'long' : value.length > 72 ? 'medium' : 'short';
+
   function selectOnly(id:string) {
     cells.forEach((cell) => cell.classList.toggle('is-active', cell.dataset.scenarioId === id));
   }
@@ -33,6 +35,8 @@ if (root) {
     setText('[data-preview-id]', scenario.id);
     setText('[data-preview-category]', scenario.category);
     setText('[data-preview-title]', scenario.title);
+    const title = root.querySelector<HTMLElement>('[data-preview-title]');
+    if (title) title.dataset.titleDensity = titleDensity(scenario.title);
     setText('[data-preview-summary]', scenario.summary);
     setText('[data-preview-category-label]', scenario.category);
     setText('[data-preview-pattern]', scenario.pattern);

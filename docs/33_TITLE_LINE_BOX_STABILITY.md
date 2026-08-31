@@ -1,27 +1,31 @@
-# Title line-box stability — v3.4
+# Title completeness and line-box stability — v4.3.1
 
 ## Problem
 
-Some two-line scenario titles were visually clipped through the second line even though the preview panel itself stayed at a fixed height. The cause was the title box: it reserved only `2.05em`, while the browser's actual line boxes required more vertical space.
+The previous preview contract forced every scenario title into exactly two visible lines. This kept the Mosaic stable, but the narrative refresh introduced deliberately punchier titles that can exceed two lines. The browser then added an ellipsis, hiding meaningful text (for example the end of SCN-014).
 
 ## Fix
 
-The title now has an explicit line height and a non-shrinking flex basis. It reserves slightly more than two true line boxes:
+The preview now reserves a stable three-line title region and adapts font size by title length. Short titles remain prominent; medium and long titles step down slightly so the complete hook is much more likely to remain visible without moving the Mosaic.
 
 ```css
 .preview-copy h1 {
-  line-height: 1.12;
-  flex: 0 0 2.5em;      /* fallback */
-  block-size: 2.25lh;    /* line-height-relative size */
-  -webkit-line-clamp: 2;
+  line-height: 1.08;
+  height: 6.7rem;
+  -webkit-line-clamp: 3;
 }
+
+.preview-copy h1[data-title-density="medium"] { /* slightly smaller */ }
+.preview-copy h1[data-title-density="long"] { /* smaller again */ }
 ```
 
-The `lh` unit ties the reserved block size to the computed line height rather than assuming that one `em` equals one rendered line. The `flex` basis prevents the title region from being compressed by the surrounding summary, tags, or CTA.
+The Mosaic interaction updates `data-title-density` whenever a new scenario is selected. Static scenario pages receive the same density classification at render time.
 
 ## Invariant
 
-- The overall preview height remains fixed.
-- A title may use up to two complete visible lines.
-- A longer title may be clamped/ellipsized after line two, but the second line itself must never be vertically clipped.
+- The overall preview remains layout-stable.
+- A title may use up to three complete visible lines.
+- Long narrative hooks are resized before they are clamped.
+- The second or third line must never be vertically clipped.
 - Hovering another scenario must not move the Mosaic.
+- Tablet and narrow layouts reserve additional copy height so the title, summary, tags, and CTA do not collide.

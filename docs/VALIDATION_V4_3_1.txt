@@ -1,0 +1,20 @@
+Koali Scenario Mosaic v4.3.1 validation
+
+Change:
+- Scenario preview titles now reserve a three-line region.
+- Title font size adapts to short / medium / long narrative hooks.
+- Responsive copy rows were expanded so title, summary, tags, and CTA do not collide.
+- validate-repo.py was updated from the obsolete two-line title contract to the v4.3.1 adaptive three-line contract.
+
+Validation results:
+✓ 120 assignments
+✓ 150 slots / 30 reserved
+✓ exact 20 × 6 regular honeycomb panorama
+✓ 8 contiguous 5 × 3 category territories
+✓ panoramic viewBox ratio 3.57:1
+✓ 120 shared scenarios
+✓ 240 localized documents
+✓ 31 scenario PNGs + 89 SVG fallbacks
+✓ bilingual preview-copy validation
+✓ bilingual routing/content/offline preview validation
+✓ canonical Koali naming and brand validation

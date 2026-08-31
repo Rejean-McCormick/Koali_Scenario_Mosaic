@@ -1,5 +1,5 @@
 from pathlib import Path
-import json, sys
+import json, sys, re
 R=Path(__file__).resolve().parents[1]
 errors=[]
 js=(R/'src/scripts/mosaic.ts').read_text(encoding='utf-8')
@@ -16,8 +16,11 @@ if 'is-related' in js or 'is-related' in css: errors.append('related highlight')
 if '.mosaic-cell:hover' in css: errors.append('css hover state')
 if '.mosaic-cell:focus-visible' in css: errors.append('independent focus highlight')
 if 'selectOnly' not in js: errors.append('single select')
-if 'line-height:1.12' not in css or 'block-size:2.25lh' not in css: errors.append('title line box')
-if '-webkit-line-clamp:2' not in css: errors.append('title clamp')
+title_rule = re.search(r'\.preview-copy h1\{([^}]*)\}', css)
+title_css = title_rule.group(1) if title_rule else ''
+if 'line-height:1.08' not in title_css or 'height:6.7rem' not in title_css: errors.append('title line box')
+if '-webkit-line-clamp:3' not in title_css: errors.append('title clamp')
+if 'data-title-density' not in css or 'titleDensity' not in js: errors.append('adaptive title density')
 if 'height:286px' not in css or 'height:clamp(180px,24vh,220px)' not in css: errors.append('one-viewport compact sizing')
 if 'territory-legend' not in css or 'MosaicLegend' not in component: errors.append('color legend')
 if package.get('scripts',{}).get('build')!='npm run validate && astro build': errors.append('Netlify-safe production build')

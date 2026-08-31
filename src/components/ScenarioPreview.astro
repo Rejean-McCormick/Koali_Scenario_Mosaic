@@ -21,6 +21,8 @@ const contexts = selected ? [...new Set([
 const properties = selected ? (data.properties ?? []).map((x:string) => humanizeTag(locale, x)) : [];
 const image = selected ? resolveScenarioPreviewImage(data.id, data.preview_image) : (locale === 'fr' ? '/mosaic-cover-fr.svg' : '/mosaic-cover.svg');
 const palette = selected ? (data.palette ?? []).map((x:string) => localizePalette(locale, x)) : [];
+const titleText = selected ? data.title : s.exploreWays(total);
+const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'medium' : 'short';
 ---
 <section class="scenario-preview">
   <div class="preview-image-shell">
@@ -37,7 +39,7 @@ const palette = selected ? (data.palette ?? []).map((x:string) => localizePalett
       <span aria-hidden="true"> · </span>
       <span data-preview-category>{selected ? data.category_label : `${total} ${s.scenarios}`}</span>
     </p>
-    <h1 data-preview-title>{selected ? data.title : s.exploreWays(total)}</h1>
+    <h1 data-preview-title data-title-density={titleDensity}>{titleText}</h1>
     <p class="preview-summary" data-preview-summary>{selected ? data.preview_summary : s.hoverIntro}</p>
     <div class="preview-tags" data-preview-palette>
       {selected
