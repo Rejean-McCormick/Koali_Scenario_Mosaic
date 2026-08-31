@@ -7,7 +7,7 @@ errors=[]
 pngs=sorted(PNG_DIR.glob('*.png')) if PNG_DIR.exists() else []
 seen=set()
 for p in pngs:
-    m=re.fullmatch(r'scenario_(\d{3})\.png',p.name)
+    m=re.fullmatch(r'SCN-(\d{3})\.png',p.name)
     if not m: errors.append(f'Invalid PNG name: {p.name}'); continue
     n=int(m.group(1))
     if not 1<=n<=120: errors.append(f'PNG outside SCN-001..120: {p.name}')
@@ -30,7 +30,7 @@ for locale in ('en','fr'):
     for i in range(1,121):
         sid=f'SCN-{i:03d}'; item=data.get(sid)
         if not item: errors.append(f'Offline {locale} preview missing {sid}'); continue
-        png_name=f'scenario_{i:03d}.png'; exists=(PNG_DIR/png_name).exists(); image=item.get('image','')
+        png_name=f'{sid}.png'; exists=(PNG_DIR/png_name).exists(); image=item.get('image','')
         expected=f'../../public/scenarios/images/{png_name}' if exists else f'../assets/scenarios/{sid}.svg'
         if image!=expected: errors.append(f'{locale}/{sid}: image is {image!r}, expected {expected!r}')
         resolved=(preview.parent/image).resolve()

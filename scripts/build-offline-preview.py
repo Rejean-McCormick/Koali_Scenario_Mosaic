@@ -120,8 +120,7 @@ def palette_label(locale,value):
     return value.replace('-',' ')
 
 def preview_image(x, locale):
-    number=x['id'].split('-')[1]
-    png=R/'public/scenarios/images'/f'scenario_{number}.png'
+    png=R/'public/scenarios/images'/f'{x["id"]}.png'
     # index.html is preview/<locale>/index.html
     if png.exists(): return f'../../public/scenarios/images/{png.name}'
     return '../assets/scenarios/'+Path(x['preview_image']).name
@@ -262,8 +261,7 @@ for locale in ('en','fr'):
         acts=''.join(f'<span class="{"is-active" if activities[key] else ""}" data-activity="{key}"><i></i>{html.escape(label)}</span>' for key,label in s['activities'].items())
         scenario_profile=f'''<aside class="preview-profile" data-preview-profile data-category="{x['primary_category']}"><div class="profile-heading"><span class="profile-title">{html.escape(s['profile'])}</span><span class="profile-category"><span class="category-swatch"></span><strong data-preview-category-label>{html.escape(x['category_label'])}</strong></span></div><div class="profile-pattern"><span>{html.escape(s['motion'])}</span><small data-preview-pattern>{html.escape(x['pattern_label'])}</small></div><div class="profile-actions"><span class="profile-section-label">{html.escape(s['what'])}</span><div class="activity-signature">{acts}</div></div><div class="profile-context"><div><span>{html.escape(s['scale'])}</span><strong data-preview-scales>{html.escape(' · '.join(scales))}</strong></div><div><span>{html.escape(s['context'])}</span><strong data-preview-context>{html.escape(' · '.join(context_labels))}</strong></div><div><span>{html.escape(s['conditions'])}</span><strong data-preview-properties>{html.escape(' · '.join(props) if props else s['none'])}</strong></div></div></aside>'''
         pal=''.join(f'<span class="tag">{html.escape(palette_label(locale,v))}</span>' for v in x['palette'][:5])
-        number=x['id'].split('-')[1]
-        png=R/'public/scenarios/images'/f'scenario_{number}.png'
+        png=R/'public/scenarios/images'/f'{x["id"]}.png'
         if png.exists(): img=f'../../../../public/scenarios/images/{png.name}'
         else: img=f'../../../assets/scenarios/{Path(x["preview_image"]).name}'
 
