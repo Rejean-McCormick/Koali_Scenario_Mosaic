@@ -1,4 +1,4 @@
-# Koali Scenario Mosaic — naming update v3.6
+# Koali Scenario Mosaic — naming conventions
 
 ## Canonical product name
 
@@ -32,3 +32,9 @@ Generic implementation identifiers remain `mosaic-*` where they describe the mec
 - `/uses/` public routes.
 
 This avoids unnecessary route and implementation churn while keeping the public identity consistent.
+
+## Koali capitalization
+
+The canonical brand spelling is **Koali**. An all-capital rendering of the brand name is not permitted in public/editorial prose. Lowercase `koali` remains acceptable only where required by technical conventions such as npm package names or filesystem-safe identifiers.
+
+Canonical positioning line: **Koali, the Sociotechnical Operating System**.

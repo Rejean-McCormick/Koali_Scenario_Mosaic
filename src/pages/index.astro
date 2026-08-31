@@ -1,3 +1,21 @@
 ---
-return Astro.redirect('/uses/');
 ---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="robots" content="noindex" />
+  <title>Koali Scenario Mosaic</title>
+  <script is:inline>
+    (() => {
+      const languages = navigator.languages?.length ? navigator.languages : [navigator.language || 'en'];
+      const locale = languages.some((lang) => String(lang).toLowerCase().startsWith('fr')) ? 'fr' : 'en';
+      location.replace(`/${locale}/uses/`);
+    })();
+  </script>
+</head>
+<body style="font-family:system-ui;background:#080b11;color:#eef3f9;padding:2rem">
+  <p><a href="/en/uses/">English</a> · <a href="/fr/uses/">Français</a></p>
+</body>
+</html>

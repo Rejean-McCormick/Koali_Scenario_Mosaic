@@ -1,5 +1,7 @@
 # Koali in one page
 
+**Koali, the Sociotechnical Operating System**
+
 ## One sentence
 
 > **Koali is a knowledge-to-action environment that connects what people know, who can contribute, what gets decided, what must be done, and what is learned afterward.**

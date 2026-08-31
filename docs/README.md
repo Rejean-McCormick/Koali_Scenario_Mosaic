@@ -1,6 +1,6 @@
-# Koali Usage Presentation Pack v2 — English edition
+# Koali Scenario Mosaic — documentation
 
-A structured editorial corpus for explaining Koali’s versatility without presenting it as an undefined “everything app.”
+A structured editorial and implementation corpus for **Koali, the Sociotechnical Operating System**, and its public **Koali Scenario Mosaic** interface.
 
 The pack contains:
 

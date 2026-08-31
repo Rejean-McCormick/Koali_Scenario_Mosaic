@@ -1,4 +1,11 @@
-# START HERE — Koali Usage Presentation Pack v2 EN
+# START HERE — Koali Scenario Mosaic
+
+
+## Canonical Koali identity
+
+**Koali, the Sociotechnical Operating System**
+
+The brand name is always written **Koali** in public and editorial prose. The primary Koali brand color is **`#1e6864`**. **Koali Scenario Mosaic** is the name of this public scenario-discovery interface.
 
 ## Purpose
 
@@ -23,7 +30,7 @@ Koali should not be introduced as “software that does everything.” It should
 
 ## Recommended reading order
 
-1. [Koali in one page](02_KOALI_ONE_PAGE.md)
+1. [Koali in one page](02_Koali_ONE_PAGE.md)
 2. [Master presentation architecture](01_MASTER_ARCHITECTURE.md)
 3. [Usage palette](03_USAGE_PALETTE.md)
 4. [12 hero scenarios](08_HERO_12.md)
@@ -42,3 +49,21 @@ A reader should recognize the situation before seeing module names. Kristal, Kon
 ## Scenario images — introduced in v3.5, current in v3.6
 
 See [`34_PNG_SCENARIO_IMAGE_LOADING.md`](34_PNG_SCENARIO_IMAGE_LOADING.md) for automatic `scenario_###.png` loading with SVG fallback.
+
+## Preview copy — v3.8
+
+See [`37_PREVIEW_COPY_DEDUPLICATION.md`](37_PREVIEW_COPY_DEDUPLICATION.md). Scenario titles state the situation; `preview_summary` now continues the thought instead of repeating the title. All 120 canonical scenarios are validated against title duplication.
+
+## Profile metadata alignment — v3.9
+
+See [`38_PROFILE_CONTEXT_BASELINE_ALIGNMENT.md`](38_PROFILE_CONTEXT_BASELINE_ALIGNMENT.md) for the bottom-aligned profile metadata rows.
+
+## Brand identity — v3.10
+
+See [`39_Koali_BRAND_IDENTITY.md`](39_Koali_BRAND_IDENTITY.md) for canonical capitalization, positioning, color, and logo usage.
+
+## Bilingual architecture — v4.0
+
+The public interface is now available in English and French using one shared 120-scenario identity layer and one shared Mosaic geography. See [`40_BILINGUAL_ARCHITECTURE.md`](40_BILINGUAL_ARCHITECTURE.md).
+
+Public routes: `/en/uses/` and `/fr/uses/`. The language switch preserves the current scenario.

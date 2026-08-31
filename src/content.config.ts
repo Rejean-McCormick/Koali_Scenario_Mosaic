@@ -1,1 +1,24 @@
-import {defineCollection} from 'astro:content';import {glob} from 'astro/loaders';import {z} from 'astro/zod';const score=z.number().int().min(0).max(5);const scenarios=defineCollection({loader:glob({pattern:'SCN-*.md',base:'./src/content/scenarios',generateId:({entry})=>entry.replace(/\.md$/,'')}),schema:z.object({id:z.string(),title:z.string(),primary_category:z.string(),pattern_family:z.string(),category_label:z.string(),pattern_label:z.string(),palette:z.array(z.string()),components:z.object({kristal:score,konnaxion:score,orgo:score,uckk:score}),entry_trigger:z.string().optional(),scales:z.array(z.string()).default([]),settings:z.array(z.string()).default([]),properties:z.array(z.string()).default([]),domains:z.array(z.string()).default([]),preview_summary:z.string(),preview_image:z.string(),preview_image_alt:z.string(),badges:z.array(z.string()).default([]),related:z.array(z.string()).default([]),derivation:z.string(),runtime_evidence:z.string()})});export const collections={scenarios};
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+
+const scenarioText = defineCollection({
+  loader: glob({
+    pattern: '**/SCN-*.md',
+    base: './src/content/scenarios',
+    generateId: ({ entry }) => entry.replace(/\.md$/, ''),
+  }),
+  schema: z.object({
+    id: z.string().regex(/^SCN-\d{3}$/),
+    locale: z.enum(['en', 'fr']),
+    title: z.string(),
+    category_label: z.string(),
+    pattern_label: z.string(),
+    pattern: z.string(),
+    continuity_gap: z.string(),
+    preview_summary: z.string(),
+    preview_image_alt: z.string(),
+  }),
+});
+
+export const collections = { scenarioText };

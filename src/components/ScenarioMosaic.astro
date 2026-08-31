@@ -4,10 +4,12 @@ import ScenarioPreview from './ScenarioPreview.astro';
 import MosaicControls from './MosaicControls.astro';
 import MosaicLegend from './MosaicLegend.astro';
 import layout from '../data/mosaic-layout.json';
-import { getPublicActivities, humanizePublicValue } from '../lib/public-profile';
+import { getPublicActivities } from '../lib/public-profile';
 import { resolveScenarioPreviewImage } from '../lib/scenario-image';
+import { getUi, humanizeTag, localizePalette, type Locale } from '../i18n/ui';
 
-const { scenarios } = Astro.props;
+const { scenarios, locale = 'en' as Locale } = Astro.props;
+const strings = getUi(locale);
 const byId = Object.fromEntries(scenarios.map((entry:any) => [entry.data.id, entry]));
 
 const categories = [...new Map(
@@ -18,11 +20,11 @@ const categories = [...new Map(
 ).values()].sort((a:any,b:any) => a.id.localeCompare(b.id));
 
 const previewData = Object.fromEntries(scenarios.map((entry:any) => {
-  const scales = (entry.data.scales ?? []).map(humanizePublicValue);
+  const scales = (entry.data.scales ?? []).map((x:string) => humanizeTag(locale, x));
   const contexts = [...new Set([
     ...(entry.data.settings ?? []),
     ...(entry.data.domains ?? []),
-  ])].map(humanizePublicValue).slice(0, 3);
+  ])].map((x:string) => humanizeTag(locale, x)).slice(0, 3);
 
   return [entry.data.id, {
     id: entry.data.id,
@@ -31,14 +33,14 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
     categoryId: entry.data.primary_category,
     pattern: entry.data.pattern_label,
     summary: entry.data.preview_summary,
-    palette: entry.data.palette,
+    palette: entry.data.palette.map((x:string) => localizePalette(locale, x)),
     activities: getPublicActivities(entry.data.palette),
     scales,
     contexts,
-    properties: (entry.data.properties ?? []).map(humanizePublicValue),
+    properties: (entry.data.properties ?? []).map((x:string) => humanizeTag(locale, x)),
     image: resolveScenarioPreviewImage(entry.data.id, entry.data.preview_image),
     imageAlt: entry.data.preview_image_alt,
-    href: `/uses/${entry.data.id}/`,
+    href: `/${locale}/uses/${entry.data.id}/`,
     search: [
       entry.data.title,
       entry.data.category_label,
@@ -48,19 +50,20 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
       ...entry.data.settings,
       ...entry.data.properties,
       ...entry.data.domains,
+      ...(entry.data.domains ?? []).map((x:string) => humanizeTag(locale,x)),
     ].join(' ').toLowerCase(),
   }];
 }));
 ---
 <div class="mosaic-experience" data-mosaic-root>
-  <ScenarioPreview total={scenarios.length} />
-  <MosaicControls total={scenarios.length} />
-  <MosaicLegend categories={categories} />
+  <ScenarioPreview total={scenarios.length} locale={locale} />
+  <MosaicControls total={scenarios.length} locale={locale} />
+  <MosaicLegend categories={categories} locale={locale} />
 
   <div class="mosaic-stage">
     <svg class="mosaic" viewBox={layout.viewBox.join(' ')} role="group" aria-labelledby="mosaic-title mosaic-description" preserveAspectRatio="xMidYMid meet">
-      <title id="mosaic-title">Koali Scenario Mosaic</title>
-      <desc id="mosaic-description">120 scenarios arranged as a compact 20 by 6 honeycomb panorama. Colors identify eight scenario families shown in the legend.</desc>
+      <title id="mosaic-title">{strings.mosaicTitle}</title>
+      <desc id="mosaic-description">{strings.mosaicDescription}</desc>
       {Object.entries(layout.assignments).map(([scenarioId, slotId]) => {
         const entry:any = byId[scenarioId];
         const slot:any = (layout.slots as any)[slotId];
@@ -68,17 +71,24 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
           id={scenarioId}
           title={entry.data.title}
           category={entry.data.primary_category}
-          href={`/uses/${scenarioId}/`}
+          href={`/${locale}/uses/${scenarioId}/`}
           x={slot.x}
           y={slot.y}
           size={slot.size}
         />;
       })}
     </svg>
-    <p class="mosaic-hint">Each color is a scenario family. Hover or focus one hexagon to inspect it above.</p>
+    <p class="mosaic-hint">{strings.mosaicHint}</p>
   </div>
 
   <script type="application/json" data-mosaic-data set:html={JSON.stringify(previewData).replace(/</g, '\u003c')}></script>
+  <script type="application/json" data-mosaic-i18n set:html={JSON.stringify({
+    noneHighlighted: strings.noneHighlighted,
+    scenarios: strings.scenarios,
+    scenarioSingular: locale === 'fr' ? 'scénario' : 'scenario',
+    involved: locale === 'fr' ? 'impliqué' : 'involved',
+    notCentral: locale === 'fr' ? 'non central' : 'not central',
+  }).replace(/</g, '\u003c')}></script>
 </div>
 <script>
   import '../scripts/mosaic.ts';

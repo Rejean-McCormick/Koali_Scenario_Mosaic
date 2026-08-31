@@ -1,28 +1,85 @@
-# Koali Scenario Mosaic — v3.7
+# Koali Scenario Mosaic — v4.0 Bilingual
 
-Koali Scenario Mosaic is a public-facing panorama of 120 Koali use scenarios.
+**Koali, the Sociotechnical Operating System**
 
-## Open locally without installing anything
+Koali Scenario Mosaic is a public-facing panorama of **120 stable scenario identities**, now available in **English and French** without duplicating the Mosaic geometry or machine-facing scenario metadata.
 
-Double-click `START.html` to open the bundled zero-install preview.
+## Open immediately
 
-## Current interaction design
+Double-click `START.html`.
 
-- **20 × 6 panoramic honeycomb** so the scenario spread stays visible beneath the preview;
-- 120 active scenarios arranged into **8 contiguous category territories**;
-- each territory is a regular **5 × 3** block in the shared honeycomb grid;
-- compact **color legend** mirrors the 4 × 2 territory organization;
+The zero-install preview detects the browser language:
+
+- French browser → French Mosaic;
+- otherwise → English Mosaic.
+
+The **EN / FR** switch is always visible and keeps the current scenario when changing language.
+
+## Public routes
+
+```text
+/                  → browser-language choice
+/en/uses/          → English Mosaic
+/fr/uses/          → Mosaïque française
+/en/uses/SCN-061/  → English scenario
+/fr/uses/SCN-061/  → French scenario
+```
+
+Legacy `/uses/` links continue to redirect to English for compatibility.
+
+## One scenario identity, two editorial languages
+
+The v4 architecture separates stable scenario structure from translated editorial text:
+
+```text
+src/data/scenarios.json
+    120 shared scenario identities
+    IDs, categories, patterns, palette keys, scales,
+    settings, properties, domains, component data,
+    evidence status, image identity, layout continuity
+
+src/content/scenarios/en/
+    120 English editorial scenario documents
+
+src/content/scenarios/fr/
+    120 French editorial scenario documents
+
+src/data/mosaic-layout.json
+    one shared 20 × 6 geography for both languages
+```
+
+`SCN-061` therefore occupies the **same hexagon, color family, image, pattern family, and semantic profile** in both languages. Only the human-readable editorial layer changes.
+
+## French coverage
+
+The French edition includes:
+
+- all **120 titles**;
+- all **120 preview summaries**;
+- all **24 recurring pattern names and descriptions**;
+- all **8 public category names**;
+- localized scale, context, domain, property, and palette labels;
+- complete French detailed scenario bodies;
+- French search, legend, controls, profile labels, accessibility text, and cover;
+- French offline pages under `preview/fr/`.
+
+Translations are versioned source content. There is **no runtime machine translation**.
+
+## Interaction design retained
+
+- 20 × 6 panoramic honeycomb;
+- 8 contiguous category territories;
+- color legend aligned with those territories;
 - one highlighted hexagon at a time;
-- stable fixed-height scenario preview;
-- complete two-line title box with no vertical clipping;
+- stable fixed-height preview;
+- two-line title box without clipping;
 - public-language scenario profile;
-- automatic PNG scenario images with SVG fallback.
-
-The desktop layout is intentionally designed so that a normal laptop viewport can show the preview, controls, legend, and Mosaic together rather than forcing the user to scroll away from the preview before hovering cells.
+- automatic PNG scenario image loading with SVG fallback;
+- Koali brand color `#1e6864` and supplied SVG logo.
 
 ## Develop locally
 
-Use Node 24.20.0 when possible. The repository also accepts Node >=22.12.0.
+Use Node **24.20.0** when possible. Astro requires Node `>=22.12.0`.
 
 ```bash
 npm install
@@ -32,17 +89,50 @@ npx astro preview
 
 Then open the local URL printed by Astro, normally `http://localhost:4321`.
 
-The production build **does not run the Python offline-preview generator**. This keeps Netlify builds independent of PyYAML.
+The production build intentionally does **not** run the Python offline-preview generator.
 
-To regenerate the double-click `START.html` preview after visible UI/content/image changes:
+## Regenerate the zero-install bilingual preview
+
+The offline generator uses Python and PyYAML:
 
 ```bash
+python -m pip install PyYAML
 npm run preview:offline
 ```
 
+It produces:
+
+```text
+preview/index.html          language chooser
+preview/en/index.html       English Mosaic
+preview/fr/index.html       French Mosaic
+preview/en/uses/...         120 English detail pages
+preview/fr/uses/...         120 French detail pages
+```
+
+## Validation
+
+```bash
+npm run validate
+```
+
+The validation contract checks:
+
+- 120 shared scenario identities;
+- 120 EN + 120 FR editorial documents;
+- matching EN/FR scenario IDs;
+- no duplicated shared metadata inside localized files;
+- no title repetition in preview summaries;
+- complete French public metadata vocabulary;
+- bilingual routes and language switch;
+- both offline previews;
+- 20 × 6 Mosaic geometry and category territories;
+- PNG/SVG image resolution;
+- canonical Koali branding.
+
 ## Netlify
 
-The repo includes `netlify.toml`:
+The included `netlify.toml` uses:
 
 ```text
 Build command: npm run build
@@ -50,29 +140,26 @@ Publish directory: dist
 Node: 24.20.0
 ```
 
-A push to the connected GitHub repository can therefore redeploy directly on Netlify.
+A push to the connected GitHub repository can redeploy directly on Netlify.
 
-## Scenario PNG convention
+## Scenario images
 
-Put scenario images in:
+PNG convention remains unchanged:
 
 ```text
 public/scenarios/images/scenario_001.png
-public/scenarios/images/scenario_002.png
 ...
 public/scenarios/images/scenario_120.png
 ```
 
-The numeric suffix maps directly to `SCN-001` … `SCN-120`. No scenario Markdown edit is required. If a PNG is missing, the SVG placeholder is used automatically.
+Both languages share the same scenario image. Missing PNGs automatically use the scenario SVG placeholder.
 
-This package currently includes **31 PNG scenario images**; 89 scenarios use SVG fallback.
+## Canonical naming
 
-Validate image mapping with:
+- brand: **Koali**;
+- positioning: **Koali, the Sociotechnical Operating System**;
+- English interface: **Koali Scenario Mosaic**;
+- French interface: **Mosaïque de scénarios Koali**;
+- npm package: `koali-scenario-mosaic`.
 
-```bash
-npm run validate:images
-```
-
-## Product name
-
-The public product name is **Koali Scenario Mosaic**. Generic technical filenames such as `mosaic.ts`, `mosaic.css`, and `mosaic-layout.json` remain unchanged because they describe the interface mechanism rather than the product name.
+See [`docs/40_BILINGUAL_ARCHITECTURE.md`](docs/40_BILINGUAL_ARCHITECTURE.md) for the v4 language architecture and editorial workflow.

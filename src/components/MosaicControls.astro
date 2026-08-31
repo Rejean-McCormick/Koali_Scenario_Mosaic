@@ -1,4 +1,11 @@
 ---
-const {total=120}=Astro.props;
+import { getUi, type Locale } from '../i18n/ui';
+const { total = 120, locale = 'en' as Locale } = Astro.props;
+const s = getUi(locale);
 ---
-<div class="mosaic-controls"><label class="search-box"><span class="sr-only">Search scenarios</span><input data-mosaic-search type="search" placeholder="Search the mosaic…" /></label><button class="ghost-button" data-mosaic-surprise>Surprise me</button><button class="ghost-button" data-mosaic-reset>Reset</button><output data-mosaic-result-count>{total} scenarios</output></div>
+<div class="mosaic-controls">
+  <label class="search-box"><span class="sr-only">{s.searchScenarios}</span><input data-mosaic-search type="search" placeholder={s.searchPlaceholder} /></label>
+  <button class="ghost-button" data-mosaic-surprise>{s.surprise}</button>
+  <button class="ghost-button" data-mosaic-reset>{s.reset}</button>
+  <output data-mosaic-result-count>{total} {s.scenarios}</output>
+</div>

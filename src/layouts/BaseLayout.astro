@@ -1,4 +1,46 @@
 ---
-import '../styles/global.css';const {title='Koali Scenario Mosaic',description='Explore 120 Koali scenarios'}=Astro.props;
+import '../styles/global.css';
+import { getUi, type Locale } from '../i18n/ui';
+
+const {
+  locale = 'en' as Locale,
+  title = locale === 'fr' ? 'Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic',
+  description = locale === 'fr'
+    ? 'Explorez 120 scénarios pour Koali, the Sociotechnical Operating System'
+    : 'Explore 120 scenarios for Koali, the Sociotechnical Operating System',
+} = Astro.props;
+const strings = getUi(locale);
+const alternate: Locale = locale === 'en' ? 'fr' : 'en';
+const pathname = Astro.url.pathname;
+let alternateHref = pathname.replace(new RegExp(`^/${locale}(?=/|$)`), `/${alternate}`);
+if (alternateHref === pathname) alternateHref = `/${alternate}/uses/`;
 ---
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="description" content={description}><title>{title}</title></head><body><header class="site-header"><a class="brand" href="/uses/">⬡ KOALI <strong>SCENARIO MOSAIC</strong></a></header><main><slot/></main></body></html>
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1e6864" />
+    <link rel="icon" href="/brand/koali-mark.svg" type="image/svg+xml" />
+    <link rel="alternate" hreflang={alternate} href={alternateHref} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={`/${locale}/uses/`} aria-label={`${strings.scenarioMosaic} — Koali, the Sociotechnical Operating System`}>
+        <img class="brand-mark" src="/brand/koali-mark.svg" alt="" width="42" height="19" />
+        <span class="brand-copy">
+          <span class="brand-product"><strong>Koali</strong><span>{strings.scenarioMosaic}</span></span>
+          <small>{strings.brandTagline}</small>
+        </span>
+      </a>
+      <nav class="language-switcher" aria-label={locale === 'fr' ? 'Langue' : 'Language'}>
+        <a class:list={[{active: locale === 'en'}]} href={locale === 'en' ? pathname : alternateHref} lang="en" hreflang="en">EN</a>
+        <span aria-hidden="true">/</span>
+        <a class:list={[{active: locale === 'fr'}]} href={locale === 'fr' ? pathname : alternateHref} lang="fr" hreflang="fr">FR</a>
+      </nav>
+    </header>
+    <main><slot /></main>
+  </body>
+</html>

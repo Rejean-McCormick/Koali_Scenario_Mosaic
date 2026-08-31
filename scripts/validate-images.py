@@ -1,75 +1,47 @@
 from pathlib import Path
 import json, re, struct, sys
 
-R = Path(__file__).resolve().parents[1]
-PNG_DIR = R / 'public' / 'scenarios' / 'images'
-PREVIEW = R / 'preview' / 'index.html'
-errors = []
-
-pngs = sorted(PNG_DIR.glob('*.png')) if PNG_DIR.exists() else []
-seen = set()
+R=Path(__file__).resolve().parents[1]
+PNG_DIR=R/'public/scenarios/images'
+errors=[]
+pngs=sorted(PNG_DIR.glob('*.png')) if PNG_DIR.exists() else []
+seen=set()
 for p in pngs:
-    m = re.fullmatch(r'scenario_(\d{3})\.png', p.name)
-    if not m:
-        errors.append(f'Invalid PNG name: {p.name}')
-        continue
-    number = int(m.group(1))
-    if not 1 <= number <= 120:
-        errors.append(f'PNG outside SCN-001..120: {p.name}')
-    if number in seen:
-        errors.append(f'Duplicate scenario PNG number: {number:03d}')
-    seen.add(number)
-    b = p.read_bytes()
-    if not b.startswith(b'\x89PNG\r\n\x1a\n'):
-        errors.append(f'Invalid PNG signature: {p.name}')
-        continue
-    if len(b) < 24 or b[12:16] != b'IHDR':
-        errors.append(f'Missing PNG IHDR: {p.name}')
-        continue
-    width, height = struct.unpack('>II', b[16:24])
-    if width < 64 or height < 64:
-        errors.append(f'PNG too small: {p.name} ({width}x{height})')
+    m=re.fullmatch(r'scenario_(\d{3})\.png',p.name)
+    if not m: errors.append(f'Invalid PNG name: {p.name}'); continue
+    n=int(m.group(1))
+    if not 1<=n<=120: errors.append(f'PNG outside SCN-001..120: {p.name}')
+    if n in seen: errors.append(f'Duplicate scenario PNG number: {n:03d}')
+    seen.add(n)
+    b=p.read_bytes()
+    if not b.startswith(b'\x89PNG\r\n\x1a\n'): errors.append(f'Invalid PNG signature: {p.name}'); continue
+    if len(b)<24 or b[12:16]!=b'IHDR': errors.append(f'Missing PNG IHDR: {p.name}'); continue
+    w,h=struct.unpack('>II',b[16:24])
+    if w<64 or h<64: errors.append(f'PNG too small: {p.name} ({w}x{h})')
 
-if not PREVIEW.exists():
-    errors.append('preview/index.html missing; run npm run preview:offline')
-else:
-    html = PREVIEW.read_text(encoding='utf-8')
-    m = re.search(r'<script type="application/json" data-mosaic-data>(.*?)</script>', html, re.S)
-    if not m:
-        errors.append('Offline preview scenario JSON missing')
-    else:
-        data = json.loads(m.group(1))
-        for i in range(1, 121):
-            sid = f'SCN-{i:03d}'
-            item = data.get(sid)
-            if not item:
-                errors.append(f'Offline preview missing {sid}')
-                continue
-            png_name = f'scenario_{i:03d}.png'
-            png_exists = (PNG_DIR / png_name).exists()
-            image = item.get('image', '')
-            expected = f'../public/scenarios/images/{png_name}' if png_exists else f'./assets/scenarios/{sid}.svg'
-            if image != expected:
-                errors.append(f'{sid}: preview image is {image!r}, expected {expected!r}')
-            resolved = (PREVIEW.parent / image).resolve()
-            if not resolved.exists():
-                errors.append(f'{sid}: resolved preview image missing: {resolved}')
+for locale in ('en','fr'):
+    preview=R/'preview'/locale/'index.html'
+    if not preview.exists(): errors.append(f'preview/{locale}/index.html missing; run npm run preview:offline'); continue
+    text=preview.read_text(encoding='utf-8')
+    m=re.search(r'<script type="application/json" data-mosaic-data>(.*?)</script>',text,re.S)
+    if not m: errors.append(f'Offline {locale} preview scenario JSON missing'); continue
+    data=json.loads(m.group(1))
+    if len(data)!=120: errors.append(f'Offline {locale} preview has {len(data)} scenarios')
+    for i in range(1,121):
+        sid=f'SCN-{i:03d}'; item=data.get(sid)
+        if not item: errors.append(f'Offline {locale} preview missing {sid}'); continue
+        png_name=f'scenario_{i:03d}.png'; exists=(PNG_DIR/png_name).exists(); image=item.get('image','')
+        expected=f'../../public/scenarios/images/{png_name}' if exists else f'../assets/scenarios/{sid}.svg'
+        if image!=expected: errors.append(f'{locale}/{sid}: image is {image!r}, expected {expected!r}')
+        resolved=(preview.parent/image).resolve()
+        if not resolved.exists(): errors.append(f'{locale}/{sid}: resolved preview image missing: {resolved}')
 
-helper = R / 'src' / 'lib' / 'scenario-image.ts'
-usage = R / 'src' / 'components' / 'ScenarioMosaic.astro'
-if not helper.exists() or 'existsSync' not in helper.read_text(encoding='utf-8'):
-    errors.append('Astro PNG resolver helper missing')
-if not usage.exists() or 'resolveScenarioPreviewImage' not in usage.read_text(encoding='utf-8'):
-    errors.append('Astro Mosaic does not use PNG resolver')
-
-print(f'Scenario PNGs available: {len(pngs)} / 120')
-if pngs:
-    print('PNG IDs:', ', '.join(p.stem.replace('scenario_', 'SCN-') for p in pngs))
-print(f'SVG fallback scenarios: {120 - len(pngs)}')
-
+helper=R/'src/lib/scenario-image.ts'; component=R/'src/components/ScenarioMosaic.astro'
+if not helper.exists() or 'existsSync' not in helper.read_text(encoding='utf-8'): errors.append('Astro PNG resolver helper missing')
+if not component.exists() or 'resolveScenarioPreviewImage' not in component.read_text(encoding='utf-8'): errors.append('Astro Mosaic does not use PNG resolver')
+print(f'Scenario PNGs available: {len(pngs)} / 120; SVG fallback: {120-len(pngs)}')
 if errors:
     print('\nIMAGE VALIDATION FAILED')
-    for e in errors:
-        print(' -', e)
+    for e in errors: print(' -',e)
     sys.exit(1)
-print('Scenario image validation passed.')
+print('Bilingual scenario image validation passed.')

@@ -1,4 +1,3 @@
 ---
-import {getCollection} from 'astro:content';import BaseLayout from '../../layouts/BaseLayout.astro';import ScenarioMosaic from '../../components/ScenarioMosaic.astro';import '../../styles/mosaic.css';const scenarios=(await getCollection('scenarios')).sort((a,b)=>a.data.id.localeCompare(b.data.id));
+return Astro.redirect('/en/uses/');
 ---
-<BaseLayout><ScenarioMosaic scenarios={scenarios}/></BaseLayout>

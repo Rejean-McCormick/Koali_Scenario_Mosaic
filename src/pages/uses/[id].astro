@@ -1,4 +1,5 @@
 ---
-import {getCollection,render} from 'astro:content';import BaseLayout from '../../layouts/BaseLayout.astro';import '../../styles/scenario.css';export async function getStaticPaths(){return (await getCollection('scenarios')).map(entry=>({params:{id:entry.data.id},props:{entry}}))}const {entry}=Astro.props;const {Content}=await render(entry);
+import metadata from '../../data/scenarios.json';
+export function getStaticPaths(){ return Object.keys(metadata).map((id) => ({ params:{id} })); }
+return Astro.redirect(`/en/uses/${Astro.params.id}/`);
 ---
-<BaseLayout title={`${entry.data.id} — ${entry.data.title}`}><article class="scenario-shell"><a class="back-link" href="/uses/">← Back to mosaic</a><h1>{entry.data.title}</h1><p class="scenario-dek">{entry.data.preview_summary}</p><div class="scenario-body"><Content/></div></article></BaseLayout>

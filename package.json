@@ -1,6 +1,6 @@
 {
   "name": "koali-scenario-mosaic",
-  "version": "1.7.0",
+  "version": "4.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,10 +8,12 @@
     "build": "npm run validate && astro build",
     "validate:mosaic": "node scripts/validate-mosaic.mjs",
     "validate:repo": "python scripts/validate-repo.py",
-    "validate": "npm run validate:mosaic && npm run validate:repo && npm run validate:images && npm run validate:name",
+    "validate": "npm run validate:mosaic && npm run validate:repo && npm run validate:images && npm run validate:copy && npm run validate:i18n && npm run validate:name",
     "preview:offline": "python scripts/build-offline-preview.py",
     "validate:images": "python scripts/validate-images.py",
-    "validate:name": "node scripts/validate-name.mjs"
+    "validate:name": "node scripts/validate-name.mjs",
+    "validate:copy": "python scripts/validate-copy.py",
+    "validate:i18n": "python scripts/validate-i18n.py"
   },
   "dependencies": {
     "astro": "7.2.9"

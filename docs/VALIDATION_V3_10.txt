@@ -1,0 +1,40 @@
+
+> koali-scenario-mosaic@1.10.0 validate
+> npm run validate:mosaic && npm run validate:repo && npm run validate:images && npm run validate:copy && npm run validate:name
+
+
+> koali-scenario-mosaic@1.10.0 validate:mosaic
+> node scripts/validate-mosaic.mjs
+
+✓ 120 assignments
+✓ 150 slots / 30 reserved
+✓ exact 20 × 6 regular honeycomb panorama
+✓ 8 contiguous 5 × 3 category territories
+✓ panoramic viewBox ratio 3.57:1
+
+> koali-scenario-mosaic@1.10.0 validate:repo
+> python scripts/validate-repo.py
+
+120 scenarios; 20 × 6 panoramic honeycomb; 8 category territories; compact preview; color legend; single active cell
+
+> koali-scenario-mosaic@1.10.0 validate:images
+> python scripts/validate-images.py
+
+Scenario PNGs available: 31 / 120
+PNG IDs: SCN-001, SCN-002, SCN-003, SCN-004, SCN-005, SCN-006, SCN-007, SCN-008, SCN-009, SCN-010, SCN-011, SCN-012, SCN-013, SCN-014, SCN-015, SCN-016, SCN-017, SCN-018, SCN-019, SCN-020, SCN-021, SCN-023, SCN-080, SCN-081, SCN-082, SCN-083, SCN-084, SCN-100, SCN-101, SCN-102, SCN-103
+SVG fallback scenarios: 89
+Scenario image validation passed.
+
+> koali-scenario-mosaic@1.10.0 validate:copy
+> python scripts/validate-copy.py
+
+Preview-copy validation: 120 scenarios checked; title duplication forbidden
+Scenario preview-copy validation passed.
+
+> koali-scenario-mosaic@1.10.0 validate:name
+> node scripts/validate-name.mjs
+
+✓ canonical brand: Koali
+✓ positioning: Koali, the Sociotechnical Operating System
+✓ brand color: #1e6864
+✓ Koali SVG mark integrated

@@ -23,7 +23,7 @@
 .activity-signature>span{font-size:.62rem;color:#657184;display:flex;gap:.28rem;align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .activity-signature i{width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:#273142}
 .activity-signature>span.is-active{color:#fff;font-weight:700}.activity-signature>span.is-active i{background:var(--a)}
-.profile-context>div{display:grid;grid-template-columns:62px minmax(0,1fr);gap:.3rem}.profile-context strong{font-size:.62rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.profile-context>div{display:grid;grid-template-columns:62px minmax(0,1fr);gap:.3rem;align-items:end}.profile-context span{line-height:1.12}.profile-context strong{font-size:.62rem;line-height:1.12;align-self:end;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 .mosaic-controls{display:flex;gap:.45rem;align-items:center;margin:.6rem 0 .45rem}
 .search-box{flex:1;max-width:500px}.search-box input,.ghost-button{height:36px;border:1px solid var(--line);background:#101722;color:#fff;border-radius:9px;padding:0 .65rem}.search-box input{width:100%}.mosaic-controls output{margin-left:auto;color:#7f8b9e;font-size:.74rem}

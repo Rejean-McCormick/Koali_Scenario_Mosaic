@@ -1,1 +1,32 @@
-:root{color-scheme:dark;--line:#263142;--text:#eef3f9;font-family:Inter,system-ui,sans-serif}*{box-sizing:border-box}html,body{margin:0;background:#080b11;color:var(--text)}a{color:inherit}.site-header{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;border-bottom:1px solid #202a39}.brand{text-decoration:none;font-weight:800}.brand strong{color:#8fb5ff}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden}
+:root{
+  color-scheme:dark;
+  --brand:#1e6864;
+  --line:#263142;
+  --text:#eef3f9;
+  font-family:Inter,system-ui,sans-serif
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#080b11;color:var(--text)}
+a{color:inherit}
+.site-header{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;border-bottom:1px solid #202a39;background:#080b11}
+.brand{display:inline-flex;align-items:center;gap:.72rem;text-decoration:none;min-width:0}
+.brand-mark{width:42px;height:auto;display:block;flex:0 0 auto}
+.brand-copy{display:flex;flex-direction:column;gap:.08rem;min-width:0}
+.brand-product{display:flex;align-items:baseline;gap:.42rem;line-height:1;white-space:nowrap}
+.brand-product strong{color:var(--brand);font-size:1.04rem;font-weight:830;letter-spacing:-.01em}
+.brand-product span{font-size:.86rem;font-weight:730;color:#eef3f9;letter-spacing:.015em}
+.brand-copy small{font-size:.59rem;line-height:1.1;color:#7f8b9e;letter-spacing:.035em;white-space:nowrap}
+.brand:hover .brand-product strong,.brand:focus-visible .brand-product strong{color:#48a39d}
+.brand:focus-visible{outline:2px solid var(--brand);outline-offset:5px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden}
+.language-switcher{display:flex;align-items:center;gap:.42rem;margin-left:auto;font-size:.72rem;font-weight:760;letter-spacing:.06em;color:#7f8b9e}
+.language-switcher a{text-decoration:none;padding:.28rem .36rem;border-radius:6px}
+.language-switcher a.active{color:#fff;background:color-mix(in srgb,var(--brand) 26%,transparent)}
+.language-switcher a:hover,.language-switcher a:focus-visible{color:#fff;outline:none;background:#151d28}
+
+@media(max-width:620px){
+  .site-header{height:64px;padding:0 1rem}
+  .brand-mark{width:36px}
+  .brand-product span{font-size:.78rem}
+  .brand-copy small{display:none}
+}

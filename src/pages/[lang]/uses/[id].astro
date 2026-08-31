@@ -1,0 +1,30 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLocalizedScenarios } from '../../../lib/scenarios';
+import { locales, getUi, type Locale } from '../../../i18n/ui';
+import '../../../styles/scenario.css';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const lang of locales) {
+    const scenarios = await getLocalizedScenarios(lang);
+    for (const scenario of scenarios) {
+      paths.push({ params: { lang, id: scenario.data.id }, props: { locale: lang, scenario } });
+    }
+  }
+  return paths;
+}
+
+const { locale, scenario } = Astro.props as { locale: Locale; scenario: any };
+const strings = getUi(locale);
+const { Content } = await render(scenario.entry);
+---
+<BaseLayout locale={locale} title={`${scenario.data.id} — ${scenario.data.title} | ${locale === 'fr' ? 'Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic'}`} description={scenario.data.preview_summary}>
+  <article class="scenario-shell">
+    <a class="back-link" href={`/${locale}/uses/`}>{strings.backToMosaic}</a>
+    <h1>{scenario.data.title}</h1>
+    <p class="scenario-dek">{scenario.data.preview_summary}</p>
+    <div class="scenario-body"><Content /></div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,6226 @@
+{
+  "SCN-001": {
+    "id": "SCN-001",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "individual",
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "maintenance",
+      "automotive"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "research",
+      "cybersecurity",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-001.svg",
+    "badges": [],
+    "related": [],
+    "loop": "symptom → context → similar cases → expertise → diagnosis → intervention → result"
+  },
+  "SCN-002": {
+    "id": "SCN-002",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "choose",
+      "act"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 3,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "commerce",
+      "strategy"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-002.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signal → data → hypotheses → people → decision → test → learning"
+  },
+  "SCN-003": {
+    "id": "SCN-003",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-02",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "verify"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 1,
+      "uckk": 0
+    },
+    "secondary_components": [
+      "semantik",
+      "ai-assist"
+    ],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [
+      "multilingual",
+      "ai-optional"
+    ],
+    "domains": [
+      "geopolitics",
+      "intelligence"
+    ],
+    "signature_patterns": [
+      "SIG-02",
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-003.svg",
+    "badges": [],
+    "related": [],
+    "loop": "sources → provenance → concepts → contradictions → hypotheses → briefing"
+  },
+  "SCN-004": {
+    "id": "SCN-004",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "understand",
+      "collaborate",
+      "verify",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "industry",
+      "quality"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-004.svg",
+    "badges": [],
+    "related": [],
+    "loop": "defect → data → hypotheses → investigation → cause → correction → memory"
+  },
+  "SCN-005": {
+    "id": "SCN-005",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 3,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "individual"
+    ],
+    "settings": [
+      "field"
+    ],
+    "properties": [
+      "offline"
+    ],
+    "domains": [
+      "agriculture"
+    ],
+    "signature_patterns": [
+      "SIG-05",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-005",
+      "POS-SOV-002",
+      "POS-FIELD-001",
+      "POS-FIELD-002"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-005.svg",
+    "badges": [],
+    "related": [],
+    "loop": "observation → context → local/scientific knowledge → diagnosis → intervention → result"
+  },
+  "SCN-006": {
+    "id": "SCN-006",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-02",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 1,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "culture",
+      "research"
+    ],
+    "properties": [],
+    "domains": [
+      "museum",
+      "heritage"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-006.svg",
+    "badges": [],
+    "related": [],
+    "loop": "documents → entities → relationships → hypotheses → validation → provenance"
+  },
+  "SCN-007": {
+    "id": "SCN-007",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "act",
+      "verify"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "individual",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "network",
+      "telecommunications"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-007.svg",
+    "badges": [],
+    "related": [],
+    "loop": "alert → topology/history → hypotheses → intervention → verification → memory"
+  },
+  "SCN-008": {
+    "id": "SCN-008",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "understand",
+      "find",
+      "verify",
+      "act"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 2,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "individual",
+      "public-institution"
+    ],
+    "settings": [
+      "field",
+      "public-service"
+    ],
+    "properties": [],
+    "domains": [
+      "building",
+      "inspection"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002",
+      "POS-FIELD-002"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-008.svg",
+    "badges": [],
+    "related": [],
+    "loop": "observation → context → standard/rule → expertise → finding → correction"
+  },
+  "SCN-009": {
+    "id": "SCN-009",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "understand",
+      "verify",
+      "collaborate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 3,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "laboratory",
+      "science"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-009.svg",
+    "badges": [],
+    "related": [],
+    "loop": "result → provenance → hypotheses → review → control → conclusion"
+  },
+  "SCN-010": {
+    "id": "SCN-010",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "create",
+      "choose"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 2,
+      "uckk": 0
+    },
+    "secondary_components": [
+      "ai-assist"
+    ],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "individual",
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "ai-optional"
+    ],
+    "domains": [
+      "product",
+      "software"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-010.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signals → clustering → context → people → problem → options"
+  },
+  "SCN-011": {
+    "id": "SCN-011",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-02",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 1,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "individual",
+      "community"
+    ],
+    "settings": [
+      "community"
+    ],
+    "properties": [],
+    "domains": [
+      "genealogy",
+      "archives"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-011.svg",
+    "badges": [],
+    "related": [],
+    "loop": "archives → people/places → relationships → contradictions → hypotheses → documented tree"
+  },
+  "SCN-012": {
+    "id": "SCN-012",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "create",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 2,
+      "uckk": 2
+    },
+    "secondary_components": [
+      "ai-assist"
+    ],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [
+      "ai-optional"
+    ],
+    "domains": [
+      "science",
+      "research"
+    ],
+    "signature_patterns": [
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "cybersecurity",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-012.svg",
+    "badges": [],
+    "related": [],
+    "loop": "question → corpus → gaps → people → project → results"
+  },
+  "SCN-013": {
+    "id": "SCN-013",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "understand",
+      "collaborate",
+      "choose",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 3,
+      "orgo": 2,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "individual",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "heritage",
+      "finance"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-013.svg",
+    "badges": [],
+    "related": [],
+    "loop": "facts → rules → scenarios → experts → recommendation → follow-up"
+  },
+  "SCN-014": {
+    "id": "SCN-014",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-01",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "create"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 2,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "community",
+      "public-institution"
+    ],
+    "settings": [
+      "public-service",
+      "community"
+    ],
+    "properties": [],
+    "domains": [
+      "urban-planning",
+      "climate"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "research",
+      "cybersecurity"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-014.svg",
+    "badges": [],
+    "related": [],
+    "loop": "data → context map → contributions → diagnosis → scenarios"
+  },
+  "SCN-015": {
+    "id": "SCN-015",
+    "primary_category": "CAT-01",
+    "pattern_family": "PAT-03",
+    "palette": [
+      "find",
+      "collaborate",
+      "organize"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 5,
+      "orgo": 3,
+      "uckk": 0
+    },
+    "secondary_components": [
+      "ekoh"
+    ],
+    "entry_trigger": "question-or-signal",
+    "scales": [
+      "team"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [],
+    "domains": [
+      "research",
+      "innovation"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [],
+    "transfer_domains": [
+      "maintenance",
+      "cybersecurity",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-015.svg",
+    "badges": [],
+    "related": [],
+    "loop": "need → skills → people → invitation → team → project"
+  },
+  "SCN-016": {
+    "id": "SCN-016",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "learn",
+      "teach-share",
+      "collaborate",
+      "remember",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 1,
+      "uckk": 4
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "individual"
+    ],
+    "settings": [
+      "education"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "education"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "technical-trades",
+      "health",
+      "craft"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-016.svg",
+    "badges": [],
+    "related": [],
+    "loop": "practice → documentation → sharing → trials → improvement → resource"
+  },
+  "SCN-017": {
+    "id": "SCN-017",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-05",
+    "palette": [
+      "learn",
+      "find",
+      "teach-share",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise",
+      "education"
+    ],
+    "properties": [],
+    "domains": [
+      "human-resources",
+      "training"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-017.svg",
+    "badges": [],
+    "related": [],
+    "loop": "role → path → resources → practice → questions → evidence → improvement"
+  },
+  "SCN-018": {
+    "id": "SCN-018",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "learn",
+      "teach-share",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 3
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "individual"
+    ],
+    "settings": [
+      "education",
+      "field"
+    ],
+    "properties": [],
+    "domains": [
+      "trade",
+      "welding"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "health",
+      "craft"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-018.svg",
+    "badges": [],
+    "related": [],
+    "loop": "demonstration → resources → practice → feedback → evidence → reusable knowledge"
+  },
+  "SCN-019": {
+    "id": "SCN-019",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "understand",
+      "learn",
+      "teach-share",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 3
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "individual"
+    ],
+    "settings": [
+      "culture",
+      "education"
+    ],
+    "properties": [],
+    "domains": [
+      "craft",
+      "luthiery"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-019.svg",
+    "badges": [],
+    "related": [],
+    "loop": "instrument → choice → fabrication → result → comparison → transfer"
+  },
+  "SCN-020": {
+    "id": "SCN-020",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "remember",
+      "learn",
+      "teach-share",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 4
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "cybersecurity",
+      "training"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-020.svg",
+    "badges": [],
+    "related": [],
+    "loop": "incident → lessons → audiences → modules → practice → new preparation"
+  },
+  "SCN-021": {
+    "id": "SCN-021",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-06",
+    "palette": [
+      "understand",
+      "teach-share",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 2,
+      "orgo": 0,
+      "uckk": 4
+    },
+    "secondary_components": [
+      "semantik",
+      "ai-assist"
+    ],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "individual"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [
+      "multilingual",
+      "public-facing",
+      "ai-optional"
+    ],
+    "domains": [
+      "tourism",
+      "heritage"
+    ],
+    "signature_patterns": [
+      "SIG-02",
+      "SIG-06",
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-001",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-021.svg",
+    "badges": [],
+    "related": [],
+    "loop": "knowledge → audience → language → narrative → feedback"
+  },
+  "SCN-022": {
+    "id": "SCN-022",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-06",
+    "palette": [
+      "learn",
+      "teach-share",
+      "remember"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 3,
+      "orgo": 3,
+      "uckk": 1
+    },
+    "secondary_components": [
+      "semantik"
+    ],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "individual"
+    ],
+    "settings": [],
+    "properties": [
+      "sensitive-data",
+      "multilingual"
+    ],
+    "domains": [
+      "speech-therapy",
+      "education"
+    ],
+    "signature_patterns": [
+      "SIG-02",
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-LEARN-001",
+      "POS-ORG-005",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "technical-trades",
+      "health",
+      "craft"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-022.svg",
+    "badges": [],
+    "related": [],
+    "loop": "goal → exercise → practice → feedback → adaptation"
+  },
+  "SCN-023": {
+    "id": "SCN-023",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "learn",
+      "collaborate",
+      "teach-share",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "culture",
+      "education"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "museum"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-023.svg",
+    "badges": [],
+    "related": [],
+    "loop": "collection → concepts → path → activities → media → feedback"
+  },
+  "SCN-024": {
+    "id": "SCN-024",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "learn",
+      "collaborate",
+      "teach-share",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "individual",
+      "team"
+    ],
+    "settings": [
+      "education"
+    ],
+    "properties": [],
+    "domains": [
+      "hospitality",
+      "wine"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-024.svg",
+    "badges": [],
+    "related": [],
+    "loop": "tasting → notes → comparison → synthesis → training"
+  },
+  "SCN-025": {
+    "id": "SCN-025",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-06",
+    "palette": [
+      "learn",
+      "teach-share",
+      "organize",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 4
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "education"
+    ],
+    "properties": [
+      "offline",
+      "intermittent-connectivity",
+      "local-first"
+    ],
+    "domains": [
+      "education"
+    ],
+    "signature_patterns": [
+      "SIG-03",
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-003",
+      "POS-ORG-005",
+      "POS-SOV-002",
+      "POS-SOV-003"
+    ],
+    "transfer_domains": [
+      "technical-trades",
+      "health",
+      "craft"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-025.svg",
+    "badges": [],
+    "related": [],
+    "loop": "local pack → courses → activity → evidence → deferred synchronization"
+  },
+  "SCN-026": {
+    "id": "SCN-026",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "learn",
+      "collaborate",
+      "teach-share",
+      "remember"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "individual",
+      "team"
+    ],
+    "settings": [],
+    "properties": [],
+    "domains": [
+      "coffee",
+      "hospitality"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-LEARN-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-026.svg",
+    "badges": [],
+    "related": [],
+    "loop": "trial → observation → sharing → comparison → standard → training"
+  },
+  "SCN-027": {
+    "id": "SCN-027",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "learn",
+      "teach-share",
+      "organize",
+      "act"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 4,
+      "uckk": 3
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "individual",
+      "organization"
+    ],
+    "settings": [
+      "enterprise",
+      "education"
+    ],
+    "properties": [],
+    "domains": [
+      "maintenance",
+      "training"
+    ],
+    "signature_patterns": [
+      "SIG-06",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-LEARN-001",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-027.svg",
+    "badges": [],
+    "related": [],
+    "loop": "new procedure → context → training → change tasks → evidence"
+  },
+  "SCN-028": {
+    "id": "SCN-028",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-06",
+    "palette": [
+      "learn",
+      "teach-share",
+      "remember",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "semantik"
+    ],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "community"
+    ],
+    "settings": [
+      "community",
+      "culture"
+    ],
+    "properties": [
+      "multilingual"
+    ],
+    "domains": [
+      "language",
+      "heritage"
+    ],
+    "signature_patterns": [
+      "SIG-02",
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-028.svg",
+    "badges": [],
+    "related": [],
+    "loop": "terms/stories → concepts → community validation → learning → dissemination"
+  },
+  "SCN-029": {
+    "id": "SCN-029",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-05",
+    "palette": [
+      "learn",
+      "teach-share",
+      "verify",
+      "find"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 2,
+      "uckk": 3
+    },
+    "secondary_components": [
+      "ekoh"
+    ],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "education"
+    ],
+    "properties": [],
+    "domains": [
+      "training",
+      "skills"
+    ],
+    "signature_patterns": [
+      "SIG-06"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "technical-trades",
+      "health"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-029.svg",
+    "badges": [],
+    "related": [],
+    "loop": "courses → practice → evidence → review → situated competence → opportunity"
+  },
+  "SCN-030": {
+    "id": "SCN-030",
+    "primary_category": "CAT-02",
+    "pattern_family": "PAT-04",
+    "palette": [
+      "understand",
+      "learn",
+      "teach-share",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "ai-assist"
+    ],
+    "entry_trigger": "knowledge-to-transfer",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research",
+      "education"
+    ],
+    "properties": [
+      "public-facing",
+      "ai-optional"
+    ],
+    "domains": [
+      "science",
+      "education"
+    ],
+    "signature_patterns": [
+      "SIG-06",
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "technical-trades",
+      "health",
+      "craft"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-030.svg",
+    "badges": [],
+    "related": [],
+    "loop": "corpus → synthesis → review → path → media/course → learners"
+  },
+  "SCN-031": {
+    "id": "SCN-031",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-09",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "choose",
+      "organize",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "product",
+      "design"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-031.svg",
+    "badges": [],
+    "related": [],
+    "loop": "need → research → ideas → prototype → choice → build → test → memory"
+  },
+  "SCN-032": {
+    "id": "SCN-032",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-08",
+    "palette": [
+      "find",
+      "understand",
+      "collaborate",
+      "create",
+      "organize"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 2
+    },
+    "secondary_components": [
+      "semantik",
+      "ekoh"
+    ],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team",
+      "inter-organizational"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [
+      "multilingual"
+    ],
+    "domains": [
+      "science",
+      "research"
+    ],
+    "signature_patterns": [
+      "SIG-02",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-032.svg",
+    "badges": [],
+    "related": [],
+    "loop": "question → resources/skills → team → protocol → work → results"
+  },
+  "SCN-033": {
+    "id": "SCN-033",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-07",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "organize",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 4
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "museum",
+      "exhibition"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-033.svg",
+    "badges": [],
+    "related": [],
+    "loop": "artworks → research → concept → decisions → production → exhibition → memory"
+  },
+  "SCN-034": {
+    "id": "SCN-034",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-08",
+    "palette": [
+      "find",
+      "collaborate",
+      "create",
+      "organize",
+      "learn"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 1
+    },
+    "secondary_components": [
+      "ekoh"
+    ],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise",
+      "education"
+    ],
+    "properties": [],
+    "domains": [
+      "startup",
+      "innovation"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-LEARN-001",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-034.svg",
+    "badges": [],
+    "related": [],
+    "loop": "idea → needs → people → team → pilot → learning"
+  },
+  "SCN-035": {
+    "id": "SCN-035",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-07",
+    "palette": [
+      "create",
+      "collaborate",
+      "choose",
+      "organize",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 3,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [],
+    "domains": [
+      "game",
+      "design"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-035.svg",
+    "badges": [],
+    "related": [],
+    "loop": "idea → prototype → playtest → feedback → decision → new version"
+  },
+  "SCN-036": {
+    "id": "SCN-036",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-07",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [],
+    "domains": [
+      "film",
+      "production"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-036.svg",
+    "badges": [],
+    "related": [],
+    "loop": "intention → references → concepts → trade-offs → preparation → shoot"
+  },
+  "SCN-037": {
+    "id": "SCN-037",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-09",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "organize",
+      "verify"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise",
+      "research"
+    ],
+    "properties": [],
+    "domains": [
+      "robotics",
+      "engineering"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "public-policy"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-037.svg",
+    "badges": [],
+    "related": [],
+    "loop": "requirements → architecture → prototype → test → anomaly → correction → version"
+  },
+  "SCN-038": {
+    "id": "SCN-038",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-07",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "deliberate",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 3,
+      "uckk": 1
+    },
+    "secondary_components": [
+      "smart-vote",
+      "ekoh"
+    ],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "community",
+      "public-institution"
+    ],
+    "settings": [
+      "public-service",
+      "community"
+    ],
+    "properties": [],
+    "domains": [
+      "policy",
+      "governance"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-038.svg",
+    "badges": [],
+    "related": [],
+    "loop": "problem → sources → proposals → drafting → decision → implementation"
+  },
+  "SCN-039": {
+    "id": "SCN-039",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-07",
+    "palette": [
+      "collaborate",
+      "create",
+      "choose",
+      "organize",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 4
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "festival",
+      "event"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-005",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-039.svg",
+    "badges": [],
+    "related": [],
+    "loop": "proposals → criteria → selection → schedule → production → debrief"
+  },
+  "SCN-040": {
+    "id": "SCN-040",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-07",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "deliberate",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "community",
+      "public-institution"
+    ],
+    "settings": [
+      "community",
+      "public-service"
+    ],
+    "properties": [],
+    "domains": [
+      "urban-planning",
+      "design"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-040.svg",
+    "badges": [],
+    "related": [],
+    "loop": "needs → ideas → alternatives → consultation → choice → project → real-world use"
+  },
+  "SCN-041": {
+    "id": "SCN-041",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-09",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "packaging",
+      "design"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-041.svg",
+    "badges": [],
+    "related": [],
+    "loop": "need → constraints → concepts → tests → choice → industrialization"
+  },
+  "SCN-042": {
+    "id": "SCN-042",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-09",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 3,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [],
+    "domains": [
+      "science",
+      "laboratory"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-042.svg",
+    "badges": [],
+    "related": [],
+    "loop": "question → literature → protocol → review → pilot → revision"
+  },
+  "SCN-043": {
+    "id": "SCN-043",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-07",
+    "palette": [
+      "collaborate",
+      "create",
+      "organize",
+      "remember"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 5,
+      "orgo": 3,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [],
+    "domains": [
+      "music",
+      "orchestra"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-043.svg",
+    "badges": [],
+    "related": [],
+    "loop": "score → intention → rehearsal → feedback → decision → performance → memory"
+  },
+  "SCN-044": {
+    "id": "SCN-044",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-09",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise",
+      "culture"
+    ],
+    "properties": [],
+    "domains": [
+      "virtual-reality",
+      "design"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-044.svg",
+    "badges": [],
+    "related": [],
+    "loop": "intention → prototype → test → observations → decisions → build"
+  },
+  "SCN-045": {
+    "id": "SCN-045",
+    "primary_category": "CAT-03",
+    "pattern_family": "PAT-09",
+    "palette": [
+      "understand",
+      "collaborate",
+      "create",
+      "deliberate",
+      "organize"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "idea-or-goal",
+    "scales": [
+      "team",
+      "community"
+    ],
+    "settings": [
+      "research",
+      "community",
+      "field"
+    ],
+    "properties": [],
+    "domains": [
+      "ecology",
+      "conservation"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-ORG-002",
+      "POS-FIELD-002"
+    ],
+    "transfer_domains": [
+      "r-and-d",
+      "culture",
+      "engineering"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-045.svg",
+    "badges": [],
+    "related": [],
+    "loop": "data → local knowledge → options → agreement/disagreement → plan → actions → follow-up"
+  },
+  "SCN-046": {
+    "id": "SCN-046",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-12",
+    "palette": [
+      "understand",
+      "collaborate",
+      "deliberate",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "procurement",
+      "industry"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-046.svg",
+    "badges": [],
+    "related": [],
+    "loop": "need → criteria → evidence → expert input → choice → qualification"
+  },
+  "SCN-047": {
+    "id": "SCN-047",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-10",
+    "palette": [
+      "understand",
+      "deliberate",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 3,
+      "uckk": 0
+    },
+    "secondary_components": [
+      "ekoh",
+      "smart-vote"
+    ],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [],
+    "domains": [
+      "research",
+      "funding"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "education"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-047.svg",
+    "badges": [],
+    "related": [],
+    "loop": "proposals → expertise → evaluations → assessments → decision → funding"
+  },
+  "SCN-048": {
+    "id": "SCN-048",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-11",
+    "palette": [
+      "understand",
+      "deliberate",
+      "choose",
+      "organize",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "community",
+      "public-institution"
+    ],
+    "settings": [
+      "public-service",
+      "community"
+    ],
+    "properties": [],
+    "domains": [
+      "urban-planning",
+      "safety"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-048.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signals → data → options → consultation → decision → implementation work → measurement"
+  },
+  "SCN-049": {
+    "id": "SCN-049",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-11",
+    "palette": [
+      "understand",
+      "collaborate",
+      "deliberate",
+      "choose",
+      "learn"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 3,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "education"
+    ],
+    "properties": [],
+    "domains": [
+      "education",
+      "governance"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-LEARN-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "research",
+      "finance"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-049.svg",
+    "badges": [],
+    "related": [],
+    "loop": "needs → evidence → proposals → consultation → curriculum → implementation"
+  },
+  "SCN-050": {
+    "id": "SCN-050",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-10",
+    "palette": [
+      "understand",
+      "deliberate",
+      "choose",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "finance",
+      "investment"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-050.svg",
+    "badges": [],
+    "related": [],
+    "loop": "options → hypotheses → risks → expert input → decision → result"
+  },
+  "SCN-051": {
+    "id": "SCN-051",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-10",
+    "palette": [
+      "understand",
+      "collaborate",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 4,
+      "orgo": 3,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "recruiting",
+      "human-resources"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-051.svg",
+    "badges": [],
+    "related": [],
+    "loop": "need → criteria → evidence → evaluations → decision → onboarding"
+  },
+  "SCN-052": {
+    "id": "SCN-052",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-12",
+    "palette": [
+      "understand",
+      "deliberate",
+      "choose",
+      "organize",
+      "verify"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "esg",
+      "sustainability"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-052.svg",
+    "badges": [],
+    "related": [],
+    "loop": "issues → evidence → criteria → deliberation → priorities → programs → measurement"
+  },
+  "SCN-053": {
+    "id": "SCN-053",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-11",
+    "palette": [
+      "collaborate",
+      "deliberate",
+      "choose",
+      "organize"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 5,
+      "orgo": 3,
+      "uckk": 1
+    },
+    "secondary_components": [
+      "smart-vote",
+      "ekoh"
+    ],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "community"
+    ],
+    "settings": [
+      "community"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "governance",
+      "participatory-budgeting"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "research",
+      "finance"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-053.svg",
+    "badges": [],
+    "related": [],
+    "loop": "projects → contributions → assessments → deliberation → decision → implementation"
+  },
+  "SCN-054": {
+    "id": "SCN-054",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-10",
+    "palette": [
+      "understand",
+      "collaborate",
+      "deliberate",
+      "choose",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [],
+    "domains": [
+      "museum",
+      "acquisition"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-054.svg",
+    "badges": [],
+    "related": [],
+    "loop": "artwork → case file → expert input → deliberation → decision → acquisition → memory"
+  },
+  "SCN-055": {
+    "id": "SCN-055",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-10",
+    "palette": [
+      "understand",
+      "deliberate",
+      "choose",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "individual",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "finance",
+      "portfolio-management"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-055.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signals → theses → scenarios → committee → decision → performance"
+  },
+  "SCN-056": {
+    "id": "SCN-056",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-12",
+    "palette": [
+      "understand",
+      "collaborate",
+      "choose",
+      "organize",
+      "act"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "product",
+      "software"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-056.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signals → criteria → options → choice → tasks → result"
+  },
+  "SCN-057": {
+    "id": "SCN-057",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-12",
+    "palette": [
+      "collaborate",
+      "deliberate",
+      "choose",
+      "organize",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 4
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "festival",
+      "programming"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-005",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-057.svg",
+    "badges": [],
+    "related": [],
+    "loop": "proposals → criteria → discussion → selection → production"
+  },
+  "SCN-058": {
+    "id": "SCN-058",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-12",
+    "palette": [
+      "understand",
+      "deliberate",
+      "choose",
+      "organize",
+      "verify"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 1
+    },
+    "secondary_components": [
+      "ekoh"
+    ],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "organization",
+      "community"
+    ],
+    "settings": [
+      "community"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "philanthropy",
+      "grants"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-058.svg",
+    "badges": [],
+    "related": [],
+    "loop": "requests → criteria → expertise → decision → funding → impact"
+  },
+  "SCN-059": {
+    "id": "SCN-059",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-12",
+    "palette": [
+      "understand",
+      "collaborate",
+      "choose",
+      "organize",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise",
+      "research"
+    ],
+    "properties": [],
+    "domains": [
+      "innovation",
+      "r-and-d"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "public-governance",
+      "research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-059.svg",
+    "badges": [],
+    "related": [],
+    "loop": "pilots → evidence → expert input → decision → invest/stop → memory"
+  },
+  "SCN-060": {
+    "id": "SCN-060",
+    "primary_category": "CAT-04",
+    "pattern_family": "PAT-11",
+    "palette": [
+      "understand",
+      "deliberate",
+      "choose",
+      "organize",
+      "act"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "decision-to-make",
+    "scales": [
+      "community"
+    ],
+    "settings": [
+      "community"
+    ],
+    "properties": [],
+    "domains": [
+      "residential-community",
+      "governance"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "enterprise",
+      "research",
+      "finance"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-060.svg",
+    "badges": [],
+    "related": [],
+    "loop": "need → options → consultation → decision → implementation work → closure"
+  },
+  "SCN-061": {
+    "id": "SCN-061",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-13",
+    "palette": [
+      "understand",
+      "organize",
+      "act",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "role-routing"
+    ],
+    "domains": [
+      "maintenance",
+      "elevator"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "logistics",
+      "events",
+      "field-research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-061.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signal → cases → context → role → intervention → verification → memory"
+  },
+  "SCN-062": {
+    "id": "SCN-062",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-14",
+    "palette": [
+      "organize",
+      "act",
+      "coordinate",
+      "verify"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 3,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "field",
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "construction"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-ORG-002",
+      "POS-FIELD-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-062.svg",
+    "badges": [],
+    "related": [],
+    "loop": "plan → briefing → tasks → dependencies → incidents → replanning → evidence"
+  },
+  "SCN-063": {
+    "id": "SCN-063",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-15",
+    "palette": [
+      "collaborate",
+      "organize",
+      "act",
+      "coordinate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 4,
+      "orgo": 5,
+      "uckk": 3
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "team"
+    ],
+    "settings": [],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "event"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "field-research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-063.svg",
+    "badges": [],
+    "related": [],
+    "loop": "concept → decisions → plan → tasks → event → debrief"
+  },
+  "SCN-064": {
+    "id": "SCN-064",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-14",
+    "palette": [
+      "understand",
+      "choose",
+      "organize",
+      "act",
+      "coordinate"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "logistics",
+      "supply-chain"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "events",
+      "field-research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-064.svg",
+    "badges": [],
+    "related": [],
+    "loop": "incident → dependencies → alternatives → decision → tasks → delivery"
+  },
+  "SCN-065": {
+    "id": "SCN-065",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-14",
+    "palette": [
+      "understand",
+      "organize",
+      "act",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "individual",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "fleet",
+      "maintenance"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "logistics",
+      "events",
+      "field-research"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-065.svg",
+    "badges": [],
+    "related": [],
+    "loop": "pattern → decision → campaign → tasks → inspections → results"
+  },
+  "SCN-066": {
+    "id": "SCN-066",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-14",
+    "palette": [
+      "understand",
+      "organize",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 3,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "hospitality"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-066.svg",
+    "badges": [],
+    "related": [],
+    "loop": "context → briefing → tasks → service → incidents → improvement"
+  },
+  "SCN-067": {
+    "id": "SCN-067",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-14",
+    "palette": [
+      "understand",
+      "organize",
+      "act",
+      "coordinate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 3,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "high-consequence"
+    ],
+    "domains": [
+      "airport",
+      "aviation"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-067.svg",
+    "badges": [],
+    "related": [],
+    "loop": "disruption → situation → decisions → coordination → recovery → debrief"
+  },
+  "SCN-068": {
+    "id": "SCN-068",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-15",
+    "palette": [
+      "understand",
+      "organize",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 5,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "team"
+    ],
+    "settings": [
+      "research",
+      "field"
+    ],
+    "properties": [
+      "offline"
+    ],
+    "domains": [
+      "oceanography",
+      "research"
+    ],
+    "signature_patterns": [
+      "SIG-05",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-SOV-002",
+      "POS-FIELD-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-068.svg",
+    "badges": [],
+    "related": [],
+    "loop": "question → protocol → mission → tasks → observations → data → memory"
+  },
+  "SCN-069": {
+    "id": "SCN-069",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-14",
+    "palette": [
+      "understand",
+      "choose",
+      "organize",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 3,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "field",
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "viticulture",
+      "agriculture"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-069.svg",
+    "badges": [],
+    "related": [],
+    "loop": "observations → priority → teams → harvest → quality → memory"
+  },
+  "SCN-070": {
+    "id": "SCN-070",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-15",
+    "palette": [
+      "understand",
+      "organize",
+      "act",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "data-center",
+      "it"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-070.svg",
+    "badges": [],
+    "related": [],
+    "loop": "change → context → approval → tasks → intervention → verification → postmortem"
+  },
+  "SCN-071": {
+    "id": "SCN-071",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-15",
+    "palette": [
+      "understand",
+      "organize",
+      "act",
+      "coordinate"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 4,
+      "orgo": 5,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "team"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [],
+    "domains": [
+      "film",
+      "production"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-ORG-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-071.svg",
+    "badges": [],
+    "related": [],
+    "loop": "change → impacts → decision → redistribution → shoot → debrief"
+  },
+  "SCN-072": {
+    "id": "SCN-072",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-13",
+    "palette": [
+      "organize",
+      "act",
+      "coordinate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "role-routing"
+    ],
+    "domains": [
+      "hotel",
+      "service"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-072.svg",
+    "badges": [],
+    "related": [],
+    "loop": "request → cases → roles → tasks → handoff → resolution → memory"
+  },
+  "SCN-073": {
+    "id": "SCN-073",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-15",
+    "palette": [
+      "choose",
+      "organize",
+      "act",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 3,
+      "orgo": 5,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "public-institution"
+    ],
+    "settings": [
+      "public-service"
+    ],
+    "properties": [],
+    "domains": [
+      "municipality",
+      "administration"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-073.svg",
+    "badges": [],
+    "related": [],
+    "loop": "decision → mandate → services → tasks → results → memory"
+  },
+  "SCN-074": {
+    "id": "SCN-074",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-15",
+    "palette": [
+      "organize",
+      "act",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "laboratory"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-074.svg",
+    "badges": [],
+    "related": [],
+    "loop": "samples → plan → tasks → analyses → controls → review"
+  },
+  "SCN-075": {
+    "id": "SCN-075",
+    "primary_category": "CAT-05",
+    "pattern_family": "PAT-14",
+    "palette": [
+      "understand",
+      "organize",
+      "act",
+      "verify"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "mandate-or-plan",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise",
+      "field"
+    ],
+    "properties": [],
+    "domains": [
+      "port",
+      "infrastructure"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002",
+      "POS-FIELD-002",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "maintenance",
+      "logistics",
+      "events"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-075.svg",
+    "badges": [],
+    "related": [],
+    "loop": "inspection → decision → plan → tasks → implementation work → validation → memory"
+  },
+  "SCN-076": {
+    "id": "SCN-076",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-16",
+    "palette": [
+      "respond",
+      "understand",
+      "collaborate",
+      "organize",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 5,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "crisis"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "cybersecurity"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-FIELD-002"
+    ],
+    "transfer_domains": [
+      "infrastructure",
+      "humanitarian",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-076.svg",
+    "badges": [],
+    "related": [],
+    "loop": "alert → situation → analysis → decision → remediation → evidence → lessons"
+  },
+  "SCN-077": {
+    "id": "SCN-077",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-18",
+    "palette": [
+      "respond",
+      "understand",
+      "collaborate",
+      "choose",
+      "organize",
+      "act",
+      "coordinate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 3
+    },
+    "secondary_components": [
+      "semantik"
+    ],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "public-institution"
+    ],
+    "settings": [
+      "crisis"
+    ],
+    "properties": [
+      "offline",
+      "multilingual",
+      "high-consequence"
+    ],
+    "domains": [
+      "crisis-management",
+      "municipality"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-02",
+      "SIG-05",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-077.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signals → situation → priorities → teams → tasks → results → update"
+  },
+  "SCN-078": {
+    "id": "SCN-078",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-16",
+    "palette": [
+      "respond",
+      "understand",
+      "coordinate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 2,
+      "orgo": 3,
+      "uckk": 0
+    },
+    "secondary_components": [
+      "semantik"
+    ],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "public-institution"
+    ],
+    "settings": [],
+    "properties": [
+      "high-consequence",
+      "multilingual"
+    ],
+    "domains": [
+      "emergency",
+      "911"
+    ],
+    "signature_patterns": [
+      "SIG-02"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-005",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-078.svg",
+    "badges": [],
+    "related": [],
+    "loop": "call → context → resources → authoritative dispatch → coordination → report"
+  },
+  "SCN-079": {
+    "id": "SCN-079",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-18",
+    "palette": [
+      "respond",
+      "understand",
+      "collaborate",
+      "organize",
+      "act",
+      "coordinate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 5,
+      "uckk": 3
+    },
+    "secondary_components": [
+      "semantik",
+      "ekoh"
+    ],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "field"
+    ],
+    "properties": [
+      "offline",
+      "multilingual",
+      "intermittent-connectivity"
+    ],
+    "domains": [
+      "humanitarian"
+    ],
+    "signature_patterns": [
+      "SIG-02",
+      "SIG-05",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002",
+      "POS-LANG-004",
+      "POS-SOV-002",
+      "POS-SOV-003"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-079.svg",
+    "badges": [],
+    "related": [],
+    "loop": "needs → local situation → skills → tasks → distribution → evidence → sync"
+  },
+  "SCN-080": {
+    "id": "SCN-080",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-16",
+    "palette": [
+      "respond",
+      "understand",
+      "coordinate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 3,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [],
+    "properties": [
+      "high-consequence",
+      "sensitive-data",
+      "local-first"
+    ],
+    "domains": [
+      "energy",
+      "power-plant"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-080.svg",
+    "badges": [],
+    "related": [],
+    "loop": "alarm → context → procedure → authorized action → verification → lessons learned"
+  },
+  "SCN-081": {
+    "id": "SCN-081",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-16",
+    "palette": [
+      "respond",
+      "understand",
+      "organize",
+      "act",
+      "verify"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "high-consequence"
+    ],
+    "domains": [
+      "food",
+      "quality"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-081.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signal → tracing → containment → investigation → correction → memory"
+  },
+  "SCN-082": {
+    "id": "SCN-082",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-17",
+    "palette": [
+      "respond",
+      "understand",
+      "organize",
+      "coordinate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 3,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "high-consequence"
+    ],
+    "domains": [
+      "aviation",
+      "operations"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-082.svg",
+    "badges": [],
+    "related": [],
+    "loop": "disruption → impacts → decisions → tasks → recovery → debrief"
+  },
+  "SCN-083": {
+    "id": "SCN-083",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-18",
+    "palette": [
+      "respond",
+      "organize",
+      "act",
+      "coordinate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "field"
+    ],
+    "properties": [
+      "offline",
+      "high-consequence"
+    ],
+    "domains": [
+      "mining"
+    ],
+    "signature_patterns": [
+      "SIG-05",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-SOV-002",
+      "POS-FIELD-001"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-083.svg",
+    "badges": [],
+    "related": [],
+    "loop": "incident → site safety → situation → roles → actions → evidence → lessons"
+  },
+  "SCN-084": {
+    "id": "SCN-084",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-16",
+    "palette": [
+      "respond",
+      "understand",
+      "organize",
+      "act",
+      "verify"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "field"
+    ],
+    "properties": [
+      "high-consequence"
+    ],
+    "domains": [
+      "pipeline",
+      "infrastructure"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002",
+      "POS-FIELD-002"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "humanitarian",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-084.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signal → context → inspection → decision → correction → validation"
+  },
+  "SCN-085": {
+    "id": "SCN-085",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-16",
+    "palette": [
+      "respond",
+      "understand",
+      "collaborate",
+      "organize",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "community"
+    ],
+    "settings": [
+      "community"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "animals",
+      "shelter"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-085.svg",
+    "badges": [],
+    "related": [],
+    "loop": "cases → pattern → expertise → measures → follow-up → memory"
+  },
+  "SCN-086": {
+    "id": "SCN-086",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-16",
+    "palette": [
+      "respond",
+      "organize",
+      "act",
+      "remember",
+      "understand"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "building",
+      "maintenance"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-086.svg",
+    "badges": [],
+    "related": [],
+    "loop": "signal → cases → intervention → consequences → closure → pattern"
+  },
+  "SCN-087": {
+    "id": "SCN-087",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-17",
+    "palette": [
+      "respond",
+      "understand",
+      "collaborate",
+      "organize",
+      "coordinate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise",
+      "crisis"
+    ],
+    "properties": [],
+    "domains": [
+      "telecommunications"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-ORG-002",
+      "POS-FIELD-002"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-087.svg",
+    "badges": [],
+    "related": [],
+    "loop": "alarm → situation → hypotheses → teams → actions → recovery → postmortem"
+  },
+  "SCN-088": {
+    "id": "SCN-088",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-16",
+    "palette": [
+      "respond",
+      "organize",
+      "act",
+      "verify",
+      "remember"
+    ],
+    "components": {
+      "kristal": 3,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "casino",
+      "operations"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-088.svg",
+    "badges": [],
+    "related": [],
+    "loop": "incident → qualification → roles → actions → closure → audit"
+  },
+  "SCN-089": {
+    "id": "SCN-089",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-17",
+    "palette": [
+      "respond",
+      "understand",
+      "collaborate",
+      "choose",
+      "act",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 5,
+      "orgo": 4,
+      "uckk": 3
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "crisis"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "communication",
+      "reputation"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-089.svg",
+    "badges": [],
+    "related": [],
+    "loop": "public signals → verification → crisis team → decision → actions/messages → follow-up"
+  },
+  "SCN-090": {
+    "id": "SCN-090",
+    "primary_category": "CAT-06",
+    "pattern_family": "PAT-18",
+    "palette": [
+      "respond",
+      "organize",
+      "act",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "incident-or-change",
+    "scales": [
+      "team"
+    ],
+    "settings": [
+      "field"
+    ],
+    "properties": [
+      "offline",
+      "intermittent-connectivity"
+    ],
+    "domains": [
+      "field-research"
+    ],
+    "signature_patterns": [
+      "SIG-05",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-SOV-002",
+      "POS-SOV-003"
+    ],
+    "transfer_domains": [
+      "cybersecurity",
+      "infrastructure",
+      "humanitarian"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-090.svg",
+    "badges": [],
+    "related": [],
+    "loop": "local mission → collection → tasks → storage → sync queue → reconnection"
+  },
+  "SCN-091": {
+    "id": "SCN-091",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-19",
+    "palette": [
+      "remember",
+      "understand",
+      "learn",
+      "organize"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 3,
+      "uckk": 3
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [
+      "sensitive-data"
+    ],
+    "domains": [
+      "cybersecurity"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-091.svg",
+    "badges": [],
+    "related": [],
+    "loop": "incident → timeline → causes → lessons → changes → training"
+  },
+  "SCN-092": {
+    "id": "SCN-092",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-20",
+    "palette": [
+      "remember",
+      "understand",
+      "choose",
+      "act"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "maintenance",
+      "industry"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-092.svg",
+    "badges": [],
+    "related": [],
+    "loop": "historical cases → pattern → cause → decision → action → new baseline"
+  },
+  "SCN-093": {
+    "id": "SCN-093",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-19",
+    "palette": [
+      "remember",
+      "understand",
+      "learn",
+      "organize"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 4,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "public-institution"
+    ],
+    "settings": [
+      "public-service",
+      "crisis"
+    ],
+    "properties": [],
+    "domains": [
+      "crisis-management",
+      "municipality"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-FIELD-002"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-093.svg",
+    "badges": [],
+    "related": [],
+    "loop": "event → evidence → analysis → lessons → procedures → preparation"
+  },
+  "SCN-094": {
+    "id": "SCN-094",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-19",
+    "palette": [
+      "remember",
+      "understand",
+      "teach-share"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 2,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "team",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "project-management"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-094.svg",
+    "badges": [],
+    "related": [],
+    "loop": "project → results → gaps → causes → lessons → reuse"
+  },
+  "SCN-095": {
+    "id": "SCN-095",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-21",
+    "palette": [
+      "remember",
+      "understand",
+      "teach-share",
+      "verify"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 3
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [],
+    "domains": [
+      "science",
+      "reproducibility"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-095.svg",
+    "badges": [],
+    "related": [],
+    "loop": "question → protocol → versions → data → result → reusable package"
+  },
+  "SCN-096": {
+    "id": "SCN-096",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-21",
+    "palette": [
+      "remember",
+      "teach-share",
+      "organize"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 4,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "institutional-memory",
+      "human-resources"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-096.svg",
+    "badges": [],
+    "related": [],
+    "loop": "tacit knowledge → objects/cases → transfer → role → continuity"
+  },
+  "SCN-097": {
+    "id": "SCN-097",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-20",
+    "palette": [
+      "remember",
+      "understand",
+      "choose"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 3,
+      "orgo": 2,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "hospitality",
+      "quality"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "research",
+      "projects",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-097.svg",
+    "badges": [],
+    "related": [],
+    "loop": "change → period → results → comparison → lesson → new standard"
+  },
+  "SCN-098": {
+    "id": "SCN-098",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-20",
+    "palette": [
+      "remember",
+      "understand",
+      "learn",
+      "choose"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "individual",
+      "team"
+    ],
+    "settings": [],
+    "properties": [],
+    "domains": [
+      "sport",
+      "performance"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001",
+      "POS-GOV-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-098.svg",
+    "badges": [],
+    "related": [],
+    "loop": "hypothesis → plan → match → data → review → adaptation"
+  },
+  "SCN-099": {
+    "id": "SCN-099",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-20",
+    "palette": [
+      "remember",
+      "understand",
+      "teach-share"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 1,
+      "uckk": 1
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "individual"
+    ],
+    "settings": [
+      "field"
+    ],
+    "properties": [
+      "offline"
+    ],
+    "domains": [
+      "agriculture"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-003",
+      "POS-SOV-002",
+      "POS-FIELD-001"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-099.svg",
+    "badges": [],
+    "related": [],
+    "loop": "season → conditions → decisions → yield → comparison → lessons"
+  },
+  "SCN-100": {
+    "id": "SCN-100",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-21",
+    "palette": [
+      "remember",
+      "understand",
+      "verify",
+      "teach-share"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "culture",
+      "research"
+    ],
+    "properties": [],
+    "domains": [
+      "art-conservation"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-100.svg",
+    "badges": [],
+    "related": [],
+    "loop": "diagnosis → options → decision → treatment → evidence → artwork memory"
+  },
+  "SCN-101": {
+    "id": "SCN-101",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-20",
+    "palette": [
+      "remember",
+      "organize",
+      "verify",
+      "act"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "individual",
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "audit",
+      "compliance"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-101.svg",
+    "badges": [],
+    "related": [],
+    "loop": "finding → action → evidence → closure → recurrence? → lesson"
+  },
+  "SCN-102": {
+    "id": "SCN-102",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-19",
+    "palette": [
+      "remember",
+      "understand",
+      "collaborate",
+      "act"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "support",
+      "product"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-102.svg",
+    "badges": [],
+    "related": [],
+    "loop": "cases → clustering → pattern → product team → correction → fewer cases"
+  },
+  "SCN-103": {
+    "id": "SCN-103",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-19",
+    "palette": [
+      "remember",
+      "verify",
+      "understand",
+      "act"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 5,
+      "uckk": 0
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "enterprise"
+    ],
+    "properties": [],
+    "domains": [
+      "quality",
+      "industry"
+    ],
+    "signature_patterns": [
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-ORG-002",
+      "POS-ORG-005",
+      "POS-INST-001"
+    ],
+    "transfer_domains": [
+      "research",
+      "projects",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-103.svg",
+    "badges": [],
+    "related": [],
+    "loop": "cause → action → period → measures → verification → standard/reopen"
+  },
+  "SCN-104": {
+    "id": "SCN-104",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-19",
+    "palette": [
+      "remember",
+      "learn",
+      "choose",
+      "teach-share"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 3
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "education"
+    ],
+    "properties": [],
+    "domains": [
+      "education",
+      "evaluation"
+    ],
+    "signature_patterns": [
+      "SIG-01"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-LEARN-001",
+      "POS-GOV-001",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-104.svg",
+    "badges": [],
+    "related": [],
+    "loop": "pilot → evidence → feedback → analysis → decision → resources"
+  },
+  "SCN-105": {
+    "id": "SCN-105",
+    "primary_category": "CAT-07",
+    "pattern_family": "PAT-20",
+    "palette": [
+      "remember",
+      "understand",
+      "deliberate",
+      "choose"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 4,
+      "uckk": 2
+    },
+    "secondary_components": [],
+    "entry_trigger": "result-or-lessons-learned",
+    "scales": [
+      "public-institution"
+    ],
+    "settings": [
+      "public-service"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "policy",
+      "evaluation"
+    ],
+    "signature_patterns": [
+      "SIG-01",
+      "SIG-08"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-GOV-001",
+      "POS-GOV-005",
+      "POS-ORG-002",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "quality",
+      "research",
+      "projects"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-105.svg",
+    "badges": [],
+    "related": [],
+    "loop": "evidence → decision → implementation → results → revision → new knowledge"
+  },
+  "SCN-106": {
+    "id": "SCN-106",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-22",
+    "palette": [
+      "understand",
+      "teach-share",
+      "disseminate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "ai-assist"
+    ],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [
+      "public-facing",
+      "ai-optional"
+    ],
+    "domains": [
+      "science",
+      "mediation"
+    ],
+    "signature_patterns": [
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "public-service",
+      "culture"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-106.svg",
+    "badges": [],
+    "related": [],
+    "loop": "research → validation → mediation → formats → audiences → feedback"
+  },
+  "SCN-107": {
+    "id": "SCN-107",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-22",
+    "palette": [
+      "understand",
+      "teach-share",
+      "disseminate",
+      "collaborate"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 2,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "semantik",
+      "ai-assist"
+    ],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "community",
+      "public-institution"
+    ],
+    "settings": [
+      "public-service"
+    ],
+    "properties": [
+      "public-facing",
+      "multilingual",
+      "ai-optional"
+    ],
+    "domains": [
+      "municipality",
+      "communication"
+    ],
+    "signature_patterns": [
+      "SIG-02",
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-001",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-107.svg",
+    "badges": [],
+    "related": [],
+    "loop": "decision → reasons → narrative → languages/formats → audience → questions"
+  },
+  "SCN-108": {
+    "id": "SCN-108",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "teach-share",
+      "disseminate",
+      "learn",
+      "collaborate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "community"
+    ],
+    "settings": [
+      "field"
+    ],
+    "properties": [
+      "public-facing",
+      "offline"
+    ],
+    "domains": [
+      "agriculture",
+      "cooperative"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-003",
+      "POS-SOV-002",
+      "POS-FIELD-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-108.svg",
+    "badges": [],
+    "related": [],
+    "loop": "practice → evidence → review → tutorial → dissemination → field feedback"
+  },
+  "SCN-109": {
+    "id": "SCN-109",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "remember",
+      "teach-share",
+      "disseminate",
+      "learn"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "culture"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "museum",
+      "media-library"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-109.svg",
+    "badges": [],
+    "related": [],
+    "loop": "exhibition → media → collections → publication → reuse"
+  },
+  "SCN-110": {
+    "id": "SCN-110",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "teach-share",
+      "disseminate",
+      "respond",
+      "verify"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 2,
+      "orgo": 2,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "semantik"
+    ],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "public-institution"
+    ],
+    "settings": [],
+    "properties": [
+      "public-facing",
+      "multilingual",
+      "high-consequence"
+    ],
+    "domains": [
+      "emergency",
+      "communication"
+    ],
+    "signature_patterns": [
+      "SIG-02"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-001",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-110.svg",
+    "badges": [],
+    "related": [],
+    "loop": "procedure → version → renderings → channels → audiences → update"
+  },
+  "SCN-111": {
+    "id": "SCN-111",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "learn",
+      "teach-share",
+      "disseminate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "education"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "trade",
+      "training"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-111.svg",
+    "badges": [],
+    "related": [],
+    "loop": "expertise → capture → review → tutorial → dissemination → adaptations"
+  },
+  "SCN-112": {
+    "id": "SCN-112",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-22",
+    "palette": [
+      "understand",
+      "collaborate",
+      "teach-share",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "ai-assist"
+    ],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [
+      "public-facing",
+      "ai-optional"
+    ],
+    "domains": [
+      "climate",
+      "mediation"
+    ],
+    "signature_patterns": [
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-112.svg",
+    "badges": [],
+    "related": [],
+    "loop": "data → territory → interpretation → media → audience → contribution"
+  },
+  "SCN-113": {
+    "id": "SCN-113",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-22",
+    "palette": [
+      "remember",
+      "teach-share",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "ai-assist"
+    ],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [],
+    "properties": [
+      "public-facing",
+      "ai-optional"
+    ],
+    "domains": [
+      "ngo",
+      "reporting"
+    ],
+    "signature_patterns": [
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-113.svg",
+    "badges": [],
+    "related": [],
+    "loop": "results → relationships → synthesis → formats → publication → reuse"
+  },
+  "SCN-114": {
+    "id": "SCN-114",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "learn",
+      "teach-share",
+      "disseminate",
+      "verify"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "education"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "education",
+      "portfolio"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "science",
+      "public-service",
+      "culture"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-114.svg",
+    "badges": [],
+    "related": [],
+    "loop": "project → evidence → review → publication → inspiration"
+  },
+  "SCN-115": {
+    "id": "SCN-115",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "teach-share",
+      "disseminate",
+      "learn",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "field"
+    ],
+    "properties": [
+      "offline",
+      "intermittent-connectivity",
+      "public-facing"
+    ],
+    "domains": [
+      "humanitarian",
+      "training"
+    ],
+    "signature_patterns": [
+      "SIG-03"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-003",
+      "POS-SOV-002",
+      "POS-SOV-003"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-115.svg",
+    "badges": [],
+    "related": [],
+    "loop": "corpus → pack → transport → local use → new evidence → sync"
+  },
+  "SCN-116": {
+    "id": "SCN-116",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "collaborate",
+      "teach-share",
+      "disseminate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 4,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "community"
+    ],
+    "settings": [
+      "community"
+    ],
+    "properties": [
+      "public-facing",
+      "local-first"
+    ],
+    "domains": [
+      "commons",
+      "media"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "DERIVED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-116.svg",
+    "badges": [],
+    "related": [],
+    "loop": "knowledge → governance → content → local channel → audience → feedback"
+  },
+  "SCN-117": {
+    "id": "SCN-117",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "teach-share",
+      "disseminate",
+      "collaborate",
+      "learn"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 4,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "ai-assist"
+    ],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [
+      "research"
+    ],
+    "properties": [
+      "public-facing",
+      "ai-optional"
+    ],
+    "domains": [
+      "university",
+      "media"
+    ],
+    "signature_patterns": [
+      "SIG-07"
+    ],
+    "canon_refs": [
+      "POS-KNOW-001",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "DERIVED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-117.svg",
+    "badges": [],
+    "related": [],
+    "loop": "project → results → mediation → channel → audiences → new questions"
+  },
+  "SCN-118": {
+    "id": "SCN-118",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "teach-share",
+      "disseminate",
+      "learn",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 3,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [
+      "semantik"
+    ],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "public-institution"
+    ],
+    "settings": [
+      "public-service"
+    ],
+    "properties": [
+      "public-facing",
+      "multilingual"
+    ],
+    "domains": [
+      "municipality",
+      "civic"
+    ],
+    "signature_patterns": [
+      "SIG-02"
+    ],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001",
+      "POS-LANG-004"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "DERIVED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-118.svg",
+    "badges": [],
+    "related": [],
+    "loop": "public objects → selection → explanation → media library → residents"
+  },
+  "SCN-119": {
+    "id": "SCN-119",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-23",
+    "palette": [
+      "collaborate",
+      "teach-share",
+      "disseminate",
+      "remember"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 5,
+      "orgo": 1,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization",
+      "community"
+    ],
+    "settings": [
+      "enterprise",
+      "community"
+    ],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "professional-network",
+      "training"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-LEARN-001"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-119.svg",
+    "badges": [],
+    "related": [],
+    "loop": "experience → review → standard/practice → content → network → adaptation"
+  },
+  "SCN-120": {
+    "id": "SCN-120",
+    "primary_category": "CAT-08",
+    "pattern_family": "PAT-24",
+    "palette": [
+      "remember",
+      "verify",
+      "disseminate"
+    ],
+    "components": {
+      "kristal": 5,
+      "konnaxion": 2,
+      "orgo": 3,
+      "uckk": 5
+    },
+    "secondary_components": [],
+    "entry_trigger": "knowledge-to-publish",
+    "scales": [
+      "organization"
+    ],
+    "settings": [],
+    "properties": [
+      "public-facing"
+    ],
+    "domains": [
+      "media",
+      "archives"
+    ],
+    "signature_patterns": [],
+    "canon_refs": [
+      "POS-KNOW-004",
+      "POS-KNOW-005",
+      "POS-ORG-005"
+    ],
+    "transfer_domains": [
+      "education",
+      "science",
+      "public-service"
+    ],
+    "derivation": "COMPOSED",
+    "runtime_evidence": "UNVERIFIED",
+    "preview_image": "/scenarios/placeholders/SCN-120.svg",
+    "badges": [],
+    "related": [],
+    "loop": "media → source/version → change → alert → update/annotation"
+  }
+}
