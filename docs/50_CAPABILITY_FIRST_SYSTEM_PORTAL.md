@@ -1,4 +1,4 @@
-# Capability-first system portal — v4.4.1
+# Capability-first system portal — v4.4.12
 
 ## Purpose
 
@@ -12,7 +12,7 @@ The 24 recurring patterns organize those 120 specific actions as a secondary tax
 
 The existing 24 pattern families remain the reusable conceptual layer, but they are no longer reused as public titles. `src/data/scenario-capability-titles.json` gives every scenario a specific bilingual action title derived from what Koali actually does in that example. The original scenario title remains the concrete example, while `pattern_label` remains the recurring family for taxonomy and search. This prevents repeated headings such as “Investigate a signal / Enquêter sur un signal” while preserving the 24-pattern architecture.
 
-The main explanatory paragraph is Koali-first. It is derived from the curated `preview_summary` by moving the Koali response to the front. When that response is too short for the richer preview, the already-curated transferable pattern and, if needed, the scenario loop are used to explain the mechanism. The public copy does not add a module catalogue to the paragraph.
+The main explanatory paragraph no longer repeats the public action title. The title names the **specific action**; the paragraph explains **Koali’s architectural role**: keeping one shared context continuous while specialized capabilities contribute at different points in the journey. The scenario loop provides the concrete start and end of that continuity, and `continuity_gap` explains what tends to break when the shared thread is lost. The original `preview_summary` remains useful for the concrete example lead, but its Koali-action clause is not repeated directly beneath an equivalent headline.
 
 ## System paths
 
@@ -49,7 +49,7 @@ The top preview now reads:
 
 1. scenario ID + broad family;
 2. **specific Koali action title**;
-3. **what Koali does**;
+3. **what Koali keeps continuous across specialized capabilities**;
 4. **Example:** original scenario title;
 5. eight action tags;
 6. **Inside Koali / Dans Koali:** the precise system path plus scale/context/conditions.
@@ -57,12 +57,12 @@ The top preview now reads:
 On the detailed route, the five public information cards are:
 
 1. Starts from / Part de;
-2. Koali mechanism / Mécanisme Koali;
+2. What breaks without continuity / Ce qui se perd sans continuité;
 3. System path / Chemin système;
 4. How it moves / Comment ça circule;
 5. Also useful for / Aussi utile pour.
 
-The old public “What can get lost / Ce qui peut se perdre” card is removed. `continuity_gap` remains in the source corpus for editorial reasoning and evidence discipline.
+`continuity_gap` is public again because it explains **why continuity matters** without pretending that Koali itself performs every specialized action. The reusable `pattern` remains in taxonomy and search rather than being mislabeled as a “Koali mechanism.”
 
 ## Search
 

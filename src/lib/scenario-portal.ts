@@ -18,39 +18,59 @@ const systemCatalog = systemCatalogJson as Record<SystemRouteKey,{
 const scenarioSystemRoutes = scenarioSystemRoutesJson as Record<string,SystemRouteKey[]>;
 const scenarioCapabilityTitles = scenarioCapabilityTitlesJson as Record<string,Record<Locale,string>>;
 
-function wordCount(value:string) {
-  return value.trim().split(/\s+/).filter(Boolean).length;
-}
-
 function lowerFirst(value:string) {
   return value ? value[0].toLocaleLowerCase() + value.slice(1) : value;
 }
 
-export function splitScenarioSummary(summary:string, pattern:string, body:string, locale:Locale) {
+function stripTerminalPunctuation(value:string) {
+  return value.trim().replace(/[.!?;:]+$/u, '');
+}
+
+function extractExampleLead(summary:string) {
   const marker = summary.indexOf('Koali');
-  const exampleLead = marker > 0 ? summary.slice(0, marker).trim() : '';
-  let koaliHelp = marker >= 0 ? summary.slice(marker).trim() : summary.trim();
+  return marker > 0 ? summary.slice(0, marker).trim() : '';
+}
 
-  // Public copy is deliberately Koali-first. Short mechanism sentences are
-  // completed with the already-curated transferable pattern, not filler.
-  if (wordCount(koaliHelp) < 36 && pattern) {
-    const patternSentence = locale === 'fr'
-      ? `L’objectif de continuité est de ${lowerFirst(pattern).replace(/[.]$/, '')}.`
-      : `The continuity goal is to ${lowerFirst(pattern).replace(/[.]$/, '')}.`;
-    koaliHelp = `${koaliHelp.replace(/\s+$/,'')} ${patternSentence}`;
-  }
+function flowEndpoints(body:string, locale:Locale) {
+  const flow = extractScenarioPublicDetails(body, locale).flow;
+  const steps = flow
+    .split('→')
+    .map((step) => stripTerminalPunctuation(step))
+    .filter(Boolean);
 
-  if (wordCount(koaliHelp) < 36 && body) {
-    const flow = extractScenarioPublicDetails(body, locale).flow;
-    if (flow) {
-      const flowSentence = locale === 'fr'
-        ? `Dans cet exemple, le contexte reste relié tout au long de : ${flow}.`
-        : `In this example, the context stays connected across: ${flow}.`;
-      koaliHelp = `${koaliHelp.replace(/\s+$/,'')} ${flowSentence}`;
-    }
-  }
+  return {
+    flow,
+    start: steps[0] ?? '',
+    end: steps.length > 1 ? steps[steps.length - 1] : '',
+  };
+}
 
-  return { exampleLead, koaliHelp };
+/**
+ * Public preview copy deliberately does not restate the capability headline.
+ *
+ * The headline names the concrete action. This paragraph explains Koali's own
+ * architectural role: keep one context continuous while specialized
+ * capabilities contribute at different points in the journey.
+ */
+export function buildKoaliContinuityCopy(body:string, continuityGap:string, locale:Locale) {
+  const { start, end } = flowEndpoints(body, locale);
+  const gap = stripTerminalPunctuation(continuityGap ?? '');
+
+  const continuitySentence = start && end
+    ? (locale === 'fr'
+      ? `Dans Koali, le même contexte passe d’une capacité spécialisée à l’autre sans être recréé, du point de départ « ${start} » jusqu’à « ${end} ».`
+      : `In Koali, the same context moves across specialized capabilities without being recreated, from “${start}” through “${end}”.`)
+    : (locale === 'fr'
+      ? 'Dans Koali, le même contexte passe d’une capacité spécialisée à l’autre sans être recréé.'
+      : 'In Koali, the same context moves across specialized capabilities without being recreated.');
+
+  if (!gap) return continuitySentence;
+
+  const gapSentence = locale === 'fr'
+    ? `Sans ce fil commun, ${lowerFirst(gap)}.`
+    : `Without that shared thread, ${lowerFirst(gap)}.`;
+
+  return `${continuitySentence} ${gapSentence}`;
 }
 
 export function getScenarioSystemRoutes(data:any, _body:string, locale:Locale): SystemRoute[] {
@@ -65,14 +85,13 @@ export function getScenarioSystemRoutes(data:any, _body:string, locale:Locale): 
 }
 
 export function getScenarioPortal(data:any, body:string, locale:Locale) {
-  const { exampleLead, koaliHelp } = splitScenarioSummary(data.preview_summary, data.pattern, body, locale);
   const systems = getScenarioSystemRoutes(data, body, locale);
   return {
     capabilityTitle: scenarioCapabilityTitles[data.id]?.[locale] ?? data.pattern_label,
     patternFamily: data.pattern_label,
-    koaliHelp,
+    koaliHelp: buildKoaliContinuityCopy(body, data.continuity_gap, locale),
     exampleTitle: data.title,
-    exampleLead,
+    exampleLead: extractExampleLead(data.preview_summary),
     systems,
   };
 }

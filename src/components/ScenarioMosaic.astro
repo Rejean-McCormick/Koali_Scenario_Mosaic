@@ -61,6 +61,7 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
       ...entry.data.domains,
       portal.capabilityTitle,
       portal.exampleTitle,
+      portal.exampleLead,
       portal.koaliHelp,
       ...portal.systems.flatMap((system:any) => [system.label, system.description]),
       ...(entry.data.domains ?? []).map((x:string) => humanizeTag(locale,x)),

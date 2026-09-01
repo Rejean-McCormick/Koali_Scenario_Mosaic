@@ -42,39 +42,55 @@ BACKLIGHT_GROUPS = [
 PALETTE_ICONS = {'find': 'search.svg', 'understand': 'lightbulb.svg', 'verify': 'badge-check.svg', 'learn': 'book-open.svg', 'teach-share': 'graduation-cap.svg', 'collaborate': 'users.svg', 'create': 'sparkles.svg', 'deliberate': 'messages-square.svg', 'choose': 'git-branch.svg', 'organize': 'list-checks.svg', 'act': 'zap.svg', 'respond': 'message-circle-reply.svg', 'coordinate': 'network.svg', 'remember': 'history.svg', 'disseminate': 'radio.svg'}
 
 
-def word_count(value):
-    return len([x for x in re.split(r'\s+', value.strip()) if x])
-
 def lower_first(value):
     return value[:1].lower()+value[1:] if value else value
 
-def portal_fields(x, locale):
-    summary=x['preview_summary']
+
+def strip_terminal_punctuation(value):
+    return re.sub(r'[.!?;:]+$', '', (value or '').strip())
+
+
+def example_lead(summary):
     marker=summary.find('Koali')
-    example_lead=summary[:marker].strip() if marker>0 else ''
-    koali_help=summary[marker:].strip() if marker>=0 else summary.strip()
-    if word_count(koali_help)<36 and x.get('pattern'):
-        pattern=x['pattern'].rstrip('.')
+    return summary[:marker].strip() if marker>0 else ''
+
+
+def build_koali_continuity_copy(x, locale):
+    _, flow=public_details(x, locale)
+    steps=[strip_terminal_punctuation(step) for step in flow.split('→') if strip_terminal_punctuation(step)]
+    start=steps[0] if steps else ''
+    end=steps[-1] if len(steps)>1 else ''
+    gap=strip_terminal_punctuation(x.get('continuity_gap',''))
+
+    if start and end:
         if locale=='fr':
-            koali_help += f" L’objectif de continuité est de {lower_first(pattern)}."
+            continuity=f"Dans Koali, le même contexte passe d’une capacité spécialisée à l’autre sans être recréé, du point de départ « {start} » jusqu’à « {end} »."
         else:
-            koali_help += f" The continuity goal is to {lower_first(pattern)}."
-    if word_count(koali_help)<36 and x.get('body'):
-        _, flow = public_details(x, locale)
-        if flow:
-            if locale=='fr':
-                koali_help += f" Dans cet exemple, le contexte reste relié tout au long de : {flow}."
-            else:
-                koali_help += f" In this example, the context stays connected across: {flow}."
+            continuity=f"In Koali, the same context moves across specialized capabilities without being recreated, from “{start}” through “{end}”."
+    else:
+        continuity=(
+            'Dans Koali, le même contexte passe d’une capacité spécialisée à l’autre sans être recréé.'
+            if locale=='fr' else
+            'In Koali, the same context moves across specialized capabilities without being recreated.'
+        )
+
+    if not gap:
+        return continuity
+    if locale=='fr':
+        return f"{continuity} Sans ce fil commun, {lower_first(gap)}."
+    return f"{continuity} Without that shared thread, {lower_first(gap)}."
+
+
+def portal_fields(x, locale):
     systems=[]
     for key in scenario_system_routes.get(x['id'],[]):
         item=system_catalog[key]
         systems.append({'key':key,'label':item['label'],'description':item['description'][locale]})
     return {
         'title':scenario_capability_titles.get(x['id'],{}).get(locale,x['pattern_label']),
-        'summary':koali_help,
+        'summary':build_koali_continuity_copy(x, locale),
         'example':x['title'],
-        'exampleLead':example_lead,
+        'exampleLead':example_lead(x['preview_summary']),
         'systems':systems,
     }
 
@@ -99,7 +115,7 @@ UI = {
   'hint':'Each hexagon is an example. Select one to see the specific Koali action and its system path above.',
   'map_labels':{'CAT-01':['Find &','Understand'],'CAT-02':['Learn &','Share'],'CAT-03':['Collaborate &','Create'],'CAT-04':['Choose &','Govern'],'CAT-05':['Organize &','Act'],'CAT-06':['Respond &','Coordinate'],'CAT-07':['Remember &','Improve'],'CAT-08':['Disseminate &','Connect']},
   'back':'← Back to mosaic','all':'All scenarios',
-  'detail_starts':'Starts from','detail_loss':'Koali mechanism','detail_continuity':'System path','detail_flow':'How it moves','detail_transfer':'Also useful for','detail_back':'Back to the full Mosaic',
+  'detail_starts':'Starts from','detail_loss':'What breaks without continuity','detail_continuity':'System path','detail_flow':'How it moves','detail_transfer':'Also useful for','detail_back':'Back to the full Mosaic',
   'activities':{'understand':'Understand','learn':'Learn & share','create':'Create together','decide':'Decide','act':'Organize & act','respond':'Respond','remember':'Remember & share'},
   'involved':'involved','notCentral':'not central','lang':'Language',
 },
@@ -114,7 +130,7 @@ UI = {
   'hint':'Chaque hexagone est un exemple. Sélectionnez-en un pour voir l’action précise de Koali et son chemin système au-dessus.',
   'map_labels':{'CAT-01':['Trouver &','comprendre'],'CAT-02':['Apprendre &','transmettre'],'CAT-03':['Collaborer &','créer'],'CAT-04':['Choisir &','gouverner'],'CAT-05':['Organiser &','agir'],'CAT-06':['Répondre &','coordonner'],'CAT-07':['Se souvenir &','améliorer'],'CAT-08':['Diffuser &','connecter']},
   'back':'← Retour à la mosaïque','all':'Tous les scénarios',
-  'detail_starts':'Part de','detail_loss':'Mécanisme Koali','detail_continuity':'Chemin système','detail_flow':'Comment ça circule','detail_transfer':'Aussi utile pour','detail_back':'Retour à la mosaïque complète',
+  'detail_starts':'Part de','detail_loss':'Ce qui se perd sans continuité','detail_continuity':'Chemin système','detail_flow':'Comment ça circule','detail_transfer':'Aussi utile pour','detail_back':'Retour à la mosaïque complète',
   'activities':{'understand':'Comprendre','learn':'Apprendre & transmettre','create':'Créer ensemble','decide':'Décider','act':'Organiser & agir','respond':'Répondre','remember':'Se souvenir & partager'},
   'involved':'impliqué','notCentral':'non central','lang':'Langue',
 }}
@@ -382,7 +398,7 @@ for locale in ('en','fr'):
         _,flow=public_details(x,locale)
         trigger=ENTRY_TRIGGER_LABELS[locale].get(x['entry_trigger'], humanize(locale,x['entry_trigger']))
         transfer=' · '.join(humanize(locale,v) for v in x.get('transfer_domains',[]))
-        info=f'''<section class="scenario-info-mosaic" data-category="{x['primary_category']}"><article class="detail-hex detail-hex--trigger"><div class="detail-hex-inner"><span>{html.escape(s['detail_starts'])}</span><strong>{html.escape(trigger)}</strong></div></article><article class="detail-hex detail-hex--mechanism"><div class="detail-hex-inner"><span>{html.escape(s['detail_loss'])}</span><p>{html.escape(x['pattern'])}</p></div></article><article class="detail-hex detail-hex--systems"><div class="detail-hex-inner"><span>{html.escape(s['detail_continuity'])}</span><div class="detail-system-list">{systems_html(x,locale,compact=True)}</div></div></article><article class="detail-hex detail-hex--flow"><div class="detail-hex-inner"><span>{html.escape(s['detail_flow'])}</span><p class="detail-flow">{html.escape(flow)}</p></div></article><article class="detail-hex detail-hex--transfer"><div class="detail-hex-inner"><span>{html.escape(s['detail_transfer'])}</span><strong>{html.escape(transfer)}</strong></div></article></section>'''
+        info=f'''<section class="scenario-info-mosaic" data-category="{x['primary_category']}"><article class="detail-hex detail-hex--trigger"><div class="detail-hex-inner"><span>{html.escape(s['detail_starts'])}</span><strong>{html.escape(trigger)}</strong></div></article><article class="detail-hex detail-hex--mechanism"><div class="detail-hex-inner"><span>{html.escape(s['detail_loss'])}</span><p>{html.escape(x['continuity_gap'])}</p></div></article><article class="detail-hex detail-hex--systems"><div class="detail-hex-inner"><span>{html.escape(s['detail_continuity'])}</span><div class="detail-system-list">{systems_html(x,locale,compact=True)}</div></div></article><article class="detail-hex detail-hex--flow"><div class="detail-hex-inner"><span>{html.escape(s['detail_flow'])}</span><p class="detail-flow">{html.escape(flow)}</p></div></article><article class="detail-hex detail-hex--transfer"><div class="detail-hex-inner"><span>{html.escape(s['detail_transfer'])}</span><strong>{html.escape(transfer)}</strong></div></article></section>'''
         preview=f'''<section class="scenario-preview"><div class="preview-image-shell"><img data-preview-image data-image-state="scenario" src="{img}"{srcset_attr} alt="{html.escape(x['preview_image_alt'])}"></div><div class="preview-copy"><p class="preview-eyebrow"><span data-preview-id>{x['id']}</span> · <span data-preview-category>{html.escape(x['category_label'])}</span></p><h1 data-preview-title>{html.escape(portal['title'])}</h1><p class="preview-summary" data-preview-summary>{html.escape(portal['summary'])}</p><p class="preview-example" data-preview-example-wrap><span>{html.escape(s['example'])}</span><strong data-preview-example>{html.escape(portal['example'])}</strong></p><div class="preview-tags preview-backlights" data-preview-palette>{pal}</div><a class="preview-cta" href="../../index.html">← {html.escape(s['detail_back'])}</a></div>{scenario_profile}</section>'''
         page=f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="theme-color" content="#1e6864"><link rel="icon" href="../../../assets/brand/koali-mark.svg"><link rel="stylesheet" href="../../../assets/styles.css"><title>{html.escape(portal['title'])} — {html.escape(x['title'])}</title></head><body><header class="site-header"><a class="brand" href="../../index.html"><img class="brand-mark" src="../../../assets/brand/koali-mark.svg" alt=""><span class="brand-copy"><span class="brand-product"><strong>Koali</strong><span>{html.escape(s['product'])}</span></span><small>the Sociotechnical Operating System</small></span></a>{switch_detail}</header><main><div class="mosaic-experience scenario-detail-experience">{preview}{info}</div></main><script src="../../../assets/preview-layout.js"></script></body></html>'''
         (d/'index.html').write_text(page,encoding='utf-8')

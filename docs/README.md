@@ -16,4 +16,4 @@ The pack contains:
 Start with [`00_START_HERE.md`](00_START_HERE.md). For the current Mosaic interaction implementation, see [`44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md`](44_MAGNETIC_TERRITORY_LABELS_IMPLEMENTATION.md). For the refreshed v4.3.1 scenario corpus and its integration into the magnetic interface, see [`45_SCENARIO_EDITORIAL_REFRESH.md`](45_SCENARIO_EDITORIAL_REFRESH.md) and [`46_REFRESHED_SCENARIOS_MAGNETIC_INTEGRATION.md`](46_REFRESHED_SCENARIOS_MAGNETIC_INTEGRATION.md).
 
 
-For the capability-first v4.4.1 public model—120 specific Koali action titles grouped into 24 recurring patterns, plus explicit system entry paths—see [`50_CAPABILITY_FIRST_SYSTEM_PORTAL.md`](50_CAPABILITY_FIRST_SYSTEM_PORTAL.md).
+For the capability-first v4.4.12 public model—120 specific Koali action titles grouped into 24 recurring patterns, plus explicit system entry paths—see [`50_CAPABILITY_FIRST_SYSTEM_PORTAL.md`](50_CAPABILITY_FIRST_SYSTEM_PORTAL.md).
