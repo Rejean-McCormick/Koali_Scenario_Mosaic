@@ -5,10 +5,9 @@ import MosaicControls from './MosaicControls.astro';
 import MosaicLegend from './MosaicLegend.astro';
 import MosaicTerritoryLabels from './MosaicTerritoryLabels.astro';
 import layout from '../data/mosaic-layout.json';
-import { getPublicActivities } from '../lib/public-profile';
 import { resolveScenarioPreviewImage } from '../lib/scenario-image';
 import { getUi, humanizeTag, localizePalette, type Locale } from '../i18n/ui';
-import { getCapabilityKeywords } from '../lib/capability-keywords';
+import { getScenarioPortal } from '../lib/scenario-portal';
 
 const { scenarios, locale = 'en' as Locale } = Astro.props;
 const strings = getUi(locale);
@@ -28,17 +27,20 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
     ...(entry.data.domains ?? []),
   ])].map((x:string) => humanizeTag(locale, x)).slice(0, 3);
 
+  const portal = getScenarioPortal(entry.data, entry.entry.body ?? '', locale);
+
   return [entry.data.id, {
     id: entry.data.id,
-    title: entry.data.title,
+    title: portal.capabilityTitle,
+    example: portal.exampleTitle,
+    exampleLead: portal.exampleLead,
     category: entry.data.category_label,
     categoryId: entry.data.primary_category,
     pattern: entry.data.pattern_label,
-    summary: entry.data.preview_summary,
+    summary: portal.koaliHelp,
+    systems: portal.systems,
     paletteKeys: entry.data.palette,
     palette: entry.data.palette.map((x:string) => localizePalette(locale, x)),
-    keywords: getCapabilityKeywords(entry.data),
-    activities: getPublicActivities(entry.data.palette),
     scales,
     contexts,
     properties: (entry.data.properties ?? []).map((x:string) => humanizeTag(locale, x)),
@@ -54,7 +56,10 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
       ...entry.data.settings,
       ...entry.data.properties,
       ...entry.data.domains,
-      ...getCapabilityKeywords(entry.data),
+      portal.capabilityTitle,
+      portal.exampleTitle,
+      portal.koaliHelp,
+      ...portal.systems.flatMap((system:any) => [system.label, system.description]),
       ...(entry.data.domains ?? []).map((x:string) => humanizeTag(locale,x)),
     ].join(' ').toLowerCase(),
   }];

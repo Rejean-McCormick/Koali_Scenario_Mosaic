@@ -1,5 +1,5 @@
 from pathlib import Path
-import json, sys, re
+import json, sys, re, yaml
 R=Path(__file__).resolve().parents[1]
 errors=[]
 js=(R/'src/scripts/mosaic.ts').read_text(encoding='utf-8')
@@ -10,6 +10,35 @@ package=json.loads((R/'package.json').read_text(encoding='utf-8'))
 netlify=(R/'netlify.toml').read_text(encoding='utf-8') if (R/'netlify.toml').exists() else ''
 meta=json.loads((R/'src/data/scenarios.json').read_text(encoding='utf-8'))
 if len(meta)!=120: errors.append('shared scenario metadata count')
+system_catalog=json.loads((R/'src/data/system-catalog.json').read_text(encoding='utf-8'))
+system_routes=json.loads((R/'src/data/scenario-system-routes.json').read_text(encoding='utf-8'))
+capability_titles=json.loads((R/'src/data/scenario-capability-titles.json').read_text(encoding='utf-8'))
+if set(capability_titles)!=set(meta): errors.append('specific capability-title coverage')
+for locale in ('en','fr'):
+    localized=[]
+    for sid in sorted(meta):
+        title=(capability_titles.get(sid,{}) or {}).get(locale,'').strip()
+        if not title: errors.append(f'{sid}: missing {locale} specific capability title'); continue
+        localized.append(title.casefold())
+        source=R/f'src/content/scenarios/{locale}/{sid}.md'
+        if source.exists():
+            raw=source.read_text(encoding='utf-8')
+            try:
+                front=yaml.safe_load(raw.split('---',2)[1]) or {}
+                if title.casefold()==str(front.get('pattern_label','')).strip().casefold():
+                    errors.append(f'{sid}: {locale} public title repeats pattern family')
+            except Exception:
+                errors.append(f'{sid}: cannot read {locale} frontmatter for title validation')
+    if len(localized)!=120 or len(set(localized))!=120: errors.append(f'{locale} specific capability titles must be 120 unique values')
+if set(system_routes)!=set(meta): errors.append('scenario system-route coverage')
+for sid, routes in system_routes.items():
+    if not 1 <= len(routes) <= 3: errors.append(f'{sid}: expected 1–3 system routes')
+    if len(routes)!=len(set(routes)): errors.append(f'{sid}: duplicate system routes')
+    for route in routes:
+        if route not in system_catalog: errors.append(f'{sid}: unknown system route {route}')
+    secondary=set(meta.get(sid,{}).get('secondary_components',[]) or [])
+    for specialized in ('smart-vote','ekoh','semantik'):
+        if specialized in secondary and specialized not in routes: errors.append(f'{sid}: missing specialized route {specialized}')
 for locale in ('en','fr'):
     if len(list((R/f'src/content/scenarios/{locale}').glob('SCN-*.md')))!=120: errors.append(f'{locale} scenario count')
 if 'is-related' in js or 'is-related' in css: errors.append('related highlight')
@@ -51,9 +80,9 @@ if 'ScenarioPreview' not in scenario_route or 'ScenarioInfoMosaic' not in scenar
 if 'render(' in scenario_route or '<Content' in scenario_route or 'scenario-body' in scenario_route: errors.append('public scenario still renders internal markdown')
 for token in ('detailStartsWith','detailWhatGetsLost','detailKoaliContinuity','detailFlow','detailTransferable'):
     if token not in detail_component: errors.append(f'missing public detail token {token}')
-if 'scenario-info-mosaic' not in scenario_css or 'detail-hex--continuity' not in scenario_css: errors.append('public detail honeycomb styling')
+if 'scenario-info-mosaic' not in scenario_css or 'detail-hex--systems' not in scenario_css or 'detail-hex--mechanism' not in scenario_css: errors.append('capability-first public detail styling')
 if 'paletteBacklightGroups' not in preview_component or 'data-architecture' not in preview_component: errors.append('eight-tag architecture discovery contract')
-if 'data-preview-capabilities' not in preview_component: errors.append('capability keyword contract')
+if 'getScenarioPortal' not in preview_component or 'data-preview-example' not in preview_component or 'data-preview-system-list' not in preview_component: errors.append('capability-first system portal contract')
 if (
     'scenario = null' not in preview_component
     or "data-image-state={selected ? 'scenario' : 'empty'}" not in preview_component

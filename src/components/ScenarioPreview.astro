@@ -1,9 +1,8 @@
 ---
 import { getUi, humanizeTag, type Locale } from '../i18n/ui';
-import { getPublicActivities } from '../lib/public-profile';
 import { resolveScenarioPreviewImage } from '../lib/scenario-image';
 import { paletteBacklightGroups } from '../lib/palette-icons';
-import { getCapabilityKeywords } from '../lib/capability-keywords';
+import { getScenarioPortal } from '../lib/scenario-portal';
 
 const {
   total = 120,
@@ -14,7 +13,8 @@ const {
 const s = getUi(locale);
 const selected = Boolean(scenario);
 const data = scenario?.data;
-const activities = selected ? getPublicActivities(data.palette ?? []) : null;
+const body = scenario?.entry?.body ?? '';
+const portal = selected ? getScenarioPortal(data, body, locale) : null;
 const scales = selected ? (data.scales ?? []).map((x:string) => humanizeTag(locale, x)) : [];
 const contexts = selected ? [...new Set([
   ...(data.settings ?? []),
@@ -23,7 +23,6 @@ const contexts = selected ? [...new Set([
 const properties = selected ? (data.properties ?? []).map((x:string) => humanizeTag(locale, x)) : [];
 const image = selected ? resolveScenarioPreviewImage(data.id, data.preview_image) : null;
 const paletteKeys = selected ? (data.palette ?? []) : [];
-const capabilityKeywords = selected ? getCapabilityKeywords(data) : [];
 const paletteBacklights = paletteBacklightGroups.map((group) => ({
   ...group,
   active: selected && group.palette.some((key) => paletteKeys.includes(key)),
@@ -31,8 +30,8 @@ const paletteBacklights = paletteBacklightGroups.map((group) => ({
   iconPath: `/icons/palette/${group.icon}`,
   architectureLabel: group.architecture.join(' · '),
 }));
-const titleText = selected ? data.title : s.exploreWays(total);
-const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'medium' : 'short';
+const titleText = selected ? portal!.capabilityTitle : s.exploreWays(total);
+const titleDensity = titleText.length > 80 ? 'long' : titleText.length > 54 ? 'medium' : 'short';
 ---
 <section class="scenario-preview" data-preview-swipe={!selected ? 'true' : undefined} data-preview-selected={selected ? 'true' : 'false'}>
   <div class="preview-image-shell" data-preview-media>
@@ -45,62 +44,65 @@ const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'm
       hidden={!selected}
     />
   </div>
+
   <div class="preview-copy">
     <p class="preview-eyebrow">
       <span data-preview-id>{selected ? data.id : (locale === 'fr' ? 'Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic')}</span>
       <span aria-hidden="true"> · </span>
-      <span data-preview-category>{selected ? data.category_label : `${total} ${s.scenarios}`}</span>
+      <span data-preview-category>{selected ? data.category_label : `${total} ${s.examples}`}</span>
     </p>
+
     <h1 data-preview-title data-title-density={titleDensity}>{titleText}</h1>
-    <p class="preview-summary" data-preview-summary>{selected ? data.preview_summary : s.hoverIntro}</p>
+    <p class="preview-summary" data-preview-summary>{selected ? portal!.koaliHelp : s.hoverIntro}</p>
+
+    <p class="preview-example" data-preview-example-wrap hidden={!selected}>
+      <span>{s.exampleLabel}</span>
+      <strong data-preview-example>{selected ? portal!.exampleTitle : ''}</strong>
+    </p>
+
     <div class="preview-tags preview-backlights" data-preview-palette>
       {paletteBacklights.map((item) => (
         <span
           class:list={['tag', 'tag-backlight', {'is-active': item.active}]}
           data-backlight-key={item.key}
           data-architecture={item.architectureLabel}
-          tabindex="0"
-          title={`${item.label} — ${item.architectureLabel}`}
-          aria-label={`${item.label}: ${item.active ? (locale === 'fr' ? 'actif' : 'active') : (locale === 'fr' ? 'inactif' : 'inactive')}. Architecture: ${item.architectureLabel}`}
+          title={`${item.label} — ${s.usuallyVia}: ${item.architectureLabel}`}
+          aria-label={`${item.label}: ${item.active ? (locale === 'fr' ? 'actif' : 'active') : (locale === 'fr' ? 'inactif' : 'inactive')}. ${s.usuallyVia}: ${item.architectureLabel}`}
         >
           <img class="tag-icon" src={item.iconPath} alt="" aria-hidden="true" />
           <span class="tag-label">{item.label}</span>
-          <span class="tag-architecture" aria-hidden="true">{item.architectureLabel}</span>
         </span>
       ))}
     </div>
-    <p class="preview-capabilities" data-preview-capabilities hidden={capabilityKeywords.length === 0}>
-      <span>{locale === 'fr' ? 'Repères' : 'Keywords'}</span>
-      <strong data-preview-capability-keywords>{capabilityKeywords.join(' · ')}</strong>
-    </p>
+
     {selected
       ? <a class="preview-cta" href={`/${locale}/uses/`}>← {s.detailBack}</a>
       : <a class="preview-cta touch-full-link" data-preview-link hidden>
-          {locale === 'fr' ? 'Ouvrir le dossier complet' : 'Open full scenario'}
+          {s.openExample}
           <span aria-hidden="true"> →</span>
         </a>}
-    {!selected && (
-      <p class="mobile-swipe-hint">{locale === 'fr' ? 'Balayez à gauche : suivant · à droite : précédent' : 'Swipe left for next · right for previous'}</p>
-    )}
+    {!selected && <p class="mobile-swipe-hint">{s.swipeHint}</p>}
   </div>
+
   <aside class="preview-profile" data-preview-profile data-category={selected ? data.primary_category : undefined}>
     <div class="profile-heading">
-      <span class="profile-title">{s.scenarioProfile}</span>
-      <span class="profile-category"><span class="category-swatch"></span><strong data-preview-category-label>{selected ? data.category_label : s.exploreMosaic}</strong></span>
+      <span class="profile-title">{s.insideKoali}</span>
     </div>
-    <div class="profile-pattern"><span>{s.typicalMotion}</span><small data-preview-pattern>{selected ? data.pattern_label : s.hoverInspect}</small></div>
-    <div class="profile-actions">
-      <span class="profile-section-label">{s.whatHappens}</span>
-      <div class="activity-signature">
-        <span class:list={[{'is-active': selected && activities?.understand}]} data-activity="understand"><i></i>{s.activityLabels.understand}</span>
-        <span class:list={[{'is-active': selected && activities?.learn}]} data-activity="learn"><i></i>{s.activityLabels.learn}</span>
-        <span class:list={[{'is-active': selected && activities?.create}]} data-activity="create"><i></i>{s.activityLabels.create}</span>
-        <span class:list={[{'is-active': selected && activities?.decide}]} data-activity="decide"><i></i>{s.activityLabels.decide}</span>
-        <span class:list={[{'is-active': selected && activities?.act}]} data-activity="act"><i></i>{s.activityLabels.act}</span>
-        <span class:list={[{'is-active': selected && activities?.respond}]} data-activity="respond"><i></i>{s.activityLabels.respond}</span>
-        <span class:list={[{'is-active': selected && activities?.remember}]} data-activity="remember"><i></i>{s.activityLabels.remember}</span>
+
+    <div class="profile-systems" data-preview-systems>
+      <span class="profile-section-label">{s.systemPath}</span>
+      <div class="system-route-list" data-preview-system-list>
+        {selected
+          ? portal!.systems.map((system) => (
+              <span class="system-route" title={system.description} data-system-key={system.key}>
+                <strong>{system.label}</strong>
+                <small>{system.description}</small>
+              </span>
+            ))
+          : <span class="system-route-empty">{s.selectSystemHint}</span>}
       </div>
     </div>
+
     <div class="profile-context">
       <div><span>{s.scale}</span><strong data-preview-scales>{selected ? scales.join(' · ') : '—'}</strong></div>
       <div><span>{s.context}</span><strong data-preview-context>{selected ? contexts.join(' · ') : '—'}</strong></div>

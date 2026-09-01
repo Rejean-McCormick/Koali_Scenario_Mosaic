@@ -1,0 +1,100 @@
+{
+  "kristal": {
+    "label": "Kristal",
+    "description": {
+      "en": "Structured knowledge, provenance, versions, evidence, and reusable memory.",
+      "fr": "Connaissance structurée, provenance, versions, preuves et mémoire réutilisable."
+    }
+  },
+  "semantik": {
+    "label": "SemantiK",
+    "description": {
+      "en": "Concepts and relationships that can stay coherent across languages without forcing false equivalence.",
+      "fr": "Concepts et relations qui restent cohérents entre les langues sans forcer de fausses équivalences."
+    }
+  },
+  "knowledge": {
+    "label": "Konnaxion → KonnectED → Knowledge",
+    "description": {
+      "en": "Collaborative learning library, recommendations, co-creation, forums, and progress tracking.",
+      "fr": "Bibliothèque d’apprentissage collaborative, recommandations, co-création, forums et suivi de progression."
+    }
+  },
+  "certifikation": {
+    "label": "Konnaxion → KonnectED → CertifiKation",
+    "description": {
+      "en": "Learning paths, evaluations, peer validation, skills portfolios, and portable credentials.",
+      "fr": "Parcours, évaluations, validation par les pairs, portfolios de compétences et certifications portables."
+    }
+  },
+  "korum": {
+    "label": "Konnaxion → Ethikos → Korum",
+    "description": {
+      "en": "Structured debate, threaded arguments, comparison of positions, and transparent archives.",
+      "fr": "Débat structuré, arguments reliés, comparaison des positions et archives transparentes."
+    }
+  },
+  "konsultations": {
+    "label": "Konnaxion → Ethikos → Konsultations",
+    "description": {
+      "en": "Time-boxed consultations, suggestions, ballots, result views, and impact follow-up.",
+      "fr": "Consultations délimitées, suggestions, bulletins, visualisation des résultats et suivi des impacts."
+    }
+  },
+  "smart-vote": {
+    "label": "Konnaxion → Kollective Intelligence → Smart Vote",
+    "description": {
+      "en": "Multiple voting modalities with raw and expertise-weighted readings kept transparent and distinct.",
+      "fr": "Plusieurs modalités de vote avec lectures brutes et pondérées par expertise, transparentes et distinctes."
+    }
+  },
+  "ekoh": {
+    "label": "Konnaxion → Kollective Intelligence → EkoH",
+    "description": {
+      "en": "Domain-bounded expertise and reputation signals with traceability and privacy controls.",
+      "fr": "Signaux d’expertise et de réputation bornés au domaine, avec traçabilité et contrôles de confidentialité."
+    }
+  },
+  "konstruct": {
+    "label": "Konnaxion → keenKonnect → Konstruct",
+    "description": {
+      "en": "Project spaces, roles, tasks, project communication, versioned resources, and collaboration analysis.",
+      "fr": "Espaces de projet, rôles, tâches, communication, ressources versionnées et analyse de collaboration."
+    }
+  },
+  "stockage": {
+    "label": "Konnaxion → keenKonnect → Stockage",
+    "description": {
+      "en": "Versioned project documents, blueprints, indexing, and synchronized working resources.",
+      "fr": "Documents et plans versionnés, indexation et ressources de travail synchronisées."
+    }
+  },
+  "kontact": {
+    "label": "Konnaxion → Kreative → Kontact",
+    "description": {
+      "en": "Profiles, intelligent matching, collaboration rooms, opportunities, and endorsements.",
+      "fr": "Profils, jumelage intelligent, espaces de collaboration, opportunités et recommandations."
+    }
+  },
+  "konservation": {
+    "label": "Konnaxion → Kreative → Konservation",
+    "description": {
+      "en": "Archives, provenance and rights metadata, exhibitions, documentation, and partner collections.",
+      "fr": "Archives, métadonnées de provenance et de droits, expositions, documentation et collections partenaires."
+    }
+  },
+  "orgo": {
+    "label": "Orgo",
+    "description": {
+      "en": "Responsibilities, cases, tasks, dependencies, routing, verification, escalation, and closure.",
+      "fr": "Responsabilités, dossiers, tâches, dépendances, routage, vérification, escalade et clôture."
+    }
+  },
+  "uckk": {
+    "label": "UCKK",
+    "description": {
+      "en": "Learning and dissemination formats when structured knowledge must reach a broader audience.",
+      "fr": "Formats d’apprentissage et de diffusion lorsque la connaissance structurée doit rejoindre un public plus large."
+    }
+  }
+}

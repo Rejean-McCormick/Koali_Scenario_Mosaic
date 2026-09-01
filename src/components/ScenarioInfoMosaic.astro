@@ -1,17 +1,16 @@
 ---
 import { getUi, humanizeTag, localizeEntryTrigger, type Locale } from '../i18n/ui';
 import { extractScenarioPublicDetails } from '../lib/scenario-public';
+import { getScenarioPortal } from '../lib/scenario-portal';
 
 const { scenario, locale = 'en' as Locale } = Astro.props;
 const s = getUi(locale);
 const details = extractScenarioPublicDetails(scenario.entry.body ?? '', locale);
+const portal = getScenarioPortal(scenario.data, scenario.entry.body ?? '', locale);
 const transfer = (scenario.data.transfer_domains ?? []).map((x:string) => humanizeTag(locale, x));
-const continuityFallback = locale === 'fr'
-  ? 'Koali préserve le contexte utile tout au long du parcours, afin que compréhension, action et apprentissage restent reliés.'
-  : 'Koali preserves the useful context across the whole journey so understanding, action, and learning remain connected.';
 const flowFallback = scenario.data.pattern;
 ---
-<section class="scenario-info-mosaic" data-category={scenario.data.primary_category} aria-label={locale === 'fr' ? 'Informations complémentaires du scénario' : 'Additional scenario information'}>
+<section class="scenario-info-mosaic" data-category={scenario.data.primary_category} aria-label={locale === 'fr' ? 'Fonctionnement public de Koali dans cet exemple' : 'How Koali works in this example'}>
   <article class="detail-hex detail-hex--trigger">
     <div class="detail-hex-inner">
       <span>{s.detailStartsWith}</span>
@@ -19,17 +18,21 @@ const flowFallback = scenario.data.pattern;
     </div>
   </article>
 
-  <article class="detail-hex detail-hex--loss">
+  <article class="detail-hex detail-hex--mechanism">
     <div class="detail-hex-inner">
       <span>{s.detailWhatGetsLost}</span>
-      <p>{scenario.data.continuity_gap}</p>
+      <p>{scenario.data.pattern}</p>
     </div>
   </article>
 
-  <article class="detail-hex detail-hex--continuity">
+  <article class="detail-hex detail-hex--systems">
     <div class="detail-hex-inner">
       <span>{s.detailKoaliContinuity}</span>
-      <p>{details.continuity || continuityFallback}</p>
+      <div class="detail-system-list">
+        {portal.systems.map((system) => (
+          <strong title={system.description}>{system.label}</strong>
+        ))}
+      </div>
     </div>
   </article>
 

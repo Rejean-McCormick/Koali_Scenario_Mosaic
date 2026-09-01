@@ -25,7 +25,27 @@ if (root) {
       : values.join(' · ');
   };
 
-  const titleDensity = (value:string) => value.length > 96 ? 'long' : value.length > 72 ? 'medium' : 'short';
+  const titleDensity = (value:string) => value.length > 80 ? 'long' : value.length > 54 ? 'medium' : 'short';
+
+
+  function renderSystems(systems:Array<{key:string;label:string;description:string}> = []) {
+    const list = root.querySelector<HTMLElement>('[data-preview-system-list]');
+    if (!list) return;
+    list.replaceChildren();
+    systems.forEach((system) => {
+      const item = document.createElement('span');
+      item.className = 'system-route';
+      item.dataset.systemKey = system.key;
+      item.title = system.description;
+
+      const name = document.createElement('strong');
+      name.textContent = system.label;
+      const detail = document.createElement('small');
+      detail.textContent = system.description;
+      item.append(name, detail);
+      list.append(item);
+    });
+  }
 
   function selectOnly(id:string) {
     cells.forEach((cell) => cell.classList.toggle('is-active', cell.dataset.scenarioId === id));
@@ -43,8 +63,10 @@ if (root) {
     const title = root.querySelector<HTMLElement>('[data-preview-title]');
     if (title) title.dataset.titleDensity = titleDensity(scenario.title);
     setText('[data-preview-summary]', scenario.summary);
-    setText('[data-preview-category-label]', scenario.category);
-    setText('[data-preview-pattern]', scenario.pattern);
+    setText('[data-preview-example]', scenario.example);
+    const exampleWrap = root.querySelector<HTMLElement>('[data-preview-example-wrap]');
+    if (exampleWrap) exampleWrap.hidden = false;
+    renderSystems(scenario.systems ?? []);
     setText('[data-preview-scales]', compact(scenario.scales));
     setText('[data-preview-context]', compact(scenario.contexts));
     setText('[data-preview-properties]', compact(scenario.properties, i18n.noneHighlighted, 2));
@@ -69,13 +91,6 @@ if (root) {
       link.hidden = false;
     }
 
-    const capabilities = root.querySelector<HTMLElement>('[data-preview-capabilities]');
-    const keywords = scenario.keywords ?? [];
-    if (capabilities) {
-      capabilities.hidden = keywords.length === 0;
-      setText('[data-preview-capability-keywords]', keywords.join(' · '));
-    }
-
     const activePalette = new Set<string>(scenario.paletteKeys ?? []);
     root.querySelectorAll<HTMLElement>('[data-backlight-key]').forEach((el) => {
       const group = paletteBacklightGroups.find((item) => item.key === el.dataset.backlightKey);
@@ -88,13 +103,6 @@ if (root) {
       );
     });
 
-    root.querySelectorAll<HTMLElement>('[data-activity]').forEach((element) => {
-      const key = element.dataset.activity!;
-      const active = Boolean(scenario.activities[key]);
-      element.classList.toggle('is-active', active);
-      const label = element.textContent?.trim() ?? key;
-      element.setAttribute('aria-label', `${label}: ${active ? i18n.involved : i18n.notCentral}`);
-    });
   }
 
   const touchPreviewMode = window.matchMedia('(hover: none), (pointer: coarse)').matches;

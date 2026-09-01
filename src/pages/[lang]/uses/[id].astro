@@ -4,6 +4,7 @@ import ScenarioPreview from '../../../components/ScenarioPreview.astro';
 import ScenarioInfoMosaic from '../../../components/ScenarioInfoMosaic.astro';
 import { getLocalizedScenarios } from '../../../lib/scenarios';
 import { locales, type Locale } from '../../../i18n/ui';
+import { getScenarioPortal } from '../../../lib/scenario-portal';
 import '../../../styles/mosaic.css';
 import '../../../styles/scenario.css';
 
@@ -19,11 +20,12 @@ export async function getStaticPaths() {
 }
 
 const { locale, scenario } = Astro.props as { locale: Locale; scenario: any };
+const portal = getScenarioPortal(scenario.data, scenario.entry.body ?? '', locale);
 ---
 <BaseLayout
   locale={locale}
-  title={`${scenario.data.title} | ${locale === 'fr' ? 'Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic'}`}
-  description={scenario.data.preview_summary}
+  title={`${portal.capabilityTitle} — ${scenario.data.title} | ${locale === 'fr' ? 'Mosaïque de scénarios Koali' : 'Koali Scenario Mosaic'}`}
+  description={portal.koaliHelp}
 >
   <div class="mosaic-experience scenario-detail-experience">
     <ScenarioPreview locale={locale} scenario={scenario} total={120} />

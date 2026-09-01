@@ -46,12 +46,12 @@ for locale in ('en','fr'):
     t=preview.read_text(encoding='utf-8')
     if 'language-switcher' not in t: errors.append(f'preview/{locale} missing language switcher')
     if locale=='fr':
-        for token in ('Mosaïque de scénarios','Profil du scénario','Rechercher dans la mosaïque','Conditions particulières'):
+        for token in ('Mosaïque de scénarios','Dans Koali','Rechercher un besoin, un système ou un exemple…','Conditions particulières'):
             if token not in t: errors.append(f'French preview missing {token}')
         for stale in ('Scenario profile','Search the mosaic…','Special conditions'):
             if stale in t: errors.append(f'French preview leaks English UI: {stale}')
     else:
-        for token in ('Scenario Mosaic','Scenario profile','Search the mosaic…'):
+        for token in ('Scenario Mosaic','Inside Koali','Search a need, system, or example…'):
             if token not in t: errors.append(f'English preview missing {token}')
 
 fr_detail=R/'preview/fr/uses/SCN-061/index.html'
@@ -61,9 +61,9 @@ else:
     fr_source=R/'src/content/scenarios/fr/SCN-061.md'
     fr_title_match=re.search(r'(?m)^title:\s*(.+)$', fr_source.read_text(encoding='utf-8'))
     fr_title=fr_title_match.group(1).strip().strip("'\"") if fr_title_match else 'SCN-061'
-    for token in (fr_title,'Point de départ','Ce qui peut se perdre','Koali maintient le lien','Déroulé','Transposable à'):
+    for token in (fr_title,'Part de','Mécanisme Koali','Chemin système','Comment ça circule','Aussi utile pour'):
         if token not in t: errors.append(f'French public scenario detail missing {token}')
-    for stale in ('What can get lost','Koali keeps connected','Transferable to','PAT-','POS-','COMPOSED','UNVERIFIED'):
+    for stale in ('What can get lost','Ce qui peut se perdre','Koali keeps connected','Koali maintient le lien','PAT-','POS-','COMPOSED','UNVERIFIED'):
         if stale in t: errors.append(f'French public scenario detail leaks internal/English token: {stale}')
 
 print('Bilingual contract: 120 shared identities + 120 EN + 120 FR editorial documents')
