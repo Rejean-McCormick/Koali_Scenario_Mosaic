@@ -35,6 +35,7 @@ if (root) {
     const scenario = data[id];
     if (!scenario) return;
     selectOnly(id);
+    if (preview) preview.dataset.previewSelected = 'true';
     if (canvas) canvas.dataset.activeTerritory = scenario.categoryId;
     setText('[data-preview-id]', scenario.id);
     setText('[data-preview-category]', scenario.category);

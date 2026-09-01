@@ -31,7 +31,7 @@ const paletteBacklights = paletteBacklightGroups.map((group) => ({
 const titleText = selected ? data.title : s.exploreWays(total);
 const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'medium' : 'short';
 ---
-<section class="scenario-preview">
+<section class="scenario-preview" data-preview-swipe={!selected ? 'true' : undefined} data-preview-selected={selected ? 'true' : 'false'}>
   <div class="preview-image-shell" data-preview-media>
     <p class="preview-image-prompt" data-preview-prompt hidden={selected}>{s.selectCellPrompt}</p>
     <img
@@ -68,6 +68,9 @@ const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'm
           {locale === 'fr' ? 'Ouvrir le dossier complet' : 'Open full scenario'}
           <span aria-hidden="true"> →</span>
         </a>}
+    {!selected && (
+      <p class="mobile-swipe-hint">{locale === 'fr' ? 'Balayez à gauche : suivant · à droite : précédent' : 'Swipe left for next · right for previous'}</p>
+    )}
   </div>
   <aside class="preview-profile" data-preview-profile data-category={selected ? data.primary_category : undefined}>
     <div class="profile-heading">

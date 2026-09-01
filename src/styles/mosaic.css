@@ -543,3 +543,37 @@
 .profile-heading{
   justify-content:flex-start;
 }
+
+/* Smartphone swipe affordance + stable palette baseline.
+   Variable title/summary content stays packed together at the top. Any spare
+   height is absorbed before the gesture hint, keeping all 8 icons on one
+   stable bottom baseline from scenario to scenario. */
+.mobile-swipe-hint{display:none}
+@media (max-width:720px) and (hover:none), (max-width:720px) and (pointer:coarse){
+  .scenario-preview[data-preview-swipe="true"] .mobile-swipe-hint{
+    display:block;
+    order:5;
+    margin:.48rem 0 .34rem;
+    color:#8391a4;
+    font-size:.72rem;
+    line-height:1.2;
+    text-align:center;
+  }
+
+  .scenario-preview[data-preview-swipe="true"] .touch-full-link{
+    order:4;
+  }
+
+  .scenario-preview[data-preview-swipe="true"] .preview-tags.preview-backlights{
+    order:6;
+    margin-top:0;
+  }
+
+  .scenario-preview[data-preview-swipe="true"][data-preview-selected="true"] .preview-copy{
+    min-height:clamp(390px,calc(520px - 20vw),460px);
+  }
+
+  .scenario-preview[data-preview-swipe="true"][data-preview-selected="true"] .mobile-swipe-hint{
+    margin-top:auto;
+  }
+}
