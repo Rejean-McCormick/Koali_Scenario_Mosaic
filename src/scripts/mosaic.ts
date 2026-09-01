@@ -87,6 +87,73 @@ if (root) {
 
   const touchPreviewMode = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const preview = root.querySelector<HTMLElement>('.scenario-preview');
+
+  const availableScenarioCells = () => cells
+    .filter((cell) => !cell.classList.contains('is-filtered-out'))
+    .sort((a, b) => (a.dataset.scenarioId ?? '').localeCompare(
+      b.dataset.scenarioId ?? '',
+      undefined,
+      { numeric: true },
+    ));
+
+  function stepScenario(direction: -1 | 1) {
+    const available = availableScenarioCells();
+    if (!available.length) return;
+
+    const activeId = cells.find((cell) => cell.classList.contains('is-active'))?.dataset.scenarioId;
+    let currentIndex = available.findIndex((cell) => cell.dataset.scenarioId === activeId);
+
+    // If nothing has been selected yet, a left swipe starts at the first
+    // scenario and a right swipe starts at the last one.
+    if (currentIndex < 0) currentIndex = direction > 0 ? -1 : 0;
+
+    const nextIndex = (currentIndex + direction + available.length) % available.length;
+    const nextId = available[nextIndex]?.dataset.scenarioId;
+    if (nextId) show(nextId);
+  }
+
+  if (touchPreviewMode && preview) {
+    const minimumSwipe = 48;
+    const maximumDuration = 900;
+    let swipeStart: { x: number; y: number; time: number } | null = null;
+
+    preview.addEventListener('touchstart', (event) => {
+      if (event.touches.length !== 1) {
+        swipeStart = null;
+        return;
+      }
+      const touch = event.touches[0];
+      swipeStart = { x: touch.clientX, y: touch.clientY, time: performance.now() };
+    }, { passive: true });
+
+    preview.addEventListener('touchend', (event) => {
+      if (!swipeStart || event.changedTouches.length !== 1) {
+        swipeStart = null;
+        return;
+      }
+
+      const touch = event.changedTouches[0];
+      const dx = touch.clientX - swipeStart.x;
+      const dy = touch.clientY - swipeStart.y;
+      const duration = performance.now() - swipeStart.time;
+      swipeStart = null;
+
+      // Keep normal vertical page scrolling: only a deliberate, mostly
+      // horizontal gesture changes scenario.
+      if (
+        duration > maximumDuration
+        || Math.abs(dx) < minimumSwipe
+        || Math.abs(dx) <= Math.abs(dy) * 1.2
+      ) return;
+
+      stepScenario(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    preview.addEventListener('touchcancel', () => {
+      swipeStart = null;
+    }, { passive: true });
+  }
 
   cells.forEach((cell) => {
     const id = cell.dataset.scenarioId!;
@@ -101,7 +168,6 @@ if (root) {
       event.preventDefault();
       show(id);
 
-      const preview = root.querySelector<HTMLElement>('.scenario-preview');
       preview?.scrollIntoView({
         behavior: reducedMotion.matches ? 'auto' : 'smooth',
         block: 'start',

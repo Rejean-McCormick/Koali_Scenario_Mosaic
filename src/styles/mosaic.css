@@ -273,6 +273,7 @@
     height:auto;
     min-height:0;
     gap:.85rem;
+    touch-action:pan-y;
   }
 
   .preview-image-shell{
