@@ -40,6 +40,11 @@ for locale in ('en','fr'):
         first=re.split(r'(?<=[.!?])\s+',summary,maxsplit=1)[0]
         nf=re.sub(r'\s+',' ',first).strip().rstrip('.!?;:')
         if nf.casefold()==nt.casefold(): errors.append(f'{sid}/{locale}: first preview sentence duplicates title')
+        words=len(summary.split())
+        if words < 28 or words > 72: errors.append(f'{sid}/{locale}: preview_summary length {words} words outside 28–72')
+        internal_names=('Kristal','Konnaxion','Orgo','UCKK','Smart Vote','SmartVote','SemantiK','EkoH','KonnectED')
+        leaked=[name for name in internal_names if re.search(r'(?<![\w-])'+re.escape(name)+r'(?![\w-])', summary, re.I)]
+        if leaked: errors.append(f'{sid}/{locale}: preview_summary contains architecture brand(s): '+', '.join(leaked))
 
 if set(by_locale.get('en',{})) != set(by_locale.get('fr',{})):
     errors.append('EN/FR scenario ID sets do not match')

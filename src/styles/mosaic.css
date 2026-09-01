@@ -577,3 +577,95 @@
     margin-top:auto;
   }
 }
+
+/* Richer scenario explanation + architecture discovery.
+   Rebased on the current empty-preview / mobile-swipe implementation. */
+@media(min-width:901px){
+  .scenario-preview{height:382px}
+  .preview-image-shell{max-height:286px}
+  .preview-summary{
+    min-height:8.52em;
+    max-height:8.52em;
+    -webkit-line-clamp:6;
+  }
+}
+
+@media(max-height:760px) and (min-width:901px){
+  .scenario-preview{height:358px}
+  .preview-summary{
+    min-height:7.1em;
+    max-height:7.1em;
+    -webkit-line-clamp:5;
+  }
+}
+
+@media(max-width:900px) and (min-width:721px){
+  .scenario-preview{
+    height:454px;
+    grid-template-rows:308px 122px;
+  }
+  .preview-image-shell{max-height:220px}
+  .preview-summary{
+    min-height:7.1em;
+    max-height:7.1em;
+    -webkit-line-clamp:5;
+  }
+  .preview-profile{
+    grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1.55fr);
+    grid-template-rows:1fr;
+  }
+}
+
+.tag.tag-backlight .tag-architecture{
+  display:none;
+  max-width:100%;
+  overflow:hidden;
+  font-size:.49rem;
+  line-height:1.05;
+  text-transform:none;
+  white-space:normal;
+  text-overflow:ellipsis;
+}
+.tag.tag-backlight:hover .tag-label,
+.tag.tag-backlight:focus .tag-label,
+.tag.tag-backlight:hover .tag-icon,
+.tag.tag-backlight:focus .tag-icon{display:none}
+.tag.tag-backlight:hover .tag-architecture,
+.tag.tag-backlight:focus .tag-architecture{display:block}
+.tag.tag-backlight:focus{
+  outline:1px solid rgba(123,226,217,.7);
+  outline-offset:1px;
+}
+
+.preview-capabilities{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:.28rem;
+  margin:.28rem 0 .2rem;
+  min-height:1rem;
+  color:#7f8b9e;
+  font-size:.68rem;
+  line-height:1.2;
+}
+.preview-capabilities[hidden]{display:none}
+.preview-capabilities>span{
+  text-transform:uppercase;
+  letter-spacing:.035em;
+  font-size:.58rem;
+}
+.preview-capabilities strong{
+  color:#aeb8c7;
+  font-weight:650;
+}
+
+@media(max-width:720px){
+  .preview-capabilities{
+    margin-top:.35rem;
+    font-size:.72rem;
+  }
+  .tag.tag-backlight .tag-architecture{
+    font-size:.48rem;
+    line-height:1.05;
+  }
+}

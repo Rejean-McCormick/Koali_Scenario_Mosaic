@@ -1,8 +1,9 @@
 ---
-import { getUi, humanizeTag, localizePalette, type Locale } from '../i18n/ui';
+import { getUi, humanizeTag, type Locale } from '../i18n/ui';
 import { getPublicActivities } from '../lib/public-profile';
 import { resolveScenarioPreviewImage } from '../lib/scenario-image';
 import { paletteBacklightGroups } from '../lib/palette-icons';
+import { getCapabilityKeywords } from '../lib/capability-keywords';
 
 const {
   total = 120,
@@ -22,11 +23,13 @@ const contexts = selected ? [...new Set([
 const properties = selected ? (data.properties ?? []).map((x:string) => humanizeTag(locale, x)) : [];
 const image = selected ? resolveScenarioPreviewImage(data.id, data.preview_image) : null;
 const paletteKeys = selected ? (data.palette ?? []) : [];
+const capabilityKeywords = selected ? getCapabilityKeywords(data) : [];
 const paletteBacklights = paletteBacklightGroups.map((group) => ({
   ...group,
   active: selected && group.palette.some((key) => paletteKeys.includes(key)),
   label: group.label[locale],
   iconPath: `/icons/palette/${group.icon}`,
+  architectureLabel: group.architecture.join(' · '),
 }));
 const titleText = selected ? data.title : s.exploreWays(total);
 const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'medium' : 'short';
@@ -55,13 +58,21 @@ const titleDensity = titleText.length > 96 ? 'long' : titleText.length > 72 ? 'm
         <span
           class:list={['tag', 'tag-backlight', {'is-active': item.active}]}
           data-backlight-key={item.key}
-          aria-label={`${item.label}: ${item.active ? (locale === 'fr' ? 'actif' : 'active') : (locale === 'fr' ? 'inactif' : 'inactive')}`}
+          data-architecture={item.architectureLabel}
+          tabindex="0"
+          title={`${item.label} — ${item.architectureLabel}`}
+          aria-label={`${item.label}: ${item.active ? (locale === 'fr' ? 'actif' : 'active') : (locale === 'fr' ? 'inactif' : 'inactive')}. Architecture: ${item.architectureLabel}`}
         >
           <img class="tag-icon" src={item.iconPath} alt="" aria-hidden="true" />
           <span class="tag-label">{item.label}</span>
+          <span class="tag-architecture" aria-hidden="true">{item.architectureLabel}</span>
         </span>
       ))}
     </div>
+    <p class="preview-capabilities" data-preview-capabilities hidden={capabilityKeywords.length === 0}>
+      <span>{locale === 'fr' ? 'Repères' : 'Keywords'}</span>
+      <strong data-preview-capability-keywords>{capabilityKeywords.join(' · ')}</strong>
+    </p>
     {selected
       ? <a class="preview-cta" href={`/${locale}/uses/`}>← {s.detailBack}</a>
       : <a class="preview-cta touch-full-link" data-preview-link hidden>

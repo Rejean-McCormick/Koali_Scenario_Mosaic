@@ -52,6 +52,8 @@ if 'render(' in scenario_route or '<Content' in scenario_route or 'scenario-body
 for token in ('detailStartsWith','detailWhatGetsLost','detailKoaliContinuity','detailFlow','detailTransferable'):
     if token not in detail_component: errors.append(f'missing public detail token {token}')
 if 'scenario-info-mosaic' not in scenario_css or 'detail-hex--continuity' not in scenario_css: errors.append('public detail honeycomb styling')
+if 'paletteBacklightGroups' not in preview_component or 'data-architecture' not in preview_component: errors.append('eight-tag architecture discovery contract')
+if 'data-preview-capabilities' not in preview_component: errors.append('capability keyword contract')
 if (
     'scenario = null' not in preview_component
     or "data-image-state={selected ? 'scenario' : 'empty'}" not in preview_component
@@ -60,7 +62,7 @@ if (
 ): errors.append('shared preview selected-state contract')
 
 # Generated public detail pages must not expose editorial/internal governance markers.
-internal_markers=('PAT-','SIG-','POS-','COMPOSED','UNVERIFIED','PARTIALLY-VALIDATED','DOCUMENTED','Kristal','KristALL','Konnaxion','Orgo','UCKK')
+internal_markers=('PAT-','SIG-','POS-','COMPOSED','UNVERIFIED','PARTIALLY-VALIDATED','DOCUMENTED','KristALL')
 for locale in ('en','fr'):
     pages=sorted((R/f'preview/{locale}/uses').glob('SCN-*/index.html'))
     if len(pages)!=120: errors.append(f'{locale} offline public scenario page count')

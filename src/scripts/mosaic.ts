@@ -69,12 +69,23 @@ if (root) {
       link.hidden = false;
     }
 
+    const capabilities = root.querySelector<HTMLElement>('[data-preview-capabilities]');
+    const keywords = scenario.keywords ?? [];
+    if (capabilities) {
+      capabilities.hidden = keywords.length === 0;
+      setText('[data-preview-capability-keywords]', keywords.join(' · '));
+    }
+
     const activePalette = new Set<string>(scenario.paletteKeys ?? []);
     root.querySelectorAll<HTMLElement>('[data-backlight-key]').forEach((el) => {
       const group = paletteBacklightGroups.find((item) => item.key === el.dataset.backlightKey);
       const active = !!group?.palette.some((key) => activePalette.has(key));
       el.classList.toggle('is-active', active);
-      el.setAttribute('aria-label', `${el.querySelector('.tag-label')?.textContent ?? ''}: ${active ? 'active' : 'inactive'}`);
+      const architecture = group?.architecture.join(' · ') ?? '';
+      el.setAttribute(
+        'aria-label',
+        `${el.querySelector('.tag-label')?.textContent ?? ''}: ${active ? i18n.involved : i18n.notCentral}. Architecture: ${architecture}`,
+      );
     });
 
     root.querySelectorAll<HTMLElement>('[data-activity]').forEach((element) => {
