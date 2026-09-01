@@ -1,7 +1,25 @@
 from pathlib import Path
-import json, sys, re, yaml
+import json, sys, re
 R=Path(__file__).resolve().parents[1]
 errors=[]
+
+def read_frontmatter_scalar(raw, key):
+    """Read one simple top-level YAML frontmatter scalar without PyYAML.
+
+    The repository validator only needs pattern_label for an equality check,
+    so pulling in a third-party YAML parser during Netlify builds is unnecessary.
+    """
+    parts = raw.split('---', 2)
+    if len(parts) < 3:
+        return ''
+    match = re.search(rf'(?m)^{re.escape(key)}:\s*(.*?)\s*$', parts[1])
+    if not match:
+        return ''
+    value = match.group(1).strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
+        value = value[1:-1]
+    return value
+
 js=(R/'src/scripts/mosaic.ts').read_text(encoding='utf-8')
 css=(R/'src/styles/mosaic.css').read_text(encoding='utf-8')
 component=(R/'src/components/ScenarioMosaic.astro').read_text(encoding='utf-8')
@@ -23,12 +41,11 @@ for locale in ('en','fr'):
         source=R/f'src/content/scenarios/{locale}/{sid}.md'
         if source.exists():
             raw=source.read_text(encoding='utf-8')
-            try:
-                front=yaml.safe_load(raw.split('---',2)[1]) or {}
-                if title.casefold()==str(front.get('pattern_label','')).strip().casefold():
-                    errors.append(f'{sid}: {locale} public title repeats pattern family')
-            except Exception:
-                errors.append(f'{sid}: cannot read {locale} frontmatter for title validation')
+            pattern_label=read_frontmatter_scalar(raw, 'pattern_label')
+            if not pattern_label:
+                errors.append(f'{sid}: cannot read {locale} pattern_label for title validation')
+            elif title.casefold()==pattern_label.strip().casefold():
+                errors.append(f'{sid}: {locale} public title repeats pattern family')
     if len(localized)!=120 or len(set(localized))!=120: errors.append(f'{locale} specific capability titles must be 120 unique values')
 if set(system_routes)!=set(meta): errors.append('scenario system-route coverage')
 for sid, routes in system_routes.items():
