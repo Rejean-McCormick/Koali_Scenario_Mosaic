@@ -61,7 +61,7 @@ else:
     fr_source=R/'src/content/scenarios/fr/SCN-061.md'
     fr_title_match=re.search(r'(?m)^title:\s*(.+)$', fr_source.read_text(encoding='utf-8'))
     fr_title=fr_title_match.group(1).strip().strip("'\"") if fr_title_match else 'SCN-061'
-    for token in (fr_title,'Part de','Mécanisme Koali','Chemin système','Comment ça circule','Aussi utile pour'):
+    for token in (fr_title,'Part de','Ce qui se perd sans continuité','Chemin système','Comment ça circule','Aussi utile pour'):
         if token not in t: errors.append(f'French public scenario detail missing {token}')
     for stale in ('What can get lost','Ce qui peut se perdre','Koali keeps connected','Koali maintient le lien','PAT-','POS-','COMPOSED','UNVERIFIED'):
         if stale in t: errors.append(f'French public scenario detail leaks internal/English token: {stale}')
