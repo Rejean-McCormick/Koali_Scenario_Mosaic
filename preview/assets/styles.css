@@ -1095,3 +1095,64 @@ a{color:inherit}
   .detail-system-list{align-items:flex-start}
   .detail-system-list strong{max-width:none}
 }
+
+/* v4.4.3 — stabilize the public preview layout across scenarios.
+   Desktop now reserves consistent vertical tracks for title, summary,
+   example, and action tags so those rows do not jump between scenarios.
+   The right profile column also anchors its facts block to a stable bottom slot. */
+@media(min-width:901px){
+  .preview-copy{
+    display:grid;
+    grid-template-rows:auto 2.25em 7.15em 2.5em auto;
+    align-content:start;
+    align-items:start;
+    row-gap:0;
+  }
+
+  .preview-eyebrow{
+    margin:.1rem 0 .25rem;
+  }
+
+  .preview-copy h1{
+    height:2.25em;
+    min-height:2.25em;
+    max-height:2.25em;
+    margin:.15rem 0 .32rem;
+    align-self:start;
+  }
+
+  .preview-summary{
+    height:7.15em;
+    min-height:7.15em;
+    max-height:7.15em;
+    margin:0 0 .42rem;
+  }
+
+  .preview-example{
+    min-height:2.5em;
+    max-height:2.5em;
+    margin:.06rem 0 .42rem;
+    align-content:start;
+  }
+
+  .preview-tags.preview-backlights{
+    margin-top:0;
+    align-self:end;
+  }
+
+  .preview-profile{
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr) auto;
+    align-content:stretch;
+  }
+
+  .profile-systems{
+    min-height:0;
+  }
+
+  .preview-profile .profile-context{
+    margin-top:auto;
+    min-height:5.35rem;
+    align-content:start;
+  }
+}

@@ -4,11 +4,7 @@ R=Path(__file__).resolve().parents[1]
 errors=[]
 
 def read_frontmatter_scalar(raw, key):
-    """Read one simple top-level YAML frontmatter scalar without PyYAML.
-
-    The repository validator only needs pattern_label for an equality check,
-    so pulling in a third-party YAML parser during Netlify builds is unnecessary.
-    """
+    """Read one simple top-level YAML frontmatter scalar without PyYAML."""
     parts = raw.split('---', 2)
     if len(parts) < 3:
         return ''
