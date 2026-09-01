@@ -943,3 +943,121 @@
     align-content:start;
   }
 }
+
+/* v4.4.4 — comprehensive desktop layout overhaul.
+   Goals:
+   - the eight action chips always sit on the same bottom baseline;
+   - the title never overlaps the summary;
+   - the right facts block stays visually anchored at the bottom;
+   - no scenario-specific copy length can push these bands around. */
+@media(min-width:901px){
+  .scenario-preview{
+    grid-template-columns:minmax(240px,.8fr) minmax(0,1.42fr) minmax(290px,.92fr);
+    gap:1rem;
+    height:428px;
+    min-height:428px;
+    align-items:stretch;
+  }
+
+  .preview-image-shell{
+    width:100%;
+    height:100%;
+    max-height:none;
+    align-self:stretch;
+    justify-self:stretch;
+  }
+
+  .preview-copy{
+    display:grid;
+    grid-template-rows:auto 3.45em 7.05em 2.45em auto;
+    row-gap:.42rem;
+    align-content:stretch;
+    align-items:start;
+    height:100%;
+    min-height:0;
+    overflow:hidden;
+  }
+
+  .preview-eyebrow{
+    margin:0;
+  }
+
+  .preview-copy h1{
+    margin:0;
+    height:3.45em;
+    min-height:3.45em;
+    max-height:3.45em;
+    line-height:1.08;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    text-overflow:ellipsis;
+    align-self:start;
+  }
+
+  .preview-copy h1[data-title-density="medium"]{
+    font-size:clamp(1.44rem,1.62vw,1.74rem);
+  }
+
+  .preview-copy h1[data-title-density="long"]{
+    font-size:clamp(1.28rem,1.42vw,1.56rem);
+  }
+
+  .preview-summary{
+    margin:0;
+    height:7.05em;
+    min-height:7.05em;
+    max-height:7.05em;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-line-clamp:5;
+    -webkit-box-orient:vertical;
+    line-height:1.41;
+    font-size:.97rem;
+    align-self:start;
+  }
+
+  .preview-example{
+    margin:0;
+    min-height:2.45em;
+    max-height:2.45em;
+    align-content:start;
+  }
+
+  .preview-tags.preview-backlights{
+    margin-top:0;
+    align-self:end;
+    min-height:58px;
+  }
+
+  .preview-profile{
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr) auto;
+    gap:.68rem;
+    height:100%;
+    align-content:stretch;
+  }
+
+  .profile-heading{
+    margin:0;
+  }
+
+  .profile-systems{
+    min-height:0;
+    overflow:hidden;
+  }
+
+  .system-route-list{
+    min-height:0;
+    overflow:hidden;
+    align-content:start;
+  }
+
+  .preview-profile .profile-context{
+    margin-top:auto;
+    min-height:5.5rem;
+    padding-top:.55rem;
+    align-content:start;
+  }
+}
