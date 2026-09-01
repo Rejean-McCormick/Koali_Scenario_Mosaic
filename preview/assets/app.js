@@ -9,8 +9,6 @@
   const canvas = root.querySelector('[data-mosaic-canvas]');
   const setText = (q,v) => { const e=root.querySelector(q); if(e){e.textContent=v;e.title=v;} };
   const compact = (a,empty='—',limit=3) => !a||!a.length ? empty : (a.length>limit ? `${a.slice(0,limit).join(' · ')} +${a.length-limit}` : a.join(' · '));
-  const paletteIcons={"find":"search.svg","understand":"lightbulb.svg","verify":"badge-check.svg","learn":"book-open.svg","teach-share":"graduation-cap.svg","collaborate":"users.svg","create":"sparkles.svg","deliberate":"messages-square.svg","choose":"git-branch.svg","organize":"list-checks.svg","act":"zap.svg","respond":"message-circle-reply.svg","coordinate":"network.svg","remember":"history.svg","disseminate":"radio.svg"};
-  const titleDensity = value => value.length > 80 ? 'long' : value.length > 54 ? 'medium' : 'short';
   const renderSystems = systems => { const list=root.querySelector('[data-preview-system-list]'); if(!list)return; list.replaceChildren(); (systems||[]).forEach(system=>{const item=document.createElement('span');item.className='system-route';item.dataset.systemKey=system.key;item.title=system.description;const name=document.createElement('strong');name.textContent=system.label;const detail=document.createElement('small');detail.textContent=system.description;item.append(name,detail);list.append(item);}); };
   const selectOnly = id => cells.forEach(c => c.classList.toggle('is-active',c.dataset.scenarioId===id));
   function show(id){
@@ -19,25 +17,31 @@
     if(preview) preview.dataset.previewSelected='true';
     if(canvas) canvas.dataset.activeTerritory=s.categoryId;
     setText('[data-preview-id]',s.id);setText('[data-preview-category]',s.category);setText('[data-preview-title]',s.title);setText('[data-preview-summary]',s.summary);setText('[data-preview-example]',s.example);const ew=root.querySelector('[data-preview-example-wrap]');if(ew)ew.hidden=false;renderSystems(s.systems||[]);setText('[data-preview-scales]',compact(s.scales));setText('[data-preview-context]',compact(s.contexts));setText('[data-preview-properties]',compact(s.properties,tr.noneHighlighted,2));
-    const title=root.querySelector('[data-preview-title]');if(title)title.dataset.titleDensity=titleDensity(s.title);
     const p=root.querySelector('[data-preview-profile]');if(p)p.dataset.category=s.categoryId;
     const prompt=root.querySelector('[data-preview-prompt]');if(prompt)prompt.hidden=true;
-    const img=root.querySelector('[data-preview-image]');if(img){img.src=s.image;img.alt=s.imageAlt;img.dataset.imageState='scenario';img.hidden=false;}
+    const img=root.querySelector('[data-preview-image]');if(img){if(s.imageSrcSet){img.sizes=s.imageSizes||'100vw';img.srcset=s.imageSrcSet;}else{img.removeAttribute('srcset');img.removeAttribute('sizes');}img.src=s.image;img.alt=s.imageAlt;img.dataset.imageState='scenario';img.hidden=false;}
     const link=root.querySelector('[data-preview-link]');if(link){link.href=s.href;link.hidden=false;}
     const activePalette=new Set(s.paletteKeys||[]);
     const backlightGroups=[{"key":"find","palette":["find","verify"],"architecture":"Kristal · Konnaxion"},{"key":"understand","palette":["understand"],"architecture":"Kristal · SemantiK"},{"key":"learn","palette":["learn","teach-share"],"architecture":"Konnaxion · UCKK"},{"key":"collaborate","palette":["collaborate","create"],"architecture":"Konnaxion"},{"key":"choose","palette":["deliberate","choose"],"architecture":"Konnaxion · Smart Vote · EkoH"},{"key":"act","palette":["organize","act"],"architecture":"Orgo"},{"key":"respond","palette":["respond","coordinate"],"architecture":"Orgo · Konnaxion"},{"key":"remember","palette":["remember","disseminate"],"architecture":"Kristal · UCKK"}];
     root.querySelectorAll('[data-backlight-key]').forEach(el=>{const g=backlightGroups.find(x=>x.key===el.dataset.backlightKey);const on=!!g&&g.palette.some(k=>activePalette.has(k));el.classList.toggle('is-active',on);const label=el.querySelector('.tag-label')?.textContent||'';el.setAttribute('aria-label',`${label}: ${on?tr.involved:tr.notCentral}. Architecture: ${g?.architecture||''}`);});
+    preview?.dispatchEvent(new CustomEvent('preview:contentchange'));
   }
   const touchPreviewMode=matchMedia('(hover: none), (pointer: coarse)').matches;
   const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
   const preview=root.querySelector('.scenario-preview');
+  /* Hover remains intent-delayed. Shared title and palette sizing comes from
+     preview-layout.js on both the Mosaic and the static detail pages. */
+  const hoverPreviewDelayMs=140;
+  let hoverPreviewTimer,pendingHoverId=null;
+  const cancelScheduledPreview=id=>{if(id&&pendingHoverId!==id)return;if(hoverPreviewTimer!==undefined)clearTimeout(hoverPreviewTimer);hoverPreviewTimer=undefined;pendingHoverId=null;};
+  const schedulePreview=id=>{cancelScheduledPreview();pendingHoverId=id;hoverPreviewTimer=setTimeout(()=>{hoverPreviewTimer=undefined;pendingHoverId=null;show(id);},hoverPreviewDelayMs);};
   const availableScenarioCells=()=>cells.filter(c=>!c.classList.contains('is-filtered-out')).sort((a,b)=>(a.dataset.scenarioId||'').localeCompare(b.dataset.scenarioId||'',undefined,{numeric:true}));
   const stepScenario=direction=>{const available=availableScenarioCells();if(!available.length)return;const activeId=cells.find(c=>c.classList.contains('is-active'))?.dataset.scenarioId;let index=available.findIndex(c=>c.dataset.scenarioId===activeId);if(index<0)index=direction>0?-1:0;const next=available[(index+direction+available.length)%available.length];if(next)show(next.dataset.scenarioId);};
   if(touchPreviewMode&&preview){let start=null;preview.addEventListener('touchstart',e=>{if(e.touches.length!==1){start=null;return;}const t=e.touches[0];start={x:t.clientX,y:t.clientY,time:performance.now()};},{passive:true});preview.addEventListener('touchend',e=>{if(!start||e.changedTouches.length!==1){start=null;return;}const t=e.changedTouches[0],dx=t.clientX-start.x,dy=t.clientY-start.y,duration=performance.now()-start.time;start=null;if(duration>900||Math.abs(dx)<48||Math.abs(dx)<=Math.abs(dy)*1.2)return;stepScenario(dx<0?1:-1);},{passive:true});preview.addEventListener('touchcancel',()=>{start=null;},{passive:true});}
-  cells.forEach(c=>{const id=c.dataset.scenarioId;c.addEventListener('pointerenter',()=>show(id));c.addEventListener('focus',()=>show(id));c.addEventListener('click',e=>{if(!touchPreviewMode)return;e.preventDefault();show(id);preview?.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});});});
+  cells.forEach(c=>{const id=c.dataset.scenarioId;c.addEventListener('pointerenter',e=>{if(touchPreviewMode||e.pointerType==='touch')return;schedulePreview(id);});c.addEventListener('pointerleave',()=>cancelScheduledPreview(id));c.addEventListener('focus',()=>{cancelScheduledPreview();show(id);});c.addEventListener('click',e=>{if(!touchPreviewMode)return;e.preventDefault();cancelScheduledPreview();show(id);preview?.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});});});
   search?.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let n=0;cells.forEach(c=>{const hit=!q||data[c.dataset.scenarioId].search.includes(q);c.classList.toggle('is-filtered-out',!hit);if(hit)n++;});if(count)count.textContent=`${n} ${n===1?tr.scenarioSingular:tr.scenarios}`;});
-  root.querySelector('[data-mosaic-surprise]')?.addEventListener('click',()=>{const v=cells.filter(c=>!c.classList.contains('is-filtered-out'));if(v.length){const c=v[Math.floor(Math.random()*v.length)];show(c.dataset.scenarioId);c.focus();}});
-  root.querySelector('[data-mosaic-reset]')?.addEventListener('click',()=>{if(search)search.value='';cells.forEach(c=>c.classList.remove('is-filtered-out','is-active'));if(canvas)delete canvas.dataset.activeTerritory;if(count)count.textContent=`${cells.length} ${tr.scenarios}`;});
+  root.querySelector('[data-mosaic-surprise]')?.addEventListener('click',()=>{cancelScheduledPreview();const v=cells.filter(c=>!c.classList.contains('is-filtered-out'));if(v.length){const c=v[Math.floor(Math.random()*v.length)];show(c.dataset.scenarioId);c.focus();}});
+  root.querySelector('[data-mosaic-reset]')?.addEventListener('click',()=>{cancelScheduledPreview();if(search)search.value='';cells.forEach(c=>c.classList.remove('is-filtered-out','is-active'));if(canvas)delete canvas.dataset.activeTerritory;if(count)count.textContent=`${cells.length} ${tr.scenarios}`;});
 
   if (!canvas || !matchMedia('(hover: hover) and (pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const lines=[...canvas.querySelectorAll('[data-territory-line]')];

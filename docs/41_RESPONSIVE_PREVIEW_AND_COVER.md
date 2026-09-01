@@ -1,80 +1,63 @@
-# Responsive Preview and Cover — v4.1
+# Responsive Preview and Cover
 
-## Problem observed
+## Media states
 
-At a narrow/tablet viewport, the preview could visually spill beyond the right edge of the browser. The initial Mosaic cover was also treated like a scenario photograph with `object-fit: cover`, which cropped its embedded branding severely.
+The initial cover and selected scenario imagery keep separate fitting rules:
 
-The color legend also carried a `min-width: 760px` directly on the legend element. On narrower viewports this could create page-level horizontal overflow instead of containing overflow inside the Mosaic region.
+- initial cover: `object-fit: contain`;
+- selected scenario image: `object-fit: cover`.
 
-## Design decision
+The image shell always remains square. It is never stretched vertically to
+match the copy or profile blocks.
 
-The initial cover and scenario imagery are different media states and should not share the same fitting rule.
+## Container-driven geometry
 
-### Initial state
+Responsive geometry follows the width of `.mosaic-experience`, not the browser
+viewport. The element is named `scenario-layout` and supplies the container
+queries used by the preview.
 
-The cover is now a **text-free abstract graphic** representing the eight scenario territories. It does not repeat the product name already present in the site header and preview copy.
+### Wide — 1120 px and above
 
-The initial image uses:
+The preview uses three columns:
 
-```css
-object-fit: contain;
+```text
+250–292 px image | flexible copy, minimum 480 px | 300–340 px profile
 ```
 
-### Scenario-selected state
+The copy is intentionally dominant. The profile is capped because its system
+and context content does not benefit from unlimited proportional growth.
 
-When hover/focus selects a scenario, JavaScript changes the image state to `scenario`. Scenario PNG/SVG imagery then uses:
+### Intermediate — 721–1119 px
 
-```css
-object-fit: cover;
-```
-
-This preserves the photographic/full-bleed behavior of real scenario art without forcing that crop behavior onto the cover.
-
-## Responsive geometry
-
-### Desktop
-
-The existing three-column, fixed-height preview remains.
-
-### Tablet — up to 900 px
-
-The preview becomes:
+The image and copy share the first row. The profile spans the complete second
+row:
 
 ```text
 ┌──────────────┬─────────────────────────┐
 │ cover/image  │ title + summary + CTA   │
 ├──────────────┴─────────────────────────┤
-│ scenario profile strip                 │
+│ scenario profile                       │
 └────────────────────────────────────────┘
 ```
 
-Both columns use `minmax(0, …)` and all major children have explicit `min-width: 0`, preventing intrinsic content from widening the grid.
+This earlier transition prevents the copy column from collapsing just above
+the former 900 px viewport breakpoint.
 
-### Narrow — below 720 px
+### Narrow — 720 px and below
 
-The preview becomes a single-column stack:
+The reading order is:
 
 ```text
-cover/image
 copy
 scenario profile
+cover/image
 ```
 
-No preview content is expected to require horizontal page scrolling.
-
-## Legend and Mosaic overflow
-
-At tablet width the legend reflows to two columns and has no artificial minimum width.
-
-Below 720 px, the panoramic Mosaic may scroll horizontally inside `.mosaic-stage`, while the rest of the page remains viewport-bound. This is intentional: the panorama is the only surface that may need horizontal exploration on a narrow screen.
+The action palette uses a fixed 4 × 2 grid. Only the panoramic Mosaic may
+scroll horizontally; the preview remains container-bound.
 
 ## Validation contract
 
-`validate:repo` checks that:
-
-- the tablet grid uses bounded `minmax(0, …)` columns;
-- a single-column narrow breakpoint exists;
-- the cover uses `object-fit: contain`;
-- selected scenario imagery uses `object-fit: cover`;
-- JavaScript switches the image media state on scenario selection;
-- the initial cover SVG contains no visible `<text>` branding.
+`validate:repo` checks the named container, the three geometry ranges, the
+wide column bounds, the square media behavior, and the two distinct image
+fitting states.

@@ -1,4 +1,4 @@
-.mosaic-experience{max-width:1360px;margin:auto;padding:.75rem 1.25rem 1rem}
+.mosaic-experience{max-width:1360px;margin:auto;padding:.75rem 1.25rem 1rem;container-type:inline-size;container-name:scenario-layout}
 
 /* Compact, layout-stable preview: the panorama remains visible below on a laptop viewport. */
 .scenario-preview{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.45fr) minmax(0,.82fr);gap:1rem;width:100%;max-width:100%;min-width:0;height:286px;padding:.9rem;border:1px solid var(--line);border-radius:20px;background:#101722;overflow:hidden}
@@ -10,9 +10,8 @@
 .preview-image-shell img[data-image-state="scenario"]{object-fit:cover;padding:0;background:#0b1018}
 .preview-copy{display:flex;flex-direction:column;overflow:hidden;min-width:0}
 .preview-eyebrow{font-size:.68rem;color:#8290a4;margin:.1rem 0 .25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.preview-copy h1{margin:.15rem 0 .28rem;font-size:clamp(1.72rem,1.95vw,2.05rem);line-height:1.08;flex:0 0 auto;height:auto;min-height:0;max-height:3.24em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;text-overflow:ellipsis;text-wrap:balance}
-.preview-copy h1[data-title-density="medium"]{font-size:clamp(1.58rem,1.8vw,1.9rem)}
-.preview-copy h1[data-title-density="long"]{font-size:clamp(1.42rem,1.62vw,1.72rem)}
+.preview-copy h1{--preview-title-max:clamp(1.62rem,1.85vw,1.95rem);--preview-title-min:1.25rem;margin:.15rem 0 .28rem;font-size:var(--preview-title-size,var(--preview-title-max));line-height:1.08;flex:0 0 auto;height:auto;min-height:0;max-height:none;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-overflow:ellipsis;text-wrap:balance}
+.preview-copy h1[data-title-fitting="true"]{display:block;overflow:visible;-webkit-line-clamp:unset}
 .preview-summary{margin:0 0 .45rem;line-height:1.36;min-height:0;max-height:6.8em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;color:#cbd3df;font-size:.94rem}
 .preview-tags{display:flex;align-items:stretch;gap:.3rem;overflow:hidden;min-height:34px}
 .tag{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:.12rem;padding:.18rem .48rem .2rem;border:1px solid #344055;border-radius:14px;font-size:.61rem;line-height:1;text-transform:uppercase;white-space:nowrap;min-width:58px;text-align:center}.tag-icon{width:14px;height:14px;display:block;flex:0 0 14px;opacity:.92;pointer-events:none}
@@ -63,10 +62,7 @@
 .mosaic-cell.is-filtered-out{opacity:.07;pointer-events:none}
 .cat-01,.cat-03,.cat-06,.cat-08{--cell:var(--territory-tone-a)}
 .cat-02,.cat-04,.cat-05,.cat-07{--cell:var(--territory-tone-b)}
-@media(max-height:760px) and (min-width:901px){
-  .scenario-preview{height:270px}
-  .preview-copy h1{font-size:clamp(1.6rem,2vw,2rem)}
-  .preview-summary{font-size:.9rem}
+@media(max-height:760px) and (min-width:1120px){
   .mosaic-canvas{height:180px}
 }
 
@@ -137,8 +133,9 @@
 
 /* Stable palette backlights: fixed positions, always visible. */
 .preview-tags.preview-backlights{
+  --preview-palette-fit:fixed;
   display:grid;
-  grid-template-columns:repeat(8,minmax(0,1fr));
+  grid-template-columns:repeat(4,minmax(0,1fr));
   align-items:stretch;
   gap:.28rem;
   min-height:38px;
@@ -578,44 +575,6 @@
   }
 }
 
-/* Richer scenario explanation + architecture discovery.
-   Rebased on the current empty-preview / mobile-swipe implementation. */
-@media(min-width:901px){
-  .scenario-preview{height:382px}
-  .preview-image-shell{max-height:286px}
-  .preview-summary{
-    min-height:8.52em;
-    max-height:8.52em;
-    -webkit-line-clamp:6;
-  }
-}
-
-@media(max-height:760px) and (min-width:901px){
-  .scenario-preview{height:358px}
-  .preview-summary{
-    min-height:7.1em;
-    max-height:7.1em;
-    -webkit-line-clamp:5;
-  }
-}
-
-@media(max-width:900px) and (min-width:721px){
-  .scenario-preview{
-    height:454px;
-    grid-template-rows:308px 122px;
-  }
-  .preview-image-shell{max-height:220px}
-  .preview-summary{
-    min-height:7.1em;
-    max-height:7.1em;
-    -webkit-line-clamp:5;
-  }
-  .preview-profile{
-    grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1.55fr);
-    grid-template-rows:1fr;
-  }
-}
-
 .tag.tag-backlight .tag-architecture{
   display:none;
   max-width:100%;
@@ -670,33 +629,6 @@
   }
 }
 
-/* v9 — capability-first portal.
-   The public panel now explains the transferable Koali mechanism first,
-   makes the concrete situation explicitly secondary, and uses the right
-   column as a specific entrance into the systems involved. */
-@media(min-width:901px){
-  .scenario-preview{
-    grid-template-columns:minmax(0,.72fr) minmax(0,1.58fr) minmax(250px,.96fr);
-    height:410px;
-    gap:1rem;
-  }
-  .preview-image-shell{max-height:302px}
-  .preview-copy h1{
-    font-size:clamp(1.6rem,1.85vw,1.95rem);
-    max-height:2.25em;
-    -webkit-line-clamp:2;
-  }
-  .preview-copy h1[data-title-density="medium"]{font-size:clamp(1.48rem,1.68vw,1.78rem)}
-  .preview-copy h1[data-title-density="long"]{font-size:clamp(1.34rem,1.5vw,1.62rem)}
-  .preview-summary{
-    min-height:0;
-    max-height:7.15em;
-    -webkit-line-clamp:5;
-    font-size:.98rem;
-    line-height:1.43;
-  }
-}
-
 .preview-example{
   display:grid;
   grid-template-columns:auto minmax(0,1fr);
@@ -735,11 +667,6 @@
 .tag.tag-backlight:hover .tag-architecture,
 .tag.tag-backlight:focus .tag-architecture{display:none}
 .tag.tag-backlight .tag-label{overflow:visible;text-overflow:clip}
-.tag.tag-backlight[data-backlight-key="understand"] .tag-label,
-.tag.tag-backlight[data-backlight-key="collaborate"] .tag-label{
-  font-size:.52rem;
-  letter-spacing:-.025em;
-}
 
 .preview-profile{
   display:flex;
@@ -783,7 +710,7 @@
 }
 .system-route small{
   color:#8e9aaa;
-  font-size:.61rem;
+  font-size:.69rem;
   line-height:1.22;
   display:-webkit-box;
   -webkit-line-clamp:2;
@@ -804,260 +731,366 @@
   border-top:1px solid #273244;
 }
 .preview-profile .profile-context>div{
-  grid-template-columns:68px minmax(0,1fr);
+  grid-template-columns:92px minmax(0,1fr);
 }
 .preview-profile .profile-context strong{
   font-size:.68rem;
 }
 
-@media(max-width:900px) and (min-width:721px){
+/* Canonical preview layout.
+   The title uses natural one- or two-line height with a bounded auto-fit.
+   The copy and profile keep their bottom anchors; the square image never
+   stretches to match them. Macro breakpoints follow the preview container. */
+.preview-copy{
+  display:grid;
+  grid-template-rows:auto auto auto auto minmax(0,1fr) auto auto;
+  row-gap:.32rem;
+  min-width:0;
+  min-height:0;
+}
+.preview-eyebrow{grid-row:1;margin:0}
+.preview-copy h1{grid-row:2;margin:0}
+.preview-summary{grid-row:3;margin:0}
+.preview-example{grid-row:4;margin:0}
+.preview-cta{grid-row:6;margin:0;align-self:end}
+.mobile-swipe-hint{grid-row:6}
+.preview-tags.preview-backlights{grid-row:7;margin:0;align-self:end}
+.preview-profile{
+  display:grid;
+  grid-template-rows:auto auto minmax(0,1fr) auto;
+  gap:.48rem;
+  min-width:0;
+  min-height:0;
+}
+.profile-heading{grid-row:1;margin:0}
+.profile-systems{grid-row:2;min-height:0}
+.preview-profile .profile-context{
+  grid-row:4;
+  margin:0;
+  min-height:0;
+  padding-top:.48rem;
+  align-self:end;
+  align-content:start;
+}
+
+@container scenario-layout (min-width:1120px){
   .scenario-preview{
+    grid-template-columns:minmax(250px,292px) minmax(480px,1fr) minmax(300px,340px);
+    gap:.9rem;
     height:auto;
-    min-height:480px;
+    min-height:0;
+    padding:.85rem;
+    align-items:stretch;
+    overflow:hidden;
+  }
+
+  .preview-image-shell{
+    width:100%;
+    height:auto;
+    max-width:292px;
+    max-height:none;
+    aspect-ratio:1/1;
+    justify-self:start;
+    align-self:start;
+  }
+
+  .preview-copy{
+    height:100%;
+    align-self:stretch;
+    overflow:hidden;
+  }
+
+  .preview-copy h1{
+    --preview-title-max:clamp(1.62rem,1.85vw,1.95rem);
+    --preview-title-min:1.25rem;
+    font-size:var(--preview-title-size,var(--preview-title-max));
+    display:-webkit-box;
+    overflow:hidden;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+  }
+
+  .preview-copy h1[data-title-fitting="true"]{
+    display:block;
+    overflow:visible;
+    -webkit-line-clamp:unset;
+  }
+
+  .preview-summary{
+    height:auto;
+    min-height:0;
+    max-height:6.9em;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-line-clamp:5;
+    -webkit-box-orient:vertical;
+    font-size:.98rem;
+    line-height:1.38;
+  }
+
+  .preview-example{
+    min-height:0;
+    max-height:none;
+  }
+
+  .preview-tags.preview-backlights{
+    --preview-palette-fit:intrinsic;
+    grid-template-columns:repeat(8,minmax(max-content,1fr));
+    min-height:52px;
+    overflow:hidden;
+  }
+
+  .preview-tags.preview-backlights.is-two-rows{
+    grid-template-columns:repeat(4,minmax(max-content,1fr));
+    min-height:calc(104px + .28rem);
+  }
+
+  .preview-tags.preview-backlights .tag.tag-backlight{
+    width:100%;
+    min-width:max-content;
+    height:52px;
+    padding-inline:.4rem;
+  }
+
+  .preview-tags.preview-backlights .tag-label{
+    max-width:none;
+    overflow:visible;
+    text-overflow:clip;
+    white-space:nowrap;
+  }
+
+  .preview-profile{
+    height:100%;
+    padding:.72rem .76rem;
+    align-self:stretch;
+    overflow:hidden;
+  }
+
+  .profile-systems,
+  .system-route-list{
+    min-height:0;
+    overflow:hidden;
+  }
+}
+
+@container scenario-layout (min-width:721px) and (max-width:1119px){
+  .scenario-preview{
     grid-template-columns:minmax(190px,.68fr) minmax(0,1.32fr);
     grid-template-rows:auto auto;
+    gap:.75rem;
+    width:100%;
+    height:auto;
+    min-height:0;
+    padding:.75rem;
+    align-items:stretch;
+    overflow:hidden;
   }
-  .preview-copy{overflow:visible}
+
+  .preview-image-shell{
+    grid-column:1;
+    grid-row:1;
+    width:min(292px,100%);
+    height:auto;
+    max-height:none;
+    aspect-ratio:1/1;
+    justify-self:start;
+    align-self:start;
+  }
+
+  .preview-copy{
+    grid-column:2;
+    grid-row:1;
+    height:100%;
+    align-self:stretch;
+    overflow:hidden;
+  }
+
+  .preview-copy h1{
+    --preview-title-max:clamp(1.5rem,2.8vw,1.9rem);
+    --preview-title-min:1.2rem;
+    font-size:var(--preview-title-size,var(--preview-title-max));
+    display:-webkit-box;
+    overflow:hidden;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+  }
+
+  .preview-copy h1[data-title-fitting="true"]{
+    display:block;
+    overflow:visible;
+    -webkit-line-clamp:unset;
+  }
+
+  .preview-summary{
+    min-height:0;
+    max-height:7.1em;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-line-clamp:5;
+    -webkit-box-orient:vertical;
+    font-size:.95rem;
+    line-height:1.42;
+  }
+
+  .preview-tags.preview-backlights{
+    --preview-palette-fit:fixed;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    grid-auto-rows:48px;
+    min-height:calc(96px + .28rem);
+    overflow:visible;
+  }
+
+  .tag.tag-backlight{
+    height:48px;
+    min-height:48px;
+  }
+
   .preview-profile{
     grid-column:1/-1;
     grid-row:2;
-    display:grid;
-    grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);
-    grid-template-rows:auto 1fr;
+    grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);
+    grid-template-rows:auto minmax(0,1fr);
     min-height:142px;
+    overflow:hidden;
   }
-  .preview-profile .profile-heading{grid-column:1/-1}
+
+  .preview-profile .profile-heading{grid-column:1/-1;grid-row:1}
   .profile-systems{grid-column:1;grid-row:2}
-  .system-route-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}
-  .preview-profile .profile-context{grid-column:2;grid-row:2;border-top:0;border-left:1px solid #273244;padding:.05rem 0 0 .7rem}
+  .system-route-list{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    overflow:visible;
+  }
+  .preview-profile .profile-context{
+    grid-column:2;
+    grid-row:2;
+    border-top:0;
+    border-left:1px solid #273244;
+    padding:.05rem 0 0 .75rem;
+    align-self:end;
+  }
 }
 
-@media(max-width:720px){
+@container scenario-layout (max-width:720px){
   .scenario-preview{
     grid-template-columns:1fr;
     grid-template-rows:auto auto auto;
+    gap:.85rem;
+    width:100%;
     height:auto;
     min-height:0;
+    padding:.75rem;
+    align-items:start;
     overflow:visible;
+    touch-action:pan-y;
   }
+
   .preview-copy{
     grid-column:1;
     grid-row:1;
+    width:100%;
+    height:auto;
     overflow:visible;
   }
+
   .preview-copy h1{
-    font-size:1.5rem;
-    max-height:none;
-    -webkit-line-clamp:3;
+    --preview-title-max:1.5rem;
+    --preview-title-min:1.15rem;
+    font-size:var(--preview-title-size,var(--preview-title-max));
+    display:-webkit-box;
+    overflow:hidden;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
   }
-  .preview-summary{
-    max-height:none;
-    min-height:0;
+
+  .preview-copy h1[data-title-fitting="true"]{
     display:block;
     overflow:visible;
+    -webkit-line-clamp:unset;
+  }
+
+  .preview-summary{
+    min-height:0;
+    max-height:none;
+    overflow:visible;
+    display:block;
     font-size:.93rem;
   }
-  .preview-example{font-size:.78rem;margin:.25rem 0 .55rem}
+
+  .preview-example{
+    margin:0;
+    min-height:0;
+    max-height:none;
+    font-size:.78rem;
+  }
+
+  .preview-tags.preview-backlights{
+    --preview-palette-fit:fixed;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    grid-auto-rows:48px;
+    min-height:calc(96px + .28rem);
+    overflow:visible;
+  }
+
+  .tag.tag-backlight{
+    height:48px;
+    min-height:48px;
+    padding:.28rem .16rem;
+  }
+
   .preview-profile{
     grid-column:1;
     grid-row:2;
     display:flex;
+    flex-direction:column;
     width:100%;
+    height:auto;
+    min-height:0;
+    gap:.72rem;
     overflow:visible;
   }
+
   .system-route-list{overflow:visible}
   .system-route small{-webkit-line-clamp:3}
+
+  .preview-profile .profile-context{
+    margin-top:0;
+    border-top:1px solid #273244;
+    border-left:0;
+    padding:.48rem 0 0;
+    align-self:stretch;
+  }
+
+  .preview-profile .profile-context>div{
+    grid-template-columns:minmax(0,1fr);
+    gap:.12rem;
+    align-items:start;
+  }
+
+  .preview-profile .profile-context strong{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    line-height:1.24;
+  }
+
   .preview-image-shell{
     grid-column:1;
     grid-row:3;
     width:min(210px,58vw);
     height:auto;
+    max-height:none;
     aspect-ratio:1/1;
+    justify-self:center;
+    align-self:start;
     margin-top:.15rem;
   }
-  .preview-tags.preview-backlights{
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    min-height:96px;
-  }
-  .tag.tag-backlight{height:46px}
-  .preview-profile .profile-context{border-top:1px solid #273244;border-left:0;padding:.48rem 0 0}
 }
 
-/* v4.4.3 — stabilize the public preview layout across scenarios.
-   Desktop now reserves consistent vertical tracks for title, summary,
-   example, and action tags so those rows do not jump between scenarios.
-   The right profile column also anchors its facts block to a stable bottom slot. */
-@media(min-width:901px){
-  .preview-copy{
-    display:grid;
-    grid-template-rows:auto 2.25em 7.15em 2.5em auto;
-    align-content:start;
-    align-items:start;
-    row-gap:0;
-  }
-
-  .preview-eyebrow{
-    margin:.1rem 0 .25rem;
-  }
-
-  .preview-copy h1{
-    height:2.25em;
-    min-height:2.25em;
-    max-height:2.25em;
-    margin:.15rem 0 .32rem;
-    align-self:start;
-  }
-
-  .preview-summary{
-    height:7.15em;
-    min-height:7.15em;
-    max-height:7.15em;
-    margin:0 0 .42rem;
-  }
-
-  .preview-example{
-    min-height:2.5em;
-    max-height:2.5em;
-    margin:.06rem 0 .42rem;
-    align-content:start;
-  }
-
-  .preview-tags.preview-backlights{
-    margin-top:0;
-    align-self:end;
-  }
-
-  .preview-profile{
-    display:grid;
-    grid-template-rows:auto minmax(0,1fr) auto;
-    align-content:stretch;
-  }
-
-  .profile-systems{
-    min-height:0;
-  }
-
-  .preview-profile .profile-context{
-    margin-top:auto;
-    min-height:5.35rem;
-    align-content:start;
-  }
-}
-
-/* v4.4.4 — comprehensive desktop layout overhaul.
-   Goals:
-   - the eight action chips always sit on the same bottom baseline;
-   - the title never overlaps the summary;
-   - the right facts block stays visually anchored at the bottom;
-   - no scenario-specific copy length can push these bands around. */
-@media(min-width:901px){
-  .scenario-preview{
-    grid-template-columns:minmax(240px,.8fr) minmax(0,1.42fr) minmax(290px,.92fr);
-    gap:1rem;
-    height:428px;
-    min-height:428px;
-    align-items:stretch;
-  }
-
-  .preview-image-shell{
-    width:100%;
-    height:100%;
-    max-height:none;
-    align-self:stretch;
-    justify-self:stretch;
-  }
-
-  .preview-copy{
-    display:grid;
-    grid-template-rows:auto 3.45em 7.05em 2.45em auto;
-    row-gap:.42rem;
-    align-content:stretch;
-    align-items:start;
-    height:100%;
-    min-height:0;
-    overflow:hidden;
-  }
-
-  .preview-eyebrow{
-    margin:0;
-  }
-
-  .preview-copy h1{
-    margin:0;
-    height:3.45em;
-    min-height:3.45em;
-    max-height:3.45em;
-    line-height:1.08;
-    overflow:hidden;
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    text-overflow:ellipsis;
-    align-self:start;
-  }
-
-  .preview-copy h1[data-title-density="medium"]{
-    font-size:clamp(1.44rem,1.62vw,1.74rem);
-  }
-
-  .preview-copy h1[data-title-density="long"]{
-    font-size:clamp(1.28rem,1.42vw,1.56rem);
-  }
-
-  .preview-summary{
-    margin:0;
-    height:7.05em;
-    min-height:7.05em;
-    max-height:7.05em;
-    overflow:hidden;
-    display:-webkit-box;
-    -webkit-line-clamp:5;
-    -webkit-box-orient:vertical;
-    line-height:1.41;
-    font-size:.97rem;
-    align-self:start;
-  }
-
-  .preview-example{
-    margin:0;
-    min-height:2.45em;
-    max-height:2.45em;
-    align-content:start;
-  }
-
-  .preview-tags.preview-backlights{
-    margin-top:0;
-    align-self:end;
-    min-height:58px;
-  }
-
-  .preview-profile{
-    display:grid;
-    grid-template-rows:auto minmax(0,1fr) auto;
-    gap:.68rem;
-    height:100%;
-    align-content:stretch;
-  }
-
-  .profile-heading{
-    margin:0;
-  }
-
-  .profile-systems{
-    min-height:0;
-    overflow:hidden;
-  }
-
-  .system-route-list{
-    min-height:0;
-    overflow:hidden;
-    align-content:start;
-  }
-
-  .preview-profile .profile-context{
-    margin-top:auto;
-    min-height:5.5rem;
-    padding-top:.55rem;
-    align-content:start;
-  }
+@container scenario-layout (max-width:480px){
+  .scenario-preview{padding:.62rem;border-radius:16px}
+  .preview-image-shell{width:min(168px,52vw)}
+  .preview-eyebrow{font-size:.72rem}
+  .preview-summary{font-size:.9rem}
+  .tag.tag-backlight{font-size:.58rem}
 }

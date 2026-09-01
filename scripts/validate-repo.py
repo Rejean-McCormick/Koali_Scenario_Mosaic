@@ -17,6 +17,7 @@ def read_frontmatter_scalar(raw, key):
     return value
 
 js=(R/'src/scripts/mosaic.ts').read_text(encoding='utf-8')
+preview_layout=(R/'src/scripts/preview-layout.ts').read_text(encoding='utf-8')
 css=(R/'src/styles/mosaic.css').read_text(encoding='utf-8')
 component=(R/'src/components/ScenarioMosaic.astro').read_text(encoding='utf-8')
 layout=json.loads((R/'src/data/mosaic-layout.json').read_text(encoding='utf-8'))
@@ -61,8 +62,12 @@ if 'selectOnly' not in js: errors.append('single select')
 title_rule = re.search(r'\.preview-copy h1\{([^}]*)\}', css)
 title_css = title_rule.group(1) if title_rule else ''
 if 'line-height:1.08' not in title_css or 'height:auto' not in title_css or 'height:6.7rem' in title_css: errors.append('adaptive title flow')
-if '-webkit-line-clamp:3' not in title_css: errors.append('title clamp')
-if 'data-title-density' not in css or 'titleDensity' not in js: errors.append('adaptive title density')
+if '-webkit-line-clamp:2' not in title_css: errors.append('two-line title clamp')
+if '--preview-title-min' not in title_css or 'FIT_ITERATIONS' not in preview_layout: errors.append('bounded title auto-fit')
+if 'titleDensity' in js or 'data-title-density' in css: errors.append('obsolete title-density heuristic')
+if 'scrollHeight' not in preview_layout or 'MAX_TITLE_LINES = 2' not in preview_layout: errors.append('measured two-line title fit')
+if 'ResizeObserver' not in preview_layout or 'document.fonts?.ready' not in preview_layout: errors.append('preview layout resize and font reflow')
+if 'fitPaletteRows' in js or '--preview-palette-fit' not in css: errors.append('shared palette fitting')
 if 'height:286px' not in css or 'height:clamp(180px,24vh,220px)' not in css: errors.append('one-viewport compact sizing')
 if 'territory-legend' not in css or 'MosaicLegend' not in component: errors.append('color legend')
 if package.get('scripts',{}).get('build')!='npm run validate && astro build': errors.append('Netlify-safe production build')
@@ -73,8 +78,11 @@ if layout['geometry']['rows']!=6 or layout['geometry']['columns']!=20: errors.ap
 if layout['geometry'].get('territories')!=8: errors.append('territory count')
 
 # Responsive preview contract: no horizontal spill and no branded cover crop.
-if 'grid-template-columns:minmax(180px,.72fr) minmax(0,1.28fr)' not in css: errors.append('tablet preview grid contract')
-if '@media(max-width:720px)' not in css or 'grid-template-columns:1fr' not in css: errors.append('narrow preview stack contract')
+if 'container-name:scenario-layout' not in css: errors.append('preview container query root')
+if '@container scenario-layout (min-width:1120px)' not in css: errors.append('wide preview container contract')
+if 'minmax(250px,292px) minmax(480px,1fr) minmax(300px,340px)' not in css: errors.append('wide preview column contract')
+if '@container scenario-layout (min-width:721px) and (max-width:1119px)' not in css: errors.append('tablet preview container contract')
+if '@container scenario-layout (max-width:720px)' not in css or 'grid-template-columns:1fr' not in css: errors.append('narrow preview stack contract')
 if 'img[data-image-state="cover"]{object-fit:contain' not in css: errors.append('cover contain contract')
 if 'img[data-image-state="scenario"]{object-fit:cover' not in css: errors.append('scenario image cover contract')
 if "dataset.imageState = 'scenario'" not in js: errors.append('scenario image state switch')
@@ -96,6 +104,7 @@ for token in ('detailStartsWith','detailWhatGetsLost','detailKoaliContinuity','d
 if 'scenario-info-mosaic' not in scenario_css or 'detail-hex--systems' not in scenario_css or 'detail-hex--mechanism' not in scenario_css: errors.append('capability-first public detail styling')
 if 'paletteBacklightGroups' not in preview_component or 'data-architecture' not in preview_component: errors.append('eight-tag architecture discovery contract')
 if 'getScenarioPortal' not in preview_component or 'data-preview-example' not in preview_component or 'data-preview-system-list' not in preview_component: errors.append('capability-first system portal contract')
+if "import '../scripts/preview-layout.ts'" not in preview_component: errors.append('shared preview layout controller')
 if (
     'scenario = null' not in preview_component
     or "data-image-state={selected ? 'scenario' : 'empty'}" not in preview_component
@@ -113,6 +122,7 @@ for locale in ('en','fr'):
         for marker in internal_markers:
             if marker in html: errors.append(f'internal marker leaked into {locale}/{page.parent.name}: {marker}')
         if 'scenario-info-mosaic' not in html: errors.append(f'{locale}/{page.parent.name} missing public detail honeycomb')
+        if '../../../assets/preview-layout.js' not in html: errors.append(f'{locale}/{page.parent.name} missing shared preview layout')
 
 
 # Magnetic territory-label contract: visual legend replaced by embedded, non-intercepting labels.

@@ -25,9 +25,6 @@ if (root) {
       : values.join(' · ');
   };
 
-  const titleDensity = (value:string) => value.length > 80 ? 'long' : value.length > 54 ? 'medium' : 'short';
-
-
   function renderSystems(systems:Array<{key:string;label:string;description:string}> = []) {
     const list = root.querySelector<HTMLElement>('[data-preview-system-list]');
     if (!list) return;
@@ -60,8 +57,6 @@ if (root) {
     setText('[data-preview-id]', scenario.id);
     setText('[data-preview-category]', scenario.category);
     setText('[data-preview-title]', scenario.title);
-    const title = root.querySelector<HTMLElement>('[data-preview-title]');
-    if (title) title.dataset.titleDensity = titleDensity(scenario.title);
     setText('[data-preview-summary]', scenario.summary);
     setText('[data-preview-example]', scenario.example);
     const exampleWrap = root.querySelector<HTMLElement>('[data-preview-example-wrap]');
@@ -79,6 +74,13 @@ if (root) {
 
     const image = root.querySelector<HTMLImageElement>('[data-preview-image]');
     if (image) {
+      if (scenario.imageSrcSet) {
+        image.sizes = scenario.imageSizes || '100vw';
+        image.srcset = scenario.imageSrcSet;
+      } else {
+        image.removeAttribute('srcset');
+        image.removeAttribute('sizes');
+      }
       image.src = scenario.image;
       image.alt = scenario.imageAlt;
       image.dataset.imageState = 'scenario';
@@ -103,11 +105,38 @@ if (root) {
       );
     });
 
+    preview?.dispatchEvent(new CustomEvent('preview:contentchange'));
+
   }
 
   const touchPreviewMode = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const preview = root.querySelector<HTMLElement>('.scenario-preview');
+
+  /* Interaction invariant.
+     See docs/PREVIEW_LAYOUT_INTERACTION_CONTRACT.md.
+     Fine-pointer hover must use a short intent delay. Preview sizing is owned
+     by preview-layout.ts so detail pages receive the same behavior. */
+  const hoverPreviewDelayMs = 140;
+  let hoverPreviewTimer: number | undefined;
+  let pendingHoverId: string | null = null;
+
+  function cancelScheduledPreview(id?: string) {
+    if (id && pendingHoverId !== id) return;
+    if (hoverPreviewTimer !== undefined) window.clearTimeout(hoverPreviewTimer);
+    hoverPreviewTimer = undefined;
+    pendingHoverId = null;
+  }
+
+  function schedulePreview(id: string) {
+    cancelScheduledPreview();
+    pendingHoverId = id;
+    hoverPreviewTimer = window.setTimeout(() => {
+      hoverPreviewTimer = undefined;
+      pendingHoverId = null;
+      show(id);
+    }, hoverPreviewDelayMs);
+  }
 
   const availableScenarioCells = () => cells
     .filter((cell) => !cell.classList.contains('is-filtered-out'))
@@ -177,8 +206,20 @@ if (root) {
 
   cells.forEach((cell) => {
     const id = cell.dataset.scenarioId!;
-    cell.addEventListener('pointerenter', () => show(id));
-    cell.addEventListener('focus', () => show(id));
+
+    cell.addEventListener('pointerenter', (event) => {
+      if (touchPreviewMode || event.pointerType === 'touch') return;
+      schedulePreview(id);
+    });
+
+    cell.addEventListener('pointerleave', () => {
+      cancelScheduledPreview(id);
+    });
+
+    cell.addEventListener('focus', () => {
+      cancelScheduledPreview();
+      show(id);
+    });
 
     cell.addEventListener('click', (event) => {
       if (!touchPreviewMode) return;
@@ -186,6 +227,7 @@ if (root) {
       // On touch/mobile, tapping a mosaic cell is a preview action,
       // not navigation to the full scenario route.
       event.preventDefault();
+      cancelScheduledPreview();
       show(id);
 
       preview?.scrollIntoView({
@@ -207,6 +249,7 @@ if (root) {
   });
 
   root.querySelector('[data-mosaic-surprise]')?.addEventListener('click', () => {
+    cancelScheduledPreview();
     const visible = cells.filter((cell) => !cell.classList.contains('is-filtered-out'));
     if (visible.length) {
       const cell = visible[Math.floor(Math.random() * visible.length)];
@@ -216,6 +259,7 @@ if (root) {
   });
 
   root.querySelector('[data-mosaic-reset]')?.addEventListener('click', () => {
+    cancelScheduledPreview();
     if (search) search.value = '';
     cells.forEach((cell) => cell.classList.remove('is-filtered-out', 'is-active'));
     if (canvas) delete canvas.dataset.activeTerritory;

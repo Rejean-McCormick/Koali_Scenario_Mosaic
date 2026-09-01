@@ -32,15 +32,19 @@ The 20 × 6 assignments are unchanged, so every refreshed `SCN-*` identity remai
 
 ## Long-title adaptation
 
-The new editorial hooks are intentionally more specific and often longer. The preview therefore uses three density states:
+The new editorial hooks are intentionally more specific and often longer. The
+preview measures the rendered title instead of estimating its size from a
+character-count category.
 
-- `short`: up to 72 characters;
-- `medium`: 73–96 characters;
-- `long`: over 96 characters.
+`preview-layout.ts` starts at the normal title size, reduces the font only when
+the text would require a third line, and stops at a readable minimum. An
+extreme remaining overflow is clamped to two lines. The fit is recalculated on
+content changes, width changes, browser zoom, and font loading.
 
-The title area is a fixed three-line box. `mosaic.ts` updates `data-title-density` whenever hover/focus selects a different scenario, preventing long refreshed titles from being clipped while preserving preview height stability.
-
-The same rule is implemented in the zero-install offline preview.
+The shared component loads this controller on both the interactive Mosaic and
+public scenario pages. The offline builder copies the same controller as plain
+JavaScript, so the zero-install preview has identical title and action-palette
+behavior.
 
 ## Public scenario pages
 

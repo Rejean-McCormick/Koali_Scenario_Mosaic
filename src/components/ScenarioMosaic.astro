@@ -5,7 +5,7 @@ import MosaicControls from './MosaicControls.astro';
 import MosaicLegend from './MosaicLegend.astro';
 import MosaicTerritoryLabels from './MosaicTerritoryLabels.astro';
 import layout from '../data/mosaic-layout.json';
-import { resolveScenarioPreviewImage } from '../lib/scenario-image';
+import { resolveScenarioPreviewImageSet } from '../lib/scenario-image';
 import { getUi, humanizeTag, localizePalette, type Locale } from '../i18n/ui';
 import { getScenarioPortal } from '../lib/scenario-portal';
 
@@ -28,6 +28,7 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
   ])].map((x:string) => humanizeTag(locale, x)).slice(0, 3);
 
   const portal = getScenarioPortal(entry.data, entry.entry.body ?? '', locale);
+  const previewImage = resolveScenarioPreviewImageSet(entry.data.id, entry.data.preview_image);
 
   return [entry.data.id, {
     id: entry.data.id,
@@ -44,7 +45,9 @@ const previewData = Object.fromEntries(scenarios.map((entry:any) => {
     scales,
     contexts,
     properties: (entry.data.properties ?? []).map((x:string) => humanizeTag(locale, x)),
-    image: resolveScenarioPreviewImage(entry.data.id, entry.data.preview_image),
+    image: previewImage.src,
+    imageSrcSet: previewImage.srcset ?? '',
+    imageSizes: previewImage.sizes ?? '',
     imageAlt: entry.data.preview_image_alt,
     href: `/${locale}/uses/${entry.data.id}/`,
     search: [

@@ -1,6 +1,6 @@
 ---
 import { getUi, humanizeTag, type Locale } from '../i18n/ui';
-import { resolveScenarioPreviewImage } from '../lib/scenario-image';
+import { resolveScenarioPreviewImageSet } from '../lib/scenario-image';
 import { paletteBacklightGroups } from '../lib/palette-icons';
 import { getScenarioPortal } from '../lib/scenario-portal';
 
@@ -21,7 +21,7 @@ const contexts = selected ? [...new Set([
   ...(data.domains ?? []),
 ])].map((x:string) => humanizeTag(locale, x)).slice(0, 3) : [];
 const properties = selected ? (data.properties ?? []).map((x:string) => humanizeTag(locale, x)) : [];
-const image = selected ? resolveScenarioPreviewImage(data.id, data.preview_image) : null;
+const image = selected ? resolveScenarioPreviewImageSet(data.id, data.preview_image) : null;
 const paletteKeys = selected ? (data.palette ?? []) : [];
 const paletteBacklights = paletteBacklightGroups.map((group) => ({
   ...group,
@@ -31,7 +31,6 @@ const paletteBacklights = paletteBacklightGroups.map((group) => ({
   architectureLabel: group.architecture.join(' · '),
 }));
 const titleText = selected ? portal!.capabilityTitle : s.exploreWays(total);
-const titleDensity = titleText.length > 80 ? 'long' : titleText.length > 54 ? 'medium' : 'short';
 ---
 <section class="scenario-preview" data-preview-swipe={!selected ? 'true' : undefined} data-preview-selected={selected ? 'true' : 'false'}>
   <div class="preview-image-shell" data-preview-media>
@@ -39,7 +38,9 @@ const titleDensity = titleText.length > 80 ? 'long' : titleText.length > 54 ? 'm
     <img
       data-preview-image
       data-image-state={selected ? 'scenario' : 'empty'}
-      src={image ?? undefined}
+      src={image?.src ?? undefined}
+      srcset={image?.srcset}
+      sizes={image?.sizes}
       alt={selected ? data.preview_image_alt : ''}
       hidden={!selected}
     />
@@ -52,7 +53,7 @@ const titleDensity = titleText.length > 80 ? 'long' : titleText.length > 54 ? 'm
       <span data-preview-category>{selected ? data.category_label : `${total} ${s.examples}`}</span>
     </p>
 
-    <h1 data-preview-title data-title-density={titleDensity}>{titleText}</h1>
+    <h1 data-preview-title>{titleText}</h1>
     <p class="preview-summary" data-preview-summary>{selected ? portal!.koaliHelp : s.hoverIntro}</p>
 
     <p class="preview-example" data-preview-example-wrap hidden={!selected}>
@@ -110,3 +111,6 @@ const titleDensity = titleText.length > 80 ? 'long' : titleText.length > 54 ? 'm
     </div>
   </aside>
 </section>
+<script>
+  import '../scripts/preview-layout.ts';
+</script>
