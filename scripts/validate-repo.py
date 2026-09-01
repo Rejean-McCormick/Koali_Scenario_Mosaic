@@ -105,7 +105,7 @@ for token in ('detailStartsWith','detailWhatGetsLost','detailKoaliContinuity','d
     if token not in detail_component: errors.append(f'missing public detail token {token}')
 if 'scenario-info-mosaic' not in scenario_css or 'detail-hex--systems' not in scenario_css or 'detail-hex--mechanism' not in scenario_css: errors.append('capability-first public detail styling')
 if 'buildKoaliContinuityCopy' not in portal_source or 'koaliHelp: buildKoaliContinuityCopy' not in portal_source: errors.append('Koali continuity copy contract')
-if 'preview_summary' in portal_source.split('koaliHelp:',1)[1].split('systems,',1)[0]: errors.append('public Koali paragraph still derives from preview action copy')
+if re.search(r'(?m)^\s*koaliHelp:.*preview_summary', portal_source): errors.append('public Koali paragraph still derives from preview action copy')
 if 'scenario.data.continuity_gap' not in detail_component: errors.append('public continuity-gap detail contract')
 if 'build_koali_continuity_copy' not in offline_builder or "x['continuity_gap']" not in offline_builder: errors.append('offline Koali continuity-copy parity')
 if 'paletteBacklightGroups' not in preview_component or 'data-architecture' not in preview_component: errors.append('eight-tag architecture discovery contract')
