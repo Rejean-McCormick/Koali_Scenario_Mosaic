@@ -21,6 +21,21 @@ The new corpus favors situations that reveal why continuity matters:
 
 “Punchier” does not mean sensational for its own sake. Each hook must exercise the canonical pattern and preserve authority, evidence, privacy, and safety boundaries.
 
+## Title and continuity pass
+
+The current pass sharpens the 120 English titles, then aligns all 120 French titles to the same intent rather than translating word for word. Each scenario now also carries a distinct `continuity_gap` tied to its concrete pressure point.
+
+To keep the public reading rhythm varied:
+
+- titles avoid repeated article-led openings and recurring sentence frames;
+- continuity gaps name the specific information, decision, relationship, or memory at risk;
+- every `preview_summary` contains exactly two public-facing sentences: the concrete problem first, then the change Koali makes possible;
+- the public card displays that complete impact arc instead of extracting a Koali sentence that paraphrases the capability title;
+- the second sentence is also the source for each internal `With Koali / Avec Koali` section, preventing the public and editorial versions from drifting;
+- titles, H1 headings, image alt text, and generated EN/FR previews remain synchronized.
+
+`scripts/validate-editorial-variety.py` enforces uniqueness, the two-sentence problem/impact structure, a 30–50 word display budget, EN/FR preview alignment, and a strict ceiling on meaningful word reuse between the capability title and the Koali response.
+
 ## Compatibility
 
 Mosaic geometry, scenario IDs, pattern families, component scores, canon references, derivation states, and runtime-evidence states remain stable. Existing links by scenario ID continue to work.

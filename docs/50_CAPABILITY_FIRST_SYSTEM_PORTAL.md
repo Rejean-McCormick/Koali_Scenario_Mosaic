@@ -12,7 +12,7 @@ The 24 recurring patterns organize those 120 specific actions as a secondary tax
 
 The existing 24 pattern families remain the reusable conceptual layer, but they are no longer reused as public titles. `src/data/scenario-capability-titles.json` gives every scenario a specific bilingual action title derived from what Koali actually does in that example. The original scenario title remains the concrete example, while `pattern_label` remains the recurring family for taxonomy and search. This prevents repeated headings such as “Investigate a signal / Enquêter sur un signal” while preserving the 24-pattern architecture.
 
-The main explanatory paragraph no longer repeats the public action title. The title names the **specific action**; the paragraph explains **Koali’s architectural role**: keeping one shared context continuous while specialized capabilities contribute at different points in the journey. The scenario loop provides the concrete start and end of that continuity, and `continuity_gap` explains what tends to break when the shared thread is lost. The original `preview_summary` remains useful for the concrete example lead, but its Koali-action clause is not repeated directly beneath an equivalent headline.
+The main explanatory paragraph no longer repeats a generic continuity formula or paraphrases the public action title. The title names the **specific action**; the complete `preview_summary` creates a two-sentence impact arc: first the concrete problem, then the change Koali makes possible and its practical payoff. `continuity_gap` separately explains what tends to break when the shared thread is lost. A generated continuity paragraph remains available only as a fallback for legacy scenarios without authored public impact copy.
 
 ## System paths
 
@@ -49,7 +49,7 @@ The top preview now reads:
 
 1. scenario ID + broad family;
 2. **specific Koali action title**;
-3. **what Koali keeps continuous across specialized capabilities**;
+3. **the problem and practical change Koali makes possible**;
 4. **Example:** original scenario title;
 5. eight action tags;
 6. **Inside Koali / Dans Koali:** the precise system path plus scale/context/conditions.
@@ -87,3 +87,6 @@ The v4.3.5 selected-state and swipe behavior are retained. On smartphone the rea
 - every route key exists in the system catalog;
 - explicitly tagged Smart Vote, EkoH, and SemantiK metadata cannot silently lose their specialized route;
 - the capability-first preview and system-list contracts remain present.
+- scenario titles, continuity gaps, and impact summaries remain unique and synchronized in English and French;
+- each impact summary presents the problem before the Koali response in exactly two concise sentences;
+- the Koali response stays below the allowed meaningful-word overlap with its capability title.

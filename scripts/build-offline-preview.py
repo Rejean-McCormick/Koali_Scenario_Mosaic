@@ -51,8 +51,8 @@ def strip_terminal_punctuation(value):
 
 
 def example_lead(summary):
-    marker=summary.find('Koali')
-    return summary[:marker].strip() if marker>0 else ''
+    marker=re.search(r'\bKoali\b',summary)
+    return summary[:marker.start()].strip() if marker and marker.start()>0 else ''
 
 
 def build_koali_continuity_copy(x, locale):
@@ -83,14 +83,15 @@ def build_koali_continuity_copy(x, locale):
 
 def portal_fields(x, locale):
     systems=[]
+    summary=x['preview_summary'].strip()
     for key in scenario_system_routes.get(x['id'],[]):
         item=system_catalog[key]
         systems.append({'key':key,'label':item['label'],'description':item['description'][locale]})
     return {
         'title':scenario_capability_titles.get(x['id'],{}).get(locale,x['pattern_label']),
-        'summary':build_koali_continuity_copy(x, locale),
+        'summary':summary if summary else build_koali_continuity_copy(x, locale),
         'example':x['title'],
-        'exampleLead':example_lead(x['preview_summary']),
+        'exampleLead':example_lead(summary),
         'systems':systems,
     }
 

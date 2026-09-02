@@ -13,6 +13,11 @@ Validated:
 
 - 120 shared scenario identities;
 - 120 English + 120 French editorial documents;
+- 120 unique titles, continuity gaps, and public impact summaries in each language;
+- two-sentence public impact copy for every scenario: problem first, Koali payoff second;
+- 30–50 words per impact summary and less than 45% meaningful title-token reuse in the Koali response;
+- synchronized titles, H1 headings, image alt text, and generated EN/FR previews;
+- bounded article-led title openings to prevent repetitive scanning rhythm;
 - all 240 localized scenario files exactly match the supplied v4.3.1 corpus;
 - `src/data/scenarios.json` exactly matches the supplied v4.3.1 corpus;
 - `src/i18n/fr-tags.json` exactly matches the supplied v4.3.1 corpus;
@@ -29,6 +34,8 @@ Validated:
 - 2,422 generated offline local `href`/`src` references checked;
 - 0 broken local references;
 - canonical Koali branding and `#1e6864`.
+
+The editorial checks run through `npm run validate:editorial` and are included in the main `npm run validate` chain.
 
 See `VALIDATION_V4_3_2.txt` for command output.
 

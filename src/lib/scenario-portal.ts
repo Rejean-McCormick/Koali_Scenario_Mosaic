@@ -27,7 +27,7 @@ function stripTerminalPunctuation(value:string) {
 }
 
 function extractExampleLead(summary:string) {
-  const marker = summary.indexOf('Koali');
+  const marker = summary.search(/\bKoali\b/u);
   return marker > 0 ? summary.slice(0, marker).trim() : '';
 }
 
@@ -45,13 +45,7 @@ function flowEndpoints(body:string, locale:Locale) {
   };
 }
 
-/**
- * Public preview copy deliberately does not restate the capability headline.
- *
- * The headline names the concrete action. This paragraph explains Koali's own
- * architectural role: keep one context continuous while specialized
- * capabilities contribute at different points in the journey.
- */
+/** Fallback for legacy scenarios that do not yet have authored public impact copy. */
 export function buildKoaliContinuityCopy(body:string, continuityGap:string, locale:Locale) {
   const { start, end } = flowEndpoints(body, locale);
   const gap = stripTerminalPunctuation(continuityGap ?? '');
@@ -86,12 +80,15 @@ export function getScenarioSystemRoutes(data:any, _body:string, locale:Locale): 
 
 export function getScenarioPortal(data:any, body:string, locale:Locale) {
   const systems = getScenarioSystemRoutes(data, body, locale);
+  const publicSummary = data.preview_summary?.trim() ?? '';
   return {
     capabilityTitle: scenarioCapabilityTitles[data.id]?.[locale] ?? data.pattern_label,
     patternFamily: data.pattern_label,
-    koaliHelp: buildKoaliContinuityCopy(body, data.continuity_gap, locale),
+    koaliHelp: publicSummary
+      ? publicSummary
+      : buildKoaliContinuityCopy(body, data.continuity_gap, locale),
     exampleTitle: data.title,
-    exampleLead: extractExampleLead(data.preview_summary),
+    exampleLead: extractExampleLead(publicSummary),
     systems,
   };
 }
