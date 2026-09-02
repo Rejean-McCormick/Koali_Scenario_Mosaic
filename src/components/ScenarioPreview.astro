@@ -88,10 +88,10 @@ const titleText = selected ? portal!.capabilityTitle : s.exploreWays(total);
   <aside class="preview-profile" data-preview-profile data-category={selected ? data.primary_category : undefined}>
     <div class="profile-heading">
       <span class="profile-title">{s.insideKoali}</span>
+      <span class="profile-section-label">{s.systemPath}</span>
     </div>
 
     <div class="profile-systems" data-preview-systems>
-      <span class="profile-section-label">{s.systemPath}</span>
       <div class="system-route-list" data-preview-system-list>
         {selected
           ? portal!.systems.map((system) => (

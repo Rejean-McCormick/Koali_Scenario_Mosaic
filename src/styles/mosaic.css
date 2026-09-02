@@ -1094,3 +1094,38 @@
   .preview-summary{font-size:.9rem}
   .tag.tag-backlight{font-size:.58rem}
 }
+
+/* System-path density pass: keep the two labels on one header line and make
+   route cards stable at the medium preview layout. Reserve two title lines so
+   one-line system names do not collapse the card, while giving descriptions
+   four lines before truncation. */
+.profile-heading{
+  align-items:baseline;
+  justify-content:flex-start;
+  flex-wrap:nowrap;
+  white-space:nowrap;
+}
+.profile-heading .profile-section-label{
+  margin-left:.52rem;
+}
+
+@container scenario-layout (min-width:721px) and (max-width:1119px){
+  .system-route{
+    height:6.4rem;
+    min-height:6.4rem;
+  }
+
+  .system-route strong{
+    display:-webkit-box;
+    min-height:2.4em;
+    max-height:2.4em;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .system-route small{
+    -webkit-line-clamp:4;
+  }
+}
