@@ -8,7 +8,8 @@ const SOURCE_DIR = path.join(ROOT, 'src', 'assets', 'scenario-images');
 const OUTPUT_DIR = path.join(ROOT, 'public', 'scenarios', 'images');
 const SOURCE_SIZE = 1254;
 const DEFAULT_SIZE = 627;
-const RESPONSIVE_SIZES = [418, 627, 836, 1254];
+const RESPONSIVE_SIZES = [418, 627];
+const STALE_RESPONSIVE_SIZES = [836, 1254];
 const FILE_RE = /^SCN-(\d{3})\.png$/;
 
 await mkdir(SOURCE_DIR, { recursive: true });
@@ -93,6 +94,9 @@ async function buildVariant(input, name, size) {
 async function buildOne(name) {
   const input = path.join(SOURCE_DIR, name);
   await Promise.all(RESPONSIVE_SIZES.map((size) => buildVariant(input, name, size)));
+  await Promise.all(
+    STALE_RESPONSIVE_SIZES.map((size) => rm(path.join(OUTPUT_DIR, outputFilename(name, size)), { force: true })),
+  );
 }
 
 const CONCURRENCY = 2;

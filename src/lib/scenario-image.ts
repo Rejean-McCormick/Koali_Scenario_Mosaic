@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const PNG_DIR = join(process.cwd(), 'public', 'scenarios', 'images');
-const RESPONSIVE_WIDTHS = [418, 627, 836, 1254] as const;
+const RESPONSIVE_WIDTHS = [418, 627] as const;
 const DEFAULT_WIDTH = 627;
 
 export const SCENARIO_IMAGE_SIZES = '(min-width: 901px) 292px, (min-width: 721px) 220px, (min-width: 363px) 210px, 58vw';

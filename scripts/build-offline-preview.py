@@ -213,7 +213,7 @@ def backlight_strip(locale, palette_values, icon_prefix):
         tags.append(f'<span class="tag tag-backlight{state}" data-backlight-key="{group["key"]}" data-architecture="{architecture}" title="{label} — {architecture}">{icon}<span class="tag-label">{label}</span></span>')
     return ''.join(tags)
 
-RESPONSIVE_IMAGE_WIDTHS=(418,627,836,1254)
+RESPONSIVE_IMAGE_WIDTHS=(418,627)
 RESPONSIVE_IMAGE_DEFAULT=627
 RESPONSIVE_IMAGE_SIZES='(min-width: 901px) 292px, (min-width: 721px) 220px, (min-width: 363px) 210px, 58vw'
 

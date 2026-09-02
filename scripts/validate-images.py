@@ -6,7 +6,7 @@ SOURCE_DIR=R/'src/assets/scenario-images'
 PNG_DIR=R/'public/scenarios/images'
 SOURCE_SIZE=1254
 DEFAULT_SIZE=627
-RESPONSIVE_SIZES=(418,627,836,1254)
+RESPONSIVE_SIZES=(418,627)
 errors=[]
 
 def png_size(path):
